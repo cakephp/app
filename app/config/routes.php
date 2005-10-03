@@ -4,7 +4,9 @@
 /**
  * Short description for file.
  * 
- * Long description for file
+ * In this file, you set up routes to your controllers and their actions.
+ * Routes are very important mechanism that allows you to freely connect 
+ * different urls to chosen controllers and their actions (functions).
  *
  * PHP versions 4 and 5
  *
@@ -23,7 +25,7 @@
  * @copyright    Copyright (c) 2005, CakePHP Authors/Developers
  * @link         https://trac.cakephp.org/wiki/Authors Authors/Developers
  * @package      cake
- * @subpackage   cake.app.controllers
+ * @subpackage   cake.config
  * @since        CakePHP v 0.2.9
  * @version      $Revision$
  * @modifiedby   $LastChangedBy$
@@ -32,36 +34,21 @@
  */
 
 /**
- * Short description for class.
- * 
- * Long description for class
- *
- * @package    cake
- * @subpackage cake.app.controllers
+ * Here, we are connecting '/' (base path) to controller called 'Pages', 
+ * its action called 'display', and we pass a param to select the view file 
+ * to use (in this case, /app/views/pages/home.thtml)...
  */
-class TestsController extends TestsHelper {
-    
-   function index () 
-   {
-      $this->layout = null;
-      require_once TESTS.'index.php';
-   }
-   
-   function groups () 
-   {
-      $this->layout = null;
-      $_GET['show'] = 'groups';
-      require_once TESTS.'index.php';
-      exit();
-   }
-   
-   function cases () 
-   {
-      $this->layout = null;
-      $_GET['show'] = 'cases';
-      require_once TESTS.'index.php';
-      exit();
-   }
-}
+$Route->connect ('/', array('controller'=>'Pages', 'action'=>'display', 'home'));
+
+/**
+ * ...and connect the rest of 'Pages' controller's urls.
+ */
+$Route->connect ('/pages/*', array('controller'=>'Pages', 'action'=>'display'));
+
+/**
+ * Then we connect url '/test' to our test controller. This is helpfull in
+ * developement.
+ */
+$Route->connect ('/test', array('controller'=>'Tests', 'action'=>'index'));
 
 ?>

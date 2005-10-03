@@ -2,11 +2,6 @@
 /* SVN FILE: $Id$ */
 
 /**
- * Short description for file.
- * 
- * This file is application-wide model file. You can put all 
- * application-wide model-related methods here.
- *
  * PHP versions 4 and 5
  *
  * CakePHP :  Rapid Development Framework <http://www.cakephp.org/>
@@ -24,24 +19,12 @@
  * @copyright    Copyright (c) 2005, CakePHP Authors/Developers
  * @link         https://trac.cakephp.org/wiki/Authors Authors/Developers
  * @package      cake
- * @subpackage   cake.app
- * @since        CakePHP v 0.2.9
+ * @subpackage   cake.libs
+ * @since        CakePHP v 0.10.0.1036
  * @version      $Revision$
  * @modifiedby   $LastChangedBy$
  * @lastmodified $Date$
  * @license      http://www.opensource.org/licenses/mit-license.php The MIT License
  */
- 
-/**
- * Short description for class.
- *
- * Add your application-wide methods in the class below, your models
- * will inherit them.
- * 
- * @package    cake
- * @subpackage cake.app
- */
-class AppModel extends Model {
-}
-
+include_once('webroot'.DIRECTORY_SEPARATOR.'index.php');
 ?>

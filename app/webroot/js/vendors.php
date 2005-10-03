@@ -4,7 +4,8 @@
 /**
  * Short description for file.
  * 
- * In this file you can extend the TestsController.
+ * This file includes js vendor-files from /vendor/ directory if they need to
+ * be accessible to the public.
  *
  * PHP versions 4 and 5
  *
@@ -23,7 +24,7 @@
  * @copyright    Copyright (c) 2005, CakePHP Authors/Developers
  * @link         https://trac.cakephp.org/wiki/Authors Authors/Developers
  * @package      cake
- * @subpackage   cake.app.helpers
+ * @subpackage   cake.public.js
  * @since        CakePHP v 0.2.9
  * @version      $Revision$
  * @modifiedby   $LastChangedBy$
@@ -32,16 +33,11 @@
  */
 
 /**
- * Short description for class.
- *
- * Long description for class
- *
- * @package    cake
- * @subpackage cake.app.helpers
+ * Enter description here...
  */
-
-class TestsHelper extends AppController
+if(is_file('../../vendors/javascript/'.$_GET['file']) && (preg_match('/(.+)\\.js/', $_GET['file'])))
 {
+   readfile('../../vendors/javascript/'.$_GET['file']);
 }
 
 ?>

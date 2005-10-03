@@ -1,0 +1,41 @@
+<?php
+//////////////////////////////////////////////////////////////////////////
+// + $Id$
+// +------------------------------------------------------------------+ //
+// + Cake PHP : Rapid Development Framework <http://www.cakephp.org/> + //
+// + Copyright: (c) 2005, CakePHP Authors/Developers                  + //
+// +------------------------------------------------------------------+ //
+// + Licensed under The MIT License                                   + //
+//////////////////////////////////////////////////////////////////////////
+
+/**
+ * In this file you set up your database connection details.
+ * 
+ * @package cake
+ * @subpackage cake.config
+ */
+
+/**
+ * Database configuration class.
+ * You can specify multiple configurations for production, development and testing.
+ */
+class DATABASE_CONFIG
+{
+   var $default = array(
+   'driver'   => 'mysql',
+   'host'     => 'localhost',
+   'login'    => 'www',
+   'password' => '',
+   'database' => 'project_name'
+   );
+
+   var $test = array(
+   'driver'   => 'mysql',
+   'host'     => 'localhost',
+   'login'    => 'www-test',
+   'password' => '',
+   'database' => 'project_name-test'
+   );
+}
+
+?>
