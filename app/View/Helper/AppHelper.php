@@ -1,9 +1,9 @@
 <?php
 /**
- * Application model for Cake.
+ * Application level View Helper
  *
- * This file is application-wide model file. You can put all
- * application-wide model-related methods here.
+ * This file is application-wide helper file. You can put all
+ * application-wide helper-related methods here.
  *
  * PHP 5
  *
@@ -15,20 +15,19 @@
  *
  * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Model
+ * @package       app.View.Helper
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-App::uses('Model', 'Model');
+App::uses('Helper', 'View');
 
 /**
- * Application model for Cake.
+ * Application helper
  *
- * Add your application-wide methods in the class below, your models
+ * Add your application-wide methods in the class below, your helpers
  * will inherit them.
  *
- * @package       app.Model
+ * @package       app.View.Helper
  */
-class AppModel extends Model {
+class AppHelper extends Helper {
 }
