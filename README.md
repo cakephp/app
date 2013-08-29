@@ -1,39 +1,20 @@
-CakePHP
-=======
+# CakePHP Application Skeleton
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+A skeleton for creating applications with [CakePHP](http://cakephp.org).
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+## Installation
 
-Some Handy Links
-----------------
+You can install this application skeleton using composer. You'll need to install
+[composer](http://getcomposer.org/doc/00-intro.md) first. After installing `composer`
+you can install this project & the required dependencies using:
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
+	php composer.phar create-project cakephp/cakephp-app --dev
 
-[Cookbook](http://book.cakephp.org) - THE Cake user documentation; start learning here!
+This will download this repository, install the CakePHP framework and testing libraries.
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
+## Configuration
 
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
+Once you've installed the dependencies copy the `Config/app.php.default` to `Config/app.php`.
+You should edit this file and setup the 'Datasources' array to point at your database.
 
-[API](http://api.cakephp.org) - A reference to Cake's classes
-
-[CakePHP TV](http://tv.cakephp.org) - Screen casts from events and video tutorials
-
-[The Cake Software Foundation](http://cakefoundation.org/) - promoting development related to CakePHP
-
-Get Support!
-------------
-
-[Our Google Group](https://groups.google.com/group/cake-php) - community mailing list and forum
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake.
-
-[Q & A](http://ask.cakephp.org/) - Ask questions here, all questions welcome
-
-[Lighthouse](https://cakephp.lighthouseapp.com/) - Got issues? Please tell us!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=3.0)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+After creating `Config/app.php` you should go to the `/` route and ensure all the boxes are green.
