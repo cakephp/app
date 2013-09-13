@@ -4,6 +4,9 @@
     "homepage": "http://cakephp.org",
     "type": "project",
     "license": "MIT",
+    "repositories": [
+        {"type": "vcs", "url": "https://github.com/cakephp/cakephp.git"}
+    ],
     "require": {
         "cakephp/cakephp": "dev-3.0",
         "php": ">=5.4"
