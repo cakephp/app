@@ -6,26 +6,25 @@ This is an unstable repository and should be treated as an alpha.
 
 ## Installation
 
-### Install with git
-
-1. Clone this repository.
-2. Edit `App/Config/bootstrap.php` and uncomment the section for using
-   the built-in CakePHP autoloader. Or download composer, and use `php composer.phar install`
-   to download CakePHP and any other dependencies.
+After cloning this repository you can install CakePHP into your new application
+in one of two ways:
 
 ### Install with composer
 
-You can install this application skeleton using composer. You'll need to install
-[composer](http://getcomposer.org/doc/00-intro.md) first. After installing `composer`
-you can install this project & the required dependencies using:
+1. Download [composer](http://getcomposer.org/doc/00-intro.md).
+2. Run `php composer.phar install` to install dependencies.
 
-	php composer.phar create-project cakephp/app --dev
+### Manual installation
 
-This will download this repository, install the CakePHP framework and testing libraries.
+1. Clone [CakePHP](https://github.com/cakephp/cakephp) into `vendor/cakephp/cakephp`.
+2. Checkout the `3.0` branch in the new CakePHP clone.
+3. In `App/Config/bootstrap.php` uncomment the section using `Cake\Core\ClassLoader`.
+4. Copy `App/Config/app.php.default` to `App/Config/app.php`
+
+You should now be able to visit the path to where you installed CakePHP and see the
+setup traffic lights.
 
 ## Configuration
 
-Once you've installed the dependencies copy the `App/Config/app.php.default` to `Config/app.php`.
-You should edit this file and setup the 'Datasources' array to point at your database.
-
-After creating `App/Config/app.php` you should go to the `/` route and ensure all the boxes are green.
+Read and edit `App/Config/app.php` and setup the 'Datasources' and any other configuration
+relevant for your application.
