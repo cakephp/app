@@ -8,7 +8,7 @@
         {"type": "vcs", "url": "https://github.com/cakephp/cakephp.git"}
     ],
     "require": {
-        "cakephp/cakephp": "dev-3.0",
+        "cakephp/cakephp": "3.0.*-dev",
         "php": ">=5.4"
     },
     "require-dev": {
