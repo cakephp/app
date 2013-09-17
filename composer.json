@@ -9,7 +9,7 @@
         "php": ">=5.4"
     },
     "suggest": {
-        "phpunit/phpunit": "Allows automated tests to be written run without system-wide install."
+        "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
     },
     "autoload": {
         "psr-0": {
