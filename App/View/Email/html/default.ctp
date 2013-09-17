@@ -12,9 +12,15 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
+ * @package       app.View.Email.html
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<?php echo $this->fetch('content'); ?>
+<?php
+$content = explode("\n", $content);
+
+foreach ($content as $line):
+	echo '<p> ' . $line . "</p>\n";
+endforeach;
+?>
