@@ -24,7 +24,7 @@ if (php_sapi_name() === 'cli-server') {
 
 	$url = urldecode($_SERVER['REQUEST_URI']);
 	$file = __DIR__ . $url;
-	if (strpos($url, '..') === false && strpos($url, '.') !== false && file_exists($file) && is_file($file)) {
+	if (strpos($url, '..') === false && strpos($url, '.') !== false && is_file($file)) {
 		return false;
 	}
 }
