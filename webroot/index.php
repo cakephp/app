@@ -21,6 +21,12 @@
 // for built-in server
 if (php_sapi_name() === 'cli-server') {
 	$_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
+
+	$url = urldecode($_SERVER['REQUEST_URI']);
+	$file = __DIR__ . $url;
+	if (strpos($url, '..') === false && strpos($url, '.') !== false && is_file($file)) {
+		return false;
+	}
 }
 require dirname(__DIR__) . '/App/Config/bootstrap.php';
 
