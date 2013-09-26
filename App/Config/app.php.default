@@ -211,7 +211,7 @@ $config = [
 	'Datasources' => [
 		'default' => [
 			'className' => 'Cake\\Database\\Driver\\Mysql',
-			'persistent' => 'false,',
+			'persistent' => false,
 			'host' => 'localhost',
 			'login' => 'my_app',
 			'password' => 'secret',
@@ -225,7 +225,7 @@ $config = [
 		 */
 		'test' => [
 			'className' => 'Cake\\Database\\Driver\\Mysql',
-			'persistent' => 'false,',
+			'persistent' => false,
 			'host' => 'localhost',
 			'login' => 'my_app',
 			'password' => 'secret',
