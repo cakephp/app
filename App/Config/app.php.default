@@ -273,7 +273,7 @@ $config = [
  *    that can be used with `session_save_handler`.  Using this option will automatically add `session.save_handler`
  *    to the ini array.
  * - `autoRegenerate` - Enabling this setting, turns on automatic renewal of sessions, and
- *    sessionids that change frequently. See Cake\Model\Datasource\Session::$requestCountdown.
+ *    sessionids that change frequently. See Cake\Network\Session::$requestCountdown.
  * - `ini` - An associative array of additional ini values to set.
  *
  * The built in defaults are:
@@ -283,9 +283,9 @@ $config = [
  * - 'database' - Uses CakePHP's database sessions.
  * - 'cache' - Use the Cache class to save sessions.
  *
- * To define a custom session handler, save it at /app/Model/Datasource/Session/<name>.php.
- * Make sure the class implements `Cake\Model\Datasource\Session\SessionHandlerInterface`
- * and set Session.handler to <name>
+ * To define a custom session handler, save it at /app/Network/Session/<name>.php.
+ * Make sure the class implements PHP's `SessionHandlerInterface` and se
+ * Session.handler to <name>
  *
  * To use database sessions, run the app/Config/Schema/sessions.php schema using
  * the cake shell command: cake schema create Sessions
