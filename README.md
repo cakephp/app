@@ -19,7 +19,7 @@ in one of two ways:
 1. Clone [CakePHP](https://github.com/cakephp/cakephp) into `vendor/cakephp/cakephp`.
 2. Checkout the `3.0` branch in the new CakePHP clone.
 3. In `App/Config/bootstrap.php` uncomment the section using `Cake\Core\ClassLoader`.
-4. Copy `App/Config/app.php.default` to `App/Config/app.php`
+4. Copy `App/Config/app.default.php` to `App/Config/app.php`
 
 You should now be able to visit the path to where you installed CakePHP and see the
 setup traffic lights.

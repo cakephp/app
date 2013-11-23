@@ -47,7 +47,7 @@ class Installer {
  */
 	public static function createAppConfig($dir, $io) {
 		$appConfig = $dir . '/App/Config/app.php';
-		$defaultConfig = $dir . '/App/Config/app.php.default';
+		$defaultConfig = $dir . '/App/Config/app.default.php';
 		if (!file_exists($appConfig)) {
 			copy($defaultConfig, $appConfig);
 			$io->write('Created `Config/app.php` file');
