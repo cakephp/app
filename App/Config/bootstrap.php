@@ -80,7 +80,7 @@ try {
 	 */
 	// Configure::load('app.local.php', 'default');
 } catch (\Exception $e) {
-	die('Unable to load Config/app.php. Create it by copying Config/app.php.default to Config/app.php.');
+	die('Unable to load Config/app.php. Create it by copying Config/app.default.php to Config/app.php.');
 }
 
 /**
