@@ -1,8 +1,5 @@
 <?php
 /**
- *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -21,7 +18,7 @@ use Cake\Core\Plugin;
 use Cake\Database\ConnectionManager;
 use Cake\Error;
 use Cake\Utility\Debugger;
-use Cake\Utility\Validation;
+use Cake\Validation\Validation;
 
 if (Configure::read('debug') == 0):
 	throw new Error\NotFoundException();
