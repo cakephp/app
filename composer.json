@@ -13,7 +13,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "App/",
+            "App\\": "App",
+            "App\\Test\\": "Test",
             "": "./Plugin"
         }
     },
