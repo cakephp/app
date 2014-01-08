@@ -21,7 +21,7 @@ use Cake\Console\Shell;
 /**
  * Simple console wrapper around Boris.
  */
-class ReplShell extends Shell {
+class ConsoleShell extends Shell {
 
 /**
  * Start the shell and interactive console.
@@ -51,7 +51,7 @@ class ReplShell extends Shell {
  * @return ConsoleOptionParser
  */
 	public function getOptionParser() {
-		$parser = new ConsoleOptionParser('repl', false);
+		$parser = new ConsoleOptionParser('console', false);
 		$parser->description(
 			'This shell provides a REPL that you can use to interact' .
 			'with your application in an interactive fashion. You can use' .
