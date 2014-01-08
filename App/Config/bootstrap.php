@@ -32,7 +32,6 @@ require $root . '/vendor/cakephp/cakephp/Cake/Core/ClassLoader.php';
 */
 unset($root);
 
-
 /**
  * Configure paths required to find CakePHP + general filepath
  * constants
@@ -114,7 +113,6 @@ if (php_sapi_name() == 'cli') {
 	(new ErrorHandler(Configure::consume('Error')))->register();
 }
 
-
 /**
  * Set the full base url.
  * This URL is used as the base of all absolute links.
@@ -139,7 +137,6 @@ ConnectionManager::config(Configure::consume('Datasources'));
 Email::configTransport(Configure::consume('EmailTransport'));
 Email::config(Configure::consume('Email'));
 Log::config(Configure::consume('Log'));
-
 
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other

@@ -64,7 +64,6 @@ $config = [
 		'salt' => '__SALT__',
 	],
 
-
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
  * Will append a querystring parameter containing the time the file was modified. This is
@@ -150,7 +149,6 @@ $config = [
 		'log' => true,
 		'trace' => true,
 	],
-
 
 /**
  * Email configuration.
@@ -250,7 +248,6 @@ $config = [
 			'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
 		],
 	],
-
 
 /**
  *
