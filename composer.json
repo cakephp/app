@@ -8,6 +8,9 @@
         "cakephp/cakephp": "3.0.*-dev",
         "php": ">=5.4"
     },
+    "require-dev": {
+        "d11wtq/boris": "1.0.*"
+    },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
     },
