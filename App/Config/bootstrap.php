@@ -26,9 +26,13 @@ if (file_exists($root . '/vendor/autoload.php')) {
 // This code expects that cakephp will be
 // setup in vendor/cakephp/cakephp.
 /*
-require $root . '/vendor/cakephp/cakephp/Cake/Core/ClassLoader.php';
-(new \Cake\Core\ClassLoader('App', $root))->register();
-(new \Cake\Core\ClassLoader('Cake', $root . '/vendor/cakephp/cakephp'))->register();
+require $root . '/vendor/cakephp/cakephp/src/Core/ClassLoader.php';
+
+$loader = new \Cake\Core\ClassLoader;
+$loader->register();
+
+$loader->addNamespace('App', $root . '/App');
+$loader->addNamespace('Cake', $root . '/vendor/cakephp/cakephp/src');
 */
 unset($root);
 
@@ -90,7 +94,10 @@ try {
  * support is being used.
  */
 if (!class_exists('App\Controller\AppController')) {
-	(new \Cake\Core\ClassLoader(Configure::read('App.namespace'), dirname(APP)))->register();
+	$loader = new \Cake\Core\ClassLoader;
+	$loader->register();
+
+	$loader->addNamespace(Configure::read('App.namespace'), APP);
 }
 
 /**
