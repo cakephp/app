@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+before_script:
+  - sh -c "pear channel-discover pear.cakephp.org"
+  - sh -c "pear install --alldeps cakephp/CakePHP_CodeSniffer"
+
+script:
+  - sh -c "phpcs -p --extensions=php --standard=CakePHP ./App ./Test ./webroot"
+
+notifications:
+  email: false
