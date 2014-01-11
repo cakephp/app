@@ -79,4 +79,4 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . '/vendor/cakephp/cakephp');
  * Path to the cake directory.
  */
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
-define('CAKE', CORE_PATH . 'Cake' . DS);
+define('CAKE', CORE_PATH . 'src' . DS);

@@ -47,7 +47,7 @@ require __DIR__ . '/paths.php';
  * - Registering the CakePHP autoloader.
  * - Setting the default application paths.
  */
-require CORE_PATH . 'Cake/bootstrap.php';
+require CORE_PATH . 'src/bootstrap.php';
 
 use Cake\Core\App;
 use Cake\Cache\Cache;
