@@ -20,6 +20,7 @@ $config = [
  * - encoding - The encoding used for HTML + database connections.
  * - base - The base directory the app resides in. If false this
  *   will be auto detected.
+ * - dir - Name of app directory.
  * - webroot - The webroot directory.
  * - www_root - The file path to webroot.
  * - baseUrl - To configure CakePHP *not* to use mod_rewrite and to
@@ -32,7 +33,7 @@ $config = [
  * - imageBaseUrl - Web path to the public images directory under webroot.
  * - cssBaseUrl - Web path to the public css directory under webroot.
  * - jsBaseUrl - Web path to the public js directory under webroot.
- * - paths - Configure paths for non class based resources. Supports the `plugin` and `view`
+ * - paths - Configure paths for non class based resources. Supports the `plugins` and `templates`
  *   subkeys, which allow the definition of paths for plugins and view templates respectively.
  */
 	'App' => [
@@ -49,7 +50,7 @@ $config = [
 		'jsBaseUrl' => 'js/',
 		'paths' => [
 			'plugins' => [ROOT . '/Plugin/'],
-			'views' => [APP . 'View/'],
+			'templates' => [APP . 'Template/'],
 		],
 	],
 
