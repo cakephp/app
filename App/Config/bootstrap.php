@@ -54,9 +54,9 @@ require __DIR__ . '/paths.php';
 require CORE_PATH . 'src/bootstrap.php';
 
 use Cake\Cache\Cache;
-use Cake\Core\App;
 use Cake\Configure\Engine\PhpConfig;
 use Cake\Console\ConsoleErrorHandler;
+use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Database\ConnectionManager;
