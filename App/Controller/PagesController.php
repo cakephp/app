@@ -2,7 +2,7 @@
 /**
  * Static content controller.
  *
- * This file will render views from View/Pages/
+ * This file will render views from Template/Pages/
  *
  * PHP 5
  *
