@@ -53,11 +53,11 @@ require __DIR__ . '/paths.php';
  */
 require CORE_PATH . 'src/bootstrap.php';
 
-use Cake\Core\App;
 use Cake\Cache\Cache;
+use Cake\Core\App;
+use Cake\Configure\Engine\PhpConfig;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\Configure;
-use Cake\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
 use Cake\Database\ConnectionManager;
 use Cake\Error\ErrorHandler;
@@ -77,11 +77,9 @@ try {
 	Configure::config('default', new PhpConfig());
 	Configure::load('app.php', 'default', false);
 
-	/**
-	 * Load an environment local configuration file.
-	 * You can use this file to provide local overrides to your
-	 * shared configuration.
-	 */
+	// Load an environment local configuration file.
+	// You can use this file to provide local overrides to your
+	// shared configuration.
 	// Configure::load('app.local.php', 'default');
 } catch (\Exception $e) {
 	die('Unable to load Config/app.php. Create it by copying Config/app.default.php to Config/app.php.');

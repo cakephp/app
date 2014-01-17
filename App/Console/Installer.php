@@ -62,9 +62,7 @@ class Installer {
  * @return void
  */
 	public static function setTmpPermissions($dir, $io) {
-		/**
-		 * Change the permissions on a path and output the results.
-		 */
+		// Change the permissions on a path and output the results.
 		$changePerms = function ($path, $perms, $io) {
 			// Get current permissions in decimal format so we can bitmask it.
 			$currentPerms = octdec(substr(sprintf('%o', fileperms($path)), -4));
