@@ -29,3 +29,13 @@ the setup traffic lights.
 
 Read and edit `App/Config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
+
+##Keeping up to date with the latest CakePHP 3.0 changes
+
+If you want to keep current with the latest 3.0 skeleton changes in CakePHP you can add the following to your application’s composer.json:
+
+`"require": {
+    "cakephp/app": "dev-master"
+}`
+
+Each time you run php composer.phar update you will receive the latest changes from CakePHP 3.0 alpha skeleton.
