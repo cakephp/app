@@ -8,7 +8,7 @@ This is an unstable repository and should be treated as an alpha.
 
 ### Install with composer
 
-1. Download [composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
+1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
 2. Run `php composer.phar create-project -s dev cakephp/app [app_name]`.
 
 If Composer is installed globally, run
@@ -29,3 +29,13 @@ the setup traffic lights.
 
 Read and edit `App/Config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
+
+##Keeping up to date with the latest CakePHP 3.0 changes
+
+If you want to keep current with the latest 3.0 skeleton changes in CakePHP you can add the following to your application’s composer.json:
+
+`"require": {
+    "cakephp/app": "dev-master"
+}`
+
+Each time you run php composer.phar update you will receive the latest changes from CakePHP 3.0 alpha skeleton.
