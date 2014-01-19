@@ -14,6 +14,12 @@
  */
 namespace App\Config;
 
+/**
+ * Configure paths required to find CakePHP + general filepath
+ * constants
+ */
+require __DIR__ . '/paths.php';
+
 // Use composer to load the autoloader.
 $root = dirname(dirname(__DIR__));
 if (file_exists($root . '/vendor/autoload.php')) {
@@ -35,12 +41,6 @@ $loader->addNamespace('App', $root . '/App');
 $loader->addNamespace('Cake', $root . '/vendor/cakephp/cakephp/src');
 */
 unset($root);
-
-/**
- * Configure paths required to find CakePHP + general filepath
- * constants
- */
-require __DIR__ . '/paths.php';
 
 /**
  * Bootstrap CakePHP.
