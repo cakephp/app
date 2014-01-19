@@ -25,20 +25,16 @@ if (file_exists(ROOT . '/vendor/autoload.php')) {
 	require ROOT . '/vendor/autoload.php';
 }
 
-// If you can't use composer, you can use CakePHP's classloader
-// to autoload your application and the framework. You will
-// also need to add autoloaders for each Plugin you use.
-// This code expects that cakephp will be
-// setup in vendor/cakephp/cakephp.
-/*
-require $root . '/vendor/cakephp/cakephp/src/Core/ClassLoader.php';
-
-$loader = new \Cake\Core\ClassLoader;
-$loader->register();
-
-$loader->addNamespace('App', $root . '/App');
-$loader->addNamespace('Cake', $root . '/vendor/cakephp/cakephp/src');
-*/
+// If composer is not used, use CakePHP's classloader to autoload the framework
+// and the application. You will also need setup autoloading for plugins by
+// passing `autoload' => true for `Plugin::loadAll()` or `Plugin::load()`
+if (!class_exists('Cake\Core\Configure')) {
+	require CAKE . 'Core/ClassLoader.php';
+	$loader = new \Cake\Core\ClassLoader;
+	$loader->register();
+	$loader->addNamespace('Cake', CAKE);
+	$loader->addNamespace(\Cake\Core\Configure::read('App.namespace'), APP);
+}
 
 /**
  * Bootstrap CakePHP.
@@ -81,19 +77,6 @@ try {
 	// Configure::load('app.local.php', 'default');
 } catch (\Exception $e) {
 	die('Unable to load Config/app.php. Create it by copying Config/app.default.php to Config/app.php.');
-}
-
-/**
- * Configure an autoloader for the App namespace.
- *
- * Use App\Controller\AppController as a test to see if composer
- * support is being used.
- */
-if (!class_exists('App\Controller\AppController')) {
-	$loader = new \Cake\Core\ClassLoader;
-	$loader->register();
-
-	$loader->addNamespace(Configure::read('App.namespace'), APP);
 }
 
 /**
