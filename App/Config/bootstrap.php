@@ -21,9 +21,8 @@ namespace App\Config;
 require __DIR__ . '/paths.php';
 
 // Use composer to load the autoloader.
-$root = dirname(dirname(__DIR__));
-if (file_exists($root . '/vendor/autoload.php')) {
-	require $root . '/vendor/autoload.php';
+if (file_exists(ROOT . '/vendor/autoload.php')) {
+	require ROOT . '/vendor/autoload.php';
 }
 
 // If you can't use composer, you can use CakePHP's classloader
@@ -40,7 +39,6 @@ $loader->register();
 $loader->addNamespace('App', $root . '/App');
 $loader->addNamespace('Cake', $root . '/vendor/cakephp/cakephp/src');
 */
-unset($root);
 
 /**
  * Bootstrap CakePHP.
@@ -51,7 +49,7 @@ unset($root);
  * - Registering the CakePHP autoloader.
  * - Setting the default application paths.
  */
-require CORE_PATH . 'src/bootstrap.php';
+require CAKE . 'bootstrap.php';
 
 use Cake\Cache\Cache;
 use Cake\Configure\Engine\PhpConfig;
