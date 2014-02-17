@@ -209,7 +209,8 @@ $config = [
  */
 	'Datasources' => [
 		'default' => [
-			'className' => 'Cake\\Database\\Driver\\Mysql',
+			'className' => 'Cake\Database\Connection',
+			'driver' => 'Cake\Database\Driver\Mysql',
 			'persistent' => false,
 			'host' => 'localhost',
 			'login' => 'my_app',
@@ -223,7 +224,8 @@ $config = [
 		 * The test connection is used during the test suite.
 		 */
 		'test' => [
-			'className' => 'Cake\\Database\\Driver\\Mysql',
+			'className' => 'Cake\Database\Connection',
+			'driver' => 'Cake\Database\Driver\Mysql',
 			'persistent' => false,
 			'host' => 'localhost',
 			'login' => 'my_app',
@@ -239,12 +241,12 @@ $config = [
  */
 	'Log' => [
 		'debug' => [
-			'className' => 'Cake\\Log\\Engine\\FileLog',
+			'className' => 'Cake\Log\Engine\FileLog',
 			'file' => 'debug',
 			'levels' => ['notice', 'info', 'debug'],
 		],
 		'error' => [
-			'className' => 'Cake\\Log\\Engine\\FileLog',
+			'className' => 'Cake\Log\Engine\FileLog',
 			'file' => 'error',
 			'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
 		],
