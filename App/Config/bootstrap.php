@@ -28,12 +28,14 @@ if (file_exists(ROOT . '/vendor/autoload.php')) {
 // If composer is not used, use CakePHP's classloader to autoload the framework
 // and the application. You will also need setup autoloading for plugins by
 // passing `autoload' => true for `Plugin::loadAll()` or `Plugin::load()`
+//
+// If you are using a custom namespace, you'll need to set it here as well.
 if (!class_exists('Cake\Core\Configure')) {
 	require CAKE . 'Core/ClassLoader.php';
 	$loader = new \Cake\Core\ClassLoader;
 	$loader->register();
 	$loader->addNamespace('Cake', CAKE);
-	$loader->addNamespace(\Cake\Core\Configure::read('App.namespace'), APP);
+	$loader->addNamespace('App', APP);
 }
 
 /**
