@@ -18,7 +18,14 @@ If Composer is installed globally, run
 
 1. Clone this repository at desired location.
 2. Clone [CakePHP](https://github.com/cakephp/cakephp) into `vendor/cakephp/cakephp`.
+   ```
+   git clone git://github.com/cakephp/cakephp.git vendor/cakephp/cakephp
+   ```
 3. Checkout the `3.0` branch in the new CakePHP clone.
+   ```
+   cd vendor/cakephp/cakephp
+   git checkout -t -b 3.0 origin/3.0
+   ```
 4. Copy `App/Config/app.default.php` to `App/Config/app.php`
 
 You should now be able to visit the path to where you installed the app and see
