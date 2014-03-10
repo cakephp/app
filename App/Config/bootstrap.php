@@ -72,20 +72,20 @@ use Cake\Utility\Inflector;
 try {
 	Configure::config('default', new PhpConfig());
 	Configure::load('app.php', 'default', false);
-
-	// Load an environment local configuration file.
-	// You can use this file to provide local overrides to your
-	// shared configuration.
-	// Configure::load('app.local.php', 'default');
 } catch (\Exception $e) {
 	die('Unable to load Config/app.php. Create it by copying Config/app.default.php to Config/app.php.');
 }
+
+// Load an environment local configuration file.
+// You can use this file to provide local overrides to your
+// shared configuration.
+//Configure::load('app_local.php', 'default');
 
 /**
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	//date_default_timezone_set('UTC');
+//date_default_timezone_set('UTC');
 
 /**
  * Configure the mbstring extension to use the correct encoding.
@@ -95,7 +95,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
 /**
  * Register application error and exception handlers.
  */
-if (php_sapi_name() == 'cli') {
+if (php_sapi_name() === 'cli') {
 	(new ConsoleErrorHandler(Configure::consume('Error')))->register();
 } else {
 	(new ErrorHandler(Configure::consume('Error')))->register();
