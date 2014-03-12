@@ -17,6 +17,7 @@ namespace App\Console\Command;
 use Boris\Boris;
 use Cake\Console\ConsoleOptionParser;
 use Cake\Console\Shell;
+use Cake\Log\Log;
 
 /**
  * Simple console wrapper around Boris.
@@ -41,6 +42,12 @@ class ConsoleShell extends Shell {
 			$this->err('');
 			return 1;
 		}
+
+		Log::drop('debug');
+		Log::drop('error');
+		restore_error_handler();
+		restore_exception_handler();
+
 		$boris = new Boris('app > ');
 		$boris->start();
 	}
