@@ -91,7 +91,7 @@ $config = [
  */
 	'Cache' => [
 		'default' => [
-			'engine' => 'File',
+			'className' => 'File',
 		],
 
 	/**
