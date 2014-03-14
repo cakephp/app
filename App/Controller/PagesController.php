@@ -1,11 +1,5 @@
 <?php
 /**
- * Static content controller.
- *
- * This file will render views from Template/Pages/
- *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -27,18 +21,11 @@ use Cake\Utility\Inflector;
 /**
  * Static content controller
  *
- * Override this controller by placing a copy in controllers directory of an application
+ * This controller will render views from Template/Pages/
  *
  * @link http://book.cakephp.org/3.0/en/controllers/pages-controller.html
  */
 class PagesController extends AppController {
-
-/**
- * This controller does not use a model
- *
- * @var array
- */
-	public $uses = array();
 
 /**
  * Displays a view
