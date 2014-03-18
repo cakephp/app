@@ -10,7 +10,7 @@ use Cake\Core\Configure;
 	); ?>
 </p>
 <?php
-if (Configure::read('debug') > 0):
+if (Configure::read('debug')):
 	echo $this->element('exception_stack_trace');
 endif;
 ?>

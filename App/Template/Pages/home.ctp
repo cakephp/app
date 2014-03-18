@@ -20,7 +20,7 @@ use Cake\Error;
 use Cake\Utility\Debugger;
 use Cake\Validation\Validation;
 
-if (Configure::read('debug') == 0):
+if (!Configure::read('debug')):
 	throw new Error\NotFoundException();
 endif;
 ?>
@@ -29,7 +29,7 @@ endif;
 	<a href="http://cakephp.org/changelogs/<?= Configure::version(); ?>">Read the changelog</a>
 </p>
 <?php
-if (Configure::read('debug') > 0):
+if (Configure::read('debug')):
 	Debugger::checkSecurityKeys();
 endif;
 ?>

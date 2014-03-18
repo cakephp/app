@@ -4,14 +4,12 @@ $config = [
  * Debug Level:
  *
  * Production Mode:
- * 0: No error messages, errors, or warnings shown. Flash messages redirect.
+ * false: No error messages, errors, or warnings shown.
  *
  * Development Mode:
- * 1: Errors and warnings shown, model caches refreshed, flash messages halted.
- * 2: As in 1, but also with full debug messages and SQL output.
- *
+ * true: Errors and warnings shown.
  */
-	'debug' => 2,
+	'debug' => true,
 
 /**
  * Configure basic information about the application.
