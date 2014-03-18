@@ -7,7 +7,7 @@ $config = [
  * false: No error messages, errors, or warnings shown. Flash messages redirect.
  *
  * Development Mode:
- * true: Errors and warnings shown, model caches refreshed, flash messages halted, SQL output.
+ * true: Errors and warnings shown.
  */
 	'debug' => true,
 
