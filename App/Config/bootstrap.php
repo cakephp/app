@@ -130,13 +130,13 @@ Log::config(Configure::consume('Log'));
 /**
  * Setup detectors for mobile and tablet.
  */
-Request::addDetector('mobile', ['callback' => function($request) {
+Request::addDetector('mobile', function($request) {
 	return (new \Detection\MobileDetect())->isMobile();
-}]);
+});
 
-Request::addDetector('tablet', ['callback' => function($request) {
+Request::addDetector('tablet', function($request) {
 	return (new \Detection\MobileDetect())->isTablet();
-}]);
+});
 
 /**
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
