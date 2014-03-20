@@ -25,8 +25,7 @@ $config = [
  *   use CakePHP pretty URLs, remove these .htaccess
  *   files:
  *      /.htaccess
- *      /app/.htaccess
- *      /app/webroot/.htaccess
+ *      /webroot/.htaccess
  *   And uncomment the baseUrl key below.
  * - imageBaseUrl - Web path to the public images directory under webroot.
  * - cssBaseUrl - Web path to the public css directory under webroot.
@@ -288,7 +287,7 @@ $config = [
  * Make sure the class implements PHP's `SessionHandlerInterface` and se
  * Session.handler to <name>
  *
- * To use database sessions, run the app/Config/Schema/sessions.php schema using
+ * To use database sessions, run the App/Config/Schema/sessions.php schema using
  * the cake shell command: cake schema create Sessions
  */
 	'Session' => [
