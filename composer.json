@@ -5,8 +5,9 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "php": ">=5.4",
         "cakephp/cakephp": "3.0.*-dev",
-        "php": ">=5.4"
+        "mobiledetect/mobiledetectlib": "2.*"
     },
     "require-dev": {
         "d11wtq/boris": "1.0.*"
