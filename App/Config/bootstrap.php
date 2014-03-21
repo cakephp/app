@@ -83,10 +83,10 @@ try {
 //Configure::load('app_local.php', 'default');
 
 /**
- * Uncomment this line and correct your server timezone to fix
- * any date & time related errors.
+ * Set server timezone to UTC. You can change it to another timezone of your
+ * choice but using UTC makes time calculations / conversions easier.
  */
-//date_default_timezone_set('UTC');
+date_default_timezone_set('UTC');
 
 /**
  * Configure the mbstring extension to use the correct encoding.

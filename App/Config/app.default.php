@@ -215,6 +215,7 @@ $config = [
 			'database' => 'my_app',
 			'prefix' => false,
 			'encoding' => 'utf8',
+			'timezone' => 'UTC'
 		],
 
 		/**
@@ -230,6 +231,7 @@ $config = [
 			'database' => 'test_myapp',
 			'prefix' => false,
 			'encoding' => 'utf8',
+			'timezone' => 'UTC'
 		],
 	],
 
