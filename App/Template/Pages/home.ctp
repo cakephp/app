@@ -135,7 +135,7 @@ endif;
 <p>
 	To change the content of this page, edit: APP/Template/Pages/home.ctp.<br />
 	To change its layout, edit: APP/Template/Layout/default.ctp.<br />
-	You can also add some CSS styles for your pages at: APP/webroot/css.
+	You can also add some CSS styles for your pages at: webroot/css.
 </p>
 
 <h3>Getting Started</h3>
