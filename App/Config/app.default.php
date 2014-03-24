@@ -67,7 +67,7 @@ $config = [
  * Will append a querystring parameter containing the time the file was modified. This is
  * useful for invalidating browser caches.
  *
- * Set to `true` to apply timestamps when debug > 0. Set to 'force' to always enable
+ * Set to true to apply timestamps when debug is true. Set to 'force' to always enable
  * timestamping regardless of debug value.
  */
 	'Asset' => [
@@ -119,13 +119,13 @@ $config = [
 /**
  * Configure the Error and Exception handlers used by your application.
  *
- * By default errors are displayed using Debugger, when debug > 0 and logged by
- * Cake\Log\Log when debug = 0.
+ * By default errors are displayed using Debugger, when debug is true and logged by
+ * Cake\Log\Log when debug is false.
  *
  * In CLI environments exceptions will be printed to stderr with a backtrace.
  * In web environments an HTML page will be displayed for the exception.
- * While debug > 0, framework errors like Missing Controller will be displayed.
- * When debug = 0, framework errors will be coerced into generic HTTP errors.
+ * With debug true, framework errors like Missing Controller will be displayed.
+ * When debug is false, framework errors will be coerced into generic HTTP errors.
  *
  * Options:
  *
