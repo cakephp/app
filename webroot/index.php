@@ -30,7 +30,6 @@ if (php_sapi_name() === 'cli-server') {
 }
 require dirname(__DIR__) . '/App/Config/bootstrap.php';
 
-use Cake\Core\Configure;
 use Cake\Network\Request;
 use Cake\Network\Response;
 use Cake\Routing\Dispatcher;
