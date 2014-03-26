@@ -153,7 +153,7 @@ $config = [
  *
  * You can configure email transports and email delivery profiles here.
  *
- * By defining transports separately from delivery profiles you can eaisly re-use transport
+ * By defining transports separately from delivery profiles you can easily re-use transport
  * configuration across multiple profiles.
  *
  * You can specify multiple configurations for production, development and testing.
@@ -167,7 +167,7 @@ $config = [
  *  Debug  - Do not send the email, just return the result
  *
  * You can add custom transports (or override existing transports) by adding the
- * appropriate file to app/Network/Email.  Transports should be named 'YourTransport.php',
+ * appropriate file to App/Network/Email.  Transports should be named 'YourTransport.php',
  * where 'Your' is the name of the transport.
  *
  * ### Configuring delivery profiles
