@@ -40,10 +40,10 @@ endif;
 </p>
 <p>
 <?php
-	if (version_compare(PHP_VERSION, '5.4.3', '>=')):
-		echo '<span class="notice success">Your version of PHP is 5.4.3 or higher.</span>';
+	if (version_compare(PHP_VERSION, '5.4.19', '>=')):
+		echo '<span class="notice success">Your version of PHP is 5.4.19 or higher.</span>';
 	else:
-		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.3 or higher to use CakePHP.</span>';
+		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.19 or higher to use CakePHP.</span>';
 	endif;
 ?>
 </p>
@@ -135,7 +135,7 @@ endif;
 <p>
 	To change the content of this page, edit: APP/Template/Pages/home.ctp.<br />
 	To change its layout, edit: APP/Template/Layout/default.ctp.<br />
-	You can also add some CSS styles for your pages at: webroot/css.
+	You can also add some CSS styles for your pages at: webroot/css/.
 </p>
 
 <h3>Getting Started</h3>
