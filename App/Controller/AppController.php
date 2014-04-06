@@ -21,6 +21,7 @@
  */
 namespace App\Controller;
 
+use \Cake\Controller\Controller;
 /**
  * Application Controller
  *
@@ -29,5 +30,5 @@ namespace App\Controller;
  *
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends \Cake\Controller\Controller {
+class AppController extends Controller {
 }
