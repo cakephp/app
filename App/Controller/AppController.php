@@ -1,12 +1,5 @@
 <?php
 /**
- * Application level Controller
- *
- * This file is application-wide controller file. You can put all
- * application-wide controller-related methods here.
- *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -21,14 +14,15 @@
  */
 namespace App\Controller;
 
-use \Cake\Controller\Controller;
+use Cake\Controller\Controller;
+
 /**
  * Application Controller
  *
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
 }
