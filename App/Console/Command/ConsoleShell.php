@@ -42,6 +42,7 @@ class ConsoleShell extends Shell {
 			$this->err('');
 			return 1;
 		}
+		$this->out('You can exit with <info>CTRL-D</info>');
 
 		Log::drop('debug');
 		Log::drop('error');
