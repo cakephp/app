@@ -105,7 +105,7 @@ if ($isCli) {
 
 // Include the CLI bootstrap overrides.
 if ($isCli) {
-	require __DIR__ . '/cli_bootstrap.php';
+	require __DIR__ . '/bootstrap_cli.php';
 }
 
 /**
