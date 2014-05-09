@@ -67,7 +67,7 @@ try {
 // shared configuration.
 //Configure::load('app_local.php', 'default');
 
-// When debug = 0 the metadata cache should last
+// When debug = false the metadata cache should last
 // for a very very long time, as we don't want
 // to refresh the cache while users are doing requests.
 if (!Configure::read('debug')) {
