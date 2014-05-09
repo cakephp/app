@@ -70,7 +70,7 @@ try {
 // When debug = 0 the metadata cache should last
 // for a very very long time, as we don't want
 // to refresh the cache while users are doing requests.
-if (Configure::read('debug') == false) {
+if (!Configure::read('debug')) {
 	Configure::write('Cache._cake_model_.duration', '+99 years');
 	Configure::write('Cache._cake_core_.duration', '+99 years');
 }
