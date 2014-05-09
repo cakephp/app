@@ -28,10 +28,10 @@ require dirname(__DIR__) . '/App/Config/bootstrap.php';
 
 use Cake\Network\Request;
 use Cake\Network\Response;
-use Cake\Routing\Dispatcher;
+use Cake\Routing\DispatcherFactory;
 
-$Dispatcher = new Dispatcher();
-$Dispatcher->dispatch(
+$dispatcher = DispatcherFactory::create();
+$dispatcher->dispatch(
 	Request::createFromGlobals(),
 	new Response()
 );
