@@ -100,7 +100,7 @@ $config = [
 			'prefix' => 'myapp_cake_core_',
 			'path' => CACHE . 'persistent/',
 			'serialize' => true,
-			'duration' => '+10 seconds',
+			'duration' => '+2 minutes',
 		],
 
 	/**
@@ -112,7 +112,7 @@ $config = [
 			'prefix' => 'my_app_cake_model_',
 			'path' => CACHE . 'models/',
 			'serialize' => true,
-			'duration' => '+10 seconds',
+			'duration' => '+2 minutes',
 		],
 	],
 
@@ -215,7 +215,8 @@ $config = [
 			'database' => 'my_app',
 			'prefix' => false,
 			'encoding' => 'utf8',
-			'timezone' => 'UTC'
+			'timezone' => 'UTC',
+			'cacheMetadata' => true,
 		],
 
 		/**
@@ -231,7 +232,8 @@ $config = [
 			'database' => 'test_myapp',
 			'prefix' => false,
 			'encoding' => 'utf8',
-			'timezone' => 'UTC'
+			'timezone' => 'UTC',
+			'cacheMetadata' => true,
 		],
 	],
 
