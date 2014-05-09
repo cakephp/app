@@ -219,10 +219,10 @@ $config = [
 			'cacheMetadata' => true,
 			/* During development, if using MySQL < 5.6, uncommenting the following line
 			* could boost the speed at which schema metadata is fetched from the database.
-			* It can also be set directly with the mysql configuration directive 'innodb_stats_on_metadata'
+			* It can also be set directly with the mysql configuration directive 'innodb_stats_on_metadata = 0'
 			* which is the recommended value in production enviroments
 			*/
-			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 1'],
+			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
 		],
 
 		/**
@@ -240,7 +240,7 @@ $config = [
 			'encoding' => 'utf8',
 			'timezone' => 'UTC',
 			'cacheMetadata' => true,
-			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 1'],
+			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
 		],
 	],
 
