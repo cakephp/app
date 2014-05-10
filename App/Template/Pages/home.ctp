@@ -118,7 +118,7 @@ endif;
 			echo '<span class="notice success">CakePHP is able to connect to the database.</span>';
 		else:
 			echo '<span class="notice">';
-				echo 'Cake is NOT able to connect to the database.';
+				echo 'CakePHP is NOT able to connect to the database.';
 				echo '<br /><br />';
 				echo $errorMsg;
 			echo '</span>';
