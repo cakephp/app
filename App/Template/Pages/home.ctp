@@ -50,9 +50,27 @@ endif;
 <p>
 <?php
 	if (extension_loaded('mbstring')):
-		echo '<span class="notice success">Your version of PHP has mbstring extension loaded.</span>';
+		echo '<span class="notice success">Your version of PHP has the mbstring extension loaded.</span>';
 	else:
 		echo '<span class="notice">Your version of PHP does NOT have the mbstring extension loaded.</span>';
+	endif;
+?>
+</p>
+<p>
+<?php
+	if (extension_loaded('mcrypt')):
+		echo '<span class="notice success">Your version of PHP has the mcrypt extension loaded.</span>';
+	else:
+		echo '<span class="notice">Your version of PHP does NOT have the mcrypt extension loaded.</span>';
+	endif;
+?>
+</p>
+<p>
+<?php
+	if (extension_loaded('intl')):
+		echo '<span class="notice success">Your version of PHP has the intl extension loaded.</span>';
+	else:
+		echo '<span class="notice">Your version of PHP does NOT have the intl extension loaded.</span>';
 	endif;
 ?>
 </p>
@@ -97,10 +115,10 @@ endif;
 <p>
 	<?php
 		if ($connected):
-			echo '<span class="notice success">Cake is able to connect to the database.</span>';
+			echo '<span class="notice success">CakePHP is able to connect to the database.</span>';
 		else:
 			echo '<span class="notice">';
-				echo 'Cake is NOT able to connect to the database.';
+				echo 'CakePHP is NOT able to connect to the database.';
 				echo '<br /><br />';
 				echo $errorMsg;
 			echo '</span>';
