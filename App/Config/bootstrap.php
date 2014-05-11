@@ -142,8 +142,8 @@ Request::addDetector('tablet', function($request) {
  * Custom Inflector rules, can be set to correctly pluralize or singularize table, model, controller names or whatever other
  * string is passed to the inflection functions
  *
- * Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
- * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
+ * Inflector::rules('singular', ['rules' => [], 'irregular' => [], 'uninflected' => []]);
+ * Inflector::rules('plural', ['rules' => [], 'irregular' => [], 'uninflected' => []]);
  *
  */
 
