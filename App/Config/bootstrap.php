@@ -161,10 +161,7 @@ Request::addDetector('tablet', function($request) {
  * Connect middleware/dispatcher filters.
  */
 use Cake\Routing\DispatcherFactory;
-use Cake\Routing\Filter\AssetDispatcher;
-use Cake\Routing\Filter\CacheDispatcher;
-use Cake\Routing\Filter\RoutingFilter;
 
-DispatcherFactory::add(new RoutingFilter());
-DispatcherFactory::add(new AssetDispatcher());
-DispatcherFactory::add(new CacheDispatcher());
+DispatcherFactory::add('Routing');
+DispatcherFactory::add('Asset');
+DispatcherFactory::add('Cache');
