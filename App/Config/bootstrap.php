@@ -156,3 +156,13 @@ Request::addDetector('tablet', function($request) {
  * Plugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
+
+/**
+ * Connect middleware/dispatcher filters.
+ */
+use Cake\Routing\DispatcherFactory;
+
+DispatcherFactory::add('Asset');
+DispatcherFactory::add('Cache');
+DispatcherFactory::add('Routing');
+DispatcherFactory::add('ControllerFactory');
