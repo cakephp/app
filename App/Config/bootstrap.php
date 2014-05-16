@@ -45,6 +45,7 @@ use Cake\Error\ErrorHandler;
 use Cake\Log\Log;
 use Cake\Network\Email\Email;
 use Cake\Network\Request;
+use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 
 /**
@@ -160,7 +161,6 @@ Request::addDetector('tablet', function($request) {
 /**
  * Connect middleware/dispatcher filters.
  */
-use Cake\Routing\DispatcherFactory;
 
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Cache');
