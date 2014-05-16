@@ -162,6 +162,7 @@ Request::addDetector('tablet', function($request) {
  */
 use Cake\Routing\DispatcherFactory;
 
-DispatcherFactory::add('Routing');
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Cache');
+DispatcherFactory::add('Routing');
+DispatcherFactory::add('ControllerFactory');
