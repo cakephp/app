@@ -272,19 +272,12 @@ $config = [
  *
  * - `cookie` - The name of the cookie to use. Defaults to 'CAKEPHP'
  * - `timeout` - The number of minutes you want sessions to live for. This timeout is handled by CakePHP
- * - `cookieTimeout` - The number of minutes you want session cookies to live for.
- * - `checkAgent` - Do you want the user agent to be checked when starting sessions? You might want to set the
  *    value to false, when dealing with older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
  * - `defaults` - The default configuration set to use as a basis for your session.
  *    There are four builtins: php, cake, cache, database.
- * - `handler` - Can be used to enable a custom session handler.  Expects an array of of callables,
- *    that can be used with `session_save_handler`.  Using this option will automatically add `session.save_handler`
- *    to the ini array.
- * - `autoRegenerate` - Enabling this setting, turns on automatic renewal of sessions, and
- *    sessionids that change frequently.
- * - `requestCountdown` - Number of requests that can occur during a session time
- *    without the session being renewed. Only used when config value `autoRegenerate`
- *    is set to true. Default to 10.
+ * - `handler` - Can be used to enable a custom session handler. Expects an array with at least the `engine` key,
+ *    being the name of the Session engine class to use for managing the session. CakePHP bundles the `CacheSession`
+ *    and `DatabaseSession` engines.
  * - `ini` - An associative array of additional ini values to set.
  *
  * The built in defaults are:
@@ -295,11 +288,10 @@ $config = [
  * - 'cache' - Use the Cache class to save sessions.
  *
  * To define a custom session handler, save it at /app/Network/Session/<name>.php.
- * Make sure the class implements PHP's `SessionHandlerInterface` and se
+ * Make sure the class implements PHP's `SessionHandlerInterface` and set
  * Session.handler to <name>
  *
- * To use database sessions, run the App/Config/Schema/sessions.php schema using
- * the cake shell command: cake schema create Sessions
+ * To use database sessions, load the SQL file located at App/Config/Schema/sessions.sql
  */
 	'Session' => [
 		'defaults' => 'php',
