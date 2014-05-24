@@ -25,7 +25,8 @@ class Installer {
 /**
  * Does some routine installation tasks so people don't have to.
  *
- * @param Composer\Script\Event $event
+ * @param Composer\Script\Event $event The composer event object.
+ * @return void
  */
 	public static function postInstall(Event $event) {
 		$io = $event->getIO();
@@ -40,7 +41,7 @@ class Installer {
  * Create the Config/app.php file if it does not exist.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface IO interface to write to console.
+ * @param Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
 	public static function createAppConfig($dir, $io) {
@@ -58,7 +59,7 @@ class Installer {
  * This is not the most secure default, but it gets people up and running quickly.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface IO interface to write to console.
+ * @param Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
 	public static function setTmpPermissions($dir, $io) {
@@ -101,7 +102,7 @@ class Installer {
  * Set the security.salt value in the application's config file.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface IO interface to write to console.
+ * @param Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
 	public static function setSecuritySalt($dir, $io) {
