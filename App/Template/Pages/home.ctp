@@ -25,7 +25,6 @@ if (!Configure::read('debug')):
 endif;
 ?>
 <iframe src="http://cakephp.org/bake-banner" width="830" height="160" style="overflow:hidden; border:none;">
-	<p>For updates and important announcements, visit http://cakefest.org</p>
 </iframe>
 <h2>Release Notes for CakePHP <?= Configure::version(); ?></h2>
 <p>
