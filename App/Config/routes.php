@@ -59,7 +59,7 @@ use Cake\Routing\Router;
 	Plugin::routes();
 
 /**
- * Load the CakePHP default routes. Only remove this if you do not want to use
- * the built-in default routes.
+ * Load the CakePHP default routes. This will help you get started and make every controller and action available by
+ * default, though we recommend to write out all your routes and remove this line.
  */
 	require CAKE . 'Config/routes.php';
