@@ -1,1 +1,1 @@
-<div id="flash-error" class="message-info"><?= $message ?></div>
+<div id="flash-error" class="message-info"><?= h($message) ?></div>
