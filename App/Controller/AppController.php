@@ -25,4 +25,14 @@ use Cake\Controller\Controller;
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+/**
+ * Components this controller uses.
+ *
+ * Component names should not include the `Component` suffix. Components
+ * declared in subclasses will be be merged with components declared here.
+ *
+ * @var array
+ */
+	public $components = ['Flash'];
 }
