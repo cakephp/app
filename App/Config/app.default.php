@@ -75,15 +75,6 @@ $config = [
 	],
 
 /**
- * The classname and database used in CakePHP's
- * access control lists.
- */
-	'Acl' => [
-		'database' => 'default',
-		'classname' => 'DbAcl',
-	],
-
-/**
  * Configure the cache adapters.
  */
 	'Cache' => [
