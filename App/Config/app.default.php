@@ -287,24 +287,4 @@ $config = [
 	'Session' => [
 		'defaults' => 'php',
 	],
-
-/**
- * You can attach event listeners to the request lifecycle as Dispatcher Filter. By Default CakePHP bundles two filters:
- *
- * - AssetDispatcher filter will serve your asset files (css, images, js, etc) from your themes and plugins
- * - CacheDispatcher filter will read the Cache.check configure variable and try to serve cached content generated from controllers
- *
- * Feel free to remove or add filters as you see fit for your application. A few examples:
- *
- * Configure::write('Dispatcher.filters', [
- *   'MyCacheFilter', //  will use MyCacheFilter class from the Routing/Filter package in your app.
- *   'MyPlugin.MyFilter', // will use MyFilter class from the Routing/Filter package in MyPlugin plugin.
- *   ['callable' => $aFunction, 'on' => 'before', 'priority' => 9], // A valid PHP callback type to be called on beforeDispatch
- *   ['callable' => $anotherMethod, 'on' => 'after'], // A valid PHP callback type to be called on afterDispatch
- * ]);
- */
-	'Dispatcher' => [
-		'filters' => ['AssetDispatcher', 'CacheDispatcher'],
-	],
-
 ];
