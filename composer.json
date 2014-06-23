@@ -19,7 +19,7 @@
 		"psr-4": {
 			"App\\": "src",
 			"App\\Test\\": "tests",
-			"": "./Plugin"
+			"": "./plugins"
 		}
 	},
 	"scripts": {
