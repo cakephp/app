@@ -207,6 +207,7 @@ $config = [
 			'prefix' => false,
 			'encoding' => 'utf8',
 			'timezone' => 'UTC',
+			'quoteIdentifiers' => false,
 			'cacheMetadata' => true,
 			/* During development, if using MySQL < 5.6, uncommenting the following line
 			* could boost the speed at which schema metadata is fetched from the database.
@@ -230,6 +231,7 @@ $config = [
 			'prefix' => false,
 			'encoding' => 'utf8',
 			'timezone' => 'UTC',
+			'quoteIdentifiers' => false,
 			'cacheMetadata' => true,
 			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
 		],
