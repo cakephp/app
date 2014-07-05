@@ -23,43 +23,32 @@ use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
-/**
- * Uncomment the define below to use CakePHP prefix routes.
- *
- * The value of the define determines the names of the routes
- * and their associated controller actions:
- *
- * Set to an array of prefixes you want to use in your application. Use for
- * admin or other prefixed routes.
- *
- * Routing.prefixes = array('admin', 'manager');
- *
- * Enables:
- *  `App\Controller\Admin` and `/admin/controller/index`
- *  `App\Controller\Manager` and `/manager/controller/index`
- *
- */
-	// Configure::write('Routing.prefixes', array('admin'));
-
+Router::scope('/', function($routes) {
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'Pages', 'action' => 'display', 'home'));
+	$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	Router::connect('/pages/*', array('controller' => 'Pages', 'action' => 'display'));
+	$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+
+/**
+ * Connect a route for the index action of any controller.
+ * And a more general catch all route for any action.
+ *
+ * You can remove these routes once you've connected the
+ * routes you want in your application.
+ */
+	$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);
+	$routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);
+});
 
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
  */
 	Plugin::routes();
-
-/**
- * Load the CakePHP default routes. This will help you get started and make every controller and action available by
- * default, though we recommend to write out all your routes and remove this line.
- */
-	require CAKE . 'Config/routes.php';
