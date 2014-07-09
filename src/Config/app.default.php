@@ -280,7 +280,7 @@ $config = [
  * - 'database' - Uses CakePHP's database sessions.
  * - 'cache' - Use the Cache class to save sessions.
  *
- * To define a custom session handler, save it at /src/Network/Session/<name>.php.
+ * To define a custom session handler, save it at src/Network/Session/<name>.php.
  * Make sure the class implements PHP's `SessionHandlerInterface` and set
  * Session.handler to <name>
  *
