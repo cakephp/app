@@ -27,7 +27,7 @@ Router::scope('/', function($routes) {
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
- * to use (in this case, /app/View/Pages/home.ctp)...
+ * to use (in this case, src/Template/Pages/home.ctp)...
  */
 	$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 

@@ -90,11 +90,11 @@ endif;
 		$settings = Cache::config('_cake_model_');
 		if (!empty($settings)):
 			echo '<span class="notice success">';
-				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit APP/Config/app.php';
+				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit src/Config/app.php';
 			echo '</span>';
 		else:
 			echo '<span class="notice">';
-				echo 'Your cache is NOT working. Please check the settings in APP/Config/cache.php';
+				echo 'Your cache is NOT working. Please check the settings in src/Config/app.php';
 			echo '</span>';
 		endif;
 	?>
