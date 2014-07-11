@@ -101,7 +101,7 @@ endif;
 </p>
 <?php
 	try {
-		$connection = ConnectionManager::getDataSource('default');
+		$connection = ConnectionManager::get('default');
 		$connected = $connection->connect();
 	} catch (Exception $connectionError) {
 		$connected = false;
