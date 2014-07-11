@@ -21,7 +21,7 @@ $config = [
  * - dir - Name of app directory.
  * - webroot - The webroot directory.
  * - www_root - The file path to webroot.
- * - baseUrl - To configure CakePHP *not* to use mod_rewrite and to
+ * - baseUrl - To configure CakePHP to *not* use mod_rewrite and to
  *   use CakePHP pretty URLs, remove these .htaccess
  *   files:
  *      /.htaccess
