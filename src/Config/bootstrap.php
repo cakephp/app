@@ -103,7 +103,7 @@ if ($isCli) {
 }
 
 /**
- * Set the full base url.
+ * Set the full base URL.
  * This URL is used as the base of all absolute links.
  *
  * If you define fullBaseUrl in your config file you can remove this.
