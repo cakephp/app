@@ -143,7 +143,7 @@ endif;
 	<a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a>
 </p>
 
-<h3>Official Plugins</h3>
+<!--<h3>Official Plugins</h3>
 <p>
 <ul>
 	<li>
@@ -155,7 +155,7 @@ endif;
 		contains various localized validation classes and translations for specific countries.
 	</li>
 </ul>
-</p>
+</p>-->
 
 <h3>More about Cake</h3>
 <p>
