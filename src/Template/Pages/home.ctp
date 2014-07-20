@@ -127,19 +127,6 @@ endif;
 		endif;
 	?>
 </p>
-<p>
-	<?php
-		if (Plugin::loaded('DebugKit')):
-			echo '<span class="success">DebugKit plugin is present</span>';
-		else:
-			echo '<span class="notice">';
-				echo 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.';
-				echo '<br/>';
-				echo 'You can install it from <a href="https://github.com/cakephp/debug_kit">github</a>';
-			echo '</span>';
-		endif;
-	?>
-</p>
 
 <h3><?php echo 'Editing this Page'; ?></h3>
 <p>
