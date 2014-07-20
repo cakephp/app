@@ -127,16 +127,6 @@ endif;
 		endif;
 	?>
 </p>
-<?php
-	if (!Validation::alphaNumeric('cakephp')):
-		echo '<p><span class="notice">';
-			echo 'PCRE has not been compiled with Unicode support.';
-			echo '<br/>';
-			echo 'Recompile PCRE with Unicode support by adding <code>--enable-unicode-properties</code> when configuring';
-		echo '</span></p>';
-	endif;
-?>
-
 <p>
 	<?php
 		if (Plugin::loaded('DebugKit')):
