@@ -410,6 +410,7 @@ form .error-message {
 p.error,
 p.notice,
 .error-message {
+	display: block;
 	clear: both;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	background-repeat: repeat-x;

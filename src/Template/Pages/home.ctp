@@ -43,7 +43,7 @@ endif;
 <p>
 <?php
 	if (version_compare(PHP_VERSION, '5.4.19', '>=')):
-		echo '<span class="notice success">Your version of PHP is 5.4.19 or higher.</span>';
+		echo '<span class="success">Your version of PHP is 5.4.19 or higher.</span>';
 	else:
 		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.19 or higher to use CakePHP.</span>';
 	endif;
@@ -52,7 +52,7 @@ endif;
 <p>
 <?php
 	if (extension_loaded('mbstring')):
-		echo '<span class="notice success">Your version of PHP has the mbstring extension loaded.</span>';
+		echo '<span class="success">Your version of PHP has the mbstring extension loaded.</span>';
 	else:
 		echo '<span class="notice">Your version of PHP does NOT have the mbstring extension loaded.</span>';
 	endif;
@@ -61,7 +61,7 @@ endif;
 <p>
 <?php
 	if (extension_loaded('mcrypt')):
-		echo '<span class="notice success">Your version of PHP has the mcrypt extension loaded.</span>';
+		echo '<span class="success">Your version of PHP has the mcrypt extension loaded.</span>';
 	else:
 		echo '<span class="notice">Your version of PHP does NOT have the mcrypt extension loaded.</span>';
 	endif;
@@ -70,7 +70,7 @@ endif;
 <p>
 <?php
 	if (extension_loaded('intl')):
-		echo '<span class="notice success">Your version of PHP has the intl extension loaded.</span>';
+		echo '<span class="success">Your version of PHP has the intl extension loaded.</span>';
 	else:
 		echo '<span class="notice">Your version of PHP does NOT have the intl extension loaded.</span>';
 	endif;
@@ -79,7 +79,7 @@ endif;
 <p>
 	<?php
 		if (is_writable(TMP)):
-			echo '<span class="notice success">Your tmp directory is writable.</span>';
+			echo '<span class="success">Your tmp directory is writable.</span>';
 		else:
 			echo '<span class="notice">Your tmp directory is NOT writable.</span>';
 		endif;
@@ -89,7 +89,7 @@ endif;
 	<?php
 		$settings = Cache::config('_cake_model_');
 		if (!empty($settings)):
-			echo '<span class="notice success">';
+			echo '<span class="success">';
 				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit src/Config/app.php';
 			echo '</span>';
 		else:
@@ -117,7 +117,7 @@ endif;
 <p>
 	<?php
 		if ($connected):
-			echo '<span class="notice success">CakePHP is able to connect to the database.</span>';
+			echo '<span class="success">CakePHP is able to connect to the database.</span>';
 		else:
 			echo '<span class="notice">';
 				echo 'CakePHP is NOT able to connect to the database.';
@@ -140,7 +140,7 @@ endif;
 <p>
 	<?php
 		if (Plugin::loaded('DebugKit')):
-			echo '<span class="notice success">DebugKit plugin is present</span>';
+			echo '<span class="success">DebugKit plugin is present</span>';
 		else:
 			echo '<span class="notice">';
 				echo 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.';
