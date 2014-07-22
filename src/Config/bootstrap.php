@@ -163,6 +163,5 @@ Request::addDetector('tablet', function($request) {
  */
 
 DispatcherFactory::add('Asset');
-DispatcherFactory::add('Cache');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
