@@ -52,6 +52,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			?>
 		</div>
 	</div>
-	<?= $this->element('sql_dump'); ?>
 </body>
 </html>
