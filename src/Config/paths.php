@@ -51,7 +51,7 @@ define('WWW_ROOT', ROOT . DS . WEBROOT_DIR . DS);
 /**
  * Path to the tests directory.
  */
-define('TESTS', ROOT . DS . 'Test' . DS);
+define('TESTS', ROOT . DS . 'tests' . DS);
 
 /**
  * Path to the temporary files directory.
