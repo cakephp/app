@@ -26,9 +26,9 @@ endif;
 ?>
 <iframe src="http://cakephp.org/bake-banner" width="830" height="160" style="overflow:hidden; border:none;">
 </iframe>
-<h2>Release Notes for CakePHP <?= Configure::version(); ?></h2>
+<h2>Release Notes for CakePHP <?= Configure::version() ?></h2>
 <p>
-	<a href="http://cakephp.org/changelogs/<?= Configure::version(); ?>">Read the changelog</a>
+	<a href="http://cakephp.org/changelogs/<?= Configure::version() ?>">Read the changelog</a>
 </p>
 <?php
 if (Configure::read('debug')):
@@ -128,7 +128,7 @@ endif;
 	?>
 </p>
 
-<h3><?php echo 'Editing this Page'; ?></h3>
+<h3>Editing this Page</h3>
 <p>
 	To change the content of this page, edit: src/Template/Pages/home.ctp.<br />
 	To change its layout, edit: src/Template/Layout/default.ctp.<br />

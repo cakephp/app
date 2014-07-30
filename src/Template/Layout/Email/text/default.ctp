@@ -13,6 +13,6 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<?php echo $this->fetch('content'); ?>
+<?= $this->fetch('content') ?>
 
 This email was sent using the CakePHP Framework, http://cakephp.org.

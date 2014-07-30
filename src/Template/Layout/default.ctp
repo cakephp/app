@@ -18,37 +18,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!DOCTYPE html>
 <html>
 <head>
-	<?= $this->Html->charset(); ?>
+	<?= $this->Html->charset() ?>
 	<title>
-		<?= $cakeDescription; ?>:
-		<?= $this->fetch('title'); ?>
+		<?= $cakeDescription ?>:
+		<?= $this->fetch('title') ?>
 	</title>
-	<?php
-		echo $this->Html->meta('icon');
+	<?= $this->Html->meta('icon') ?>
 
-		echo $this->Html->css('cake.generic');
+	<?= $this->Html->css('cake.generic') ?>
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+	<?= $this->fetch('meta') ?>
+	<?= $this->fetch('css') ?>
+	<?= $this->fetch('script') ?>
 </head>
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?= $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1><?= $this->Html->link($cakeDescription, 'http://cakephp.org') ?></h1>
 		</div>
 		<div id="content">
-			<?= $this->Flash->render(); ?>
+			<?= $this->Flash->render() ?>
 
-			<?= $this->fetch('content'); ?>
+			<?= $this->fetch('content') ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+			<?= $this->Html->link(
+					$this->Html->image('cake.power.gif', ['alt' => $cakeDescription, 'border' => '0']),
 					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
+					['target' => '_blank', 'escape' => false]
+				)
 			?>
 		</div>
 	</div>
