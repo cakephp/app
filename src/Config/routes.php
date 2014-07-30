@@ -41,8 +41,8 @@ Router::scope('/', function($routes) {
  * And a more general catch all route for any action.
  *
  * The `fallbacks` method is a shortcut for
- *    `$this->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);`
- *    `$this->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);`
+ *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);`
+ *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);`
  *
  * You can remove these routes once you've connected the
  * routes you want in your application.
