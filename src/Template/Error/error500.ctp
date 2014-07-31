@@ -1,10 +1,10 @@
 <?php
 use Cake\Core\Configure;
 ?>
-<h2><?= $message ?></h2>
+<h2><?= h($message) ?></h2>
 <p class="error">
 	<strong><?= __d('cake', 'Error') ?>: </strong>
-	<?= __d('cake', 'An Internal Error Has Occurred.'); ?>
+	<?= __d('cake', 'An Internal Error Has Occurred.') ?>
 </p>
 <?php
 if (Configure::read('debug')):
