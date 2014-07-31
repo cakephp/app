@@ -46,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					$this->Html->image('cake.power.gif', ['alt' => $cakeDescription, 'border' => '0']),
 					'http://www.cakephp.org/',
 					['target' => '_blank', 'escape' => false]
-				);
+				)
 			?>
 		</div>
 	</div>
