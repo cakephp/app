@@ -19,7 +19,6 @@
  */
 namespace App\Config;
 
-use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
