@@ -45,8 +45,8 @@ class Installer {
  * @return void
  */
 	public static function createAppConfig($dir, $io) {
-		$appConfig = $dir . '/src/Config/app.php';
-		$defaultConfig = $dir . '/src/Config/app.default.php';
+		$appConfig = $dir . '/config/app.php';
+		$defaultConfig = $dir . '/config/app.default.php';
 		if (!file_exists($appConfig)) {
 			copy($defaultConfig, $appConfig);
 			$io->write('Created `Config/app.php` file');
@@ -106,7 +106,7 @@ class Installer {
  * @return void
  */
 	public static function setSecuritySalt($dir, $io) {
-		$config = $dir . '/src/Config/app.php';
+		$config = $dir . '/config/app.php';
 		$content = file_get_contents($config);
 
 		$newKey = hash('sha256', $dir . php_uname() . microtime(true));
@@ -119,7 +119,7 @@ class Installer {
 
 		$result = file_put_contents($config, $content);
 		if ($result) {
-			$io->write('Updated Security.salt value in src/Config/app.php');
+			$io->write('Updated Security.salt value in config/app.php');
 			return;
 		}
 		$io->write('Unable to update Security.salt value.');

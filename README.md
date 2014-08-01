@@ -17,5 +17,5 @@ the setup traffic lights.
 
 ## Configuration
 
-Read and edit `src/Config/app.php` and setup the 'Datasources' and any other
+Read and edit `config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
