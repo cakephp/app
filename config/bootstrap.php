@@ -32,7 +32,7 @@ require ROOT . '/vendor/autoload.php';
  * - Registering the CakePHP autoloader.
  * - Setting the default application paths.
  */
-require CAKE . 'bootstrap.php';
+require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
 use Cake\Cache\Cache;
 use Cake\Configure\Engine\PhpConfig;
