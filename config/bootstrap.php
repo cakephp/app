@@ -12,7 +12,6 @@
  * @since         0.10.8
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Config;
 
 /**
  * Configure paths required to find CakePHP + general filepath
