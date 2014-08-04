@@ -100,7 +100,7 @@ $config = [
 	 */
 		'_cake_model_' => [
 			'className' => 'File',
-			'prefix' => 'my_app_cake_model_',
+			'prefix' => 'myapp_cake_model_',
 			'path' => CACHE . 'models/',
 			'serialize' => true,
 			'duration' => '+2 minutes',
