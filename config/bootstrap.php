@@ -87,6 +87,12 @@ date_default_timezone_set('UTC');
 mb_internal_encoding(Configure::read('App.encoding'));
 
 /**
+ * Set the default locale. This controls how dates, number and currency is
+ * formatted and sets the default language to use for translations.
+ */
+ini_set('intl.default_locale', 'en_US');
+
+/**
  * Register application error and exception handlers.
  */
 $isCli = php_sapi_name() === 'cli';
