@@ -38,7 +38,7 @@ class Installer {
 	}
 
 /**
- * Create the Config/app.php file if it does not exist.
+ * Create the config/app.php file if it does not exist.
  *
  * @param string $dir The application's root directory.
  * @param Composer\IO\IOInterface $io IO interface to write to console.
@@ -49,7 +49,7 @@ class Installer {
 		$defaultConfig = $dir . '/config/app.default.php';
 		if (!file_exists($appConfig)) {
 			copy($defaultConfig, $appConfig);
-			$io->write('Created `Config/app.php` file');
+			$io->write('Created `config/app.php` file');
 		}
 	}
 
