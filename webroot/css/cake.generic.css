@@ -175,19 +175,6 @@ table td.actions a {
 	padding:2px 5px;
 }
 
-/* SQL log */
-.cake-sql-log {
-	background: #fff;
-}
-.cake-sql-log td {
-	padding: 4px 8px;
-	text-align: left;
-	font-family: Monaco, Consolas, "Courier New", monospaced;
-}
-.cake-sql-log caption {
-	color:#fff;
-}
-
 /** Paging **/
 .pagination {
 	background:#fff;
