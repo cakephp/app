@@ -8,6 +8,7 @@ use Cake\Core\Configure;
 </p>
 <?php
 if (Configure::read('debug')):
+	echo $this->element('auto_table_warning');
 	echo $this->element('exception_stack_trace');
 endif;
 ?>
