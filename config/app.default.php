@@ -269,7 +269,7 @@ $config = [
  *
  * Session configuration.
  *
- * Contains an array of settings to use for session configuration. The defaults key is
+ * Contains an array of settings to use for session configuration. The `defaults` key is
  * used to define a default preset to use for sessions, any settings declared here will override
  * the settings of the default config.
  *
@@ -279,13 +279,13 @@ $config = [
  * - `timeout` - The number of minutes you want sessions to live for. This timeout is handled by CakePHP
  *    value to false, when dealing with older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
  * - `defaults` - The default configuration set to use as a basis for your session.
- *    There are four builtins: php, cake, cache, database.
+ *    There are four built-in options: php, cake, cache, database.
  * - `handler` - Can be used to enable a custom session handler. Expects an array with at least the `engine` key,
  *    being the name of the Session engine class to use for managing the session. CakePHP bundles the `CacheSession`
  *    and `DatabaseSession` engines.
  * - `ini` - An associative array of additional ini values to set.
  *
- * The built in defaults are:
+ * The built-in `defaults` options are:
  *
  * - 'php' - Uses settings defined in your php.ini.
  * - 'cake' - Saves session files in CakePHP's /tmp directory.
