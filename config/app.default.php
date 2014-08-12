@@ -65,7 +65,7 @@ $config = [
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
  * Will append a querystring parameter containing the time the file was modified. This is
- * useful for invalidating browser caches.
+ * useful for busting browser caches.
  *
  * Set to true to apply timestamps when debug is true. Set to 'force' to always enable
  * timestamping regardless of debug value.
