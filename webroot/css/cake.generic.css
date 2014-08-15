@@ -298,7 +298,7 @@ label {
 	font-size: 110%;
 	margin-bottom:3px;
 }
-input, textarea {
+input, textarea, button {
 	clear: both;
 	font-size: 140%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
@@ -337,12 +337,14 @@ input[type=radio] {
 	margin: 0 0 6px 20px;
 	line-height: 26px;
 }
-input[type=submit] {
+input[type=submit],
+button {
 	display: inline;
 	font-size: 110%;
 	width: auto;
 }
-form .submit input[type=submit] {
+form .submit input[type=submit],
+form .submit button {
 	background:#62af56;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
 	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
@@ -352,7 +354,8 @@ form .submit input[type=submit] {
 	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
 	padding: 8px 10px;
 }
-form .submit input[type=submit]:hover {
+form .submit input[type=submit]:hover,
+form .submit button:hover {
 	background: #5BA150;
 }
 /* Form errors */
@@ -479,6 +482,7 @@ p.error em, p.notice em {
 
 /* Buttons and button links */
 input[type=submit],
+button,
 .actions ul li a,
 .actions a {
 	font-weight:normal;
@@ -511,6 +515,7 @@ input[type=submit],
 	text-decoration: none;
 }
 input[type=submit]:active,
+button:active,
 .actions ul li a:active,
 .actions a:active {
 	background: #eee;
