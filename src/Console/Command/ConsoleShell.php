@@ -46,6 +46,7 @@ class ConsoleShell extends Shell {
 
 		Log::drop('debug');
 		Log::drop('error');
+		$this->_io->setLoggers(false);
 		restore_error_handler();
 		restore_exception_handler();
 
