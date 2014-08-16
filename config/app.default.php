@@ -30,8 +30,9 @@ $config = [
  * - imageBaseUrl - Web path to the public images directory under webroot.
  * - cssBaseUrl - Web path to the public css directory under webroot.
  * - jsBaseUrl - Web path to the public js directory under webroot.
- * - paths - Configure paths for non class based resources. Supports the `plugins` and `templates`
- *   subkeys, which allow the definition of paths for plugins and view templates respectively.
+ * - paths - Configure paths for non class based resources. Supports the
+ *   `plugins` and `templates` subkeys, which allow the definition of paths for
+ *   plugins and view templates respectively.
  */
 	'App' => [
 		'namespace' => 'App',
@@ -64,11 +65,11 @@ $config = [
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
- * Will append a querystring parameter containing the time the file was modified. This is
- * useful for busting browser caches.
+ * Will append a querystring parameter containing the time the file was modified.
+ * This is useful for busting browser caches.
  *
- * Set to true to apply timestamps when debug is true. Set to 'force' to always enable
- * timestamping regardless of debug value.
+ * Set to true to apply timestamps when debug is true. Set to 'force' to always
+ * enable timestamping regardless of debug value.
  */
 	'Asset' => [
 		// 'timestamp' => true,
@@ -83,8 +84,9 @@ $config = [
 		],
 
 	/**
-	 * Configure the cache used for general framework caching.  Path information,
-	 * object listings, and translation cache files are stored with this configuration.
+	 * Configure the cache used for general framework caching. Path information,
+	 * object listings, and translation cache files are stored with this
+	 * configuration.
 	 */
 		'_cake_core_' => [
 			'className' => 'File',
@@ -95,8 +97,9 @@ $config = [
 		],
 
 	/**
-	 * Configure the cache for model and datasource caches.  This cache configuration
-	 * is used to store schema descriptions, and table listings in connections.
+	 * Configure the cache for model and datasource caches. This cache
+	 * configuration is used to store schema descriptions, and table listings
+	 * in connections.
 	 */
 		'_cake_model_' => [
 			'className' => 'File',
@@ -110,8 +113,8 @@ $config = [
 /**
  * Configure the Error and Exception handlers used by your application.
  *
- * By default errors are displayed using Debugger, when debug is true and logged by
- * Cake\Log\Log when debug is false.
+ * By default errors are displayed using Debugger, when debug is true and logged
+ * by Cake\Log\Log when debug is false.
  *
  * In CLI environments exceptions will be printed to stderr with a backtrace.
  * In web environments an HTML page will be displayed for the exception.
@@ -126,10 +129,11 @@ $config = [
  * - `log` - boolean - Whether or not you want exceptions logged.
  * - `exceptionRenderer` - string - The class responsible for rendering
  *   uncaught exceptions.  If you choose a custom class you should place
- *   the file for that class in src/Lib/Error. This class needs to implement a render method.
+ *   the file for that class in src/Lib/Error. This class needs to implement a
+ *   render method.
  * - `skipLog` - array - List of exceptions to skip for logging. Exceptions that
  *   extend one of the listed exceptions will also be skipped for logging.
- *   Example: `'skipLog' => array('Cake\Error\NotFoundException', 'Cake\Error\UnauthorizedException')`
+ *   E.g.: `'skipLog' => ['Cake\Error\NotFoundException', 'Cake\Error\UnauthorizedException']`
  */
 	'Error' => [
 		'errorLevel' => E_ALL & ~E_DEPRECATED,
@@ -144,10 +148,11 @@ $config = [
  *
  * You can configure email transports and email delivery profiles here.
  *
- * By defining transports separately from delivery profiles you can easily re-use transport
- * configuration across multiple profiles.
+ * By defining transports separately from delivery profiles you can easily
+ * re-use transport configuration across multiple profiles.
  *
- * You can specify multiple configurations for production, development and testing.
+ * You can specify multiple configurations for production, development and
+ * testing.
  *
  * ### Configuring transports
  *
@@ -158,15 +163,16 @@ $config = [
  *  Debug  - Do not send the email, just return the result
  *
  * You can add custom transports (or override existing transports) by adding the
- * appropriate file to src/Network/Email.  Transports should be named 'YourTransport.php',
- * where 'Your' is the name of the transport.
+ * appropriate file to src/Network/Email.  Transports should be named
+ * 'YourTransport.php', where 'Your' is the name of the transport.
  *
  * ### Configuring delivery profiles
  *
- * Delivery profiles allow you to predefine various properties about email messages
- * from your application and give the settings a name. This saves duplication across your
- * application and makes maintenance and development easier. Each profile accepts a number of keys
- * See Cake\Network\Email\Email for more information.
+ * Delivery profiles allow you to predefine various properties about email
+ * messages from your application and give the settings a name. This saves
+ * duplication across your application and makes maintenance and development
+ * easier. Each profile accepts a number of keys. See `Cake\Network\Email\Email`
+ * for more information.
  */
 	'EmailTransport' => [
 		'default' => [
@@ -269,21 +275,24 @@ $config = [
  *
  * Session configuration.
  *
- * Contains an array of settings to use for session configuration. The `defaults` key is
- * used to define a default preset to use for sessions, any settings declared here will override
- * the settings of the default config.
+ * Contains an array of settings to use for session configuration. The
+ * `defaults` key is used to define a default preset to use for sessions, any
+ * settings declared here will override the settings of the default config.
  *
  * ## Options
  *
- * - `cookie` - The name of the cookie to use. Defaults to 'CAKEPHP'
+ * - `cookie` - The name of the cookie to use. Defaults to 'CAKEPHP'.
  * - `cookie_path` - The url path for which session cookie is set. Maps to the
  *   `session.cookie_path` php.ini config. Defaults to base path of app.
- * - `timeout` - The number of minutes you want sessions to live for. This timeout is handled by CakePHP
- *    value to false, when dealing with older versions of IE, Chrome Frame or certain web-browsing devices and AJAX
+ * - `timeout` - The number of minutes you want sessions to live for. This
+ *    timeout is handled by CakePHP.
+ *    value to false, when dealing with older versions of IE, Chrome Frame or
+ *    certain web-browsing devices and AJAX.
  * - `defaults` - The default configuration set to use as a basis for your session.
  *    There are four built-in options: php, cake, cache, database.
- * - `handler` - Can be used to enable a custom session handler. Expects an array with at least the `engine` key,
- *    being the name of the Session engine class to use for managing the session. CakePHP bundles the `CacheSession`
+ * - `handler` - Can be used to enable a custom session handler. Expects an
+ *    array with at least the `engine` key, being the name of the Session engine
+ *    class to use for managing the session. CakePHP bundles the `CacheSession`
  *    and `DatabaseSession` engines.
  * - `ini` - An associative array of additional ini values to set.
  *
