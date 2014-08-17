@@ -25,7 +25,7 @@ class Installer {
 /**
  * Does some routine installation tasks so people don't have to.
  *
- * @param Composer\Script\Event $event The composer event object.
+ * @param \Composer\Script\Event $event The composer event object.
  * @return void
  */
 	public static function postInstall(Event $event) {
@@ -33,7 +33,7 @@ class Installer {
 
 		$rootDir = dirname(dirname(__DIR__));
 		static::createAppConfig($rootDir, $io);
-		static::setTmpPermissions($rootDir, $io);
+		static::setFolderPermissions($rootDir, $io);
 		static::setSecuritySalt($rootDir, $io);
 	}
 
@@ -41,7 +41,7 @@ class Installer {
  * Create the config/app.php file if it does not exist.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface $io IO interface to write to console.
+ * @param \Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
 	public static function createAppConfig($dir, $io) {
@@ -54,15 +54,15 @@ class Installer {
 	}
 
 /**
- * Set globally writable permissions on the tmp directory.
+ * Set globally writable permissions on the "tmp" and "logs" directory.
  *
  * This is not the most secure default, but it gets people up and running quickly.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface $io IO interface to write to console.
+ * @param \Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
-	public static function setTmpPermissions($dir, $io) {
+	public static function setFolderPermissions($dir, $io) {
 		// Change the permissions on a path and output the results.
 		$changePerms = function ($path, $perms, $io) {
 			// Get current permissions in decimal format so we can bitmask it.
@@ -96,13 +96,14 @@ class Installer {
 		$worldWritable = bindec('0000000111');
 		$walker($dir . '/tmp', $worldWritable, $io);
 		$changePerms($dir . '/tmp', $worldWritable, $io);
+		$changePerms($dir . '/logs', $worldWritable, $io);
 	}
 
 /**
  * Set the security.salt value in the application's config file.
  *
  * @param string $dir The application's root directory.
- * @param Composer\IO\IOInterface $io IO interface to write to console.
+ * @param \Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
  */
 	public static function setSecuritySalt($dir, $io) {
