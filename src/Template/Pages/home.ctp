@@ -87,6 +87,15 @@ endif;
 </p>
 <p>
 	<?php
+		if (is_writable(LOGS)):
+			echo '<span class="success">Your logs directory is writable.</span>';
+		else:
+			echo '<span class="notice">Your log directory is NOT writable.</span>';
+		endif;
+	?>
+</p>
+<p>
+	<?php
 		$settings = Cache::config('_cake_model_');
 		if (!empty($settings)):
 			echo '<span class="success">';
