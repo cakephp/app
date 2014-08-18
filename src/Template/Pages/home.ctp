@@ -90,7 +90,7 @@ endif;
 		if (is_writable(LOGS)):
 			echo '<span class="success">Your logs directory is writable.</span>';
 		else:
-			echo '<span class="notice">Your log directory is NOT writable.</span>';
+			echo '<span class="notice">Your logs directory is NOT writable.</span>';
 		endif;
 	?>
 </p>
