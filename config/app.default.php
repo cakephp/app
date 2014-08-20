@@ -47,8 +47,8 @@ $config = [
 		'cssBaseUrl' => 'css/',
 		'jsBaseUrl' => 'js/',
 		'paths' => [
-			'plugins' => [ROOT . '/plugins/'],
-			'templates' => [APP . 'Template/'],
+			'plugins' => [ROOT . DS . 'plugins' . DS],
+			'templates' => [APP . 'Template' . DS],
 		],
 	],
 
