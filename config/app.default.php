@@ -232,7 +232,7 @@ $config = [
 			* mysql configuration directive 'innodb_stats_on_metadata = 0'
 			* which is the recommended value in production enviroments
 			*/
-			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+			//'init' => ['GLOBAL innodb_stats_on_metadata = 0'],
 		],
 
 		/**
@@ -251,7 +251,7 @@ $config = [
 			'timezone' => 'UTC',
 			'cacheMetadata' => true,
 			'quoteIdentifiers' => false,
-			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+			//'init' => ['GLOBAL innodb_stats_on_metadata = 0'],
 		],
 	],
 
