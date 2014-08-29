@@ -27,5 +27,8 @@
 	},
 	"scripts": {
 		"post-install-cmd": "App\\Console\\Installer::postInstall"
+	},
+	"config" : {
+		"bin-dir" : "bin"
 	}
 }
