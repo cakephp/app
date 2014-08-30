@@ -230,7 +230,7 @@ $config = [
 			* following line could boost the speed at which schema metadata is
 			* fetched from the database. It can also be set directly with the
 			* mysql configuration directive 'innodb_stats_on_metadata = 0'
-			* which is the recommended value in production enviroments
+			* which is the recommended value in production environments
 			*/
 			//'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
 		],
