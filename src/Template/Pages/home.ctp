@@ -96,7 +96,7 @@ endif;
 </p>
 <p>
 	<?php
-		$settings = Cache::config('_cake_model_');
+		$settings = Cache::config('_cake_core_');
 		$cacheConfig = $settings['className']->getConfig();
 		if (!empty($settings)):
 			echo '<span class="success">';
