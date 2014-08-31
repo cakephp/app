@@ -163,6 +163,8 @@ Request::addDetector('tablet', function($request) {
  *
  */
 
+Plugin::load('DebugKit', ['bootstrap' => true]);
+
 /**
  * Connect middleware/dispatcher filters.
  */
