@@ -153,6 +153,10 @@ Request::addDetector('tablet', function($request) {
  *
  */
 
+if (Configure::read('debug')) {
+	Plugin::load('DebugKit', ['bootstrap' => true]);
+}
+
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
  * Uncomment one of the lines below, as you need. make sure you read the documentation on Plugin to use more
