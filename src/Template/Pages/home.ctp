@@ -16,12 +16,12 @@ use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
-use Cake\Error;
 use Cake\Error\Debugger;
+use Cake\Network\Exception\NotFoundException;
 use Cake\Validation\Validation;
 
 if (!Configure::read('debug')):
-	throw new Error\NotFoundException();
+	throw new NotFoundException();
 endif;
 ?>
 <iframe src="http://cakephp.org/bake-banner" width="830" height="160" style="overflow:hidden; border:none;">

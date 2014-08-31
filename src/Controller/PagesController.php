@@ -15,8 +15,9 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
-use Cake\Error;
+use Cake\Network\Exception\NotFoundException;
 use Cake\Utility\Inflector;
+use Cake\View\Exception\MissingViewException;
 
 /**
  * Static content controller
@@ -31,8 +32,8 @@ class PagesController extends AppController {
  * Displays a view
  *
  * @return void
- * @throws Cake\Error\NotFoundException When the view file could not be found
- *    or Cake\Error\MissingViewException in debug mode.
+ * @throws Cake\Network\Exception\NotFoundException When the view file could not be found
+ *    or Cake\Exception\MissingViewException in debug mode.
  */
 	public function display() {
 		$path = func_get_args();
@@ -56,11 +57,11 @@ class PagesController extends AppController {
 
 		try {
 			$this->render(implode('/', $path));
-		} catch (Error\MissingViewException $e) {
+		} catch (MissingViewException $e) {
 			if (Configure::read('debug')) {
 				throw $e;
 			}
-			throw new Error\NotFoundException();
+			throw new NotFoundException();
 		}
 	}
 }
