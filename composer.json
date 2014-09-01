@@ -14,7 +14,8 @@
 		"d11wtq/boris": "1.0.*"
 	},
 	"suggest": {
-		"phpunit/phpunit": "Allows automated tests to be run without system-wide install."
+		"phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
+		"cakephp/cakephp-codesniffer": "Allows to check the code against the coding standards used in CakePHP."
 	},
 	"autoload": {
 		"psr-4": {
