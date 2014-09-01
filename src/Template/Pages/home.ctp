@@ -98,8 +98,12 @@ endif;
 	<?php
 		$settings = Cache::config('_cake_model_');
 		if (!empty($settings)):
+			$cacheClass = $settings['className'];
+			if (is_object($cacheClass)) {
+				$cacheClass = get_class($cacheClass);
+			}
 			echo '<span class="success">';
-				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
+				echo 'The <em>'. $cacheClass . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
 			echo '</span>';
 		else:
 			echo '<span class="notice">';
