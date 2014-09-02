@@ -97,10 +97,9 @@ endif;
 <p>
 	<?php
 		$settings = Cache::config('_cake_core_');
-		$cacheConfig = $settings['className']->getConfig();
 		if (!empty($settings)):
 			echo '<span class="success">';
-				echo 'The <em>'. $cacheConfig['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
+				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
 			echo '</span>';
 		else:
 			echo '<span class="notice">';
