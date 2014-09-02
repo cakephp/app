@@ -96,7 +96,7 @@ endif;
 </p>
 <p>
 	<?php
-		$settings = Cache::config('_cake_model_');
+		$settings = Cache::config('_cake_core_');
 		if (!empty($settings)):
 			echo '<span class="success">';
 				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
