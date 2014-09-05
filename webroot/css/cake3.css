@@ -1,0 +1,105 @@
+header {
+	background-color: #00bcd4;
+	color: #ffffff;
+	font-size: 30px;
+	height: 84px;
+	line-height: 64px;
+	padding: 16px 0px;
+}
+
+header .header-title {
+	padding-left:80px
+}
+
+legend {
+	color:#00BCD4;
+}
+
+.row {
+	max-width: 80rem;
+}
+
+.actions.columns {
+	margin-top:1rem;
+	border-left: 5px solid #00BCD4;
+	padding-left: 15px;
+	padding: 32px 20px;
+}
+
+.actions.columns h3 {
+	color:#00BCD4;
+}
+
+.index table {
+	margin-top: 2rem;
+	border: 0;
+}
+
+.index table thead {
+	height: 3.5rem;
+}
+
+.header-help {
+	position:absolute;
+	top:0;
+	right:2rem;
+	font-size:16px;
+}
+
+.header-help span {
+	font-weight: normal;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1;
+	white-space: nowrap;
+	display: inline-block;
+	padding: 0.25rem 0.5rem 0.375rem;
+	font-size: 0.8rem;
+	background-color: #0097a7;
+	color: #FFF;
+	border-radius: 1000px;
+}
+
+.header-help a {
+	color: #fff;
+}
+
+ul.pagination li a {
+	color: rgba(0, 0 ,0 , 0.54);
+}
+
+ul.pagination li.active a {
+    background: none repeat scroll 0% 0% #00b8d4;
+    color: #FFF;
+    font-weight: bold;
+    cursor: default;
+}
+
+.paginator {
+	text-align: center;
+}
+
+.paginator ul.pagination li {
+    float: none;
+    display: inline-block;
+}
+
+.paginator p {
+	text-align: right;
+	color: rgba(0, 0 ,0 , 0.54);
+}
+
+button {
+	background: #ff5177;
+}
+
+.form button:hover, .form button:focus {
+	background: #ff2d6f;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.26) !important;
+}
+
+.form button[type="submit"] {
+	float: right;
+	text-transform: uppercase;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+}
