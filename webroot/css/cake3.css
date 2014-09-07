@@ -114,3 +114,24 @@ button {
     font-style: italic;
     color: rgba(0, 0, 0, 0.54);
 }
+
+div.message {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	font-weight: normal;
+	margin-bottom: 1.25rem;
+	position: relative;
+	padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+	transition: opacity 300ms ease-out 0s;
+	background-color: #008CBA;
+	border-color: #0078A0;
+	color: #FFF;
+	text-indent:20%;
+}
+
+div.message.error {
+    background-color: #F04124;
+    border-color: #DE2D0F;
+    color: #FFF;
+}
