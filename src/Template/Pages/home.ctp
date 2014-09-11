@@ -23,6 +23,8 @@ use Cake\Validation\Validation;
 if (!Configure::read('debug')):
 	throw new NotFoundException();
 endif;
+
+$this->assign('title', 'Home');
 ?>
 <iframe src="http://cakephp.org/bake-banner" width="830" height="160" style="overflow:hidden; border:none;">
 </iframe>
