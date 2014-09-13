@@ -120,18 +120,43 @@ div.message {
 	border-width: 1px;
 	display: block;
 	font-weight: normal;
-	margin-bottom: 1.25rem;
 	position: relative;
 	padding: 0.875rem 1.5rem 0.875rem 0.875rem;
 	transition: opacity 300ms ease-out 0s;
 	background-color: #008CBA;
 	border-color: #0078A0;
 	color: #FFF;
-	text-indent:20%;
+	padding-left:20%;
 }
 
 div.message.error {
-    background-color: #F04124;
-    border-color: #DE2D0F;
-    color: #FFF;
+	background-color: #F04124;
+	border-color: #DE2D0F;
+	color: #FFF;
+}
+
+div.message:before {
+	line-height: 0px;
+	font-size: 20px;
+	height: 12px;
+	width: 12px;
+	border-radius: 15px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	left: -11px;
+	background-color: #FFF;
+}
+
+div.message:before {
+	padding: 12px 14px 12px 10px;
+	color: #008CBA;
+	content: "i";
+}
+
+div.message.error:before {
+	padding: 11px 16px 14px 7px;
+	color: #F04124;
+	content: "x";
 }
