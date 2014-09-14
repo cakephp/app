@@ -162,13 +162,41 @@ div.message.error:before {
 	content: "x";
 }
 
-.view .columns.numbers {
-	background-color: #455A64;
+.view h2 {
+	color: #6F6F6F;
+}
+
+.view .columns.strings {
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right:0.7rem;
+}
+
+.view .numbers {
+	background-color: #00BCD4;
 	color: #FFF;
 	border-radius: 3px;
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right:0.7rem;
 }
 
-.view .columns.numbers .subheader {
-	color:#ABABAB;
+.view .columns.dates {
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right:0.7rem;
+	background-color:#607D8B;
+	color: #fff;
 }
+
+.view .columns.booleans {
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right:0.7rem;
+	background-color:#3F51B5;
+	color: #fff;
+}
+
+.view .numbers .subheader, .view .dates .subheader, .view .booleans .subheader {
+	color:#E9E9E9;
+}
+
