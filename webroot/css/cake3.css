@@ -196,6 +196,9 @@ div.message.error:before {
 	color: #fff;
 }
 
+.view .strings p {
+	border-bottom: 1px solid #eee;
+}
 .view .numbers .subheader, .view .dates .subheader, .view .booleans .subheader {
 	color:#E9E9E9;
 }
