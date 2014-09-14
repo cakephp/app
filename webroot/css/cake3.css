@@ -5,6 +5,7 @@ header {
 	height: 84px;
 	line-height: 64px;
 	padding: 16px 0px;
+	box-shadow: 0px 1px rgba(0, 0, 0, 0.24);
 }
 
 header .header-title {
@@ -159,4 +160,15 @@ div.message.error:before {
 	padding: 11px 16px 14px 7px;
 	color: #F04124;
 	content: "x";
+}
+
+.view .columns.numbers {
+	background-color: #455A64;
+	color: #FFF;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.view .columns.numbers .subheader {
+	color:#ABABAB;
 }
