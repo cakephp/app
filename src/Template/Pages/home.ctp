@@ -44,10 +44,10 @@ endif;
 </p>
 <p>
 <?php
-	if (version_compare(PHP_VERSION, '5.4.19', '>=')):
-		echo '<span class="success">Your version of PHP is 5.4.19 or higher.</span>';
+	if (version_compare(PHP_VERSION, '5.4.16', '>=')):
+		echo '<span class="success">Your version of PHP is 5.4.16 or higher.</span>';
 	else:
-		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.19 or higher to use CakePHP.</span>';
+		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.16 or higher to use CakePHP.</span>';
 	endif;
 ?>
 </p>
