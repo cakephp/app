@@ -170,66 +170,59 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 						</p>
 					</div>
 				</div>
+				<div class="row">
+					<div class="columns large-6">
+						<h3>Editing this Page</h3>
+						<ul>
+							<li>To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
+							<li>You can also add some CSS styles for your pages at: webroot/css/.</li>
+						</ul>
+					</div>
+					<div class="columns large-6">
+						<h3>Getting Started</h3>
+						<ul>
+							<li><a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
+							<li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a></li>
+						</ul>
+						<p>
+					</div>
+				</div>
 
-				<h3>Editing this Page</h3>
-				<p>
-					To change the content of this page, edit: src/Template/Pages/home.ctp.<br />
-					To change its layout, edit: src/Template/Layout/default.ctp.<br />
-					You can also add some CSS styles for your pages at: webroot/css/.
-				</p>
+				<hr/>
+				<div class="row">
+					<div class="columns large-12">
+						<h3 class="">More about Cake</h3>
+						<p>
+							CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
+						</p>
+						<p>
+							Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+						</p>
 
-				<h3>Getting Started</h3>
-				<p>
-					<a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a>
-				</p>
-				<p>
-					<a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a>
-				</p>
-
-				<!--<h3>Official Plugins</h3>
-				<p>
-				<ul>
-					<li>
-						<a href="https://github.com/cakephp/debug_kit">DebugKit</a>
-						provides a debugging toolbar and enhanced debugging tools for CakePHP applications.
-					</li>
-					<li>
-						<a href="https://github.com/cakephp/localized">Localized</a>
-						contains various localized validation classes and translations for specific countries.
-					</li>
-				</ul>
-				</p>-->
-
-				<h3>More about Cake</h3>
-				<p>
-					CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-				</p>
-				<p>
-					Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
-				</p>
-
-				<ul>
-					<li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
-					<ul><li>Promoting development related to CakePHP</li></ul></li>
-					<li><a href="http://www.cakephp.org">CakePHP</a>
-					<ul><li>The Rapid Development Framework</li></ul></li>
-					<li><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
-					<ul><li>Your Rapid Development Cookbook</li></ul></li>
-					<li><a href="http://api.cakephp.org/3.0/">CakePHP API</a>
-					<ul><li>Quick Reference</li></ul></li>
-					<li><a href="http://bakery.cakephp.org">The Bakery</a>
-					<ul><li>Everything CakePHP</li></ul></li>
-					<li><a href="http://plugins.cakephp.org">CakePHP plugins repo</a>
-					<ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul></li>
-					<li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
-					<ul><li>Community mailing list</li></ul></li>
-					<li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-					<ul><li>Live chat about CakePHP</li></ul></li>
-					<li><a href="https://github.com/cakephp/">CakePHP Code</a>
-					<ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
-					<li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-					<ul><li>CakePHP issues and pull requests</li></ul></li>
-				</ul>
+						<ul>
+							<li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
+							<ul><li>Promoting development related to CakePHP</li></ul></li>
+							<li><a href="http://www.cakephp.org">CakePHP</a>
+							<ul><li>The Rapid Development Framework</li></ul></li>
+							<li><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
+							<ul><li>Your Rapid Development Cookbook</li></ul></li>
+							<li><a href="http://api.cakephp.org/3.0/">CakePHP API</a>
+							<ul><li>Quick Reference</li></ul></li>
+							<li><a href="http://bakery.cakephp.org">The Bakery</a>
+							<ul><li>Everything CakePHP</li></ul></li>
+							<li><a href="http://plugins.cakephp.org">CakePHP plugins repo</a>
+							<ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul></li>
+							<li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
+							<ul><li>Community mailing list</li></ul></li>
+							<li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
+							<ul><li>Live chat about CakePHP</li></ul></li>
+							<li><a href="https://github.com/cakephp/">CakePHP Code</a>
+							<ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
+							<li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
+							<ul><li>CakePHP issues and pull requests</li></ul></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer>
