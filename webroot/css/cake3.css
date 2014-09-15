@@ -260,3 +260,66 @@ pre {
 	color:#fff;
 	text-decoration: underline;
 }
+
+
+.home header {
+    height:710px;
+}
+
+.home h1 {
+    font-family: "Gill Sans", "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+}
+
+.home header .header-image {
+    margin: auto;
+    text-align:center;
+    margin-top:100px;
+}
+
+.home header h1 {
+    color: #fff;
+}
+
+.home .checks {
+    padding:30px;
+	color: #FFF;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right:0.7rem;
+    margin-top:50px;
+}
+
+.checks.platform {
+	background-color: #00BCD4;
+}
+
+.checks.filesystem {
+	background: #ffcc00;
+	color: #000;
+}
+
+.checks.database {
+	background-color: #3F51B5;
+    padding-bottom: 10px;
+}
+
+.home .checks .success:before, .home .checks .problem:before {
+    line-height: 0px;
+	font-size: 28px;
+	height: 12px;
+	width: 12px;
+	border-radius: 15px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	left: -11px;
+}
+
+.home .checks .success:before {
+    content: "✓";
+}
+
+.home .checks .problem:before {
+    content: "✘";
+}
