@@ -41,9 +41,9 @@ legend {
 }
 
 .header-help {
-	position:absolute;
-	top:0;
-	right:2rem;
+	float: right;
+	margin-right:2rem;
+	margin-top: -80px;
 	font-size:16px;
 }
 
