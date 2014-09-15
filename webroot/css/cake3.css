@@ -131,7 +131,7 @@ div.message {
 }
 
 div.message.error {
-	background-color: #F04124;
+	background-color: #FF3F35;
 	border-color: #DE2D0F;
 	color: #FFF;
 }
@@ -148,9 +148,6 @@ div.message:before {
 	position: relative;
 	left: -11px;
 	background-color: #FFF;
-}
-
-div.message:before {
 	padding: 12px 14px 12px 10px;
 	color: #008CBA;
 	content: "i";
@@ -158,7 +155,7 @@ div.message:before {
 
 div.message.error:before {
 	padding: 11px 16px 14px 7px;
-	color: #F04124;
+	color: #FF3F35;
 	content: "x";
 }
 
@@ -203,3 +200,63 @@ div.message.error:before {
 	color:#E9E9E9;
 }
 
+.view .texts .columns {
+	margin-top:1.2rem;
+	border-bottom: 1px solid #eee;
+}
+
+
+/** Notices and Errors **/
+.cake-error,
+.cake-debug,
+.notice,
+p.error,
+p.notice {
+	display: block;
+	clear: both;
+	background-repeat: repeat-x;
+	margin-bottom: 18px;
+	padding: 7px 14px;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.cake-debug,
+.notice,
+p.notice {
+	color: #000000;
+	background: #ffcc00;
+}
+
+.cake-error,
+p.error {
+	color: #fff;
+	background: #FF3F35;
+}
+
+pre {
+	background: none repeat scroll 0% 0% #FFF;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
+	margin: 15px 0px;
+	color: rgba(0, 0 ,0 , 0.74);
+	padding:5px;
+}
+
+.cake-error .cake-stack-trace {
+	margin-top:10px;
+}
+
+.cake-stack-trace code {
+	background: inherit;
+	border:0;
+}
+
+.cake-code-dump .code-highlight {
+	display: block;
+	background-color: #FFC600;
+}
+
+.cake-error a, .cake-error a:hover {
+	color:#fff;
+	text-decoration: underline;
+}
