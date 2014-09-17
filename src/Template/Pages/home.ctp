@@ -26,101 +26,30 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
-<iframe src="http://cakephp.org/bake-banner" width="830" height="160" style="overflow:hidden; border:none;">
-</iframe>
-<h2>Release Notes for CakePHP <?= Configure::version() ?></h2>
-<p>
-	<a href="http://cakephp.org/changelogs/<?= Configure::version() ?>">Read the changelog</a>
-</p>
-<?php
-if (Configure::read('debug')):
-	Debugger::checkSecurityKeys();
-endif;
-?>
-<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;">
-	URL rewriting is not properly configured on your server.
-	1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-	2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-</p>
-<p>
-<?php
-	if (version_compare(PHP_VERSION, '5.4.16', '>=')):
-		echo '<span class="success">Your version of PHP is 5.4.16 or higher.</span>';
-	else:
-		echo '<span class="notice">Your version of PHP is too low. You need PHP 5.4.16 or higher to use CakePHP.</span>';
-	endif;
-?>
-</p>
-<p>
-<?php
-	if (extension_loaded('mbstring')):
-		echo '<span class="success">Your version of PHP has the mbstring extension loaded.</span>';
-	else:
-		echo '<span class="notice">Your version of PHP does NOT have the mbstring extension loaded.</span>';
-	endif;
-?>
-</p>
-<p>
-<?php
-	if (extension_loaded('mcrypt')):
-		echo '<span class="success">Your version of PHP has the mcrypt extension loaded.</span>';
-	else:
-		echo '<span class="notice">Your version of PHP does NOT have the mcrypt extension loaded.</span>';
-	endif;
-?>
-</p>
-<p>
-<?php
-	if (extension_loaded('intl')):
-		echo '<span class="success">Your version of PHP has the intl extension loaded.</span>';
-	else:
-		echo '<span class="notice">Your version of PHP does NOT have the intl extension loaded.</span>';
-	endif;
-?>
-</p>
-<p>
-	<?php
-		if (is_writable(TMP)):
-			echo '<span class="success">Your tmp directory is writable.</span>';
-		else:
-			echo '<span class="notice">Your tmp directory is NOT writable.</span>';
-		endif;
-	?>
-</p>
-<p>
-	<?php
-		if (is_writable(LOGS)):
-			echo '<span class="success">Your logs directory is writable.</span>';
-		else:
-			echo '<span class="notice">Your logs directory is NOT writable.</span>';
-		endif;
-	?>
-</p>
-<p>
-	<?php
-		$settings = Cache::config('_cake_core_');
-		if (!empty($settings)):
-			echo '<span class="success">';
-				echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo 'Your cache is NOT working. Please check the settings in config/app.php';
-			echo '</span>';
-		endif;
-	?>
-</p>
-<?php
-	try {
-		$connection = ConnectionManager::get('default');
-		$connected = $connection->connect();
-	} catch (Exception $connectionError) {
-		$connected = false;
-		$errorMsg = $connectionError->getMessage();
-		if (method_exists($connectionError, 'getAttributes')):
-			$attributes = $connectionError->getAttributes();
-			if (isset($errorMsg['message'])):
-				$errorMsg .= '<br />' . $attributes['message'];
+<!DOCTYPE html>
+<html>
+<head>
+	<?= $this->Html->charset() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		<?= $cakeDescription ?>
+	</title>
+	<?= $this->Html->meta('icon') ?>
+	<?= $this->Html->css('foundation.min.css') ?>
+	<?= $this->Html->css('cake.css') ?>
+</head>
+<body class="home">
+	<header>
+		<div class="header-image">
+			<?= $this->Html->image('http://cakephp.org/img/cake-logo.png'); ?>
+			<h1> Get the ovens ready</h1>
+		</div>
+	</header>
+	<div id="content">
+		<div class="row">
+			<?php
+			if (Configure::read('debug')):
+				Debugger::checkSecurityKeys();
 			endif;
 			?>
 			<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;display:none">
