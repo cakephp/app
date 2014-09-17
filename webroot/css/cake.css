@@ -1,5 +1,21 @@
+a:hover {
+  color: #15848F;
+}
+
+a {
+  color: #1798A5;
+}
+
+.side-nav li a:not(.button) {
+    color: #15848F;
+}
+
+.side-nav li a:not(.button):hover {
+    color: #DCE47E;
+}
+
 header {
-  background-color: #00bcd4;
+  background-color: #15848F;
   color: #ffffff;
   font-size: 30px;
   height: 84px;
@@ -12,8 +28,9 @@ header .header-title {
   padding-left:80px
 }
 
+
 legend {
-  color:#00BCD4;
+  color:#15848F;
 }
 
 .row {
@@ -22,13 +39,13 @@ legend {
 
 .actions.columns {
   margin-top:1rem;
-  border-left: 5px solid #00BCD4;
+  border-left: 5px solid #15848F;
   padding-left: 15px;
   padding: 32px 20px;
 }
 
 .actions.columns h3 {
-  color:#00BCD4;
+  color:#15848F;
 }
 
 .index table {
@@ -70,7 +87,7 @@ ul.pagination li a {
 }
 
 ul.pagination li.active a {
-  background: none repeat scroll 0% 0% #00b8d4;
+  background: none repeat scroll 0% 0% #DCE47E;
   color: #FFF;
   font-weight: bold;
   cursor: default;
@@ -91,11 +108,11 @@ ul.pagination li.active a {
 }
 
 button {
-  background: #ff5177;
+  background: #8D6E65;
 }
 
 .form button:hover, .form button:focus {
-  background: #ff2d6f;
+  background: #7A6058;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.26) !important;
 }
 
@@ -116,23 +133,26 @@ button {
   color: rgba(0, 0, 0, 0.54);
 }
 
+.error label, .error label.error {
+    color: #C3232D;
+}
+
 div.message {
   border-style: solid;
   border-width: 1px;
   display: block;
   font-weight: normal;
   position: relative;
-  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+  padding: 0.875rem 1.5rem 0.875rem 20%;
   transition: opacity 300ms ease-out 0s;
-  background-color: #008CBA;
-  border-color: #0078A0;
-  color: #FFF;
-  padding-left:20%;
+  background-color: #DCE47E;
+  border-color: #DCE47E;
+  color: #626262;
 }
 
 div.message.error {
-  background-color: #FF3F35;
-  border-color: #DE2D0F;
+  background-color: #C3232D;
+  border-color: #C3232D;
   color: #FFF;
 }
 
@@ -149,13 +169,13 @@ div.message:before {
   left: -11px;
   background-color: #FFF;
   padding: 12px 14px 12px 10px;
-  color: #008CBA;
   content: "i";
+  color: #DCE47E;
 }
 
 div.message.error:before {
   padding: 11px 16px 14px 7px;
-  color: #FF3F35;
+  color: #C3232D;
   content: "x";
 }
 
@@ -170,18 +190,18 @@ div.message.error:before {
 }
 
 .view .numbers {
-  background-color: #00BCD4;
+  background-color: #B7E3EC;
   color: #FFF;
   border-radius: 3px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
-  margin-right:0.7rem;
+  margin-right: 0.7rem;
 }
 
 .view .columns.dates {
   border-radius: 3px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
   margin-right:0.7rem;
-  background-color:#607D8B;
+  background-color:#DCE47E;
   color: #fff;
 }
 
@@ -189,15 +209,18 @@ div.message.error:before {
   border-radius: 3px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
   margin-right:0.7rem;
-  background-color:#3F51B5;
+  background-color: #8D6E65;
   color: #fff;
 }
 
 .view .strings p {
   border-bottom: 1px solid #eee;
 }
-.view .numbers .subheader, .view .dates .subheader, .view .booleans .subheader {
-  color:#E9E9E9;
+.view .numbers .subheader, .view .dates .subheader {
+  color:#747474;
+}
+.view .booleans .subheader {
+  color: #E9E9E9
 }
 
 .view .texts .columns {
@@ -231,7 +254,7 @@ p.notice {
 .cake-error,
 p.error {
   color: #fff;
-  background: #FF3F35;
+  background: #C3232D;
 }
 
 pre {
@@ -282,7 +305,7 @@ pre {
 
 .home .checks {
   padding:30px;
-  color: #FFF;
+  color: #626262;
   border-radius: 3px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
   margin-right:0.7rem;
@@ -290,16 +313,16 @@ pre {
 }
 
 .checks.platform {
-  background-color: #00BCD4;
+  background-color: #B7E3EC;
 }
 
 .checks.filesystem {
-  background: #ffcc00;
-  color: #000;
+  background: #DCE47E;
 }
 
 .checks.database {
-  background-color: #3F51B5;
+  background-color: #8D6E65;
+  color: #fff;
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
