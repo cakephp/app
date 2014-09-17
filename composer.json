@@ -5,7 +5,7 @@
 	"type": "project",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.4.19",
+		"php": ">=5.4.16",
 		"cakephp/cakephp": "3.0.*-dev",
 		"mobiledetect/mobiledetectlib": "2.*",
 		"cakephp/debug_kit": "3.0.*-dev"

@@ -42,6 +42,12 @@ class ConsoleShell extends Shell {
 			$this->err('');
 			return 1;
 		}
+		if (!function_exists('pcntl_signal')) {
+			$this->err('<error>No process control functions.</error>');
+			$this->err('');
+			$this->err('You are missing the pcntl extension, the interactive console requires this extension.');
+			return 2;
+		}
 		$this->out('You can exit with <info>CTRL-D</info>');
 
 		Log::drop('debug');

@@ -46,6 +46,7 @@ use Cake\Network\Email\Email;
 use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
+use Cake\Utility\Security;
 
 /**
  * Read configuration file and inject configuration into various
@@ -131,6 +132,7 @@ ConnectionManager::config(Configure::consume('Datasources'));
 Email::configTransport(Configure::consume('EmailTransport'));
 Email::config(Configure::consume('Email'));
 Log::config(Configure::consume('Log'));
+Security::salt(Configure::consume('Security.salt'));
 
 /**
  * Setup detectors for mobile and tablet.
