@@ -285,7 +285,10 @@ pre {
 }
 
 .home header {
-  height:auto;
+  width: 100%;
+  height: 85%;
+  position: relative;
+  display: table;
 }
 
 .home h1 {
@@ -293,8 +296,9 @@ pre {
 }
 
 .home header .header-image {
-  margin: auto;
-  text-align:center;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .home header h1 {
