@@ -59,76 +59,49 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 		<div class="row">
 			<div class="columns large-5 platform checks">
-				<p>
-				<?php
-					if (version_compare(PHP_VERSION, '5.4.16', '>=')):
-						echo '<span class="success">Your version of PHP is 5.4.16 or higher.</span>';
-					else:
-						echo '<span class="problem">Your version of PHP is too low. You need PHP 5.4.16 or higher to use CakePHP.</span>';
-					endif;
-				?>
-				</p>
-				<p>
-				<?php
-					if (extension_loaded('mbstring')):
-						echo '<span class="success">Your version of PHP has the mbstring extension loaded.</span>';
-					else:
-						echo '<span class="problem">Your version of PHP does NOT have the mbstring extension loaded.</span>';
-					endif;
-				?>
-				</p>
-				<p>
-				<?php
-					if (extension_loaded('mcrypt')):
-						echo '<span class="success">Your version of PHP has the mcrypt extension loaded.</span>';
-					else:
-						echo '<span class="problem">Your version of PHP does NOT have the mcrypt extension loaded.</span>';
-					endif;
-				?>
-				</p>
-				<p>
-				<?php
-					if (extension_loaded('intl')):
-						echo '<span class="success">Your version of PHP has the intl extension loaded.</span>';
-					else:
-						echo '<span class="problem">Your version of PHP does NOT have the intl extension loaded.</span>';
-					endif;
-				?>
-				</p>	
+				<?php if (version_compare(PHP_VERSION, '5.4.16', '>=')): ?>
+					<p class="success">Your version of PHP is 5.4.16 or higher.</p>
+				<?php else: ?>
+					<p class="problem">Your version of PHP is too low. You need PHP 5.4.16 or higher to use CakePHP.</p>
+				<?php endif; ?>
+
+				<?php if (extension_loaded('mbstring')): ?>
+					<p class="success">Your version of PHP has the mbstring extension loaded.</p>
+				<?php else: ?>
+					<p class="problem">Your version of PHP does NOT have the mbstring extension loaded.</p>;
+				<?php endif; ?>
+
+				<?php if (extension_loaded('mcrypt')): ?>
+					<p class="success">Your version of PHP has the mcrypt extension loaded.</p>
+				<?php else: ?>
+					<p class="problem">Your version of PHP does NOT have the mcrypt extension loaded.</p>
+				<?php endif; ?>
+
+				<?php if (extension_loaded('intl')): ?>
+					<p class="success">Your version of PHP has the intl extension loaded.</p>
+				<?php else: ?>
+					<p class="problem">Your version of PHP does NOT have the intl extension loaded.</p>
+				<?php endif; ?>
 			</div>
 			<div class="columns large-6 filesystem checks">
-				<p>
-					<?php
-						if (is_writable(TMP)):
-							echo '<span class="success">Your tmp directory is writable.</span>';
-						else:
-							echo '<span class="problem">Your tmp directory is NOT writable.</span>';
-						endif;
-					?>
-				</p>
-				<p>
-					<?php
-						if (is_writable(LOGS)):
-							echo '<span class="success">Your logs directory is writable.</span>';
-						else:
-							echo '<span class="problem">Your logs directory is NOT writable.</span>';
-						endif;
-					?>
-				</p>
-				<p>
-					<?php
-						$settings = Cache::config('_cake_core_');
-						if (!empty($settings)):
-							echo '<span class="success">';
-								echo 'The <em>'. $settings['className'] . 'Engine</em> is being used for core caching. To change the config edit config/app.php';
-							echo '</span>';
-						else:
-							echo '<span class="problem">';
-								echo 'Your cache is NOT working. Please check the settings in config/app.php';
-							echo '</span>';
-						endif;
-					?>
-				</p>
+				<?php if (is_writable(TMP)): ?>
+					<p class="success">Your tmp directory is writable.</p>
+				<?php else: ?>
+					<p class="problem">Your tmp directory is NOT writable.</p>
+				<?php endif; ?>
+
+				<?php if (is_writable(LOGS)): ?>
+					<p class="success">Your logs directory is writable.</p>
+				<?php else: ?>
+					<p class="problem">Your logs directory is NOT writable.</p>
+				<?php endif; ?>
+				
+				<?php $settings = Cache::config('_cake_core_'); ?>
+				<?php if (!empty($settings)): ?>
+					<p class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</p>
+				<?php else: ?>
+					<p class="problem">Your cache is NOT working. Please check the settings in config/app.php</p>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="row">
@@ -148,19 +121,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 						endif;
 					}
 				?>
-				<p>
-					<?php
-						if ($connected):
-							echo '<span class="success">CakePHP is able to connect to the database.</span>';
-						else:
-							echo '<p class="problem">';
-								echo 'CakePHP is NOT able to connect to the database.';
-								echo '<br /><br />';
-								echo $errorMsg;
-							echo '</p>';
-						endif;
-					?>
-				</p>
+				<?php if ($connected): ?>
+					<p class="success">CakePHP is able to connect to the database.</p>
+				<?php else: ?>
+					<p class="problem">CakePHP is NOT able to connect to the database.<br /><br /><?= $errorMsg ?></p>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="row">
