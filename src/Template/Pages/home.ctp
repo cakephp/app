@@ -153,11 +153,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 						if ($connected):
 							echo '<span class="success">CakePHP is able to connect to the database.</span>';
 						else:
-							echo '<p class="problem">';
+							echo '<span class="problem">';
 								echo 'CakePHP is NOT able to connect to the database.';
 								echo '<br /><br />';
 								echo $errorMsg;
-							echo '</p>';
+							echo '</span>';
 						endif;
 					?>
 				</p>
