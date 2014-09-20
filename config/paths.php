@@ -34,11 +34,6 @@ define('ROOT', dirname(__DIR__));
 define('APP_DIR', 'src');
 
 /**
- * The name of the webroot dir.  Defaults to 'webroot'
- */
-define('WEBROOT_DIR', 'webroot');
-
-/**
  * Path to the application's directory.
  */
 define('APP', ROOT . DS . APP_DIR . DS);
@@ -51,7 +46,7 @@ define('CONFIG', ROOT . DS . 'config' . DS);
 /**
  * File path to the webroot directory.
  */
-define('WWW_ROOT', ROOT . DS . WEBROOT_DIR . DS);
+define('WWW_ROOT', ROOT . DS . 'webroot' . DS);
 
 /**
  * Path to the tests directory.
