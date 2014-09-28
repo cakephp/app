@@ -1274,6 +1274,9 @@ header h1,
     display: none;
   }
 }
+nav#actions_opened {
+  max-width: 90%;
+}
 nav#actions_opened * {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1291,6 +1294,7 @@ nav#actions_opened .separator + li {
 }
 nav#actions_opened a {
   word-wrap: break-word;
+  word-break: break-all;
 }
 @media screen and (min-width: 751px) {
   header {
