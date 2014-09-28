@@ -1042,7 +1042,6 @@ header h1,
 	}	
 }
 
-
 // Actions menu and sidebar
 nav#actions_opened {
 	* {
@@ -1056,8 +1055,11 @@ nav#actions_opened {
 	.separator + li {
 		 margin-top: 1rem;
 	}
-	
+	a {
+		word-wrap: break-word;
+	}
 }
+
 // Actions sidebar
 @media screen and (min-width: @screen-sm-min-top) {
 	header {

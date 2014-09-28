@@ -1289,6 +1289,9 @@ nav#actions_opened li {
 nav#actions_opened .separator + li {
   margin-top: 1rem;
 }
+nav#actions_opened a {
+  word-wrap: break-word;
+}
 @media screen and (min-width: 751px) {
   header {
     position: relative;
