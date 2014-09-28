@@ -1631,26 +1631,44 @@ p.error {
 .cake-stack-trace code {
   background: inherit;
 }
-.cake-stack-trace ul,
-.cake-stack-trace li {
-  border-radius: 0.25rem;
-}
 .cake-stack-trace li {
   list-style: none;
   font-family: 'Ubuntu Mono', 'Droid Sans Mono', 'Monaco', 'Consolas', monospace;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
+  border: 1px solid #f3f3f3;
+  border-bottom-width: 2px;
+  border-bottom-color: #f3f3f3;
   margin-bottom: -1px;
   background: #f8f8f8;
-  padding: 1rem;
+  padding: 1.25rem .5rem;
   line-height: 1rem;
 }
 .cake-stack-trace li a {
   line-height: 1.5rem;
   font-size: 1.4rem;
+  background: red;
+  font-weight: 700;
+  background: white;
+  border: 1px solid #dddddd;
+  padding: .5rem 1rem;
+  border-radius: 0.4rem;
+}
+.cake-stack-trace li a:hover {
+  border-color: #328caa;
+  background: #328caa;
+  color: white;
+  text-decoration: none;
 }
 .cake-stack-trace li code {
   font-size: 1.4rem;
+}
+.cake-stack-trace li:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.cake-stack-trace li:last-child {
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 .cake-code-dump .code-highlight {
   display: block;

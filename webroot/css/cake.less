@@ -1396,25 +1396,44 @@ p.error {
 	background: inherit;
 }
 .cake-stack-trace {
-	ul, li {
-		border-radius: @border-radius-base2;
-	}
 	li {
 		list-style: none;
 		font-family: @font-base-mono;
-		border-top: 1px solid @table-highlight-color;
-		border-bottom: 1px solid @table-highlight-color;
+		border: 1px solid @table-seperator-color;
+		border-bottom-width: 2px;
+		border-bottom-color: @table-seperator-color;
 		margin-bottom: -1px;
 		background: @table-seperator-color2;
-		padding: 1rem;
+		padding: 1.25rem .5rem;
+		line-height: 1rem;
 		a {
 			line-height: 1.5rem;
 			font-size: 1.4rem;
+			background: red;
+			font-weight: 700;
+			background: white;
+			border: 1px solid @table-highlight-color;
+			padding: .5rem 1rem;
+			border-radius: @border-radius-base;
+			&:hover {
+				border-color: @color-blue;
+				background: @color-blue;
+				color: white;
+				text-decoration: none;
+			}
 		}
 		code {
 			font-size: 1.4rem;
 		}
-		line-height: 1rem;
+		&:first-child {
+			border-top-left-radius: @border-radius-base2;
+			border-top-right-radius: @border-radius-base2;
+		}
+		&:last-child {
+			border-bottom-width: 1px;
+			border-bottom-left-radius: @border-radius-base2;
+			border-bottom-right-radius: @border-radius-base2;
+		}
 	}
 }
 .cake-code-dump .code-highlight {
