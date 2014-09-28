@@ -22,7 +22,8 @@ h1, h2, h3, h4, h5, h6,
 ul, li, dl, dt, dd,
 table, thead, tbody, tfoot, tr, th, td,
 form, fieldset, legend, input, textarea, select,
-p, pre, code {
+p, pre, code,
+select[multiple] option, {
 	margin: 0;
 	padding: 0;
 	font-size: 1.5rem;
@@ -516,7 +517,8 @@ main {
 		line-height: 110%;
 	}
 	input:not([type=checkbox]):not([type=radio]),
-	textarea, {
+	textarea,
+	select[multiple] {
 		border-radius: @border-radius-base2;
 		border: 1px solid #ddd;
 		padding: .5rem .5rem;
@@ -547,6 +549,14 @@ main {
 	}
 	select {
 		height: 4rem;
+		&[multiple] {
+			height: 10rem;
+			padding: 0;
+			option {
+				display: block;
+				padding: .25rem .5rem;
+			}
+		}
 	}
 	.input.checkbox,
 	.input.radio {
@@ -590,7 +600,8 @@ main {
 		padding-right: .1rem;
 	}
 	textarea:focus,
-	.input input:focus {
+	.input input:focus,
+	select[multiple]:focus {
 		border-color:       rgba(141, 110, 101, 0.80);
 		outline: 0 none;
 		box-shadow:
