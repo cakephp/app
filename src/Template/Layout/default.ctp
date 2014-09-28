@@ -13,47 +13,61 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$appName = 'CakePHP';
+$appTitle = $appName . ' · The rapid development framework';
+$appUrl = 'http://cakephp.org/';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?= $this->Html->charset() ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?= $this->Html->charset() . PHP_EOL ?>
 	<title>
-		<?= $cakeDescription ?>:
-		<?= $this->fetch('title') ?>
+		 <?= $this->fetch('title') ?>: <?= $appTitle . PHP_EOL ?>
 	</title>
-	<?= $this->Html->meta('icon') ?>
-
-	<?= $this->Html->css('base.css') ?>
-	<?= $this->Html->css('cake.css') ?>
-
-	<?= $this->fetch('meta') ?>
-	<?= $this->fetch('css') ?>
-	<?= $this->fetch('script') ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<?= $this->Html->meta('icon') . PHP_EOL ?>
+	<?= $this->Html->css('cake')?>
+	<?php /* // Optional rapid LESS development
+	<link rel="stylesheet/less" type="text/css" href="/css/cake.less" />
+	<?= $this->Html->script('less.min') . PHP_EOL ?>
+	*/ ?>
+	<?= $this->fetch('meta') . PHP_EOL ?>
+	<?= $this->fetch('css') . PHP_EOL ?>
+	<?= $this->fetch('script') . PHP_EOL ?>
 </head>
-<body>
-	<header>
-		<div class="header-title">
-			<span><?= $this->fetch('title') ?></span>
-		</div>
-		<div class="header-help">
-			<span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
-			<span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
-		</div>
-	</header>
-	<div id="container">
-		
-		<div id="content">
-			<?= $this->Flash->render() ?>
-
-			<div class="row">
-				<?= $this->fetch('content') ?>
-			</div>
-		</div>
-		<footer>
-		</footer>
-	</div>
+<!--[if lte IE 9]><body id="top" class="ie9"><![endif]--><!--[if gt IE 9]><!-->
+<body id="top"><!--<![endif]-->
+<header>
+	<h1>
+		<?= $this->fetch('title') ?> 
+		<?= $this->Html->link(
+				$this->Html->image('cake.logo.png', ['title' => $appTitle, 'alt' => $appName . ' Logo']),
+				$appUrl,
+				['target' => '_blank', 'escape' => false]) . PHP_EOL ?>
+	</h1>
+</header>
+<main><?= $this->Flash->render() ?><?= $this->fetch('content') ?></main>
+<footer>
+	<nav>
+		<h6><?= $appName ?> <?= __('Ressources') ?></h6>
+		<ul>
+			<li><?= $this->Html->link('Book', 'http://book.cakephp.org/3.0', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link('API', 'http://api.cakephp.org/3.0', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link('Chat', 'irc://chat.freenode.net/cakephp', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link('Groups', 'https://groups.google.com/forum/#!forum/cake-php', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link('GitHub', 'http://github.com/cakephp', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link('YouTube', 'https://www.youtube.com/user/CakePHP', ['target' => '_blank']) ?></li>
+			<li><?= $this->Html->link(__('▲'), '#top', ['title' => __('Top')]) ?></li>
+		</ul>
+	</nav>
+	<p><?= $this->Html->link(
+				$this->Html->image('cake.logo.png', ['title' => $appTitle, 'alt' => $appName . ' Logo']) . $appTitle,
+				$appUrl,
+				['target' => '_blank', 'escape' => false])
+	?></p>
+</footer>
+<style type="text/css">
+	@import url('http://fonts.googleapis.com/css?family=Open+Sans:400|Ubuntu:400,500,400italic,500italic|Ubuntu+Mono:400,700,400italic,700italic&subset=latin,latin-ext,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese');
+</style>
 </body>
 </html>
