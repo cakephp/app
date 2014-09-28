@@ -1296,6 +1296,9 @@ nav#actions_opened a {
   word-wrap: break-word;
   word-break: break-all;
 }
+nav#actions_opened h3 a:first-child {
+  width: 100%;
+}
 @media screen and (min-width: 751px) {
   header {
     position: relative;
