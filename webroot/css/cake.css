@@ -207,12 +207,10 @@ main {
 }
 .index th a,
 .related th a,
+.index tbody td,
+.related tbody td,
 .index tfoot a,
 .related tfoot a {
-  padding: 1rem 1.5rem;
-}
-.index tbody td,
-.related tbody td {
   padding: 1rem 1.5rem;
 }
 .index th a,
