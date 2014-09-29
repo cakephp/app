@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+/* Please refer to cake.less for cake core modification */
+
 @import 'cake.variables.less';
 @import 'cake.elements.less';
 
@@ -23,7 +25,7 @@ ul, li, dl, dt, dd,
 table, thead, tbody, tfoot, tr, th, td,
 form, fieldset, legend, input, textarea, select,
 p, pre, code,
-select[multiple] option, {
+select, option, {
 	margin: 0;
 	padding: 0;
 	font-size: 1.5rem;
@@ -64,6 +66,7 @@ a {
 a img {
 	border: 0; // IE likes this so much
 }
+
 // Layout
 header {
 	position: fixed;
@@ -122,6 +125,7 @@ main {
 	padding-top: 8rem;
 	position: relative;
 }
+
 // Template
 .index,
 .related,
@@ -156,23 +160,6 @@ main {
 	tbody td,
 	tfoot a {
 		.bigPadding();
-	}
-	th,
-	tfoot {
-	    a {
-			text-decoration: none;
-	   	}
-		li.active a,
-		a.asc,
-		a.desc {
-			color: white;
-			background: @color-red;
-		}
-		a:hover {
-			transition: color .2s, background .1s;
-			color: white;
-			background: @color-brown;
-		}
 	}
 	th {
 		height: 100%;
@@ -271,6 +258,28 @@ main {
 
 // Template Table
 .index {
+	th,
+	tfoot {
+		a:hover {
+			text-decoration: none;
+			transition: color .2s, background .1s;
+			color: white;
+			background: @color-brown;
+		}
+	}
+	th {
+		a.asc,
+		a.desc {
+			color: white;
+			background: @color-red;
+		}
+	}
+	tfoot {
+		.active a {
+			color: white;
+			background: @color-red;
+		}
+	}
 	tfoot td {
 		width: inherit;
 		border-top: 2px solid @table-seperator-color;
@@ -471,7 +480,6 @@ main {
 			font-family: @font-base-mono;
 		}
 	}
-	
 }
 
 // Template Form
@@ -480,16 +488,19 @@ main {
 		position: relative;
 		margin: 0;
 		border: 0;
-		padding-top: 3.5rem;
+		padding-top: .5rem;
 	}
 	legend {
-		position: absolute;
+		position: static;
 		top: 0rem;
 		width: 100%;
 		color: @color-red;
 		font-size: 2rem;
 		line-height: 2rem;
 		padding-top: 1rem;
+		word-wrap: break-word;
+		word-break: break-all;
+		padding-right: 14rem;
 	}
 	.input {
 		margin-top: 1rem;
@@ -506,7 +517,7 @@ main {
 	.input.select {
 		label,
 		select {
-			min-height: 3.5rem; // Hello buggy Chrome
+			min-height: 3.5rem; // Chrome Bug
 		}
 	}
 	input:not([type=file]),
@@ -518,16 +529,17 @@ main {
 	}
 	input:not([type=checkbox]):not([type=radio]),
 	textarea,
-	select[multiple] {
+	select {
 		border-radius: @border-radius-base2;
 		border: 1px solid #ddd;
 		padding: .5rem .5rem;
 		background: #fdfdfd;
 		box-shadow: 0 1px 1px #f9f9f9 inset;
 	}
-	.error {
-		input,
-		textarea {
+	.input.error {
+		input:not([type=checkbox]):not([type=radio]),
+		textarea,
+		select[multiple] {
 			border-color: @color-red;
 		}
 	}
@@ -535,13 +547,6 @@ main {
 	textarea,
 	select {
 		display: inline-block;
-	}
-	.input input:not([type=checkbox]):not([type=radio]):not([type=file]),
-	textarea {
-		.smallPadding();
-	}
-	.input input:not([type=checkbox]):not([type=radio]):not([type=file]) {
-		height: 4rem;
 	}
 	textarea {
 		height: 12rem;
@@ -557,6 +562,13 @@ main {
 				padding: .25rem .5rem;
 			}
 		}
+	}
+	.input input:not([type=checkbox]):not([type=radio]):not([type=file]),
+	.input textarea {
+		.smallPadding();
+	}
+	.input input:not([type=checkbox]):not([type=radio]):not([type=file]) {
+		height: 4rem;
 	}
 	.input.checkbox,
 	.input.radio {
@@ -595,26 +607,28 @@ main {
 	.input.date select + select + select,
 	.input.datetime label + select,
 	.input.datetime select + select ~ select,
-	.input.time select {
+	.input.time select,
+	option {
 		text-align: right;
-		padding-right: .1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
 	}
-	textarea:focus,
+	.input textarea:focus,
 	.input input:focus,
-	select[multiple]:focus {
-		border-color:       rgba(141, 110, 101, 0.80);
+	.input select:focus,
+	.error textarea:focus,
+	.error input:focus,
+	.error select:focus {
+		border-color:       rgba(141, 110, 101, .80);
 		outline: 0 none;
 		box-shadow:
-				0   1px 1px rgba(  0,   0,   0, 0.08) inset,
-				0   0   8px rgba(141, 110, 101, 0.50);
+				0   1px 1px rgba(  0,   0,   0, .08) inset,
+				0   0   8px rgba(141, 110, 101, .50);
 		background: white;
 	}
-	select:focus {
-		outline: 0 none;
-		// Thank you, Chrome, for being the worst of all
-		// box-shadow:
-		//		0   1px 1px rgba(  0,   0,   0, 0.08) inset,
-		//		0   0   8px rgba(141, 110, 101, 0.50);
+	select:-moz-focusring { // Firefox
+	    color: transparent;
+	    text-shadow: 0 0 0 #000;
 	}
 	button::-moz-focus-inner { // Firefox
 		border: 0;
@@ -654,6 +668,7 @@ main {
 		color: @color-red;
 		font-size: 1.5rem;
 		line-height: 150%;
+		padding-top: .25rem;
 		padding-bottom: .5rem;
 		.noticeIcon(white, @color-red);
 		&:before {
@@ -673,9 +688,11 @@ main {
 	padding: 1rem 1rem;
 	box-shadow:
 		 0px  1px  0px rgba(0, 0, 0, .15) inset,
-		-1px  0px  0px rgba(0, 0, 0, .3) inset,
-		 1px  0px  0px rgba(0, 0, 0, .3) inset;
+		-1px  0px  0px rgba(0, 0, 0,  .3) inset,
+		 1px  0px  0px rgba(0, 0, 0,  .3) inset;
 	.noticeIcon(@color-red, white);
+	padding-top: 2rem;
+	padding-bottom: 1.5rem;
 	&.error {
 		background: @color-red;
 		&:before {
@@ -1253,11 +1270,12 @@ nav#actions_opened {
 		}
 	}
 }
+
 @media screen and (max-width: @screen-sm-min) {
 	body:not(.ie9) {
 		.index,
 		.related {
-			table, thead, tbody, tfoot, th, td, tr { 
+			table, thead, tbody, tfoot, tr, th, td { 
 				display: block; 
 			}
 			table {
@@ -1309,7 +1327,7 @@ nav#actions_opened {
 					color: @color-brown;
 					margin-left: -67%;
 				}
-				// Generate these in your .index and .related action templates
+				// Generate these in your .index and .related action view templates
 				// td:nth-of-type(1):before  { content: 'Id'; }
 				// td:nth-of-type(2):before  { content: 'Created'; }
 				// td:nth-of-type(3):before  { content: 'Modified'; }
@@ -1404,8 +1422,8 @@ p.error {
 		border-bottom-color: @table-seperator-color;
 		margin-bottom: -1px;
 		background: @table-seperator-color2;
-		padding: 1.25rem .5rem;
-		line-height: 1rem;
+		padding: .5rem;
+		line-height: 3rem;
 		a {
 			line-height: 1.5rem;
 			font-size: 1.4rem;

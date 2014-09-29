@@ -16,24 +16,21 @@
 $appName = 'CakePHP';
 $appTitle = $appName . ' · Rapid Development Framework';
 $appUrl = 'http://cakephp.org/';
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?= $this->Html->charset() . PHP_EOL ?>
-	<title>
-		 <?= $this->fetch('title') ?>: <?= $appTitle . PHP_EOL ?>
-	</title>
+	<?= $this->Html->charset() ?> 
+	<title><?= $this->fetch('title') ?>: <?= $appTitle ?></title>
+	<?= $this->Html->meta('icon') ?> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<?= $this->Html->meta('icon') . PHP_EOL ?>
-	<?= $this->Html->css('cake')?>
-	<?php /* // Optional rapid LESS development
+	<?= $this->Html->css('cake')?> 
+	<?php /* <!-- Optional rapid LESS development -->
 	<link rel="stylesheet/less" type="text/css" href="/css/cake.less" />
-	<?= $this->Html->script('less.min') . PHP_EOL ?>
-	*/ ?>
-	<?= $this->fetch('meta') . PHP_EOL ?>
-	<?= $this->fetch('css') . PHP_EOL ?>
-	<?= $this->fetch('script') . PHP_EOL ?>
+	<?= $this->Html->script('less.min') ?> 
+	<!-- */ ?> <!-- -->
+	<?= $this->fetch('meta'), $this->fetch('css'), $this->fetch('script') ?> 
 </head>
 <!--[if lte IE 9]><body id="top" class="ie9"><![endif]--><!--[if gt IE 9]><!-->
 <body id="top"><!--<![endif]-->
@@ -43,7 +40,7 @@ $appUrl = 'http://cakephp.org/';
 		<?= $this->Html->link(
 				$this->Html->image('cake.logo.png', ['title' => $appTitle, 'alt' => $appName . ' Logo']),
 				$appUrl,
-				['target' => '_blank', 'escape' => false]) . PHP_EOL ?>
+				['target' => '_blank', 'escape' => false]) . "\n" ?>
 	</h1>
 </header>
 <main><?= $this->Flash->render() ?><?= $this->fetch('content') ?></main>

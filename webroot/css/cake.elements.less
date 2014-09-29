@@ -38,9 +38,14 @@
 }
 
 .noticeIcon(@color: white, @background: black) {
+	vertical-align: middle;
 	&:before {
-		line-height: 0px;
+		vertical-align: middle;
+		color: @color;
+		background: @background;
 		margin: .75rem;
+		margin-top: 0;
+		margin-bottom: .5rem;
 		width: .75rem;
 		height: .75rem;
 		line-height: .75rem;
@@ -48,9 +53,7 @@
 		border-radius: 2rem;
 		display: inline-block;
 		padding: .5rem;
-		color: @color;
 		content: "i";
-		background: @background;
 	}
 }
 
