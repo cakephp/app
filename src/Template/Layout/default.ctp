@@ -14,7 +14,7 @@
  */
 
 $appName = 'CakePHP';
-$appTitle = $appName . ' · The rapid development framework';
+$appTitle = $appName . ' · Rapid Development Framework';
 $appUrl = 'http://cakephp.org/';
 ?>
 <!DOCTYPE html>
