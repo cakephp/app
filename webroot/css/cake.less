@@ -229,8 +229,7 @@ main {
 			height: inherit;
 			text-align: center;
 			font-size: 1.5rem;
-			opacity: 0.33;
-			.buttonlink(white, @color-blue);
+			.buttonlink();
 			min-width: 7rem;
 			display: inline-block;
 			margin: .2rem .1rem;
@@ -832,9 +831,11 @@ header h1,
 			width: 23.5rem;
 			a {
 				width: auto;
+				opacity: 0.33;
+				.buttonlink(white, @color-blue);
 			}
 		}
-	}	
+	}
 }
 
 @media screen and (min-width: @screen-md-min) {
