@@ -1637,12 +1637,18 @@ section.error pre {
 .notice,
 p.error,
 p.notice {
+  font-size: 1.4rem;
   display: block;
   clear: both;
   background-repeat: repeat-x;
   margin-bottom: 18px;
   padding: 7px 14px;
   border-radius: 0.25rem;
+}
+.cake-error a,
+.cake-debug a,
+.notice a {
+  font-weight: bold;
 }
 .cake-debug,
 .notice,
@@ -1660,6 +1666,12 @@ p.error {
 }
 .cake-stack-trace code {
   background: inherit;
+}
+.cake-stack-trace a {
+  display: inline-block;
+}
+.cake-stack-trace a:hover {
+  text-decoration: none !important;
 }
 .cake-stack-trace li {
   list-style: none;
@@ -1700,12 +1712,35 @@ p.error {
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
+.cake-code-dump,
+.cake-context {
+  background: #f8f8f8;
+  padding: 1rem;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  margin: 1rem 0;
+}
 .cake-code-dump .code-highlight {
   display: block;
   background-color: #FFC600;
+}
+.cake-context {
+  display: block;
+  color: black;
+  background-color: white;
 }
 .cake-error a,
 .cake-error a:hover {
   color: #fff;
   text-decoration: underline;
+  margin: 1rem 0;
+}
+.cake-error a:hover,
+.cake-error a:hover:hover {
+  text-decoration: none;
+}
+.stack-trace {
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  font-family: 'Ubuntu Mono', 'Droid Sans Mono', 'Monaco', 'Consolas', monospace;
 }
