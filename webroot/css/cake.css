@@ -774,11 +774,17 @@ main {
 .form .input.date select + select + select,
 .form .input.datetime label + select,
 .form .input.datetime select + select ~ select,
-.form .input.time select,
-.form option {
+.form .input.time select {
   text-align: right;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.form .input.date label + select option,
+.form .input.date select + select + select option,
+.form .input.datetime label + select option,
+.form .input.datetime select + select ~ select option,
+.form .input.time select option {
+  text-align: right;
 }
 .form .input textarea:focus,
 .form .input input:focus,
