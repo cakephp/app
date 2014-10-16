@@ -27,12 +27,14 @@ use Cake\Controller\Controller;
 class AppController extends Controller {
 
 /**
- * Components this controller uses.
+ * Initialization hook method.
  *
- * Component names should not include the `Component` suffix. Components
- * declared in subclasses will be merged with components declared here.
+ * Use this method to add common initialization code like loading components.
  *
- * @var array
+ * @return void
  */
-	public $components = ['Flash'];
+	public function initialize() {
+		$this->loadComponent('Flash');
+	}
+
 }
