@@ -1,0 +1,66 @@
+.clearfix() { // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+	*zoom:1;
+	&:before,
+	&:after {
+	    content: '';
+	    display: table;
+	}
+	&:after {
+	    clear: both;
+	}
+}
+
+.smallPadding() {
+	padding: .5rem .75rem;
+}
+
+.bigPadding(@bigPaddingY: @bigPaddingYDefault, @bigPaddingX: @bigPaddingXDefault) {
+	padding: @bigPaddingY @bigPaddingX;
+}
+
+.buttonlink(@background-color: @color-blue, @color: white, @border-color: @color-blue, @border-radius: @border-radius-base) {
+	color: @color;
+	background: @background-color;
+	padding: .5rem 1rem;
+	border-radius: @border-radius-base;
+	border: 1px solid @border-color;
+	text-decoration: none;
+	.user-select();
+	&:visited {
+		color: @color;
+	}
+	&:hover {
+		color: @background-color;
+		background: @color;
+		text-decoration: none;
+		transition: color .13s, background .13s;
+	}
+}
+
+.noticeIcon(@color: white, @background: black) {
+	vertical-align: middle;
+	&:before {
+		vertical-align: middle;
+		color: @color;
+		background: @background;
+		margin: .75rem;
+		margin-top: 0;
+		margin-bottom: .5rem;
+		width: .75rem;
+		height: .75rem;
+		line-height: .75rem;
+		text-align: center;
+		border-radius: 2rem;
+		display: inline-block;
+		padding: .5rem;
+		content: "i";
+	}
+}
+
+.user-select(@value: none) {
+	-webkit-user-select: @value;
+	-moz-user-select: @value;
+	-ms-user-select: @value;
+	-o-user-select: @value;
+	user-select: @value;
+}
