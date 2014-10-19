@@ -60,7 +60,7 @@ try {
 	Configure::config('default', new PhpConfig());
 	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
-	die($e->getMessage());
+	die($e->getMessage() . "\n");
 }
 
 // Load an environment local configuration file.
