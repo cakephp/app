@@ -60,7 +60,7 @@ try {
 	Configure::config('default', new PhpConfig());
 	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
-	die('Unable to load config/app.php. Create it by copying config/app.default.php to config/app.php.');
+	die($e->getMessage());
 }
 
 // Load an environment local configuration file.
