@@ -58,15 +58,15 @@ use Cake\Utility\Security;
  */
 try {
 	Configure::config('default', new PhpConfig());
-	Configure::load('app.php', 'default', false);
+	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
 	die('Unable to load config/app.php. Create it by copying config/app.default.php to config/app.php.');
 }
 
 // Load an environment local configuration file.
-// You can use this file to provide local overrides to your
+// You can use a file like app_local.php to provide local overrides to your
 // shared configuration.
-//Configure::load('app_local.php', 'default');
+//Configure::load('app_local', 'default');
 
 // When debug = false the metadata cache should last
 // for a very very long time, as we don't want
