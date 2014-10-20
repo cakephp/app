@@ -282,8 +282,7 @@ $config = [
  * - `cookie` - The name of the cookie to use. Defaults to 'CAKEPHP'.
  * - `cookiePath` - The url path for which session cookie is set. Maps to the
  *   `session.cookie_path` php.ini config. Defaults to base path of app.
- * - `timeout` - The number of minutes you want sessions to live for. This
- *    timeout is handled by CakePHP.
+ * - `timeout` - The time in minutes the session should be valid for. Pass 0 to disable checking timeout.
  *    value to false, when dealing with older versions of IE, Chrome Frame or
  *    certain web-browsing devices and AJAX.
  * - `defaults` - The default configuration set to use as a basis for your session.
