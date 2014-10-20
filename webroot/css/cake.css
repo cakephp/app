@@ -133,6 +133,11 @@ button {
   color: rgba(0, 0, 0, 0.54);
 }
 
+select[multiple] {
+  min-height:150px;
+  background: none;
+}
+
 .error label, .error label.error {
     color: #C3232D;
 }
