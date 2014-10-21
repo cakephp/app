@@ -31,9 +31,6 @@
 	"scripts": {
 		"post-install-cmd": "App\\Console\\Installer::postInstall"
 	},
-	"config" : {
-		"bin-dir" : "bin"
-	},
 	"minimum-stability" : "dev",
 	"prefer-stable": true
 }
