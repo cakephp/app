@@ -137,9 +137,13 @@ select[multiple] {
   min-height:150px;
   background: none;
 }
+input[type=checkbox],
+input[type=radio] {
+  margin-right: 0.5em;
+}
 
 .error label, .error label.error {
-    color: #C3232D;
+  color: #C3232D;
 }
 
 div.message {
