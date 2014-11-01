@@ -1,3 +1,7 @@
+a.disabled {
+  pointer-events: none;
+}
+
 a:hover {
   color: #15848F;
 }
