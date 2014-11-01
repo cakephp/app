@@ -11,11 +11,11 @@ a {
 }
 
 .side-nav li a:not(.button) {
-    color: #15848F;
+  color: #15848F;
 }
 
 .side-nav li a:not(.button):hover {
-    color: #DCE47E;
+  color: #15848F;
 }
 
 header {
@@ -146,6 +146,8 @@ input[type=radio] {
   margin-right: 0.5em;
 }
 
+.date select,
+.time select,
 .datetime select {
   display: inline;
   width: auto;
@@ -299,7 +301,8 @@ pre {
   background-color: #FFC600;
 }
 
-.cake-error a, .cake-error a:hover {
+.cake-error a,
+.cake-error a:hover {
   color:#fff;
   text-decoration: underline;
 }
