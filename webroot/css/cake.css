@@ -146,7 +146,14 @@ input[type=radio] {
   margin-right: 0.5em;
 }
 
-.error label, .error label.error {
+.datetime select {
+  display: inline;
+  width: auto;
+  margin-right: 10px;
+}
+
+.error label,
+.error label.error {
   color: #C3232D;
 }
 
