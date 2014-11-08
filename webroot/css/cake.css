@@ -137,6 +137,14 @@ button {
   color: rgba(0, 0, 0, 0.54);
 }
 
+.required > label {
+  font-weight: bold;
+}
+.required > label:after {
+  content: ' *';
+  color: #C3232D;
+}
+
 select[multiple] {
   min-height:150px;
   background: none;
