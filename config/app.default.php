@@ -207,6 +207,11 @@ $config = [
 			'driver' => 'Cake\Database\Driver\Mysql',
 			'persistent' => false,
 			'host' => 'localhost',
+			/*
+			* MySQL defaults to port 3306 on most systems
+			* MySQL on MAMP uses port 8889 by default 
+			*/
+			'port' => '3306',
 			'username' => 'my_app',
 			'password' => 'secret',
 			'database' => 'my_app',
@@ -242,6 +247,7 @@ $config = [
 			'driver' => 'Cake\Database\Driver\Mysql',
 			'persistent' => false,
 			'host' => 'localhost',
+			'port' => '3306',
 			'username' => 'my_app',
 			'password' => 'secret',
 			'database' => 'test_myapp',
