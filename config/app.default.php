@@ -211,9 +211,10 @@ $config = [
 			'host' => 'localhost',
 			/*
 			* CakePHP will use the default DB port based on the driver selected 
-			* MySQL on MAMP uses port 8889, MAMP users will want to uncomment the following line 
+			* MySQL on MAMP uses port 8889, MAMP users will want to uncomment 
+			* the following line and set the port accordingly
 			*/
-			//'port' => '3306',
+			//'port' => 'nonstandard_port_number',
 			'username' => 'my_app',
 			'password' => 'secret',
 			'database' => 'my_app',
@@ -249,7 +250,7 @@ $config = [
 			'driver' => 'Cake\Database\Driver\Mysql',
 			'persistent' => false,
 			'host' => 'localhost',
-			//'port' => '3306',
+			//'port' => 'nonstandard_port_number',
 			'username' => 'my_app',
 			'password' => 'secret',
 			'database' => 'test_myapp',
