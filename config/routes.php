@@ -35,17 +35,22 @@ Router::scope('/', function ($routes) {
 	$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
 /**
- * Connect a route for the index action of any controller.
- * And a more general catch all route for any action.
+ * Connect catchall routes for all controllers.
  *
  * The `fallbacks` method is a shortcut for
  *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);`
  *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);`
  *
+ * Any route class can be used with this method, such as:
+ * 	- DashedRoute
+ * 	- InflectedRoute
+ * 	- Route
+ * 	- Or your own route class
+ *
  * You can remove these routes once you've connected the
  * routes you want in your application.
  */
-	$routes->fallbacks();
+	$routes->fallbacks('InflectedRoute');
 });
 
 /**
