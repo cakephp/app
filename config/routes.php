@@ -24,13 +24,17 @@ use Cake\Routing\Router;
 /**
  * The default class to use for all routes
  *
- * The default if no call is made is `Route` (`Cake\Routing\Route\Route`)
- *
  * From CakePHP the following route classes are appropriate to set as a default:
  *
  * - Route
  * - InflectedRoute
  * - DashedRoute
+ *
+ * The default if no call is made is `Route` (`Cake\Routing\Route\Route`)
+ *
+ * Note that `Route` does not do any inflections on urls which will result in
+ * inconsistently cased urls when used with `:plugin`, `:controller` and
+ * `:action` markers.
  *
  */
 Router::defaultRouteClass('Route');
