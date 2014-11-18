@@ -55,7 +55,7 @@ Router::scope('/', function ($routes) {
 /**
  * Connect catchall routes for all controllers.
  *
- * The `fallbacks` method is a shortcut for
+ * Using the argument `InflectedRoute`, the `fallbacks` method is a shortcut for
  *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'InflectedRoute']);`
  *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);`
  *
