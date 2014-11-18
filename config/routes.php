@@ -21,6 +21,20 @@
 use Cake\Core\Plugin;
 use Cake\Routing\Router;
 
+/**
+ * The default class to use for all routes
+ *
+ * The default if no call is made is `Route` (`Cake\Routing\Route\Route`)
+ *
+ * From CakePHP the following route classes are appropriate to set as a default:
+ *
+ * - Route
+ * - InflectedRoute
+ * - DashedRoute
+ *
+ */
+Router::defaultRouteClass('Route');
+
 Router::scope('/', function ($routes) {
 /**
  * Here, we are connecting '/' (base path) to a controller called 'Pages',
