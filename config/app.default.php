@@ -31,8 +31,8 @@ $config = [
  * - cssBaseUrl - Web path to the public css directory under webroot.
  * - jsBaseUrl - Web path to the public js directory under webroot.
  * - paths - Configure paths for non class based resources. Supports the
- *   `plugins` and `templates` subkeys, which allow the definition of paths for
- *   plugins and view templates respectively.
+ *   `plugins`, `templates`, `locales` subkeys, which allow the definition of
+ *   paths for plugins, view templates and locale files respectively.
  */
 	'App' => [
 		'namespace' => 'App',
@@ -49,6 +49,7 @@ $config = [
 		'paths' => [
 			'plugins' => [ROOT . DS . 'plugins' . DS],
 			'templates' => [APP . 'Template' . DS],
+			'locales' => [APP . 'Locale' . DS],
 		],
 	],
 
@@ -210,8 +211,8 @@ $config = [
 			'persistent' => false,
 			'host' => 'localhost',
 			/*
-			* CakePHP will use the default DB port based on the driver selected 
-			* MySQL on MAMP uses port 8889, MAMP users will want to uncomment 
+			* CakePHP will use the default DB port based on the driver selected
+			* MySQL on MAMP uses port 8889, MAMP users will want to uncomment
 			* the following line and set the port accordingly
 			*/
 			//'port' => 'nonstandard_port_number',
