@@ -24,16 +24,18 @@ use Cake\Routing\Router;
 /**
  * The default class to use for all routes
  *
- * From CakePHP the following route classes are appropriate to set as a default:
+ * The following route classes are supplied with CakePHP and are appropriate
+ * to set as the default:
  *
  * - Route
  * - InflectedRoute
  * - DashedRoute
  *
- * The default if no call is made is `Route` (`Cake\Routing\Route\Route`)
+ * If no call is made to `Router::defaultRouteClass`, the class used is
+ * `Route` (`Cake\Routing\Route\Route`)
  *
- * Note that `Route` does not do any inflections on urls which will result in
- * inconsistently cased urls when used with `:plugin`, `:controller` and
+ * Note that `Route` does not do any inflections on URLs which will result in
+ * inconsistently cased URLs when used with `:plugin`, `:controller` and
  * `:action` markers.
  *
  */
@@ -60,10 +62,10 @@ Router::scope('/', function ($routes) {
  *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'InflectedRoute']);`
  *
  * Any route class can be used with this method, such as:
- * 	- DashedRoute
- * 	- InflectedRoute
- * 	- Route
- * 	- Or your own route class
+ * - DashedRoute
+ * - InflectedRoute
+ * - Route
+ * - Or your own route class
  *
  * You can remove these routes once you've connected the
  * routes you want in your application.
