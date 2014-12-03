@@ -37,5 +37,4 @@ class AppController extends Controller
     {
         $this->loadComponent('Flash');
     }
-
 }

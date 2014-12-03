@@ -129,5 +129,4 @@ class Installer
         }
         $io->write('Unable to update Security.salt value.');
     }
-
 }

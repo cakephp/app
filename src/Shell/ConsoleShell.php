@@ -81,5 +81,4 @@ class ConsoleShell extends Shell
         );
         return $parser;
     }
-
 }
