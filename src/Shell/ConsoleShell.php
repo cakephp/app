@@ -24,11 +24,11 @@ use Cake\Log\Log;
  */
 class ConsoleShell extends Shell
 {
-/**
- * Start the shell and interactive console.
- *
- * @return void
- */
+    /**
+     * Start the shell and interactive console.
+     *
+     * @return void
+     */
     public function main()
     {
         if (!class_exists('Boris\Boris')) {
@@ -61,11 +61,11 @@ class ConsoleShell extends Shell
         $boris->start();
     }
 
-/**
- * Display help for this console.
- *
- * @return ConsoleOptionParser
- */
+    /**
+     * Display help for this console.
+     *
+     * @return ConsoleOptionParser
+     */
     public function getOptionParser()
     {
         $parser = new ConsoleOptionParser('console', false);

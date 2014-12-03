@@ -22,12 +22,12 @@ use Composer\Script\Event;
  */
 class Installer
 {
-/**
- * Does some routine installation tasks so people don't have to.
- *
- * @param \Composer\Script\Event $event The composer event object.
- * @return void
- */
+    /**
+     * Does some routine installation tasks so people don't have to.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @return void
+     */
     public static function postInstall(Event $event)
     {
         $io = $event->getIO();
@@ -38,13 +38,13 @@ class Installer
         static::setSecuritySalt($rootDir, $io);
     }
 
-/**
- * Create the config/app.php file if it does not exist.
- *
- * @param string $dir The application's root directory.
- * @param \Composer\IO\IOInterface $io IO interface to write to console.
- * @return void
- */
+    /**
+     * Create the config/app.php file if it does not exist.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
     public static function createAppConfig($dir, $io)
     {
         $appConfig = $dir . '/config/app.php';
@@ -55,15 +55,15 @@ class Installer
         }
     }
 
-/**
- * Set globally writable permissions on the "tmp" and "logs" directory.
- *
- * This is not the most secure default, but it gets people up and running quickly.
- *
- * @param string $dir The application's root directory.
- * @param \Composer\IO\IOInterface $io IO interface to write to console.
- * @return void
- */
+    /**
+     * Set globally writable permissions on the "tmp" and "logs" directory.
+     *
+     * This is not the most secure default, but it gets people up and running quickly.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
     public static function setFolderPermissions($dir, $io)
     {
         // Change the permissions on a path and output the results.
@@ -102,13 +102,13 @@ class Installer
         $changePerms($dir . '/logs', $worldWritable, $io);
     }
 
-/**
- * Set the security.salt value in the application's config file.
- *
- * @param string $dir The application's root directory.
- * @param \Composer\IO\IOInterface $io IO interface to write to console.
- * @return void
- */
+    /**
+     * Set the security.salt value in the application's config file.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
     public static function setSecuritySalt($dir, $io)
     {
         $config = $dir . '/config/app.php';
