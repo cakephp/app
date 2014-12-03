@@ -22,62 +22,63 @@ use Cake\Log\Log;
 /**
  * Simple console wrapper around Boris.
  */
-class ConsoleShell extends Shell {
+class ConsoleShell extends Shell
+{
+    /**
+     * Start the shell and interactive console.
+     *
+     * @return void
+     */
+    public function main()
+    {
+        if (!class_exists('Boris\Boris')) {
+            $this->err('<error>Unable to load Boris\Boris.</error>');
+            $this->err('');
+            $this->err('Make sure you have installed boris as a dependency,');
+            $this->err('and that Boris\Boris is registered in your autoloader.');
+            $this->err('');
+            $this->err('If you are using composer run');
+            $this->err('');
+            $this->err('<info>$ php composer.phar require d11wtq/boris</info>');
+            $this->err('');
+            return 1;
+        }
+        if (!function_exists('pcntl_signal')) {
+            $this->err('<error>No process control functions.</error>');
+            $this->err('');
+            $this->err('You are missing the pcntl extension, the interactive console requires this extension.');
+            return 2;
+        }
+        $this->out('You can exit with <info>CTRL-D</info>');
 
-/**
- * Start the shell and interactive console.
- *
- * @return void
- */
-	public function main() {
-		if (!class_exists('Boris\Boris')) {
-			$this->err('<error>Unable to load Boris\Boris.</error>');
-			$this->err('');
-			$this->err('Make sure you have installed boris as a dependency,');
-			$this->err('and that Boris\Boris is registered in your autoloader.');
-			$this->err('');
-			$this->err('If you are using composer run');
-			$this->err('');
-			$this->err('<info>$ php composer.phar require d11wtq/boris</info>');
-			$this->err('');
-			return 1;
-		}
-		if (!function_exists('pcntl_signal')) {
-			$this->err('<error>No process control functions.</error>');
-			$this->err('');
-			$this->err('You are missing the pcntl extension, the interactive console requires this extension.');
-			return 2;
-		}
-		$this->out('You can exit with <info>CTRL-D</info>');
+        Log::drop('debug');
+        Log::drop('error');
+        $this->_io->setLoggers(false);
+        restore_error_handler();
+        restore_exception_handler();
 
-		Log::drop('debug');
-		Log::drop('error');
-		$this->_io->setLoggers(false);
-		restore_error_handler();
-		restore_exception_handler();
+        $boris = new Boris('app > ');
+        $boris->start();
+    }
 
-		$boris = new Boris('app > ');
-		$boris->start();
-	}
-
-/**
- * Display help for this console.
- *
- * @return ConsoleOptionParser
- */
-	public function getOptionParser() {
-		$parser = new ConsoleOptionParser('console', false);
-		$parser->description(
-			'This shell provides a REPL that you can use to interact ' .
-			'with your application in an interactive fashion. You can use ' .
-			'it to run adhoc queries with your models, or experiment ' .
-			'and explore the features of CakePHP and your application.' .
-			"\n\n" .
-			'You will need to have boris installed for this Shell to work. ' .
-			'Boris is known to not work well on windows due to dependencies on ' .
-			'readline and posix.'
-		);
-		return $parser;
-	}
-
+    /**
+     * Display help for this console.
+     *
+     * @return ConsoleOptionParser
+     */
+    public function getOptionParser()
+    {
+        $parser = new ConsoleOptionParser('console', false);
+        $parser->description(
+            'This shell provides a REPL that you can use to interact ' .
+            'with your application in an interactive fashion. You can use ' .
+            'it to run adhoc queries with your models, or experiment ' .
+            'and explore the features of CakePHP and your application.' .
+            "\n\n" .
+            'You will need to have boris installed for this Shell to work. ' .
+            'Boris is known to not work well on windows due to dependencies on ' .
+            'readline and posix.'
+        );
+        return $parser;
+    }
 }
