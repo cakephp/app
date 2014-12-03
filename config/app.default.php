@@ -85,10 +85,10 @@ $config = [
         ],
 
         /**
-    	 * Configure the cache used for general framework caching. Path information,
-    	 * object listings, and translation cache files are stored with this
-    	 * configuration.
-    	 */
+         * Configure the cache used for general framework caching. Path information,
+         * object listings, and translation cache files are stored with this
+         * configuration.
+         */
         '_cake_core_' => [
             'className' => 'File',
             'prefix' => 'myapp_cake_core_',
@@ -98,10 +98,10 @@ $config = [
         ],
 
         /**
-    	 * Configure the cache for model and datasource caches. This cache
-    	 * configuration is used to store schema descriptions, and table listings
-    	 * in connections.
-    	 */
+         * Configure the cache for model and datasource caches. This cache
+         * configuration is used to store schema descriptions, and table listings
+         * in connections.
+         */
         '_cake_model_' => [
             'className' => 'File',
             'prefix' => 'myapp_cake_model_',
