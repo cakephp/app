@@ -12,7 +12,7 @@ before_script:
   - phpenv rehash
 
 script:
-  - sh -c "phpcs -p --extensions=php --standard=CakePHP ./src ./tests ./webroot"
+  - sh -c "phpcs -p --extensions=php --standard=psr2 ./src ./tests ./webroot"
 
 notifications:
   email: false
