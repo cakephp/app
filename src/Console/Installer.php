@@ -33,6 +33,7 @@ class Installer {
 
 		$rootDir = dirname(dirname(__DIR__));
 		static::createAppConfig($rootDir, $io);
+		static::createTmpFolder($rootDir, $io);
 		static::setFolderPermissions($rootDir, $io);
 		static::setSecuritySalt($rootDir, $io);
 	}
@@ -54,14 +55,46 @@ class Installer {
 	}
 
 /**
- * Set globally writable permissions on the "tmp" and "logs" directory.
  *
- * This is not the most secure default, but it gets people up and running quickly.
- *
+ * Create temporary files Cakephp if they does not exist.
  * @param string $dir The application's root directory.
  * @param \Composer\IO\IOInterface $io IO interface to write to console.
  * @return void
+ *
  */
+	public static function createTmpFolder($dir, $io){
+		$createTmp = function ($path, $perms, $io){
+			$tree = [
+				"tmp/cache" ,
+				"tmp/cache/models",
+				"tmp/cache/persistent",
+				"tmp/cache/views",
+				"tmp/cache/sessions",
+				"tmp/cache/tests",
+				"logs"
+			];
+			foreach($tree as $key => $value){
+				$fullPathTmp = $path."/".$value ;
+				if(!file_exists($fullPathTmp)){
+					mkdir($fullPathTmp, 0777, true);
+					$io->write('Created `' . $fullPathTmp . '` file');
+				}
+			}
+		};
+		$worldWritable = bindec('0000000111');
+		$createTmp($dir , $worldWritable, $io);
+
+	}
+
+	/**
+	 * Set globally writable permissions on the "tmp" and "logs" directory.
+	 *
+	 * This is not the most secure default, but it gets people up and running quickly.
+	 *
+	 * @param string $dir The application's root directory.
+	 * @param \Composer\IO\IOInterface $io IO interface to write to console.
+	 * @return void
+	 */
 	public static function setFolderPermissions($dir, $io) {
 		// Change the permissions on a path and output the results.
 		$changePerms = function ($path, $perms, $io) {
@@ -99,13 +132,13 @@ class Installer {
 		$changePerms($dir . '/logs', $worldWritable, $io);
 	}
 
-/**
- * Set the security.salt value in the application's config file.
- *
- * @param string $dir The application's root directory.
- * @param \Composer\IO\IOInterface $io IO interface to write to console.
- * @return void
- */
+	/**
+	 * Set the security.salt value in the application's config file.
+	 *
+	 * @param string $dir The application's root directory.
+	 * @param \Composer\IO\IOInterface $io IO interface to write to console.
+	 * @return void
+	 */
 	public static function setSecuritySalt($dir, $io) {
 		$config = $dir . '/config/app.php';
 		$content = file_get_contents($config);
