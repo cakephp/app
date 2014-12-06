@@ -32,8 +32,20 @@ class Installer {
 		$io = $event->getIO();
 
 		$rootDir = dirname(dirname(__DIR__));
+
 		static::createAppConfig($rootDir, $io);
-		static::setFolderPermissions($rootDir, $io);
+
+		// ask if the permissions on folders should be changed
+		if ($io->isInteractive()) {
+			do {
+				$setFolderPermissions = $io->ask('<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ', 'Y');
+			} while (!in_array($setFolderPermissions, ['Y', 'y', 'N', 'n']));
+
+			if (in_array($setFolderPermissions, ['Y', 'y'])) {
+				static::setFolderPermissions($rootDir, $io);
+			}
+		}
+
 		static::setSecuritySalt($rootDir, $io);
 	}
 
