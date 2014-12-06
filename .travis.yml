@@ -12,7 +12,7 @@ before_script:
   - phpenv rehash
 
 script:
-  - sh -c "~/.composer/vendor/bin/phpcs -p --extensions=php --standard=~/.composer/vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./webroot"
+  - sh -c "~/.composer/vendor/bin/phpcs -p --extensions=php --standard=/home/travis/.composer/vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./webroot"
 
 notifications:
   email: false
