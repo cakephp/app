@@ -15,6 +15,7 @@
 namespace App\Console;
 
 use Composer\Script\Event;
+use Exception;
 
 /**
  * Provides installation hooks for when this application is installed via
@@ -26,14 +27,31 @@ class Installer {
  * Does some routine installation tasks so people don't have to.
  *
  * @param \Composer\Script\Event $event The composer event object.
+ * @throws \Exception Exception raised by validator.
  * @return void
  */
 	public static function postInstall(Event $event) {
 		$io = $event->getIO();
 
 		$rootDir = dirname(dirname(__DIR__));
+
 		static::createAppConfig($rootDir, $io);
-		static::setFolderPermissions($rootDir, $io);
+
+		// ask if the permissions should be changed
+		if ($io->isInteractive()) {
+			$validator = (function ($arg) {
+				if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
+					return $arg;
+				}
+				throw new Exception('This is not a valid answer. Please choose Y or n.');
+			});
+			$setFolderPermissions = $io->askAndValidate('<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ', $validator, false, 'Y');
+
+			if (in_array($setFolderPermissions, ['Y', 'y'])) {
+				static::setFolderPermissions($rootDir, $io);
+			}
+		}
+
 		static::setSecuritySalt($rootDir, $io);
 	}
 
