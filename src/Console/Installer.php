@@ -27,6 +27,7 @@ class Installer {
  * Does some routine installation tasks so people don't have to.
  *
  * @param \Composer\Script\Event $event The composer event object.
+ * @thrown \Exception.
  * @return void
  */
 	public static function postInstall(Event $event) {
@@ -38,7 +39,7 @@ class Installer {
 
 		// ask if the permissions should be changed
 		if ($io->isInteractive()) {
-			$validator = (function($arg) {
+			$validator = (function ($arg) {
 				if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
 					return $arg;
 				}
