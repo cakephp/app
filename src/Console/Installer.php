@@ -27,7 +27,7 @@ class Installer {
  * Does some routine installation tasks so people don't have to.
  *
  * @param \Composer\Script\Event $event The composer event object.
- * @thrown \Exception.
+ * @throws \Exception.
  * @return void
  */
 	public static function postInstall(Event $event) {
