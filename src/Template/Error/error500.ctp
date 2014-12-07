@@ -1,19 +1,15 @@
 <?php
 use Cake\Core\Configure;
 use Cake\Error\Debugger;
+
+if (Configure::read('debug')):
+	$this->layout = 'dev_error';
+
+	$this->assign('title', $message);
+	$this->assign('templateName', 'error500.ctp');
+
+	$this->start('file');
 ?>
-<h2><?= __d('cake', 'An Internal Error Has Occurred') ?></h2>
-<p class="error">
-	<strong><?= __d('cake', 'Error') ?>: </strong>
-	<?= h($message) ?>
-</p>
-<?php
-if (Configure::read('debug')) :
-?>
-	<p class="info">
-		<?= h($error->getFile()); ?> in line
-		<?= h($error->getLine()); ?>
-	</p>
 <?php if (!empty($error->queryString)) : ?>
 	<p class="notice">
 		<strong>SQL Query: </strong>
@@ -26,10 +22,16 @@ if (Configure::read('debug')) :
 <?php endif; ?>
 <?php
 	echo $this->element('auto_table_warning');
-	echo $this->element('exception_stack_trace');
 
-	if (extension_loaded('xdebug')) {
+	if (extension_loaded('xdebug')):
 		xdebug_print_function_stack();
-	}
+	endif;
+
+	$this->end();
 endif;
 ?>
+<h2><?= __d('cake', 'An Internal Error Has Occurred') ?></h2>
+<p class="error">
+	<strong><?= __d('cake', 'Error') ?>: </strong>
+	<?= h($message) ?>
+</p>
