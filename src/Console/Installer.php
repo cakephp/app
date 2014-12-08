@@ -50,6 +50,8 @@ class Installer {
 			if (in_array($setFolderPermissions, ['Y', 'y'])) {
 				static::setFolderPermissions($rootDir, $io);
 			}
+		} else {
+			static::setFolderPermissions($rootDir, $io);
 		}
 
 		static::setSecuritySalt($rootDir, $io);
