@@ -11,7 +11,8 @@
 		"cakephp/debug_kit": "3.0.*-dev"
 	},
 	"require-dev": {
-		"d11wtq/boris": "1.0.*"
+		"d11wtq/boris": "1.0.*",
+		"cakephp/bake": "master-dev"
 	},
 	"suggest": {
 		"phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
