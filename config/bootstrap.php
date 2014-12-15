@@ -38,6 +38,7 @@ use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
+use Cake\Core\Exception\MissingPluginException;
 use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
@@ -165,7 +166,11 @@ Request::addDetector('tablet', function ($request) {
  * Plugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
-Plugin::load('DebugKit', ['bootstrap' => true]);
+try {
+	Plugin::load('DebugKit', ['bootstrap' => true]);
+} catch (MissingPluginException $e) {
+	// Do not halt if the plugin is missing
+}
 
 /**
  * Connect middleware/dispatcher filters.
