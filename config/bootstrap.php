@@ -38,7 +38,6 @@ use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
-use Cake\Core\Exception\MissingPluginException;
 use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
