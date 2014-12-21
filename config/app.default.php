@@ -82,6 +82,7 @@ $config = [
 	'Cache' => [
 		'default' => [
 			'className' => 'File',
+			'path' => CACHE,
 		],
 
 	/**
@@ -269,11 +270,13 @@ $config = [
 	'Log' => [
 		'debug' => [
 			'className' => 'Cake\Log\Engine\FileLog',
+			'path' => LOGS,
 			'file' => 'debug',
 			'levels' => ['notice', 'info', 'debug'],
 		],
 		'error' => [
 			'className' => 'Cake\Log\Engine\FileLog',
+			'path' => LOGS,
 			'file' => 'error',
 			'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
 		],
