@@ -71,10 +71,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<p class="problem">Your version of PHP does NOT have the mbstring extension loaded.</p>;
 				<?php endif; ?>
 
-				<?php if (extension_loaded('mcrypt')): ?>
+				<?php if (extension_loaded('openssl')): ?>
+					<p class="success">Your version of PHP has the openssl extension loaded.</p>
+				<?php elseif (extension_loaded('mcrypt')): ?>
 					<p class="success">Your version of PHP has the mcrypt extension loaded.</p>
 				<?php else: ?>
-					<p class="problem">Your version of PHP does NOT have the mcrypt extension loaded.</p>
+					<p class="problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</p>
 				<?php endif; ?>
 
 				<?php if (extension_loaded('intl')): ?>
@@ -95,7 +97,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<?php else: ?>
 					<p class="problem">Your logs directory is NOT writable.</p>
 				<?php endif; ?>
-				
+
 				<?php $settings = Cache::config('_cake_core_'); ?>
 				<?php if (!empty($settings)): ?>
 					<p class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</p>
