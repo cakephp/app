@@ -73,12 +73,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 				<?php if (extension_loaded('openssl')): ?>
 					<p class="success">Your version of PHP has the openssl extension loaded.</p>
+				<?php elseif (extension_loaded('mcrypt')): ?>
+					<p class="success">Your version of PHP has the mcrypt extension loaded.</p>
 				<?php else: ?>
-					<?php if (extension_loaded('mcrypt')): ?>
-						<p class="success">Your version of PHP has the mcrypt extension loaded.</p>
-					<?php else: ?>
-						<p class="problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</p>
-					<?php endif; ?>
+					<p class="problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</p>
 				<?php endif; ?>
 
 				<?php if (extension_loaded('intl')): ?>
