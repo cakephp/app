@@ -135,7 +135,8 @@ $config = [
      *   render method.
      * - `skipLog` - array - List of exceptions to skip for logging. Exceptions that
      *   extend one of the listed exceptions will also be skipped for logging.
-     *   E.g.: `'skipLog' => ['Cake\Network\Exception\NotFoundException', 'Cake\Network\Exception\UnauthorizedException']`
+     *   E.g.:
+		 *   `'skipLog' => ['Cake\Network\Exception\NotFoundException', 'Cake\Network\Exception\UnauthorizedException']`
      */
     'Error' => [
         'errorLevel' => E_ALL & ~E_DEPRECATED,
