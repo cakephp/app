@@ -18,6 +18,6 @@
  *
  * This is primarily used for identifying plugins in /vendor
  */
-$config = [
+return [
     'plugins' => []
 ];
