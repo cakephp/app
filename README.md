@@ -30,8 +30,8 @@ configuration relevant for your application.
 
 ### Hoping to Accomplish
 
-[ ] auto test running
-[ ] auto code sniffing
-[ ] auto builds
-[ ] auto deploy to stage
-[ ] one-click code rollback
+ *  [ ] auto test running
+ *  [ ] auto code sniffing
+ *  [ ] auto builds
+ *  [ ] auto deploy to stage
+ *  [ ] one-click code rollback
