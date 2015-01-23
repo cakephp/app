@@ -142,6 +142,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <h3>Getting Started</h3>
                 <ul>
                     <li><a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
+                    <li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/bookmarks/intro.html">The 15 min Bookmarker Tutorial</a></li>
                     <li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a></li>
                 </ul>
                 <p>
