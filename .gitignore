@@ -1,5 +1,4 @@
 /vendor/*
 /config/app.php
-/config/plugins.php
 /tmp/*
 /logs/*
