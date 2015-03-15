@@ -32,7 +32,6 @@ class ConsoleShell extends Shell
      */
     public function main()
     {
-
         if (!class_exists('Psy\Shell')) {
             $this->err('<error>Unable to load Psy\Shell.</error>');
             $this->err('');
