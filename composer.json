@@ -12,7 +12,7 @@
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
-        "d11wtq/boris": "1.0.*",
+        "psy/psysh": "@stable",
         "cakephp/debug_kit": "3.0.*-dev",
         "cakephp/bake": "dev-master"
     },

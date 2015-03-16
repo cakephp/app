@@ -14,10 +14,10 @@
  */
 namespace App\Shell;
 
-use Boris\Boris;
 use Cake\Console\ConsoleOptionParser;
 use Cake\Console\Shell;
 use Cake\Log\Log;
+use Psy\Shell as PsyShell;
 
 /**
  * Simple console wrapper around Boris.
@@ -32,25 +32,21 @@ class ConsoleShell extends Shell
      */
     public function main()
     {
-        if (!class_exists('Boris\Boris')) {
-            $this->err('<error>Unable to load Boris\Boris.</error>');
+        if (!class_exists('Psy\Shell')) {
+            $this->err('<error>Unable to load Psy\Shell.</error>');
             $this->err('');
-            $this->err('Make sure you have installed boris as a dependency,');
-            $this->err('and that Boris\Boris is registered in your autoloader.');
+            $this->err('Make sure you have installed psysh as a dependency,');
+            $this->err('and that Psy\Shell is registered in your autoloader.');
             $this->err('');
             $this->err('If you are using composer run');
             $this->err('');
-            $this->err('<info>$ php composer.phar require d11wtq/boris</info>');
+            $this->err('<info>$ php composer.phar require --dev psy/psysh</info>');
             $this->err('');
             return 1;
         }
-        if (!function_exists('pcntl_signal')) {
-            $this->err('<error>No process control functions.</error>');
-            $this->err('');
-            $this->err('You are missing the pcntl extension, the interactive console requires this extension.');
-            return 2;
-        }
-        $this->out('You can exit with <info>CTRL-D</info>');
+
+        $this->out("You can exit with <info>`CTRL-C`</info> or <info>`exit`</info>");
+        $this->out('');
 
         Log::drop('debug');
         Log::drop('error');
@@ -58,8 +54,8 @@ class ConsoleShell extends Shell
         restore_error_handler();
         restore_exception_handler();
 
-        $boris = new Boris('app > ');
-        $boris->start();
+        $psy = new PsyShell();
+        $psy->run();
     }
 
     /**
@@ -76,9 +72,7 @@ class ConsoleShell extends Shell
             'it to run adhoc queries with your models, or experiment ' .
             'and explore the features of CakePHP and your application.' .
             "\n\n" .
-            'You will need to have boris installed for this Shell to work. ' .
-            'Boris is known to not work well on windows due to dependencies on ' .
-            'readline and posix.'
+            'You will need to have psysh installed for this Shell to work.'
         );
         return $parser;
     }
