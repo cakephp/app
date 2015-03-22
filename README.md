@@ -14,7 +14,7 @@ This is an unstable repository and should be treated as an alpha.
 
 If Composer is installed globally, run
 ```bash
-composer create-project --prefer-dist -s dev cakephp/app [app_name]
+composer create-project --prefer-dist cakephp/app [app_name]
 ```
 
 You should now be able to visit the path to where you installed the app and see
