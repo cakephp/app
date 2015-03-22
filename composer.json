@@ -8,13 +8,13 @@
         "php": ">=5.4.16",
         "cakephp/cakephp": "3.0.*-dev",
         "mobiledetect/mobiledetectlib": "2.*",
-        "cakephp/migrations": "dev-master",
+        "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",
-        "cakephp/debug_kit": "3.0.*-dev",
-        "cakephp/bake": "dev-master"
+        "cakephp/debug_kit": "~3.0",
+        "cakephp/bake": "~1.0"
     },
     "suggest": {
         "phpunit/phpunit": "Allows automated tests to be run without system-wide install.",
