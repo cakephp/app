@@ -164,7 +164,7 @@ Request::addDetector('tablet', function ($request) {
  * inflection functions.
  *
  * Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
- * Inflector::rules('irregular' => ['red' => 'redlings']);
+ * Inflector::rules('irregular', ['red' => 'redlings']);
  * Inflector::rules('uninflected', ['dontinflectme']);
  * Inflector::rules('transliteration', ['/å/' => 'aa']);
  */
