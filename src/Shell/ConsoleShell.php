@@ -20,7 +20,7 @@ use Cake\Log\Log;
 use Psy\Shell as PsyShell;
 
 /**
- * Simple console wrapper around Boris.
+ * Simple console wrapper around Psy\Shell.
  */
 class ConsoleShell extends Shell
 {
