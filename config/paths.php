@@ -26,12 +26,13 @@ if (!defined('DS')) {
  */
 
 /**
- * The full path to the directory which holds "App", WITHOUT a trailing DS.
+ * The full path to the directory which holds "src", WITHOUT a trailing DS.
  */
 define('ROOT', dirname(__DIR__));
 
 /**
- * The actual directory name for the "App".
+ * The actual directory name for the application directory. Normally
+ * named 'src'.
  */
 define('APP_DIR', 'src');
 
