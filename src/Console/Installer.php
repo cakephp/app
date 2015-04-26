@@ -38,6 +38,7 @@ class Installer
         $rootDir = dirname(dirname(__DIR__));
 
         static::createAppConfig($rootDir, $io);
+        static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
         if ($io->isInteractive()) {
@@ -82,6 +83,35 @@ class Installer
         if (!file_exists($appConfig)) {
             copy($defaultConfig, $appConfig);
             $io->write('Created `config/app.php` file');
+        }
+    }
+
+    /**
+     * Create the `logs` and `tmp` directories.
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
+    public static function createWritableDirectories($dir, $io)
+    {
+        $paths = [
+            'logs',
+            'tmp',
+            'tmp/cache',
+            'tmp/cache/models',
+            'tmp/cache/persistent',
+            'tmp/cache/views',
+            'tmp/sessions',
+            'tmp/tests'
+        ];
+
+        foreach ($paths as $path) {
+            $path = $dir . '/' . $path;
+            if (!file_exists($path)) {
+                mkdir($path);
+                $io->write('Created `' . $path . '` directory');
+            }
         }
     }
 
