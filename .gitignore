@@ -2,11 +2,3 @@
 /config/app.php
 /tmp/*
 /logs/*
-
-
-!/logs/empty
-!/tmp/cache/models/empty
-!/tmp/cache/persistent/empty
-!/tmp/cache/views/empty
-!/tmp/sessions/empty
-!/tmp/tests/empty
