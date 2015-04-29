@@ -44,6 +44,7 @@ use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
+use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
 use Cake\Log\Log;
@@ -193,3 +194,9 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
+
+/**
+ * Enable default locale format parsing.
+ * This is needed for matching the auto-localized string output of Time() class when parsing dates.
+ */
+Type::build('datetime')->useLocaleParser();
