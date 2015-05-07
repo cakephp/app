@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -38,5 +39,18 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+    }
+
+    /**
+     * Before render callback.
+     *
+     * @param \Cake\Event\Event $event The beforeRender event.
+     * @return void
+     */
+    public function beforeRender(Event $event)
+    {
+        if ($this->viewClass === 'Json') {
+            $this->set('_serialize', true);
+        }
     }
 }
