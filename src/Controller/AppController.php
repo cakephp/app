@@ -49,7 +49,7 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        if ($this->viewClass === 'Json') {
+        if (in_array($this->viewClass, ['Json', 'Xml'])) {
             $this->set('_serialize', true);
         }
     }
