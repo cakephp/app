@@ -5,6 +5,8 @@
 
 A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.0.
 
+The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+
 ## Installation
 
 1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
