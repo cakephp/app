@@ -383,14 +383,15 @@ pre {
   margin-right: 9px;
 }
 
+
 /* Midori Universal */
 
 .top-bar.expanded .title-area {
-   background:#01545b;
+  background: #01545b;
 }
 
-.top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button){
-   background:#116d76;
+.top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #116d76;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
@@ -406,8 +407,8 @@ pre {
   padding: 0.4375rem 0.875rem;
 }
 
-#actions-sidebar{
-   background: #fafafa;
+#actions-sidebar {
+  background: #fafafa;
 }
 
 .index table {
@@ -427,20 +428,20 @@ table thead {
   background: none;
 }
 
-table tr{
-   border-bottom: 1px solid #ebebec;
+table tr {
+  border-bottom: 1px solid #ebebec;
 }
 
-table thead tr{
-   border-bottom: 1px solid #1798A5;
+table thead tr {
+  border-bottom: 1px solid #1798A5;
 }
 
-table tr th{
+table tr th {
   padding: 0.5625rem 0.625rem;
   font-size: 0.875rem;
   color: #1798A5;
   text-align: left;
-   border-bottom: 2px solid #1798A5;
+  border-bottom: 2px solid #1798A5;
 }
 
 table tr:nth-of-type(even) {
@@ -453,10 +454,10 @@ fieldset {
   margin: 1.125rem 0;
 }
 
-fieldset legend{
-   border-bottom: 2px solid #1798A5;
-   width: 100%;
-   line-height:2rem;
+fieldset legend {
+  border-bottom: 2px solid #1798A5;
+  width: 100%;
+  line-height: 2rem;
 }
 
 .form button[type="submit"] {
@@ -475,19 +476,19 @@ button {
 }
 
 div.message {
-   border-style: solid;
-   border-width: 1px;
-   display: block;
-   font-weight: normal;
-   padding: 0.875rem 1.5rem 0.875rem 1.5rem;
-   transition: opacity 300ms ease-out 0s;
-   background-color: #a0d3e8;
-   border-color: #74bfdd;
-   color: #626262;
-   position: fixed;
-   top: 15px;
-   right: 15px;
-   z-index: 999;
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  font-weight: normal;
+  padding: 0.875rem 1.5rem 0.875rem 1.5rem;
+  transition: opacity 300ms ease-out 0s;
+  background-color: #a0d3e8;
+  border-color: #74bfdd;
+  color: #626262;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
 }
 
 div.message:before {
@@ -507,50 +508,50 @@ div.message:before {
   color: #a0d3e8;
 }
 
-.vertical-table th{
-   padding: 0.5625rem 0.625rem;
-   font-size: 0.875rem;
-   color: #1798A5;
-   border:none;
-   text-align: left;
+.vertical-table th {
+  padding: 0.5625rem 0.625rem;
+  font-size: 0.875rem;
+  color: #1798A5;
+  border: none;
+  text-align: left;
 }
 
-.vertical-table{
-   vertical-align:middle;
+.vertical-table {
+  vertical-align: middle;
 }
 
-.vertical-table td{
-   text-align: right;
+.vertical-table td {
+  text-align: right;
 }
 
-#content{
-   padding:2rem;
+#content {
+  padding: 2rem;
 }
 
-#content h3{
-     color: #be140b;
-      padding-bottom:0.5rem;
-      margin-bottom:20px;
+#content h3 {
+  color: #be140b;
+  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
 }
 
-#content h4{
-     color: #be140b;
-      padding-bottom:0.5rem;
-      margin-bottom:20px;
-      border-bottom: 2px solid #be140b;
+#content h4 {
+  color: #be140b;
+  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #be140b;
 }
 
-#content .related h4{
-   color: #ebaa20;
-    padding-bottom:0.5rem;
-    margin-top:20px;
-    margin-bottom:10px;
-    border-bottom:0px;
+#content .related h4 {
+  color: #ebaa20;
+  padding-bottom: 0.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 0px;
 }
 
 
 @media only screen and (min-width: 40.063em) {
-#actions-sidebar{
-   height:100vh;
-}
+  #actions-sidebar {
+    height: 100vh;
+  }
 }
