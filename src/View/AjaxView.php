@@ -36,23 +36,14 @@ class AjaxView extends AppView
     public $layout = 'ajax';
 
     /**
-     * Constructor
+     * Initialization hook method.
      *
-     * @param \Cake\Network\Request $request The request object.
-     * @param \Cake\Network\Response $response The response object.
-     * @param \Cake\Event\EventManager $eventManager Event manager object.
-     * @param array $viewOptions View options.
+     * @return void
      */
-    public function __construct(
-        Request $request = null,
-        Response $response = null,
-        EventManager $eventManager = null,
-        array $viewOptions = []
-    ) {
-        parent::__construct($request, $response, $eventManager, $viewOptions);
+    public function initialize()
+    {
+        parent::initialize();
 
-        if ($response && $response instanceof Response) {
-            $response->type('ajax');
-        }
+        $response->type('ajax');
     }
 }
