@@ -150,15 +150,11 @@ return [
     /**
      * Email configuration.
      *
-     * You can configure email transports and email delivery profiles here.
-     *
      * By defining transports separately from delivery profiles you can easily
      * re-use transport configuration across multiple profiles.
      *
      * You can specify multiple configurations for production, development and
      * testing.
-     *
-     * ### Configuring transports
      *
      * Each transport needs a `className`. Valid options are as follows:
      *
@@ -169,14 +165,6 @@ return [
      * You can add custom transports (or override existing transports) by adding the
      * appropriate file to src/Network/Email.  Transports should be named
      * 'YourTransport.php', where 'Your' is the name of the transport.
-     *
-     * ### Configuring delivery profiles
-     *
-     * Delivery profiles allow you to predefine various properties about email
-     * messages from your application and give the settings a name. This saves
-     * duplication across your application and makes maintenance and development
-     * easier. Each profile accepts a number of keys. See `Cake\Network\Email\Email`
-     * for more information.
      */
     'EmailTransport' => [
         'default' => [
@@ -192,6 +180,15 @@ return [
         ],
     ],
 
+    /**
+     * Email delivery profiles
+     *
+     * Delivery profiles allow you to predefine various properties about email
+     * messages from your application and give the settings a name. This saves
+     * duplication across your application and makes maintenance and development
+     * easier. Each profile accepts a number of keys. See `Cake\Network\Email\Email`
+     * for more information.
+     */
     'Email' => [
         'default' => [
             'transport' => 'default',
@@ -285,7 +282,6 @@ return [
     ],
 
     /**
-     *
      * Session configuration.
      *
      * Contains an array of settings to use for session configuration. The
