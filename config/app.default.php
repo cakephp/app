@@ -165,7 +165,6 @@ return [
      * You can add custom transports (or override existing transports) by adding the
      * appropriate file to src/Network/Email.  Transports should be named
      * 'YourTransport.php', where 'Your' is the name of the transport.
-     *
      */
     'EmailTransport' => [
         'default' => [
@@ -189,7 +188,6 @@ return [
      * duplication across your application and makes maintenance and development
      * easier. Each profile accepts a number of keys. See `Cake\Network\Email\Email`
      * for more information.
-     *
      */
     'Email' => [
         'default' => [
@@ -284,7 +282,6 @@ return [
     ],
 
     /**
-     *
      * Session configuration.
      *
      * Contains an array of settings to use for session configuration. The
