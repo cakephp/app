@@ -1,17 +1,17 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+* CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+* Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+*
+* Licensed under The MIT License
+* For full copyright and license information, please see the LICENSE.txt
+* Redistributions of files must retain the above copyright notice.
+*
+* @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+* @link          http://cakephp.org CakePHP(tm) Project
+* @since         0.10.0
+* @license       http://www.opensource.org/licenses/mit-license.php MIT License
+*/
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
@@ -34,26 +34,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-<nav class="top-bar expanded" data-topbar role="navigation">
-  <ul class="title-area large-3 medium-4 colmuns">
-    <li class="name">
-      <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-    </li>
-  </ul>
+    <nav class="top-bar expanded" data-topbar role="navigation">
+        <ul class="title-area large-3 medium-4 colmuns">
+            <li class="name">
+                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
+            </li>
+        </ul>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-      <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-    </ul>
-  </section>
-</nav>
-            <?= $this->Flash->render() ?>
-<section id="container">
-                <?= $this->fetch('content') ?>
-</section>
-        <footer>
-        </footer>
+        <section class="top-bar-section">
+            <ul class="right">
+                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
+                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
+            </ul>
+        </section>
+    </nav>
+    <?= $this->Flash->render() ?>
+    <section id="container">
+        <?= $this->fetch('content') ?>
+    </section>
+    <footer>
+    </footer>
 </body>
 </html>
