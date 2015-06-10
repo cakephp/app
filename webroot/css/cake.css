@@ -382,3 +382,173 @@ pre {
   color: red;
   margin-right: 9px;
 }
+
+.top-bar.expanded .title-area {
+  background: #01545b;
+}
+
+.top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #116d76;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background-color: #308e97;
+  background: #308e97;
+}
+
+.side-nav li.heading {
+  color: #1798A5;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.4375rem 0.875rem;
+}
+
+#actions-sidebar {
+  background: #fafafa;
+}
+
+.index table {
+  margin-top: 0rem;
+  border: 0;
+}
+
+table {
+  background: #fff;
+  margin-bottom: 1.25rem;
+  border: none;
+  table-layout: fixed;
+  width: 100%;
+}
+
+table thead {
+  background: none;
+}
+
+table tr {
+  border-bottom: 1px solid #ebebec;
+}
+
+table thead tr {
+  border-bottom: 1px solid #1798A5;
+}
+
+table tr th {
+  padding: 0.5625rem 0.625rem;
+  font-size: 0.875rem;
+  color: #1798A5;
+  text-align: left;
+  border-bottom: 2px solid #1798A5;
+}
+
+table tr:nth-of-type(even) {
+  background: none;
+}
+
+fieldset {
+  border: none;
+  padding: 1.25rem;
+  margin: 1.125rem 0;
+}
+
+fieldset legend {
+  border-bottom: 2px solid #1798A5;
+  width: 100%;
+  line-height: 2rem;
+}
+
+.form button[type="submit"] {
+  float: right;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.form button:hover, .form button:focus {
+  background: #BE840B;
+  box-shadow: none;
+}
+
+button {
+  background: #966600;
+}
+
+div.message {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  font-weight: normal;
+  padding: 0.875rem 1.5rem 0.875rem 1.5rem;
+  transition: opacity 300ms ease-out 0s;
+  background-color: #a0d3e8;
+  border-color: #74bfdd;
+  color: #626262;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+}
+
+div.message:before {
+  line-height: 0px;
+  font-size: 20px;
+  height: 12px;
+  width: 12px;
+  border-radius: 15px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  left: -11px;
+  background-color: #FFF;
+  padding: 12px 14px 12px 10px;
+  content: "i";
+  color: #a0d3e8;
+}
+
+.vertical-table th {
+  padding: 0.5625rem 0.625rem;
+  font-size: 0.875rem;
+  color: #1798A5;
+  border: none;
+  text-align: left;
+}
+
+.vertical-table {
+  vertical-align: middle;
+}
+
+.vertical-table td {
+  text-align: right;
+}
+
+#content {
+  padding: 2rem;
+}
+
+#content h3 {
+  color: #be140b;
+  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
+}
+
+#content h4 {
+  color: #be140b;
+  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #be140b;
+}
+
+#content .related h4 {
+  color: #ebaa20;
+  padding-bottom: 0.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 0px;
+}
+
+
+@media only screen and (min-width: 40.063em) {
+  #actions-sidebar {
+    height: 100vh;
+  }
+}
