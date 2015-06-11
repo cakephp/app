@@ -91,7 +91,7 @@ ul.pagination li a {
 }
 
 ul.pagination li.active a {
-  background: none repeat scroll 0% 0% #DCE47E;
+  background-color: #DCE47E;
   color: #FFF;
   font-weight: bold;
   cursor: default;
@@ -109,6 +109,13 @@ ul.pagination li.active a {
 .paginator p {
   text-align: right;
   color: rgba(0, 0 ,0 , 0.54);
+}
+
+.asc:after {
+  content: " \2193";
+}
+.desc:after {
+  content: " \2191";
 }
 
 button {
@@ -521,34 +528,47 @@ div.message:before {
   text-align: right;
 }
 
-#content {
+
+.content {
   padding: 2rem;
 }
 
-#content h3 {
+/* Use 'one true layout' methods to get equal height columns */
+.container {
+  overflow: hidden;
+  min-height: 92%; /* full height almost always */
+}
+
+/* Force equal height by overflowing */
+.content,
+#actions-sidebar {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+@media(max-width: 640px) {
+    #actions-sidebar {
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+.content h3 {
   color: #be140b;
   padding-bottom: 0.5rem;
   margin-bottom: 20px;
 }
 
-#content h4 {
+.content h4 {
   color: #be140b;
   padding-bottom: 0.5rem;
   margin-bottom: 20px;
   border-bottom: 2px solid #be140b;
 }
 
-#content .related h4 {
+.content .related h4 {
   color: #ebaa20;
   padding-bottom: 0.5rem;
   margin-top: 20px;
   margin-bottom: 10px;
   border-bottom: 0px;
-}
-
-
-@media only screen and (min-width: 40.063em) {
-  #actions-sidebar {
-    height: 100vh;
-  }
 }
