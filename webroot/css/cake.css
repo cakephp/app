@@ -111,6 +111,13 @@ ul.pagination li.active a {
   color: rgba(0, 0 ,0 , 0.54);
 }
 
+.asc:after {
+	content: " \2193";
+}
+.desc:after {
+	content: " \2191";
+}
+
 button {
   background: #8D6E65;
 }
