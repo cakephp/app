@@ -528,8 +528,28 @@ div.message:before {
   text-align: right;
 }
 
+
 .content {
   padding: 2rem;
+}
+
+/* Use 'one true layout' methods to get equal height columns */
+.container {
+  overflow: hidden;
+  min-height: 92%; /* full height almost always */
+}
+
+/* Force equal height by overflowing */
+.content,
+#actions-sidebar {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+@media(max-width: 640px) {
+    #actions-sidebar {
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+    }
 }
 
 .content h3 {
@@ -551,11 +571,4 @@ div.message:before {
   margin-top: 20px;
   margin-bottom: 10px;
   border-bottom: 0px;
-}
-
-
-@media only screen and (min-width: 40.063em) {
-  #actions-sidebar {
-    height: 100vh;
-  }
 }
