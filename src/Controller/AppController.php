@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use DebugKit\DebugPanel;
 
 /**
  * Application Controller
@@ -26,6 +27,7 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller
 {
+   
 
     /**
      * Initialization hook method.
