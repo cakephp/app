@@ -107,7 +107,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
         <div class="row">
-            <div class="columns large-12 database checks">
+            <div class="columns large-12  database checks">
                 <?php
                     try {
                         $connection = ConnectionManager::get('default');

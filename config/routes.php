@@ -54,6 +54,7 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+
     /**
      * Connect catchall routes for all controllers.
      *
@@ -77,4 +78,14 @@ Router::scope('/', function ($routes) {
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
  */
+Router::prefix('admin', function ($routes) {
+    $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
+    $routes->extensions(['json']);
+    // Toutes les routes ici seront préfixées avec `/admin` et auront
+    // l'élément de route prefix => admin ajouté.
+    //$routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
+   $routes->fallbacks('InflectedRoute');
+});
+
+
 Plugin::routes();
