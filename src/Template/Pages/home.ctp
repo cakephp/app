@@ -46,11 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </header>
     <div id="content">
-        <?php
-        if (Configure::read('debug')):
-            Debugger::checkSecurityKeys();
-        endif;
-        ?>
+        <?php Debugger::checkSecurityKeys(); ?>
         <p id="url-rewriting-warning" style="background-color:#e32; color:#fff;display:none">
             URL rewriting is not properly configured on your server.
             1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
