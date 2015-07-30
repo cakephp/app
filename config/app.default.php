@@ -87,8 +87,9 @@ return [
         ],
 
         /**
-         * Configure the cache used for general framework caching. Path information
-         * and object listings are stored with this configuration.
+         * Configure the cache used for general framework caching. Path information,
+         * object listings, and translation cache files are stored with this
+         * configuration.
          */
         '_cake_core_' => [
             'className' => 'File',
@@ -107,18 +108,6 @@ return [
             'className' => 'File',
             'prefix' => 'myapp_cake_model_',
             'path' => CACHE . 'models/',
-            'serialize' => true,
-            'duration' => '+2 minutes',
-        ],
-
-        /**
-         * Configure the cache for i18n. This cache configuration
-         * is used to store translation messages.
-         */
-        '_cake_i18n_' => [
-            'className' => 'File',
-            'prefix' => 'myapp_cake_i18n_',
-            'path' => CACHE . 'i18n/',
             'serialize' => true,
             'duration' => '+2 minutes',
         ],
