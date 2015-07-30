@@ -99,7 +99,6 @@ class Installer
             'logs',
             'tmp',
             'tmp/cache',
-            'tmp/cache/i18n',
             'tmp/cache/models',
             'tmp/cache/persistent',
             'tmp/cache/views',
