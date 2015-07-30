@@ -87,9 +87,8 @@ return [
         ],
 
         /**
-         * Configure the cache used for general framework caching. Path information,
-         * object listings, and translation cache files are stored with this
-         * configuration.
+         * Configure the cache used for general framework caching.
+         * Translation cache files are stored with this configuration.
          */
         '_cake_core_' => [
             'className' => 'File',
