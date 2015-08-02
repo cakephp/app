@@ -1,3 +1,4 @@
+.disabled a,
 a.disabled {
   pointer-events: none;
 }
@@ -95,6 +96,9 @@ ul.pagination li.active a {
   color: #FFF;
   font-weight: bold;
   cursor: default;
+}
+ul.pagination .disabled:hover a {
+  background: none;
 }
 
 .paginator {
