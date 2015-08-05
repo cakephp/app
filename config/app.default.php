@@ -222,6 +222,7 @@ return [
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
+            'log' => false,
 
             /**
              * Set identifier quoting to true if you are using reserved words or
@@ -259,6 +260,7 @@ return [
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
+            'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
         ],
     ],
