@@ -199,4 +199,5 @@ DispatcherFactory::add('ControllerFactory');
  * Enable default locale format parsing.
  * This is needed for matching the auto-localized string output of Time() class when parsing dates.
  */
+Type::build('date')->useLocaleParser();
 Type::build('datetime')->useLocaleParser();
