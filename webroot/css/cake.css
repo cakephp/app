@@ -344,6 +344,11 @@ pre {
   margin-top:50px;
 }
 
+.checks.url-rewriting {
+    background-color: #F0F0F0;
+    display: none;
+}
+
 .checks.platform {
   background-color: #B7E3EC;
 }
