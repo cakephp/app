@@ -148,7 +148,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <hr/>
         <div class="row">
             <div class="columns large-12">
-                <h3 class="">More about Cake</h3>
+                <h3>More about Cake</h3>
                 <p>
                     CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
                 </p>
