@@ -46,14 +46,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </header>
     <div id="content">
-        <?php Debugger::checkSecurityKeys(); ?>
-        <p id="url-rewriting-warning" style="background-color:#e32; color:#fff;display:none">
-            URL rewriting is not properly configured on your server.
-            1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-            2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-        </p>
-
         <div class="row">
+            <?php Debugger::checkSecurityKeys(); ?>
+            <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
+                <p class="problem">URL rewriting is not properly configured on your server.</p>
+                <p>
+                    1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html">Help me configure it</a>
+                </p>
+                <p>
+                    2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                </p>
+            </div>
             <div class="columns large-5 platform checks">
                 <?php if (version_compare(PHP_VERSION, '5.4.16', '>=')): ?>
                     <p class="success">Your version of PHP is 5.4.16 or higher.</p>
@@ -144,18 +147,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <p>
             </div>
         </div>
-
         <hr/>
         <div class="row">
             <div class="columns large-12">
-                <h3>More about Cake</h3>
+                <h3 class="">More about Cake</h3>
                 <p>
                     CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
                 </p>
                 <p>
                     Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
                 </p>
-
                 <ul>
                     <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
                     <ul><li>Promoting development related to CakePHP</li></ul></li>
