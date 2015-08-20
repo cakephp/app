@@ -177,6 +177,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
                     <li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
                     <ul><li>CakePHP issues and pull requests</li></ul></li>
+                    <li><a href="http://training.cakephp.org/">CakePHP Training</a>
+                    <ul><li>Learn to use the CakePHP framework</li></ul></li>
+                    <li><a href="http://certification.cakephp.org/">CakePHP Certification</a>
+                    <ul><li>Become a certified CakePHP developer</li></ul></li>
                 </ul>
             </div>
         </div>
