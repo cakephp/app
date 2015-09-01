@@ -3,7 +3,7 @@ use Cake\Core\Configure;
 use Cake\Error\Debugger;
 
 if (Configure::read('debug')):
-    $this->layout = 'dev_error';
+    $this->viewBuilder()->layout('dev_error');
 
     $this->assign('title', $message);
     $this->assign('templateName', 'error500.ctp');
