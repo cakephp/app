@@ -55,6 +55,14 @@ legend {
 .index table {
   margin-top: 2rem;
   border: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.related table {
+  border: 0;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .index table thead {
