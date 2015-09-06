@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
                 <p class="problem">URL rewriting is not properly configured on your server.</p>
                 <p>
-                    1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html">Help me configure it</a>
+                    1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a>
                 </p>
                 <p>
                     2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
