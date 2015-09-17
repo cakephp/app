@@ -30,4 +30,10 @@
         </listener>
     </listeners>
 
+    <!-- Ignore vendor tests in code coverage reports -->
+    <filter>
+        <blacklist>
+            <directory suffix=".php">./vendor/</directory>
+        </blacklist>
+    </filter>
 </phpunit>
