@@ -46,14 +46,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </header>
     <div id="content">
-        <?php Debugger::checkSecurityKeys(); ?>
-        <p id="url-rewriting-warning" style="background-color:#e32; color:#fff;display:none">
-            URL rewriting is not properly configured on your server.
-            1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-            2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-        </p>
-
         <div class="row">
+            <?php Debugger::checkSecurityKeys(); ?>
+            <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
+                <p class="problem">URL rewriting is not properly configured on your server.</p>
+                <p>
+                    1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a>
+                </p>
+                <p>
+                    2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                </p>
+            </div>
             <div class="columns large-5 platform checks">
                 <?php if (version_compare(PHP_VERSION, '5.4.16', '>=')): ?>
                     <p class="success">Your version of PHP is 5.4.16 or higher.</p>
@@ -144,7 +147,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <p>
             </div>
         </div>
-
         <hr/>
         <div class="row">
             <div class="columns large-12">
@@ -155,7 +157,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <p>
                     Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
                 </p>
-
                 <ul>
                     <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
                     <ul><li>Promoting development related to CakePHP</li></ul></li>
@@ -177,6 +178,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
                     <li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
                     <ul><li>CakePHP issues and pull requests</li></ul></li>
+                    <li><a href="http://training.cakephp.org/">CakePHP Training</a>
+                    <ul><li>Learn to use the CakePHP framework</li></ul></li>
+                    <li><a href="http://certification.cakephp.org/">CakePHP Certification</a>
+                    <ul><li>Become a certified CakePHP developer</li></ul></li>
                 </ul>
             </div>
         </div>

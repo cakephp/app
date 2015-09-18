@@ -56,6 +56,14 @@ legend {
 .index table {
   margin-top: 2rem;
   border: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.related table {
+  border: 0;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .index table thead {
@@ -353,6 +361,11 @@ pre {
   border-radius: 3px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
   margin-top:50px;
+}
+
+.checks.url-rewriting {
+    background-color: #F0F0F0;
+    display: none;
 }
 
 .checks.platform {
