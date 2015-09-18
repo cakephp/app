@@ -186,48 +186,6 @@ input[type=radio] {
   color: #C3232D;
 }
 
-div.message {
-  border-style: solid;
-  border-width: 1px;
-  display: block;
-  font-weight: normal;
-  position: relative;
-  padding: 0.875rem 1.5rem 0.875rem 20%;
-  transition: opacity 300ms ease-out 0s;
-  background-color: #DCE47E;
-  border-color: #DCE47E;
-  color: #626262;
-}
-
-div.message.error {
-  background-color: #C3232D;
-  border-color: #C3232D;
-  color: #FFF;
-}
-
-div.message:before {
-  line-height: 0px;
-  font-size: 20px;
-  height: 12px;
-  width: 12px;
-  border-radius: 15px;
-  text-align: center;
-  vertical-align: middle;
-  display: inline-block;
-  position: relative;
-  left: -11px;
-  background-color: #FFF;
-  padding: 12px 14px 12px 10px;
-  content: "i";
-  color: #DCE47E;
-}
-
-div.message.error:before {
-  padding: 11px 16px 14px 7px;
-  color: #C3232D;
-  content: "x";
-}
-
 .view h2 {
   color: #6F6F6F;
 }
@@ -497,19 +455,20 @@ button {
 }
 
 div.message {
-  border-style: solid;
-  border-width: 1px;
+  cursor: pointer;
   display: block;
   font-weight: normal;
-  padding: 0.875rem 1.5rem 0.875rem 1.5rem;
-  transition: opacity 300ms ease-out 0s;
+  padding: 0 1.5rem 0 1.5rem;
+  transition: height 300ms ease-out 0s;
   background-color: #a0d3e8;
-  border-color: #74bfdd;
   color: #626262;
   position: fixed;
   top: 15px;
   right: 15px;
   z-index: 999;
+  overflow: hidden;
+  height: 50px;
+  line-height: 2.5em;
 }
 
 div.message:before {
@@ -528,6 +487,21 @@ div.message:before {
   content: "i";
   color: #a0d3e8;
 }
+
+div.message.error {
+  background-color: #C3232D;
+  color: #FFF;
+}
+
+div.message.error:before {
+  padding: 11px 16px 14px 7px;
+  color: #C3232D;
+  content: "x";
+}
+div.message.hidden {
+  height: 0;
+}
+
 
 .vertical-table th {
   padding: 0.5625rem 0.625rem;
