@@ -8,7 +8,7 @@ endif;
 
 echo $this->Rss->document(
     $this->Rss->channel(
-        array(), $channel, $this->fetch('content')
+        [], $channel, $this->fetch('content')
     )
 );
 ?>
