@@ -102,7 +102,7 @@ ini_set('intl.default_locale', 'en_US');
 /**
  * Register application error and exception handlers.
  */
-$isCli = php_sapi_name() === 'cli';
+$isCli = PHP_SAPI === 'cli';
 if ($isCli) {
     (new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
