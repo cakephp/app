@@ -220,6 +220,7 @@ return [
             'database' => 'my_app',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
+            'flags' => [],
             'cacheMetadata' => true,
             'log' => false,
 
