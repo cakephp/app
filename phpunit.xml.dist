@@ -37,6 +37,7 @@
         </blacklist>
         <whitelist>
             <directory suffix=".php">./tests/TestCase/</directory>
+            <directory suffix=".php">./src/</directory>
         </whitelist>
     </filter>
 </phpunit>
