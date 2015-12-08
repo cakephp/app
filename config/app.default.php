@@ -187,7 +187,7 @@ return [
      * Delivery profiles allow you to predefine various properties about email
      * messages from your application and give the settings a name. This saves
      * duplication across your application and makes maintenance and development
-     * easier. Each profile accepts a number of keys. See `Cake\Network\Email\Email`
+     * easier. Each profile accepts a number of keys. See `Cake\Mailer\Email`
      * for more information.
      */
     'Email' => [
