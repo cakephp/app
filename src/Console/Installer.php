@@ -128,8 +128,8 @@ class Installer
     {
         // Change the permissions on a path and output the results.
         $changePerms = function ($path, $perms, $io) {
-            // Get current permissions in decimal format so we can bitmask it.
-            $currentPerms = octdec(substr(sprintf('%o', fileperms($path)), -4));
+            // Get permission bits from stat(2) result.
+            $currentPerms = fileperms($path) & 0777;
             if (($currentPerms & $perms) == $perms) {
                 return;
             }
