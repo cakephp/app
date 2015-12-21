@@ -21,6 +21,11 @@ use Cake\Core\Plugin;
  * be put here.
  */
 
+// Set the fullBaseUrl to some doubtful/useful default as it cannot be known
+// from e.g. $_SERVER['HOST_NAME'] with no webserver involved (cli-sapi).
+// This is especially very useful when sending email from shells.
+//Configure::write('App.fullBaseUrl', php_uname('n'));
+
 // Set logs to different files so they don't have permission conflicts.
 Configure::write('Log.debug.file', 'cli-debug');
 Configure::write('Log.error.file', 'cli-error');
