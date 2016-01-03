@@ -28,7 +28,7 @@ class ConsoleShell extends Shell
     /**
      * Start the shell and interactive console.
      *
-     * @return int|void
+     * @return int|null
      */
     public function main()
     {
@@ -42,7 +42,7 @@ class ConsoleShell extends Shell
             $this->err('');
             $this->err('<info>$ php composer.phar require --dev psy/psysh</info>');
             $this->err('');
-            return 1;
+            return self::CODE_ERROR;
         }
 
         $this->out("You can exit with <info>`CTRL-C`</info> or <info>`exit`</info>");
@@ -61,7 +61,7 @@ class ConsoleShell extends Shell
     /**
      * Display help for this console.
      *
-     * @return ConsoleOptionParser
+     * @return \Cake\Console\ConsoleOptionParser
      */
     public function getOptionParser()
     {
