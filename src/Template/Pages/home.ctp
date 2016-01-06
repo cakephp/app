@@ -21,11 +21,7 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = false;
 
 if (!Configure::read('debug')):
-    $message = null;
-    if (env('REMOTE_ADDR') === '127.0.0.1') {
-        $message = 'Please replace Pages/home.ctp with your own version.';
-    }
-    throw new NotFoundException($message);
+    throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
