@@ -16,12 +16,14 @@ use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
-use Cake\Network\Exception\NotFoundException;
+use Cake\Log\Log;
+use Cake\Network\Exception\ForbiddenException;
 
 $this->layout = false;
 
 if (!Configure::read('debug')):
-    throw new NotFoundException();
+    Log::write('warning', 'PagesController::display(\'home\'); is only accessible if debug is set to true.');
+    throw new ForbiddenException();
 endif;
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
