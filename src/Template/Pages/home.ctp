@@ -22,7 +22,7 @@ use Cake\Network\Exception\ForbiddenException;
 $this->layout = false;
 
 if (!Configure::read('debug')):
-    Log::write('warning', 'Pages::display(\'home\'); is only accessible if debug is set to true.');
+    Log::write('warning', 'PagesController::display(\'home\'); is only accessible if debug is set to true.');
     throw new ForbiddenException();
 endif;
 
