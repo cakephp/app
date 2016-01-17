@@ -24,3 +24,14 @@ the setup traffic lights.
 
 Read and edit `config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
+
+
+## License
+
+This skeleton boiler-code app is licensed under MIT.
+This is to protect framework users as no-one can re-license the boilerplate code
+under a more strict license.
+It effects only the original repository code and not the code you add from here on.
+
+You may not remove the LICENSE file.
+Simply add your own LICENSE below and add your COPYRIGHT on top of the existing file(s).
