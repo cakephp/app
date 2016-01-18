@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = __d('cake', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,8 +42,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <section class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
+                <li><a target="_blank" href="http://book.cakephp.org/3.0/"><?= __d('cake', 'Documentation') ?></a></li>
+                <li><a target="_blank" href="http://api.cakephp.org/3.0/"><?= __d('cake', 'API') ?></a></li>
             </ul>
         </section>
     </nav>
