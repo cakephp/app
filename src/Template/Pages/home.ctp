@@ -136,7 +136,7 @@ $cakeDescription = __d('cake', 'CakePHP: the rapid development php framework');
         </div>
         <div class="row">
             <div class="columns large-6">
-                <h3><?= __d('cake', 'Editing this Page' ?></h3>
+                <h3><?= __d('cake', 'Editing this Page') ?></h3>
                 <ul>
                     <li><?= __d('cake', 'To change the content of this page, edit: src/Template/Pages/home.ctp.') ?></li>
                     <li><?= __d('cake', 'You can also add some CSS styles for your pages at: webroot/css/.') ?></li>
