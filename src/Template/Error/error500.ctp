@@ -12,16 +12,16 @@ if (Configure::read('debug')):
 ?>
 <?php if (!empty($error->queryString)) : ?>
     <p class="notice">
-        <strong>SQL Query: </strong>
+        <strong><?= __d('cake', 'SQL Query:') ?> </strong>
         <?= h($error->queryString) ?>
     </p>
 <?php endif; ?>
 <?php if (!empty($error->params)) : ?>
-        <strong>SQL Query Params: </strong>
+        <strong><?= __d('cake', 'SQL Query Params:') ?> </strong>
         <?= Debugger::dump($error->params) ?>
 <?php endif; ?>
 <?php if ($error instanceof Error) : ?>
-        <strong>Error in: </strong>
+        <strong><?= __d('cake', 'Error in:') ?> </strong>
         <?= sprintf('%s, line %s', str_replace(ROOT, 'ROOT', $error->getFile()), $error->getLine()) ?>
 <?php endif; ?>
 <?php
