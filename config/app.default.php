@@ -85,7 +85,7 @@ return [
         'default' => [
             'className' => 'File',
             'path' => CACHE,
-            'url' => env('CACHE_DEFAULT_URL', null),
+            'url' => env('CACHE_DEFAULT_URL', ''),
         ],
 
         /**
@@ -99,7 +99,7 @@ return [
             'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+2 minutes',
-            'url' => env('CACHE_CAKECORE_URL', null),
+            'url' => env('CACHE_CAKECORE_URL', ''),
         ],
 
         /**
@@ -114,7 +114,7 @@ return [
             'path' => CACHE . 'models/',
             'serialize' => true,
             'duration' => '+2 minutes',
-            'url' => env('CACHE_CAKEMODEL_URL', null),
+            'url' => env('CACHE_CAKEMODEL_URL', ''),
         ],
     ],
 
@@ -182,7 +182,7 @@ return [
             'password' => 'secret',
             'client' => null,
             'tls' => null,
-            'url' => env('EMAILTRANSPORT_DEFAULT_URL', null),
+            'url' => env('EMAILTRANSPORT_DEFAULT_URL', ''),
         ],
     ],
 
@@ -250,7 +250,7 @@ return [
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
             
-            'url' => env('DATABASE_URL', null),
+            'url' => env('DATABASE_URL', ''),
         ],
 
         /**
@@ -271,7 +271,7 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'url' => env('DATABASE_TEST_URL', null),
+            'url' => env('DATABASE_TEST_URL', ''),
         ],
     ],
 
@@ -284,14 +284,14 @@ return [
             'path' => LOGS,
             'file' => 'debug',
             'levels' => ['notice', 'info', 'debug'],
-            'url' => env('LOG_DEBUG_URL', null),
+            'url' => env('LOG_DEBUG_URL', ''),
         ],
         'error' => [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => 'error',
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
-            'url' => env('LOG_ERROR_URL', null),
+            'url' => env('LOG_ERROR_URL', ''),
         ],
     ],
 
