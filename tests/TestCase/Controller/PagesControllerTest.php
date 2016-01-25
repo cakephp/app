@@ -12,7 +12,7 @@
  * @since         1.2.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace Cake\Test\TestCase\Controller;
+namespace App\Test\TestCase\Controller;
 
 use App\Controller\PagesController;
 use Cake\Core\App;
