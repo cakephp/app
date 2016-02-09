@@ -32,10 +32,6 @@
 
     <!-- Ignore vendor tests in code coverage reports -->
     <filter>
-        <blacklist>
-            <directory suffix=".php">./vendor/</directory>
-            <directory suffix=".php">./tests/TestCase/</directory>
-        </blacklist>
         <whitelist>
             <directory suffix=".php">./src/</directory>
             <directory suffix=".php">./plugins/*/src/</directory>
