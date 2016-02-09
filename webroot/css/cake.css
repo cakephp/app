@@ -320,6 +320,7 @@ pre {
 }
 
 .checks.ctp-warning {
+    color: #fff;
     background-color: #ff5555;
     padding-bottom: 10px;
 }
