@@ -24,7 +24,7 @@ if (!Configure::read('debug')):
     throw new NotFoundException('Please replace Pages/home.ctp with your own version.');
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
 <html>
