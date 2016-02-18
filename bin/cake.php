@@ -16,7 +16,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$minVersion = '5.4.16';
+$minVersion = '5.5.9';
 if (file_exists('composer.json')) {
     $composer = json_decode(file_get_contents('composer.json'));
     if (isset($composer->require->php)) {
