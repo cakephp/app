@@ -182,7 +182,7 @@ return [
             'password' => 'secret',
             'client' => null,
             'tls' => null,
-            'url' => env('EMAILTRANSPORT_DEFAULT_URL', ''),
+            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', ''),
         ],
     ],
 
