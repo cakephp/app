@@ -9,7 +9,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => true,
+    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
     /**
      * Configure basic information about the application.
@@ -37,7 +37,8 @@ return [
      */
     'App' => [
         'namespace' => 'App',
-        'encoding' => 'UTF-8',
+        'encoding' => env('APP_ENCODING', 'UTF-8'),
+        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
         'base' => false,
         'dir' => 'src',
         'webroot' => 'webroot',
@@ -62,7 +63,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => '__SALT__',
+        'salt' => env('SECURITY_SALT', '__SALT__'),
     ],
 
     /**
@@ -84,6 +85,7 @@ return [
         'default' => [
             'className' => 'File',
             'path' => CACHE,
+            'url' => env('CACHE_DEFAULT_URL', null),
         ],
 
         /**
@@ -97,6 +99,7 @@ return [
             'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+2 minutes',
+            'url' => env('CACHE_CAKECORE_URL', null),
         ],
 
         /**
@@ -111,6 +114,7 @@ return [
             'path' => CACHE . 'models/',
             'serialize' => true,
             'duration' => '+2 minutes',
+            'url' => env('CACHE_CAKEMODEL_URL', null),
         ],
     ],
 
@@ -181,6 +185,7 @@ return [
             'password' => 'secret',
             'client' => null,
             'tls' => null,
+            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
 
@@ -247,6 +252,8 @@ return [
              * which is the recommended value in production environments
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            
+            'url' => env('DATABASE_URL', null),
         ],
 
         /**
@@ -267,6 +274,7 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            'url' => env('DATABASE_TEST_URL', null),
         ],
     ],
 
@@ -279,12 +287,14 @@ return [
             'path' => LOGS,
             'file' => 'debug',
             'levels' => ['notice', 'info', 'debug'],
+            'url' => env('LOG_DEBUG_URL', null),
         ],
         'error' => [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => 'error',
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
+            'url' => env('LOG_ERROR_URL', null),
         ],
     ],
 
