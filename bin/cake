@@ -36,7 +36,7 @@ canonicalize() {
 CONSOLE=$(dirname -- "$(canonicalize "$0")")
 APP=$(dirname "$CONSOLE")
 
-if [ $0 != 'cake' ]
+if [ $(basename $0) != 'cake' ]
 then
     exec php "$CONSOLE"/cake.php $(basename $0) "$@"
 else
