@@ -9,11 +9,13 @@
         "cakephp/cakephp": "~3.2",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
-        "cakephp/plugin-installer": "*"
+        "cakephp/plugin-installer": "*",
+        "markstory/cakephp-spekkoek": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
         "cakephp/debug_kit": "~3.2",
+        "phpunit/phpunit": "*",
         "cakephp/bake": "~1.1"
     },
     "suggest": {
