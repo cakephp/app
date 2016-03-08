@@ -319,26 +319,26 @@ pre {
     margin-top:50px;
 }
 
-.checks.ctp-warning {
+.home .checks.ctp-warning {
     color: #fff;
     background-color: #ff5555;
     padding-bottom: 10px;
 }
 
-.checks.url-rewriting {
+.home .checks.url-rewriting {
     background-color: #F0F0F0;
     display: none;
 }
 
-.checks.platform {
+.home .checks.platform {
     background-color: #B7E3EC;
 }
 
-.checks.filesystem {
+.home .checks.filesystem {
     background: #DCE47E;
 }
 
-.checks.database {
+.home .checks.database {
     background-color: #DFF0D8;
     padding-bottom: 10px;
     margin-bottom: 30px;
