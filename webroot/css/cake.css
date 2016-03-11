@@ -459,6 +459,7 @@ button {
 }
 
 div.message {
+	text-align: center;
     cursor: pointer;
     display: block;
     font-weight: normal;
@@ -466,13 +467,14 @@ div.message {
     transition: height 300ms ease-out 0s;
     background-color: #a0d3e8;
     color: #626262;
-    position: fixed;
     top: 15px;
     right: 15px;
     z-index: 999;
     overflow: hidden;
     height: 50px;
     line-height: 2.5em;
+    box-radius: 5px;
+    
 }
 
 div.message:before {
@@ -560,7 +562,7 @@ div.message.hidden {
 }
 
 .content .related h4 {
-    color: #ebaa20;
+    color: #4d8f97;
     padding-bottom: 0.5rem;
     margin-top: 20px;
     margin-bottom: 10px;

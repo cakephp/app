@@ -163,28 +163,52 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
                 </p>
                 <ul>
-                    <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
-                    <ul><li>Promoting development related to CakePHP</li></ul></li>
-                    <li><a href="http://www.cakephp.org">CakePHP</a>
-                    <ul><li>The Rapid Development Framework</li></ul></li>
-                    <li><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
-                    <ul><li>Your Rapid Development Cookbook</li></ul></li>
+                       
+                     <h3>Help and Bug Reports</h3>
+                 
+                    <li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
+                    <ul><li>Live chat about CakePHP</li></ul></li>
+                    
+                    <li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
+                    <ul><li>CakePHP issues and pull requests</li></ul></li>
+                    
+                    <li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
+                    <ul><li>Community mailing list</li></ul></li>
+                    
+                    
+                    <h3>Docs and Downloads</h3>
                     <li><a href="http://api.cakephp.org/3.0/">CakePHP API</a>
                     <ul><li>Quick Reference</li></ul></li>
-                    <li><a href="http://bakery.cakephp.org">The Bakery</a>
+                    
+                    <li><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
+                    <ul><li>Your Rapid Development Cookbook</li></ul></li>
+                    
+                     <li><a href="http://bakery.cakephp.org">The Bakery</a>
                     <ul><li>Everything CakePHP</li></ul></li>
                     <li><a href="http://plugins.cakephp.org">CakePHP plugins repo</a>
                     <ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul></li>
-                    <li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
-                    <ul><li>Community mailing list</li></ul></li>
-                    <li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-                    <ul><li>Live chat about CakePHP</li></ul></li>
+                    
                     <li><a href="https://github.com/cakephp/">CakePHP Code</a>
                     <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul></li>
-                    <li><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-                    <ul><li>CakePHP issues and pull requests</li></ul></li>
+                  
+                    <li><a href="http://www.cakephp.org">CakePHP</a>
+                    <ul><li>The Rapid Development Framework</li></ul></li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <br/>
+                    <h3>Training and Certification</h3>
+                    <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
+                    <ul><li>Promoting development related to CakePHP</li></ul></li>
+                    
+                    
                     <li><a href="http://training.cakephp.org/">CakePHP Training</a>
                     <ul><li>Learn to use the CakePHP framework</li></ul></li>
+                    
+                    
                     <li><a href="http://certification.cakephp.org/">CakePHP Certification</a>
                     <ul><li>Become a certified CakePHP developer</li></ul></li>
                 </ul>
