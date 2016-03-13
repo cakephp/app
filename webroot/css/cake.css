@@ -311,18 +311,35 @@ pre {
     color: #fff;
 }
 
-.home .checks {
+#content {
+    padding-top: 2em;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.checks {
     padding:30px;
     color: #626262;
+    background-color: #B7E3EC;
     border-radius: 3px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.24);
-    margin-top:50px;
+    margin-bottom: 2em;
+}
+
+.checks h4 {
+    margin-bottom: 1.5rem;
+}
+
+.checks hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .home .checks.ctp-warning {
     color: #fff;
     background-color: #ff5555;
-    padding-bottom: 10px;
 }
 
 .home .checks.url-rewriting {
@@ -330,21 +347,12 @@ pre {
     display: none;
 }
 
-.home .checks.platform {
-    background-color: #B7E3EC;
+.checks .success,
+.checks .problem {
+    margin-left: 10px;
 }
-
-.home .checks.filesystem {
-    background: #DCE47E;
-}
-
-.home .checks.database {
-    background-color: #DFF0D8;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-}
-
-.home .checks .success:before, .home .checks .problem:before {
+.checks .success:before,
+.checks .problem:before {
     line-height: 0px;
     font-size: 28px;
     height: 12px;
@@ -357,13 +365,13 @@ pre {
     left: -11px;
 }
 
-.home .checks .success:before {
+.checks .success:before {
     content: "✓";
     color: green;
     margin-right: 9px;
 }
 
-.home .checks .problem:before {
+.checks .problem:before {
     content: "✘";
     color: red;
     margin-right: 9px;
@@ -459,6 +467,7 @@ button {
 }
 
 div.message {
+	text-align: center;
     cursor: pointer;
     display: block;
     font-weight: normal;
@@ -466,13 +475,14 @@ div.message {
     transition: height 300ms ease-out 0s;
     background-color: #a0d3e8;
     color: #626262;
-    position: fixed;
     top: 15px;
     right: 15px;
     z-index: 999;
     overflow: hidden;
     height: 50px;
     line-height: 2.5em;
+    box-radius: 5px;
+    
 }
 
 div.message:before {
@@ -560,7 +570,7 @@ div.message.hidden {
 }
 
 .content .related h4 {
-    color: #ebaa20;
+    color: #4d8f97;
     padding-bottom: 0.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
