@@ -48,7 +48,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div id="content">
         <div class="row">
             <div class="columns large-12 ctp-warning checks">
-                <p>Please be aware that this page will not be shown if you turn off debug mode unless you disable the NotFoundException in src/Template/Pages/home.ctp.</p>
+                Please be aware that this page will not be shown if you turn off debug mode unless you disable the NotFoundException in src/Template/Pages/home.ctp.
             </div>
             <?php Debugger::checkSecurityKeys(); ?>
             <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
@@ -60,7 +60,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
                 </p>
             </div>
-            <div class="columns large-5 platform checks">
+
+            <div class="columns large-12 checks">
+                <h4>Environment</h4>
                 <?php if (version_compare(PHP_VERSION, '5.5.9', '>=')): ?>
                     <p class="success">Your version of PHP is 5.5.9 or higher.</p>
                 <?php else: ?>
@@ -86,8 +88,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <?php else: ?>
                     <p class="problem">Your version of PHP does NOT have the intl extension loaded.</p>
                 <?php endif; ?>
-            </div>
-            <div class="columns large-6 filesystem checks">
+                <hr>
+
+                <h4>Filesystem</h4>
                 <?php if (is_writable(TMP)): ?>
                     <p class="success">Your tmp directory is writable.</p>
                 <?php else: ?>
@@ -106,10 +109,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <?php else: ?>
                     <p class="problem">Your cache is NOT working. Please check the settings in config/app.php</p>
                 <?php endif; ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="columns large-12 database checks">
+
+                <hr>
+                <h4>Database</h4>
                 <?php
                     try {
                         $connection = ConnectionManager::get('default');
@@ -132,6 +134,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <?php endif; ?>
             </div>
         </div>
+
         <div class="row">
             <div class="columns large-6">
                 <h3>Editing this Page</h3>
