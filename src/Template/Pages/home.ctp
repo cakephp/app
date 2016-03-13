@@ -47,10 +47,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </header>
     <div id="content">
         <div class="row">
-            <div class="row">
-                <div class="columns large-12 ctp-warning checks">
-                    <p>Please be aware that this page will not be shown if you turn off debug mode unless you disable the NotFoundException in src/Template/Pages/home.ctp.</p>
-                </div>
+            <div class="columns large-12 ctp-warning checks">
+                <p>Please be aware that this page will not be shown if you turn off debug mode unless you disable the NotFoundException in src/Template/Pages/home.ctp.</p>
             </div>
             <?php Debugger::checkSecurityKeys(); ?>
             <div id="url-rewriting-warning" class="columns large-12 url-rewriting checks">
@@ -153,6 +151,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </div>
         </div>
         <hr/>
+
         <div class="row">
             <div class="columns large-12">
                 <h3 class="">More about Cake</h3>
