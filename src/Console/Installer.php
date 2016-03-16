@@ -158,11 +158,12 @@ class Installer
 
         $worldWritable = 007;
         if ($worldWritable === 007) {
-            $io->writeError(
-                'WARNING: "./tmp" and "./logs" permissions are set to world read- and writable. '
-                . 'You are encouraged to change these xx7 to 700 or 770 before production deployment '
-                . 'in ' . __FILE__ . ' on line #' . (__LINE__ - 5) . ' and then re-run '
-                . '`composer install`.', true, $io::NORMAL
+            $io->write(
+                'NOTICE: "./tmp" and "./logs" permissions are set to world read- and writable. '
+                . 'Depending on your requirements, you may want to change this before in '
+                . __FILE__ . ' on line #' . (__LINE__ - 5) . ' before production deployment '
+                . 'and then re-run `composer install`.',
+                true, $io::NORMAL
             );
         }
 
