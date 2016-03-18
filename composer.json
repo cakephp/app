@@ -32,8 +32,9 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "App\\Console\\Installer::postInstall",
-        "post-create-project-cmd": "App\\Console\\Installer::postInstall",
+        "post-create-project-cmd": "App\\Console\\Installer::postCreateProjectCmd",
+        "post-update-cmd": "App\\Console\\Installer::postUpdateCmd",
+        "post-install-cmd": "App\\Console\\Installer::postInstallCmd",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
     "minimum-stability": "stable",
