@@ -338,8 +338,8 @@ pre {
 }
 
 .home .checks.ctp-warning {
-    color: #fff;
-    background-color: #ff5555;
+    color: black;
+    background-color: #ffc600;
 }
 
 .home .checks.url-rewriting {
