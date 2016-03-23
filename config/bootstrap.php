@@ -220,3 +220,7 @@ Type::build('date')
 Type::build('datetime')
     ->useImmutable()
     ->useLocaleParser();
+
+Plugin::load('Crud');
+Plugin::load('ADmad/JwtAuth');
+Plugin::load('Muffin/Trash');

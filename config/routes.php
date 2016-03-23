@@ -40,6 +40,12 @@ use Cake\Routing\Router;
  * `:action` markers.
  *
  */
+Router::prefix('api', function ($routes) {
+    $routes->extensions(['json', 'xml']);
+   
+    $routes->fallbacks('InflectedRoute');
+});
+
 Router::defaultRouteClass('DashedRoute');
 
 Router::scope('/', function (RouteBuilder $routes) {
