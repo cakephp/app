@@ -1,5 +1,5 @@
 {
-    "name": "cakephp/app",
+    "name": "chrisShick/app",
     "description": "CakePHP skeleton app",
     "homepage": "http://cakephp.org",
     "type": "project",
@@ -9,7 +9,10 @@
         "cakephp/cakephp": "~3.2",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
-        "cakephp/plugin-installer": "*"
+        "cakephp/plugin-installer": "*",
+        "friendsofcake/crud": "~4.3",
+        "admad/cakephp-jwt-auth": "^2.0",
+        "muffin/trash": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
