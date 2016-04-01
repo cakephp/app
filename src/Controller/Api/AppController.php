@@ -12,7 +12,7 @@
  * @since     0.2.9
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Api\Controller;
+namespace App\Controller\Api;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
