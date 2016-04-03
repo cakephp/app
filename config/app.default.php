@@ -15,6 +15,7 @@ return [
      * Configure basic information about the application.
      *
      * - namespace - The namespace to find app classes under.
+     * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time.
      * - encoding - The encoding used for HTML + database connections.
      * - base - The base directory the app resides in. If false this
      *   will be auto detected.
