@@ -57,6 +57,10 @@ use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
+use Cake\I18n\Date;
+use Cake\I18n\FrozenTime;
+use Cake\I18n\FrozenDate;
+use Cake\I18n\Time;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
@@ -97,6 +101,15 @@ if (!Configure::read('debug')) {
  * choice but using UTC makes time calculations / conversions easier.
  */
 date_default_timezone_set('UTC');
+
+/**
+ * Sets the default output timezones.
+ * This output timezone is also being used by TimeHelper.
+**/
+Time::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+Date::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+FrozenTime::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+FrozenDate::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
 
 /**
  * Configure the mbstring extension to use the correct encoding.
