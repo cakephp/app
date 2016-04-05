@@ -57,10 +57,7 @@ use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
-use Cake\I18n\Date;
-use Cake\I18n\FrozenTime;
-use Cake\I18n\FrozenDate;
-use Cake\I18n\Time;
+use Cake\I18n;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
@@ -83,14 +80,18 @@ try {
     exit($e->getMessage() . "\n");
 }
 
-// Load an environment local configuration file.
-// You can use a file like app_local.php to provide local overrides to your
-// shared configuration.
+/**
+ * Load an environment local configuration file.
+ * You can use a file like app_local.php to provide local overrides to your
+ * shared configuration.
+ */
 //Configure::load('app_local', 'default');
 
-// When debug = false the metadata cache should last
-// for a very very long time, as we don't want
-// to refresh the cache while users are doing requests.
+/**
+ * When debug = false the metadata cache should last
+ * for a very very long time, as we don't want
+ * to refresh the cache while users are doing requests.
+ */
 if (!Configure::read('debug')) {
     Configure::write('Cache._cake_model_.duration', '+1 years');
     Configure::write('Cache._cake_core_.duration', '+1 years');
@@ -103,13 +104,9 @@ if (!Configure::read('debug')) {
 date_default_timezone_set('UTC');
 
 /**
- * Sets the default output timezones.
- * This output timezone is also being used by TimeHelper.
-**/
-Time::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
-Date::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
-FrozenTime::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
-FrozenDate::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+ * Sets the default output timezone for Time, Date, FrozenTime, FrozenDate and TimeHelper.
+ */
+I18n::defaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
 
 /**
  * Configure the mbstring extension to use the correct encoding.
@@ -132,7 +129,9 @@ if ($isCli) {
     (new ErrorHandler(Configure::read('Error')))->register();
 }
 
-// Include the CLI bootstrap overrides.
+/**
+ * Include the CLI bootstrap overrides.
+ */
 if ($isCli) {
     require __DIR__ . '/bootstrap_cli.php';
 }
@@ -186,12 +185,11 @@ Request::addDetector('tablet', function ($request) {
  * Custom Inflector rules, can be set to correctly pluralize or singularize
  * table, model, controller names or whatever other string is passed to the
  * inflection functions.
- *
- * Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
- * Inflector::rules('irregular', ['red' => 'redlings']);
- * Inflector::rules('uninflected', ['dontinflectme']);
- * Inflector::rules('transliteration', ['/å/' => 'aa']);
  */
+//Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
+//Inflector::rules('irregular', ['red' => 'redlings']);
+//Inflector::rules('uninflected', ['dontinflectme']);
+//Inflector::rules('transliteration', ['/å/' => 'aa']);
 
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
@@ -205,8 +203,9 @@ Request::addDetector('tablet', function ($request) {
 
 Plugin::load('Migrations');
 
-// Only try to load DebugKit in development mode
-// Debug Kit should not be installed on a production system
+/*
+ * DebugKit should only be loaded in development mode and not on a production system.
+ */
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
