@@ -206,17 +206,15 @@ DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
 
 /**
- * Enable default locale format parsing.
- * This is needed for matching the auto-localized string output of Time() class when parsing dates.
+ * Enable immutable time objects in the ORM.
  *
- * Also enable immutable time objects in the ORM.
+ * You can enable default locale format parsing. By adding calls
+ * to `useLocaleParser()`. This enables the automatic conversion of
+ * locale specific date formats.
  */
 Type::build('time')
-    ->useImmutable()
-    ->useLocaleParser();
+    ->useImmutable();
 Type::build('date')
-    ->useImmutable()
-    ->useLocaleParser();
+    ->useImmutable();
 Type::build('datetime')
-    ->useImmutable()
-    ->useLocaleParser();
+    ->useImmutable();
