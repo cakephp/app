@@ -17,13 +17,14 @@ namespace App\View;
 use Cake\Event\EventManager;
 use Cake\Network\Request;
 use Cake\Network\Response;
+use Cake\View\View;
 
 /**
  * A view class that is used for AJAX responses.
  * Currently only switches the default layout and sets the response type -
  * which just maps to text/html by default.
  */
-class AjaxView extends AppView
+class AjaxView extends View
 {
 
     /**
