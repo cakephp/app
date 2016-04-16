@@ -14,6 +14,7 @@
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
+use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
@@ -131,6 +132,14 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <p class="success">CakePHP is able to connect to the database.</p>
                 <?php else: ?>
                     <p class="problem">CakePHP is NOT able to connect to the database.<br /><br /><?= $errorMsg ?></p>
+                <?php endif; ?>
+
+                <hr>
+                <h4>DebugKit</h4>
+                <?php if (Plugin::loaded('DebugKit')): ?>
+                    <p class="success">DebugKit is loaded.</p>
+                <?php else: ?>
+                    <p class="problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</p>
                 <?php endif; ?>
             </div>
         </div>
