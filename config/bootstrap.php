@@ -13,6 +13,21 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+// You can remove this if you are confident that your PHP version is sufficient.
+if (version_compare(PHP_VERSION, '5.5.9') < 0) {
+    trigger_error('You PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
+}
+
+// You can remove this if you are confident you have intl installed.
+if (!extension_loaded('intl')) {
+    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
+}
+
+// You can remove this if you are confident you have mbstring installed.
+if (!extension_loaded('mbstring')) {
+    trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
+}
+
 /**
  * Configure paths required to find CakePHP + general filepath
  * constants
@@ -32,21 +47,6 @@ require ROOT . DS . 'vendor' . DS . 'autoload.php';
  * - Setting the default application paths.
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
-
-// You can remove this if you are confident that your PHP version is sufficient.
-if (version_compare(PHP_VERSION, '5.5.9') < 0) {
-    trigger_error('You PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
-}
-
-// You can remove this if you are confident you have intl installed.
-if (!extension_loaded('intl')) {
-    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
-}
-
-// You can remove this if you are confident you have mbstring installed.
-if (!extension_loaded('mbstring')) {
-    trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
-}
 
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
