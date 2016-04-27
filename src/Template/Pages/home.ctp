@@ -213,7 +213,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <ul><li>For the Development of CakePHP Git repository, Downloads</li></ul>
                     </li>
                     <li>
-                        <a href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List/a>
+                        <a href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
                         <ul><li>A curated list of amazingly awesome CakePHP plugins, resources and shiny things.</li></ul>
                     </li>
                     <li>
