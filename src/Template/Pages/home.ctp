@@ -170,6 +170,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <ul><li>Everything CakePHP</li></ul></li>
                     <li><a href="http://plugins.cakephp.org">CakePHP plugins repo</a>
                     <ul><li>A comprehensive list of all CakePHP plugins created by the community</li></ul></li>
+                    <li><a href="http://discourse.cakephp.org/">CakePHP Forum</a>
+                    <ul><li>CakePHP official discussion forum</li></ul></li>
                     <li><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
                     <ul><li>Community mailing list</li></ul></li>
                     <li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
