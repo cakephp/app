@@ -6,7 +6,7 @@
 # MIT License (http://www.opensource.org/licenses/mit-license.php)
 
 CREATE TABLE sessions (
-  id varchar(40) NOT NULL default '',
+  id char(40) NOT NULL,
   data text,
   expires INT(11) NOT NULL,
   PRIMARY KEY  (id)
