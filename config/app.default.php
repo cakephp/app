@@ -16,7 +16,7 @@ return [
      *
      * - namespace - The namespace to find app classes under.
      * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time.
-     * - defaultOutputTimezone - The default output timezone used by Date, Time, FrozenDate, FrozenTime and TimeHelper.
+     * - defaultOutputTimezone - The default output timezone respected by Time and FrozenTime.
      * - encoding - The encoding used for HTML + database connections.
      * - base - The base directory the app resides in. If false this
      *   will be auto detected.
