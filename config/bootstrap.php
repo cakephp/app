@@ -57,7 +57,8 @@ use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
-use Cake\I18n;
+use Cake\I18n\FrozenTime;
+use Cake\I18n\Time;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
@@ -104,9 +105,10 @@ if (!Configure::read('debug')) {
 date_default_timezone_set('UTC');
 
 /**
- * Sets the default output timezone for Time, Date, FrozenTime, FrozenDate and TimeHelper.
- */
-I18n::defaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+ * Sets the default output timezones. 
+**/
+Time::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
+FrozenTime::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
 
 /**
  * Configure the mbstring extension to use the correct encoding.
