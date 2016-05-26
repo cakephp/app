@@ -20,7 +20,7 @@
 
 use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
-use Cake\Routing\Route\DashedRouted;
+use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\Router;
 
 /**
