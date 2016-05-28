@@ -199,13 +199,6 @@ if (Configure::read('debug')) {
 }
 
 /**
- * Connect middleware/dispatcher filters.
- */
-DispatcherFactory::add('Asset');
-DispatcherFactory::add('Routing');
-DispatcherFactory::add('ControllerFactory');
-
-/**
  * Enable immutable time objects in the ORM.
  *
  * You can enable default locale format parsing by adding calls

@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.5.9",
-        "cakephp/cakephp": "~3.2",
+        "cakephp/cakephp": "dev-3.next as 3.3.0-dev",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*"
@@ -36,6 +36,6 @@
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
