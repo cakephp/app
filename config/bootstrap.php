@@ -105,8 +105,8 @@ if (!Configure::read('debug')) {
 date_default_timezone_set('UTC');
 
 /**
- * Sets the default output timezones. 
-**/
+ * Sets the default output timezones.
+ */
 Time::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
 FrozenTime::setDefaultOutputTimezone(Configure::read('App.defaultOutputTimezone'));
 
