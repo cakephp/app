@@ -15,8 +15,9 @@ return [
      * Configure basic information about the application.
      *
      * - namespace - The namespace to find app classes under.
-     * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time.
-     * - defaultOutputTimezone - The default output timezone respected by Time and FrozenTime.
+     * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time,
+     *   processed in boostrap.php
+     * - defaultOutputTimezone - The default output timezone processed in bootstrap.php
      * - encoding - The encoding used for HTML + database connections.
      * - base - The base directory the app resides in. If false this
      *   will be auto detected.
