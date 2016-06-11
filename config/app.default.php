@@ -15,9 +15,7 @@ return [
      * Configure basic information about the application.
      *
      * - namespace - The namespace to find app classes under.
-     * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time,
-     *   processed in boostrap.php
-     * - defaultOutputTimezone - The default output timezone processed in bootstrap.php
+     * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time.
      * - encoding - The encoding used for HTML + database connections.
      * - base - The base directory the app resides in. If false this
      *   will be auto detected.
@@ -42,7 +40,6 @@ return [
         'namespace' => 'App',
         'encoding' => env('APP_ENCODING', 'UTF-8'),
         'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
-        'defaultOutputTimezone' => env('APP_DEFAULT_OUTPUT_TIMEZONE', 'UTC'),
         'base' => false,
         'dir' => 'src',
         'webroot' => 'webroot',
