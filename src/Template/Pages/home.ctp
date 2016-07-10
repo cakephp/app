@@ -42,7 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <body class="home">
     <header>
         <div class="header-image">
-            <?= $this->Html->image('http://cakephp.org/img/cake-logo.png') ?>
+            <?= $this->Html->image('http://cakephp.org/img/logo-cake.png') ?>
             <h1>Get the Ovens Ready</h1>
         </div>
     </header>
