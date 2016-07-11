@@ -28,19 +28,6 @@ use Cake\Routing\Middleware\RoutingMiddleware;
 class Application extends BaseApplication
 {
     /**
-     * Load all the application configuration and bootstrap logic.
-     *
-     * You can include any other files your application needs to bootstrap
-     * in a web context here.
-     *
-     * @return void
-     */
-    public function bootstrap()
-    {
-        require_once $this->configDir . '/bootstrap.php';
-    }
-
-    /**
      * Setup the middleware your application will use.
      *
      * @param \Cake\Http\MiddlewareStack $middleware The middleware stack to setup.
