@@ -20,7 +20,7 @@ a {
 }
 
 header {
-    background-color: #15848F;
+    background-color: #D33C44;
     color: #ffffff;
     font-size: 30px;
     height: 84px;
@@ -292,7 +292,7 @@ pre {
 
 .home header {
     width: 100%;
-    height: 85%;
+    height: 70%;
     position: relative;
     display: table;
 }
@@ -467,7 +467,7 @@ button {
 }
 
 div.message {
-	text-align: center;
+    text-align: center;
     cursor: pointer;
     display: block;
     font-weight: normal;
@@ -482,7 +482,6 @@ div.message {
     height: 50px;
     line-height: 2.5em;
     box-radius: 5px;
-    
 }
 
 div.message:before {
