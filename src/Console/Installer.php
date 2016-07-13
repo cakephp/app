@@ -25,19 +25,92 @@ class Installer
 {
 
     /**
+     * Does some routine project creation tasks so people don't have to.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @return void
+     */
+    public static function postCreateProjectCmd(Event $event)
+    {        
+        static::createAppConfig($event);
+        static::setSecuritySalt($event);
+        // if a composer.lock is given, create-project will trigger an install
+        // if no composer.lock is given, create-project will trigger an update
+        // see:
+        // https://getcomposer.org/doc/articles/scripts.md#command-events
+        // https://getcomposer.org/doc/03-cli.md#create-project
+        // https://github.com/composer/composer/issues/5079#issuecomment-197940603
+        // https://github.com/composer/composer/issues/5066#issuecomment-197006540
+    }
+
+    /**
+     * Does some routine update tasks so people don't have to.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @return void
+     */
+    public static function postUpdateCmd(Event $event)
+    {
+        static::createTmpLogsFoldersAndSetPermissions($event);
+
+        if (class_exists('\Cake\Codeception\Console\Installer')) {
+            \Cake\Codeception\Console\Installer::customizeCodeceptionBinary($event);
+        }        
+    }
+
+    /**
      * Does some routine installation tasks so people don't have to.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @return void
+     */
+    public static function postInstallCmd(Event $event)
+    {
+        static::createTmpLogsFoldersAndSetPermissions($event);
+    }
+
+    /**
+     * Set the security.salt value in the application's config file.
+     *
+     * @param \Composer\Script\Event $event The composer event object.
+     * @return void
+     */
+    public static function setSecuritySalt($event)
+    {
+        $dir = dirname(dirname(__DIR__));
+        $io = $event->getIO();
+
+        $config = $dir . '/config/app.php';
+        $content = file_get_contents($config);
+
+        $newKey = hash('sha256', $dir . php_uname() . microtime(true));
+        $content = str_replace('__SALT__', $newKey, $content, $count);
+
+        if ($count == 0) {
+            $io->write('No Security.salt placeholder to replace.');
+            return;
+        }
+
+        $result = file_put_contents($config, $content);
+        if ($result) {
+            $io->write('Updated Security.salt value in config/app.php');
+            return;
+        }
+        $io->write('Unable to update Security.salt value.');
+    }
+
+    /**
+     * Creates writable tmp and logs folders. Asks to set permissions to world read/writable.
      *
      * @param \Composer\Script\Event $event The composer event object.
      * @throws \Exception Exception raised by validator.
      * @return void
      */
-    public static function postInstall(Event $event)
+    public static function createTmpLogsFoldersAndSetPermissions($event)
     {
         $io = $event->getIO();
-
         $rootDir = dirname(dirname(__DIR__));
-
-        static::createAppConfig($rootDir, $io);
+        
         static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
@@ -49,7 +122,7 @@ class Installer
                 throw new Exception('This is not a valid answer. Please choose Y or n.');
             };
             $setFolderPermissions = $io->askAndValidate(
-                '<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ',
+                '<info>Set Folder Permissions for other to read/writeable ? (Default to Y)</info> [<comment>Y,n</comment>]? ',
                 $validator,
                 10,
                 'Y'
@@ -60,12 +133,6 @@ class Installer
             }
         } else {
             static::setFolderPermissions($rootDir, $io);
-        }
-
-        static::setSecuritySalt($rootDir, $io);
-
-        if (class_exists('\Cake\Codeception\Console\Installer')) {
-            \Cake\Codeception\Console\Installer::customizeCodeceptionBinary($event);
         }
     }
 
@@ -78,6 +145,9 @@ class Installer
      */
     public static function createAppConfig($dir, $io)
     {
+        $dir = dirname(dirname(__DIR__));
+        $io = $event->getIO();
+
         $appConfig = $dir . '/config/app.php';
         $defaultConfig = $dir . '/config/app.default.php';
         if (!file_exists($appConfig)) {
@@ -156,37 +226,9 @@ class Installer
             }
         };
 
-        $worldWritable = bindec('0000000111');
+        $worldWritable = 0007;
         $walker($dir . '/tmp', $worldWritable, $io);
         $changePerms($dir . '/tmp', $worldWritable, $io);
         $changePerms($dir . '/logs', $worldWritable, $io);
-    }
-
-    /**
-     * Set the security.salt value in the application's config file.
-     *
-     * @param string $dir The application's root directory.
-     * @param \Composer\IO\IOInterface $io IO interface to write to console.
-     * @return void
-     */
-    public static function setSecuritySalt($dir, $io)
-    {
-        $config = $dir . '/config/app.php';
-        $content = file_get_contents($config);
-
-        $newKey = hash('sha256', $dir . php_uname() . microtime(true));
-        $content = str_replace('__SALT__', $newKey, $content, $count);
-
-        if ($count == 0) {
-            $io->write('No Security.salt placeholder to replace.');
-            return;
-        }
-
-        $result = file_put_contents($config, $content);
-        if ($result) {
-            $io->write('Updated Security.salt value in config/app.php');
-            return;
-        }
-        $io->write('Unable to update Security.salt value.');
     }
 }
