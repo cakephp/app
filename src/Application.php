@@ -44,6 +44,7 @@ class Application extends BaseApplication
 
         // Apply routing
         $middleware->push(new RoutingMiddleware());
+
         return $middleware;
     }
 }
