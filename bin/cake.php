@@ -28,6 +28,7 @@ if (version_compare(phpversion(), $minVersion, '<')) {
     exit(-1);
 }
 
+require dirname(__DIR__) . '/vendor/autoload.php';
 include dirname(__DIR__) . '/config/bootstrap.php';
 
 exit(Cake\Console\ShellDispatcher::run($argv));
