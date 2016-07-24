@@ -35,15 +35,16 @@ class Application extends BaseApplication
      */
     public function middleware($middleware)
     {
-        // Catch any exceptions in the lower layers,
-        // and make an error page/response
-        $middleware->push(new ErrorHandlerMiddleware());
+        $middleware
+            // Catch any exceptions in the lower layers,
+            // and make an error page/response
+            ->push(new ErrorHandlerMiddleware();
 
-        // Handle plugin/theme assets like CakePHP normally does.
-        $middleware->push(new AssetMiddleware());
+            // Handle plugin/theme assets like CakePHP normally does.
+            ->push(new AssetMiddleware())
 
-        // Apply routing
-        $middleware->push(new RoutingMiddleware());
+            // Apply routing
+            ->push(new RoutingMiddleware());
 
         return $middleware;
     }
