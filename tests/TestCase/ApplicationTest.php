@@ -16,7 +16,7 @@ namespace App\Test\TestCase;
 
 use App\Application;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
-use Cake\Http\MiddlewareStack;
+use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 use Cake\TestSuite\IntegrationTestCase;
@@ -35,7 +35,7 @@ class ApplicationTest extends IntegrationTestCase
     public function testMiddleware()
     {
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
-        $middleware = new MiddlewareStack();
+        $middleware = new MiddlewareQueue();
 
         $middleware = $app->middleware($middleware);
 
