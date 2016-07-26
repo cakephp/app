@@ -30,21 +30,21 @@ class Application extends BaseApplication
     /**
      * Setup the middleware your application will use.
      *
-     * @param \Cake\Http\MiddlewareStack $middleware The middleware stack to setup.
-     * @return \Cake\Http\MiddlewareStack The updated middleware.
+     * @param \Cake\Http\MiddlewareQueue $middleware The middleware queue to setup.
+     * @return \Cake\Http\MiddlewareQueue The updated middleware.
      */
     public function middleware($middleware)
     {
         $middleware
             // Catch any exceptions in the lower layers,
             // and make an error page/response
-            ->push(new ErrorHandlerMiddleware())
+            ->add(new ErrorHandlerMiddleware())
 
             // Handle plugin/theme assets like CakePHP normally does.
-            ->push(new AssetMiddleware())
+            ->add(new AssetMiddleware())
 
             // Apply routing
-            ->push(new RoutingMiddleware());
+            ->add(new RoutingMiddleware());
 
         return $middleware;
     }
