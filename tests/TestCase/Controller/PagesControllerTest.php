@@ -27,6 +27,18 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesControllerTest extends IntegrationTestCase
 {
+    /**
+     * testMutlipleGet method
+     *
+     * @return void
+     */
+    public function testMutlipleGet()
+    {
+        $this->get('/');
+        $this->assertResponseOk();
+        $this->get('/');
+        $this->assertResponseOk();
+    }
 
     /**
      * testDisplay method
