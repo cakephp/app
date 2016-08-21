@@ -13,17 +13,23 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-// You can remove this if you are confident that your PHP version is sufficient.
+/**
+ * You can remove this if you are confident that your PHP version is sufficient.
+ */
 if (version_compare(PHP_VERSION, '5.5.9') < 0) {
     trigger_error('Your PHP version must be equal or higher than 5.5.9 to use CakePHP.', E_USER_ERROR);
 }
 
-// You can remove this if you are confident you have intl installed.
+/**
+ *  You can remove this if you are confident you have intl installed.
+ */
 if (!extension_loaded('intl')) {
     trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
 }
 
-// You can remove this if you are confident you have mbstring installed.
+/**
+ * You can remove this if you are confident you have mbstring installed.
+ */
 if (!extension_loaded('mbstring')) {
     trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
 }
@@ -75,14 +81,18 @@ try {
     exit($e->getMessage() . "\n");
 }
 
-// Load an environment local configuration file.
-// You can use a file like app_local.php to provide local overrides to your
-// shared configuration.
+/*
+ * Load an environment local configuration file.
+ * You can use a file like app_local.php to provide local overrides to your
+ * shared configuration.
+ */
 //Configure::load('app_local', 'default');
 
-// When debug = false the metadata cache should last
-// for a very very long time, as we don't want
-// to refresh the cache while users are doing requests.
+/*
+ * When debug = false the metadata cache should last
+ * for a very very long time, as we don't want
+ * to refresh the cache while users are doing requests.
+ */
 if (!Configure::read('debug')) {
     Configure::write('Cache._cake_model_.duration', '+1 years');
     Configure::write('Cache._cake_core_.duration', '+1 years');
@@ -115,7 +125,9 @@ if ($isCli) {
     (new ErrorHandler(Configure::read('Error')))->register();
 }
 
-// Include the CLI bootstrap overrides.
+/*
+ * Include the CLI bootstrap overrides.
+ */
 if ($isCli) {
     require __DIR__ . '/bootstrap_cli.php';
 }
@@ -186,12 +198,11 @@ Type::build('datetime')
  * Custom Inflector rules, can be set to correctly pluralize or singularize
  * table, model, controller names or whatever other string is passed to the
  * inflection functions.
- *
- * Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
- * Inflector::rules('irregular', ['red' => 'redlings']);
- * Inflector::rules('uninflected', ['dontinflectme']);
- * Inflector::rules('transliteration', ['/å/' => 'aa']);
  */
+//Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
+//Inflector::rules('irregular', ['red' => 'redlings']);
+//Inflector::rules('uninflected', ['dontinflectme']);
+//Inflector::rules('transliteration', ['/å/' => 'aa']);
 
 /**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
@@ -203,8 +214,10 @@ Type::build('datetime')
  *
  */
 
-// Only try to load DebugKit in development mode
-// Debug Kit should not be installed on a production system
+/*
+ * Only try to load DebugKit in development mode
+ * Debug Kit should not be installed on a production system
+ */
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
