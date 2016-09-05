@@ -34,6 +34,16 @@ class ErrorController extends AppController
     }
 
     /**
+     * beforeFilter callback.
+     *
+     * @param \Cake\Event\Event $event Event.
+     * @return void
+     */
+    public function beforeFilter(Event $event)
+    {
+    }
+
+    /**
      * beforeRender callback.
      *
      * @param \Cake\Event\Event $event Event.
