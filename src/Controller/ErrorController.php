@@ -55,4 +55,14 @@ class ErrorController extends AppController
 
         $this->viewBuilder()->templatePath('Error');
     }
+
+    /**
+     * afterFilter callback.
+     *
+     * @param \Cake\Event\Event $event Event.
+     * @return void
+     */
+    public function afterFilter(Event $event)
+    {
+    }
 }
