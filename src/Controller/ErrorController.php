@@ -37,7 +37,7 @@ class ErrorController extends AppController
      * beforeFilter callback.
      *
      * @param \Cake\Event\Event $event Event.
-     * @return void
+     * @return \Cake\Network\Response|null|void
      */
     public function beforeFilter(Event $event)
     {
@@ -47,7 +47,7 @@ class ErrorController extends AppController
      * beforeRender callback.
      *
      * @param \Cake\Event\Event $event Event.
-     * @return void
+     * @return \Cake\Network\Response|null|void
      */
     public function beforeRender(Event $event)
     {
