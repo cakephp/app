@@ -49,7 +49,7 @@ class AppController extends Controller
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
-     * @return \Cake\Network\Response|null
+     * @return \Cake\Network\Response|null|void
      */
     public function beforeRender(Event $event)
     {
