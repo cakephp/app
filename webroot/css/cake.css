@@ -575,3 +575,8 @@ div.message.hidden {
     margin-bottom: 10px;
     border-bottom: 0px;
 }
+
+table td {
+    vertical-align: top;
+    word-break: break-all;
+}
