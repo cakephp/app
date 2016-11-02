@@ -43,6 +43,10 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        //Recommended security enhancements for your application
+        //see http://book.cakephp.org/3.0/en/controllers/components/security.html
+        //$this->loadComponent('Security');
+        //$this->loadComponent('Csrf');
     }
 
     /**
