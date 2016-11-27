@@ -28,11 +28,11 @@ use Cake\View\Exception\MissingTemplateException;
 class PagesControllerTest extends IntegrationTestCase
 {
     /**
-     * testMutlipleGet method
+     * testMultipleGet method
      *
      * @return void
      */
-    public function testMutlipleGet()
+    public function testMultipleGet()
     {
         $this->get('/');
         $this->assertResponseOk();

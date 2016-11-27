@@ -43,13 +43,20 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        /*
+         * Enable the following components for recommended CakePHP security settings.
+         * see http://book.cakephp.org/3.0/en/controllers/components/security.html
+         */
+        //$this->loadComponent('Security');
+        //$this->loadComponent('Csrf');
     }
 
     /**
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
-     * @return void
+     * @return \Cake\Network\Response|null|void
      */
     public function beforeRender(Event $event)
     {

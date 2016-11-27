@@ -311,12 +311,6 @@ pre {
     color: #fff;
 }
 
-#content {
-    padding-top: 2em;
-    margin: 0 auto;
-    width: 95%;
-}
-
 .checks {
     padding:30px;
     color: #626262;
@@ -574,4 +568,9 @@ div.message.hidden {
     margin-top: 20px;
     margin-bottom: 10px;
     border-bottom: 0px;
+}
+
+table td {
+    vertical-align: top;
+    word-break: break-all;
 }
