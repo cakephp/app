@@ -52,13 +52,6 @@ legend {
     color:#15848F;
 }
 
-.index table {
-    margin-top: 2rem;
-    border: 0;
-    width: 100%;
-    table-layout: fixed;
-}
-
 .related table {
     border: 0;
     width: 100%;
@@ -127,21 +120,6 @@ ul.pagination .disabled:hover a {
 }
 .desc:after {
     content: " \2191";
-}
-
-button {
-    background: #8D6E65;
-}
-
-.form button:hover, .form button:focus {
-    background: #7A6058;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.26) !important;
-}
-
-.form button[type="submit"] {
-    float: right;
-    text-transform: uppercase;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .form .error-message {
@@ -399,6 +377,8 @@ pre {
 .index table {
     margin-top: 0rem;
     border: 0;
+    width: 100%;
+    table-layout: fixed;
 }
 
 table {
