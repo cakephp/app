@@ -92,7 +92,7 @@ return [
         /**
          * Configure the cache used for general framework caching.
          * Translation cache files are stored with this configuration.
-         * Duration will be set to '+1 year' in bootstrap.php when debug = false
+         * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
@@ -108,7 +108,7 @@ return [
          * Configure the cache for model and datasource caches. This cache
          * configuration is used to store schema descriptions, and table listings
          * in connections.
-         * Duration will be set to '+1 year' in bootstrap.php when debug = false
+         * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          */
         '_cake_model_' => [
             'className' => 'File',
