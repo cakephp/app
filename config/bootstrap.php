@@ -89,13 +89,12 @@ try {
 //Configure::load('app_local', 'default');
 
 /*
- * When debug = false the metadata cache should last
- * for a very very long time, as we don't want
- * to refresh the cache while users are doing requests.
+ * When debug = true the metadata cache should only last
+ * for a short time.
  */
-if (!Configure::read('debug')) {
-    Configure::write('Cache._cake_model_.duration', '+1 years');
-    Configure::write('Cache._cake_core_.duration', '+1 years');
+if (Configure::read('debug')) {
+    Configure::write('Cache._cake_model_.duration', '+2 minutes');
+    Configure::write('Cache._cake_core_.duration', '+2 minutes');
 }
 
 /*
