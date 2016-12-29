@@ -35,5 +35,7 @@
 *.pdf binary
 *.phar binary
 *.woff binary
+*.woff2 binary
 *.ttf binary
+*.otf binary
 *.eot binary
