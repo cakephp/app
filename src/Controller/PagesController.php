@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 
@@ -33,6 +34,7 @@ class PagesController extends AppController
      *
      * @param string ...$path Path segments.
      * @return void|\Cake\Network\Response
+     * @throws \Cake\Network\Exception\ForbiddenException When a directory traversal attempt.
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
@@ -41,6 +43,9 @@ class PagesController extends AppController
         $count = count($path);
         if (!$count) {
             return $this->redirect('/');
+        }
+        if (in_array('..', $path, true) || in_array('.', $path, true)) {
+            throw new ForbiddenException();
         }
         $page = $subpage = null;
 

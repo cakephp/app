@@ -17,6 +17,7 @@
 *.properties text
 *.txt text
 *.xml text
+*.svg text
 *.yml text
 .htaccess text
 
@@ -34,3 +35,8 @@
 *.mo binary
 *.pdf binary
 *.phar binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
