@@ -19,6 +19,10 @@ composer create-project --prefer-dist cakephp/app [app_name]
 
 You should now be able to visit the path to where you installed the app and see the default home page.
 
+## Update
+
+Since this skeleton is a starting point for your application and various files would have been modified as per your needs, there isn't a way to provide automated upgrades, so you have to do any updates manually.
+
 ## Configuration
 
 Read and edit `config/app.php` and setup the 'Datasources' and any other
