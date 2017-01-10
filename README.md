@@ -29,4 +29,4 @@ Read and edit `config/app.php` and setup the `'Datasources'` and any other
 configuration relevant for your application.
 
 ## Layout
-The app skeleton uses [Foundation](http://foundation.zurb.com/) CSS framework by default. You can, however, replace it with any other library or custom styles.
+The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework by default. You can, however, replace it with any other library or custom styles.
