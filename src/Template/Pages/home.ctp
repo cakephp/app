@@ -22,10 +22,13 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = false;
 
 if (!Configure::read('debug')):
-    throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
+    throw new NotFoundException(__d('cake_app', 'Please replace src/Template/Pages/home.ctp with your own version.'));
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = __d('cake_app', 'CakePHP: the rapid development PHP framework');
+$cakeVersionName = 'CakePHP ' . (float)Configure::version() . ' Red Velvet';
+$minimumPhpVersion = '5.5.9';
+$cookbookBaseUrl = __d('cake_app', 'https://book.cakephp.org/3.0/en/');
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,21 +49,21 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
     <header class="container">
         <div class="logo"><?= $this->Html->image('cake-logo.png') ?></div>
-        <h1>Welcome to CakePHP 3.3 Red Velvet. Build fast. Grow solid.</h1>
+        <h1><?= __d('cake_app', 'Welcome to {0}. Build fast. Grow solid.', $cakeVersionName) ?></h1>
     </header>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="alert alert-warning text-center">
-                    <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
+                    <p><?= __d('cake_app', 'Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.') ?></p>
                 </div>
                 <?php Debugger::checkSecurityKeys(); ?>
                 <div id="url-rewriting-warning" class="alert alert-warning text-center url-rewriting">
                     <p>
-                        URL rewriting is not properly configured on your server.<br />
-                        1) <a target="_blank" href="http://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a><br />
-                        2) <a target="_blank" href="http://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                        <?= __d('cake_app', 'URL rewriting is not properly configured on your server.') ?><br />
+                        1) <a target="_blank" href="<?= $cookbookBaseUrl ?>installation.html#url-rewriting"><?= __d('cake_app', 'Help me configure it') ?></a><br />
+                        2) <a target="_blank" href="<?= $cookbookBaseUrl ?>development/configuration.html#general-configuration"><?= __d('cake_app', "I don't / can't use URL rewriting") ?></a>
                     </p>
                 </div>
             </div>
@@ -68,55 +71,55 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
         <div class="row">
             <div class="col-md-6">
-                <h2>Environment</h2>
+                <h2><?= __d('cake_app', 'Environment') ?></h2>
                 <ul>
-                <?php if (version_compare(PHP_VERSION, '5.5.9', '>=')): ?>
-                    <li class="success">Your version of PHP is 5.5.9 or higher (detected <?= PHP_VERSION ?>).</li>
+                <?php if (version_compare(PHP_VERSION, $minimumPhpVersion, '>=')): ?>
+                    <li class="success"><?= __d('cake_app', 'Your version of PHP is {0} or higher (detected {1}).', $minimumPhpVersion, PHP_VERSION)?></li>
                 <?php else: ?>
-                    <li class="problem">Your version of PHP is too low. You need PHP 5.5.9 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+                    <li class="problem"><?= __d('cake_app', 'Your version of PHP is too low. You need PHP {0} or higher to use CakePHP (detected {1}).', $minimumPhpVersion, PHP_VERSION) ?></li>
                 <?php endif; ?>
 
                 <?php if (extension_loaded('mbstring')): ?>
-                    <li class="success">Your version of PHP has the mbstring extension loaded.</li>
+                    <li class="success"><?= __d('cake_app', 'Your version of PHP has the mbstring extension loaded.') ?></li>
                 <?php else: ?>
-                    <li class="problem">Your version of PHP does NOT have the mbstring extension loaded.</li>;
+                    <li class="problem"><?= __d('cake_app', 'Your version of PHP does NOT have the mbstring extension loaded.') ?></li>
                 <?php endif; ?>
 
                 <?php if (extension_loaded('openssl')): ?>
-                    <li class="success">Your version of PHP has the openssl extension loaded.</li>
+                    <li class="success"><?= __d('cake_app', 'Your version of PHP has the openssl extension loaded.') ?></li>
                 <?php elseif (extension_loaded('mcrypt')): ?>
-                    <li class="success">Your version of PHP has the mcrypt extension loaded.</li>
+                    <li class="success"><?= __d('cake_app', 'Your version of PHP has the mcrypt extension loaded.') ?></li>
                 <?php else: ?>
-                    <li class="problem">Your version of PHP does NOT have the openssl or mcrypt extension loaded.</li>
+                    <li class="problem"><?= __d('cake_app', 'Your version of PHP does NOT have the openssl or mcrypt extension loaded.') ?></li>
                 <?php endif; ?>
 
                 <?php if (extension_loaded('intl')): ?>
-                    <li class="success">Your version of PHP has the intl extension loaded.</li>
+                    <li class="success"><?= __d('cake_app', 'Your version of PHP has the intl extension loaded.') ?></li>
                 <?php else: ?>
-                    <li class="problem">Your version of PHP does NOT have the intl extension loaded.</li>
+                    <li class="problem"><?= __d('cake_app', 'Your version of PHP does NOT have the intl extension loaded.') ?></li>
                 <?php endif; ?>
                 </ul>
             </div>
             <div class="col-md-6">
-                <h2>Filesystem</h2>
+                <h2><?= __d('cake_app', 'Filesystem') ?></h2>
                 <ul>
                     <?php if (is_writable(TMP)): ?>
-                        <li class="success">Your tmp directory is writable.</li>
+                        <li class="success"><?= __d('cake_app', 'Your tmp directory is writable.') ?></li>
                     <?php else: ?>
-                        <li class="problem">Your tmp directory is NOT writable.</li>
+                        <li class="problem"><?= __d('cake_app', 'Your tmp directory is NOT writable.') ?></li>
                     <?php endif; ?>
 
                     <?php if (is_writable(LOGS)): ?>
-                        <li class="success">Your logs directory is writable.</li>
+                        <li class="success"><?= __d('cake_app', 'Your logs directory is writable.') ?></li>
                     <?php else: ?>
-                        <li class="problem">Your logs directory is NOT writable.</li>
+                        <li class="problem"><?= __d('cake_app', 'Your logs directory is NOT writable.') ?></li>
                     <?php endif; ?>
 
                     <?php $settings = Cache::config('_cake_core_'); ?>
-                    <?php if (!empty($settings)): ?>
-                        <li class="success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+                    <?php if (!empty($settings['className'])): ?>
+                        <li class="success"><?= __d('cake_app', 'The {0} is being used for core caching. To change the config edit config/app.php', $this->Html->tag('em', $settings['className'] . 'Engine')) ?></li>
                     <?php else: ?>
-                        <li class="problem">Your cache is NOT working. Please check the settings in config/app.php</li>
+                        <li class="problem"><?= __d('cake_app', 'Your cache is NOT working. Please check the settings in config/app.php') ?></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -125,7 +128,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
         <div class="row">
             <div class="col-md-6">
-                <h2>Database</h2>
+                <h2><?= __d('cake_app', 'Database') ?></h2>
                 <ul>
                 <?php
                 try {
@@ -143,19 +146,19 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 }
                 ?>
                 <?php if ($connected): ?>
-                    <li class="success">CakePHP is able to connect to the database.</li>
+                    <li class="success"><?= __d('cake_app', 'CakePHP is able to connect to the database.') ?></li>
                 <?php else: ?>
-                    <li class="problem">CakePHP is NOT able to connect to the database.<br /><?= $errorMsg ?></li>
+                    <li class="problem"><?= __d('cake_app', 'CakePHP is NOT able to connect to the database.') ?><br /><?= $errorMsg ?></li>
                 <?php endif; ?>
                 </ul>
             </div>
             <div class="col-md-6">
-                <h2>DebugKit</h2>
+                <h2><?= __d('cake_app', 'DebugKit') ?></h2>
                 <ul>
                 <?php if (Plugin::loaded('DebugKit')): ?>
-                    <li class="success">DebugKit is loaded.</li>
+                    <li class="success"><?= __d('cake_app', 'DebugKit is loaded.') ?></li>
                 <?php else: ?>
-                    <li class="problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</li>
+                    <li class="problem"><?= __d('cake_app', 'DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.') ?></li>
                 <?php endif; ?>
                 </ul>
             </div>
@@ -164,29 +167,29 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
         <div class="row">
             <div class="col-md-6">
-                <h2>Editing this Page</h2>
+                <h2><?= __d('cake_app', 'Editing this Page') ?></h2>
                 <ul>
-                    <li class="cutlery">To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
-                    <li class="cutlery">You can also add some CSS styles for your pages at: webroot/css/.</li>
+                    <li class="cutlery"><?= __d('cake_app', 'To change the content of this page, edit: src/Template/Pages/home.ctp.') ?></li>
+                    <li class="cutlery"><?= __d('cake_app', 'You can also add some CSS styles for your pages at: webroot/css/.') ?></li>
                 </ul>
             </div>
             <div class="col-md-6">
-                <h2>Getting Started</h2>
+                <h2><?= __d('cake_app', 'Getting Started') ?></h2>
                 <ul>
-                    <li class="book"><a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
-                    <li class="book"><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/bookmarks/intro.html">The 15 min Bookmarker Tutorial</a></li>
-                    <li class="book"><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a></li>
+                    <li class="book"><a target="_blank" href="<?= $cookbookBaseUrl ?>"><?= __d('cake_app', 'CakePHP 3.0 Docs') ?></a></li>
+                    <li class="book"><a target="_blank" href="<?= $cookbookBaseUrl ?>tutorials-and-examples/bookmarks/intro.html"><?= __d('cake_app', 'The 15 min Bookmarker Tutorial') ?></a></li>
+                    <li class="book"><a target="_blank" href="<?= $cookbookBaseUrl ?>tutorials-and-examples/blog/blog.html"><?= __d('cake_app', 'The 15 min Blog Tutorial') ?></a></li>
                 </ul>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12 more-cake">
-                <h2>More about Cake</h2>
+                <h2><?= __d('cake_app', 'More about Cake') ?></h2>
                 <p>
-                    CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
+                    <?= __d('cake_app', 'CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.') ?>
                     <br />
-                    Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+                    <?= __d('cake_app', 'Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.') ?>
                 </p>
             </div>
         </div>
@@ -195,60 +198,63 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <div class="row links">
             <div class="col-md-4">
                 <div class="icon support">P</div>
-                <h2>Help and Bug Reports</h2>
+                <h2><?= __d('cake_app', 'Help and Bug Reports') ?></h2>
                 <ul>
-                    <li class="cutlery"><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-                        <br>Live chat about CakePHP
+                    <li class="cutlery"><a href="http://cakesf.herokuapp.com/"><?= __d('cake_app', 'CakePHP Slack') ?></a>
+                        <br><?= __d('cake_app', 'CakePHP official Slack team') ?>
                     </li>
-                    <li class="cutlery"><a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-                        <br>CakePHP issues and pull requests
+                    <li class="cutlery"><a href="irc://irc.freenode.net/cakephp"><?= __d('cake_app', 'irc.freenode.net #cakephp') ?></a>
+                        <br><?= __d('cake_app', 'Live chat about CakePHP') ?>
                     </li>
-                    <li class="cutlery"><a href="http://discourse.cakephp.org/">CakePHP Forum</a>
-                        <br>CakePHP official discussion forum
+                    <li class="cutlery"><a href="https://github.com/cakephp/cakephp/issues"><?= __d('cake_app', 'CakePHP Issues') ?></a>
+                        <br><?= __d('cake_app', 'CakePHP issues and pull requests') ?>
                     </li>
-                    <li class="cutlery"><a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
-                        <br>Community mailing list
+                    <li class="cutlery"><a href="http://discourse.cakephp.org/"><?= __d('cake_app', 'CakePHP Forum') ?></a>
+                        <br><?= __d('cake_app', 'CakePHP official discussion forum') ?>
+                    </li>
+                    <li class="cutlery"><a href="https://groups.google.com/group/cake-php"><?= __d('cake_app', 'CakePHP Google Group') ?></a>
+                        <br><?= __d('cake_app', 'Community mailing list') ?>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <div class="icon docs">r</div>
-                <h2>Docs and Downloads</h2>
+                <h2><?= __d('cake_app', 'Docs and Downloads') ?></h2>
                 <ul>
-                    <li class="cutlery"><a href="http://api.cakephp.org/3.0/">CakePHP API</a>
-                        <br>Quick Reference
+                    <li class="cutlery"><a href="https://api.cakephp.org/3.0/"><?= __d('cake_app', 'CakePHP API') ?></a>
+                        <br><?= __d('cake_app', 'Quick Reference') ?>
                     </li>
-                    <li class="cutlery"><a href="http://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
-                        <br>Your Rapid Development Cookbook
+                    <li class="cutlery"><a href="<?= $cookbookBaseUrl ?>"><?= __d('cake_app', 'CakePHP Documentation') ?></a>
+                        <br><?= __d('cake_app', 'Your Rapid Development Cookbook') ?>
                     </li>
-                    <li class="cutlery"><a href="http://bakery.cakephp.org/">The Bakery</a>
-                        <br>Everything CakePHP
+                    <li class="cutlery"><a href="https://bakery.cakephp.org/"><?= __d('cake_app', 'The Bakery') ?></a>
+                        <br><?= __d('cake_app', 'Everything CakePHP') ?>
                     </li>
-                    <li class="cutlery"><a href="http://plugins.cakephp.org/">CakePHP plugins repo</a>
-                        <br>A comprehensive list of all CakePHP plugins created by the community
+                    <li class="cutlery"><a href="https://plugins.cakephp.org/"><?= __d('cake_app', 'CakePHP plugins repo') ?></a>
+                        <br><?= __d('cake_app', 'A comprehensive list of all CakePHP plugins created by the community') ?>
                     </li>
-                    <li class="cutlery"><a href="https://github.com/cakephp/">CakePHP Code</a>
-                        <br>For the Development of CakePHP Git repository, Downloads
+                    <li class="cutlery"><a href="https://github.com/cakephp/"><?= __d('cake_app', 'CakePHP Code') ?></a>
+                        <br><?= __d('cake_app', 'For the Development of CakePHP Git repository, Downloads') ?>
                     </li>
-                    <li class="cutlery"><a href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
-                        <br>A curated list of amazingly awesome CakePHP plugins, resources and shiny things.
+                    <li class="cutlery"><a href="https://github.com/FriendsOfCake/awesome-cakephp"><?= __d('cake_app', 'CakePHP Awesome List') ?></a>
+                        <br><?= __d('cake_app', 'A curated list of amazingly awesome CakePHP plugins, resources and shiny things.') ?>
                     </li>
-                    <li class="cutlery"><a href="http://www.cakephp.org/">CakePHP</a>
-                        <br>The Rapid Development Framework
+                    <li class="cutlery"><a href="https://cakephp.org/">CakePHP</a>
+                        <br><?= __d('cake_app', 'The Rapid Development Framework') ?>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <div class="icon training">s</div>
-                <h2>Training and Certification</h2>
+                <h2><?= __d('cake_app', 'Training and Certification') ?></h2>
                 <ul>
-                    <li class="cutlery"><a href="http://cakefoundation.org/">Cake Software Foundation</a>
-                        <br>Promoting development related to CakePHP
+                    <li class="cutlery"><a href="http://cakefoundation.org/"><?= __d('cake_app', 'Cake Software Foundation') ?></a>
+                        <br><?= __d('cake_app', 'Promoting development related to CakePHP') ?>
                     </li>
-                    <li class="cutlery"><a href="http://training.cakephp.org/">CakePHP Training</a>
-                        <br>Learn to use the CakePHP framework
+                    <li class="cutlery"><a href="http://training.cakephp.org/"><?= __d('cake_app', 'CakePHP Training') ?></a>
+                        <br><?= __d('cake_app', 'Learn to use the CakePHP framework') ?>
                     </li>
-                    <li class="cutlery"><a href="http://certification.cakephp.org/">CakePHP Certification</a>
+                    <li class="cutlery"><a href="http://certification.cakephp.org/"><?= __d('cake_app', 'CakePHP Certification') ?></a>
                 </ul>
             </div>
         </div>
