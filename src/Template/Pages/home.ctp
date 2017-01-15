@@ -46,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
     <header class="container">
         <div class="logo"><?= $this->Html->image('cake-logo.png') ?></div>
-        <h1>Welcome to CakePHP 3.3 Red Velvet. Build fast. Grow solid.</h1>
+        <h1>Welcome to CakePHP <?= Configure::version() ?> Red Velvet. Build fast. Grow solid.</h1>
     </header>
 
     <div class="container">
