@@ -268,27 +268,6 @@ pre {
     text-decoration: underline;
 }
 
-.home header {
-    width: 100%;
-    height: 70%;
-    position: relative;
-    display: table;
-}
-
-.home h1 {
-    font-family: "Gill Sans MT", Calibri, sans-serif;
-}
-
-.home header .header-image {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.home header h1 {
-    color: #fff;
-}
-
 .checks {
     padding:30px;
     color: #626262;
@@ -307,16 +286,6 @@ pre {
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.home .checks.ctp-warning {
-    color: black;
-    background-color: #ffc600;
-}
-
-.home .checks.url-rewriting {
-    background-color: #F0F0F0;
-    display: none;
 }
 
 .checks .success,
