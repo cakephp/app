@@ -39,7 +39,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
 
@@ -270,6 +269,23 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </ul>
     </div>
 </div>
+
+<script type="application/javascript">
+function deferFontLoading() {
+    var link = document.createElement('Link');
+    link.href = "https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono";
+    link.media = 'all';
+    link.rel  = 'stylesheet';
+    link.property = 'stylesheet';
+    link.type = 'text/css';
+    document.body.appendChild(link);
+}
+if (document.addEventListener) { document.addEventListener('DOMContentLoaded', deferFontLoading, false); }
+else if (window.addEventListener) { window.addEventListener('load', deferFontLoading, false); }
+else if (window.attachEvent) { window.attachEvent('load', deferFontLoading); }
+else { window.onload = deferFontLoading; }
+</script>
+
 
 </body>
 </html>
