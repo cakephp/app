@@ -17,7 +17,7 @@
     color: #404041;
 }
 
-.home a {
+a {
     color: #0071BC;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -26,7 +26,7 @@
     transition: all 0.2s;
 }
 
-.home a:hover, .home a:active {
+a:hover, a:active {
     color: #d33d44;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -35,52 +35,38 @@
     transition: all 0.2s;
 }
 
-.home ul, .home ol, .home dl, .home p {
+ul, ol, dl, p {
     font-size: 0.85rem;
 }
 
-.home p {
+p {
     line-height: 2;
 }
 
-.home header {
+header {
+    height: auto;
+    line-height: 1em;
+    padding: 0;
+    box-shadow: none;
+}
+
+header.row {
     margin-bottom: 30px;
 }
 
-.home header .header-image {
+header .header-image {
     text-align: center;
     padding: 64px 0;
 }
 
-.home header h1 {
-    color: #fff;
-}
-
-.home h3, .home h4 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 27px;
-    line-height: 30px;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.home h3.more {
-    color: #ffffff;
-    background-color: #d33d44;
-    padding: 15px;
-    margin-top: 10px;
-}
-
-.home header .header-title {
+header .header-title {
     padding: 0;
     display: block;
     background: #404041;
     text-align: center;
 }
 
-.home header .header-title h1 {
+header .header-title h1 {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     font-style: italic;
@@ -90,11 +76,32 @@
     color: #DEDED5;
 }
 
-.home .row {
+header h1 {
+    color: #fff;
+}
+
+h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 27px;
+    line-height: 30px;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.more {
+    color: #ffffff;
+    background-color: #d33d44;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.row {
     max-width: 1000px;
 }
 
-.home .alert {
+.alert {
     background-color: #fff9e1;
     font-size: 12px;
     text-align: center;
@@ -103,19 +110,7 @@
     border-bottom: 2px solid #ffcf06;
 }
 
-.home header {
-    height: auto;
-    line-height: 1em;
-    padding: 0;
-    box-shadow: none;
-}
-
-.home ul {
-    list-style-type: none;
-    margin: 0;
-}
-
-.home .alert {
+.alert {
     background-color: #fff9e1;
     font-size: 12px;
     display: block;
@@ -125,13 +120,13 @@
     color: #404041;
 }
 
-.home .alert p {
+.alert p {
     margin: 0;
     font-size: 12px;
     line-height: 1.4;
 }
 
-.home .alert p:before {
+.alert p:before {
     color: #ffcf06;
     content: "\0055";
     font-family: 'cakefont', sans-serif;
@@ -144,35 +139,36 @@
     vertical-align: -2px;
 }
 
-.home .alert ul {
+.alert ul {
     margin: 0;
     font-size: 12px;
 }
 
-.home .alert.url-rewriting {
+.alert.url-rewriting {
     background-color: #F0F0F0;
     border-color: #cccccc;
     display: none;
 }
 
-.home .text-center {
+.text-center {
     text-align: center;
 }
 
-.home ul {
-    margin-bottom: 30px;
+ul {
+    list-style-type: none;
+    margin: 0 0 30px 0;
 }
 
-.home ul ul, .home ul ul li {
+li {
+    padding-left: 1.8em;
+}
+
+ul li ul, ul li ul li {
     margin: 0;
     padding: 0;
 }
 
-.home li {
-    padding-left: 1.8em;
-}
-
-.home li.bullet:before {
+.bullet:before {
     font-family: 'cakefont', sans-serif;
     font-size: 18px;
     display: inline-block;
@@ -183,28 +179,28 @@
     vertical-align: -1px;
 }
 
-.home li.success:before {
+.success:before {
     color: #88c671;
     content: "\0056";
 }
 
-.home li.problem:before {
+.problem:before {
     color: #d33d44;
     content: "\0057";
 }
 
-.home li.cutlery:before {
+.cutlery:before {
     color: #404041;
     content: "\0059";
 }
 
-.home li.book:before {
+.book:before {
     color: #404041;
     content: "\0042";
     width: 1.7em;
 }
 
-.home hr {
+hr {
     border-bottom: 1px solid #e7e7e7;
     border-top: 0;
     margin-bottom: 35px;
@@ -213,7 +209,7 @@
 }
 
 
-.home .icon {
+.icon {
     color: #404041;
     font-style: normal;
     font-family: 'cakefont', sans-serif;
@@ -221,25 +217,25 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.home .icon.support {
+.icon.support {
     font-size: 60px;
 }
-.home .icon.docs {
+.icon.docs {
     font-size: 57px;
 }
-.home .icon.training {
+.icon.training {
     font-size: 39px;
 }
 
 @media (min-width: 768px) {
-    .home .columns {
+    .columns {
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
 @media (min-width: 992px) {
-    .home header.row {
+    header.row {
         max-width: 940px;
     }
 }
