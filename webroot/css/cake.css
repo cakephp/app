@@ -4,19 +4,19 @@ a.disabled {
 }
 
 a:hover {
-    color: #ba232a;
+    color: #2f85ae;
 }
 
 a {
-    color: #d33c43;
+    color: #363637;
 }
 
 .side-nav li a:not(.button) {
-    color: #ba232a;
+    color: #363637;
 }
 
 .side-nav li a:not(.button):hover {
-    color: #ba232a;
+    color: #2f85ae;
 }
 
 header {
@@ -92,7 +92,7 @@ ul.pagination li a {
 }
 
 ul.pagination li.active a {
-    background-color: #DCE47E;
+    background-color: #ed565d;
     color: #FFF;
     font-weight: bold;
     cursor: default;
@@ -506,7 +506,7 @@ div.message.hidden {
 .vertical-table th {
     padding: 0.5625rem 0.625rem;
     font-size: 0.875rem;
-    color: #ed565d;
+    color: #363637;
     border: none;
     text-align: left;
 }
