@@ -4,19 +4,19 @@ a.disabled {
 }
 
 a:hover {
-    color: #15848F;
+    color: #ba232a;
 }
 
 a {
-    color: #1798A5;
+    color: #d33c43;
 }
 
 .side-nav li a:not(.button) {
-    color: #15848F;
+    color: #ba232a;
 }
 
 .side-nav li a:not(.button):hover {
-    color: #15848F;
+    color: #ba232a;
 }
 
 header {
@@ -34,7 +34,7 @@ header .header-title {
 }
 
 legend {
-    color:#15848F;
+    color: #ba232a;
 }
 
 .row {
@@ -43,13 +43,13 @@ legend {
 
 .actions.columns {
     margin-top:1rem;
-    border-left: 5px solid #15848F;
+    border-left: 5px solid #ba232a;
     padding-left: 15px;
     padding: 32px 20px;
 }
 
 .actions.columns h3 {
-    color:#15848F;
+    color: #ba232a;
 }
 
 .related table {
@@ -350,20 +350,33 @@ pre {
 }
 
 .top-bar.expanded .title-area {
-    background: #01545b;
+    background: #ba232a;
+}
+
+.top-bar.expanded .title-area:before {
+    position: absolute;
+    width: 100px;
+    height: 45px;
+    content: " ";
+    background-image: url(/img/cake.logo.svg);
+    background-size: 100px 45px;
+}
+
+.top-bar.expanded .title-area .name h1{
+    text-indent: 100px;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #d33c43;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-    background-color: #308e97;
-    background: #308e97;
+    background-color: #ed565d;
+    background: #ed565d;
 }
 
 .side-nav li.heading {
-    color: #1798A5;
+    color: #ba232a;
     font-size: 0.875rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -398,15 +411,15 @@ table tr {
 }
 
 table thead tr {
-    border-bottom: 1px solid #1798A5;
+    border-bottom: 1px solid #ed565d;
 }
 
 table tr th {
     padding: 0.5625rem 0.625rem;
     font-size: 0.875rem;
-    color: #1798A5;
+    color: #ed565d;
     text-align: left;
-    border-bottom: 2px solid #1798A5;
+    border-bottom: 2px solid #404041;
 }
 
 table tr:nth-of-type(even) {
@@ -420,7 +433,7 @@ fieldset {
 }
 
 fieldset legend {
-    border-bottom: 2px solid #1798A5;
+    border-bottom: 2px solid #404041;
     width: 100%;
     line-height: 2rem;
 }
@@ -432,12 +445,12 @@ fieldset legend {
 }
 
 .form button:hover, .form button:focus {
-    background: #BE840B;
+    background: #ed565d;
     box-shadow: none;
 }
 
 button {
-    background: #966600;
+    background: #d33c43;
 }
 
 div.message {
@@ -493,7 +506,7 @@ div.message.hidden {
 .vertical-table th {
     padding: 0.5625rem 0.625rem;
     font-size: 0.875rem;
-    color: #1798A5;
+    color: #ed565d;
     border: none;
     text-align: left;
 }
@@ -530,20 +543,20 @@ div.message.hidden {
 }
 
 .content h3 {
-    color: #be140b;
+    color: #d33c43;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
 }
 
 .content h4 {
-    color: #be140b;
+    color: #d33c43;
     padding-bottom: 0.5rem;
     margin-bottom: 20px;
-    border-bottom: 2px solid #be140b;
+    border-bottom: 2px solid #404041;
 }
 
 .content .related h4 {
-    color: #4d8f97;
+    color: #d33c43;
     padding-bottom: 0.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
