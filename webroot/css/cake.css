@@ -353,7 +353,7 @@ pre {
     background: #ba232a;
 }
 
-.top-bar.expanded .title-area:before {
+.title-area:before {
     position: absolute;
     width: 100px;
     height: 45px;
