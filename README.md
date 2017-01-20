@@ -14,7 +14,12 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 
 If Composer is installed globally, run
 ```bash
-composer create-project --prefer-dist cakephp/app [app_name]
+composer create-project --prefer-dist cakephp/app
+```
+
+In case you want to use a custom app dir name (e.g. `/myapp/`):
+```bash
+composer create-project --prefer-dist cakephp/app myapp
 ```
 
 You should now be able to visit the path to where you installed the app and see the default home page.
