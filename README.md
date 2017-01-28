@@ -34,6 +34,12 @@ In case you want to try the unstable branch:
 composer create-project --prefer-dist cakephp/app=dev-3.next
 ```
 
+You may then install specific RC, for example:
+
+```bash
+composer require "cakephp/cakephp:3.4.0-RC3"
+```
+
 ## Update
 
 Since this skeleton is a starting point for your application and various files would have been modified as per your needs, there isn't a way to provide automated upgrades, so you have to do any updates manually.
