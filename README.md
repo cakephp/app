@@ -31,13 +31,14 @@ You should now be able to visit the path to where you installed the app and see 
 In case you want to try the unstable branch:
 
 ```bash
-composer create-project --prefer-dist cakephp/app=dev-3.next
+composer create-project --prefer-dist cakephp/app=dev-3.next app
 ```
 
 You may then install specific RC, for example:
 
 ```bash
-composer require "cakephp/cakephp:3.4.0-RC3"
+cd app;
+composer require cakephp/cakephp:3.4.0-RC3
 ```
 
 ## Update
