@@ -38,7 +38,7 @@ You may then install specific RC, for example:
 
 ```bash
 cd app;
-composer require "cakephp/cakephp:3.4.0-RC3"
+composer require cakephp/cakephp:3.4.0-RC3
 ```
 
 ## Update
