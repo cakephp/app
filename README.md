@@ -13,16 +13,32 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
 If Composer is installed globally, run
+
 ```bash
 composer create-project --prefer-dist cakephp/app
 ```
 
 In case you want to use a custom app dir name (e.g. `/myapp/`):
+
 ```bash
 composer create-project --prefer-dist cakephp/app myapp
 ```
 
 You should now be able to visit the path to where you installed the app and see the default home page.
+
+### Installation of 3.next
+
+In case you want to try the unstable branch:
+
+```bash
+composer create-project --prefer-dist cakephp/app=dev-3.next
+```
+
+You may then install specific RC, for example:
+
+```bash
+composer require "cakephp/cakephp:3.4.0-RC3"
+```
 
 ## Update
 
