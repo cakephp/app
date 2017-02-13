@@ -24,26 +24,20 @@ In case you want to use a custom app dir name (e.g. `/myapp/`):
 composer create-project --prefer-dist cakephp/app myapp
 ```
 
-You should now be able to visit the path to where you installed the app and see the default home page.
-
-### Installation of 3.next
-
-In case you want to try the unstable branch:
+You can now either use your machine's webserver to view the default home page, or start
+up the built-in webserver with:
 
 ```bash
-composer create-project --prefer-dist cakephp/app=dev-3.next app
+bin/cake server -p 8765
 ```
 
-You may then install specific RC, for example:
-
-```bash
-cd app;
-composer require cakephp/cakephp:3.4.0-RC3
-```
+Then visit `http://localhost:8765` to see the welcome page.
 
 ## Update
 
-Since this skeleton is a starting point for your application and various files would have been modified as per your needs, there isn't a way to provide automated upgrades, so you have to do any updates manually.
+Since this skeleton is a starting point for your application and various files
+would have been modified as per your needs, there isn't a way to provide
+automated upgrades, so you have to do any updates manually.
 
 ## Configuration
 
@@ -51,4 +45,7 @@ Read and edit `config/app.php` and setup the `'Datasources'` and any other
 configuration relevant for your application.
 
 ## Layout
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework by default. You can, however, replace it with any other library or custom styles.
+
+The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
+framework by default. You can, however, replace it with any other library or
+custom styles.
