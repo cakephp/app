@@ -38,6 +38,7 @@ class Coverage
         if (isset($event->getArguments()[0])) {
             $coverageDir = $rootDir . '/' . $event->getArguments()[0];
         }
+        $coverageDir = escapeshellarg($coverageDir);
 
         exec('phpunit --log-junit ' . $coverageDir . '/coverage/unitreport.xml --coverage-html ' . $coverageDir . '/coverage --coverage-clover ' . $coverageDir . '/coverage/coverage.xml', $out, $status);
 
