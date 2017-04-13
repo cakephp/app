@@ -157,7 +157,17 @@ class Installer
             }
         };
 
-        $worldWritable = bindec('0000000111');
+        $worldWritable = 007;
+        if ($worldWritable === 007) {
+            $io->write(
+                'NOTICE: "./tmp" and "./logs" permissions are set to world read- and writable. '
+                . 'Depending on your requirements, you may want to change this before in '
+                . __FILE__ . ' on line #' . (__LINE__ - 5) . ' before production deployment '
+                . 'and then re-run `composer install`.',
+                true, $io::NORMAL
+            );
+        }
+
         $walker($dir . '/tmp', $worldWritable, $io);
         $changePerms($dir . '/tmp', $worldWritable, $io);
         $changePerms($dir . '/logs', $worldWritable, $io);
