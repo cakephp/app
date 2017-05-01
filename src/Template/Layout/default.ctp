@@ -15,7 +15,7 @@
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
-<!DOCTYPE html>
+<?= $this->Html->docType() ?>
 <html>
 <head>
     <?= $this->Html->charset() ?>
