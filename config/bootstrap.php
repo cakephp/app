@@ -75,6 +75,11 @@ use Cake\Utility\Security;
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
+    /*
+     * Uncomment the following line to enable loading .env files from the
+     * `config/` directory.
+     */
+    // Configure::load('env', 'default', true);
 } catch (\Exception $e) {
     exit($e->getMessage() . "\n");
 }
