@@ -29,14 +29,14 @@ use Cake\Routing\Middleware\RoutingMiddleware;
 class Application extends BaseApplication
 {
     /**
-     * Setup the middleware stack your application will use.
+     * Setup the middleware queue your application will use.
      *
-     * @param \Cake\Http\MiddlewareQueue $middlewareStack The middleware stack to setup.
-     * @return \Cake\Http\MiddlewareQueue The updated middleware stack.
+     * @param \Cake\Http\MiddlewareQueue $middlewareStack The middleware queue to setup.
+     * @return \Cake\Http\MiddlewareQueue The updated middleware queue.
      */
-    public function middleware($middlewareStack)
+    public function middleware($middlewareQueue)
     {
-        $middlewareStack
+        $middlewareQueue
             // Catch any exceptions in the lower layers,
             // and make an error page/response
             ->add(ErrorHandlerMiddleware::class)
@@ -47,6 +47,6 @@ class Application extends BaseApplication
             // Apply routing
             ->add(RoutingMiddleware::class);
 
-        return $middlewareStack;
+        return $middlewareQueue;
     }
 }
