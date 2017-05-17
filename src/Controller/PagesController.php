@@ -32,7 +32,7 @@ class PagesController extends AppController
     /**
      * Displays a view
      *
-     * @param string|array ...$path Path segments.
+     * @param array ...$path Path segments.
      * @return \Cake\Network\Response|null
      * @throws \Cake\Network\Exception\ForbiddenException When a directory traversal attempt.
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
