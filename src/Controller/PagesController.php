@@ -33,7 +33,7 @@ class PagesController extends AppController
      * Displays a view
      *
      * @param string|array ...$path Path segments.
-     * @return void|\Cake\Network\Response
+     * @return \Cake\Network\Response|null
      * @throws \Cake\Network\Exception\ForbiddenException When a directory traversal attempt.
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
@@ -42,9 +42,7 @@ class PagesController extends AppController
     {
         $count = count($path);
         if (!$count) {
-            $this->redirect('/');
-
-            return;
+            return $this->redirect('/');
         }
         if (in_array('..', $path, true) || in_array('.', $path, true)) {
             throw new ForbiddenException();
