@@ -15,8 +15,8 @@
 namespace App\View;
 
 use Cake\Event\EventManager;
-use Cake\Network\Response;
 use Cake\Http\ServerRequest;
+use Cake\Http\Response;
 
 /**
  * A view class that is used for AJAX responses.
