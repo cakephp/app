@@ -58,9 +58,9 @@ use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
+use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
-use Cake\Network\Request;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
@@ -165,12 +165,12 @@ Security::salt(Configure::consume('Security.salt'));
 /*
  * Setup detectors for mobile and tablet.
  */
-Request::addDetector('mobile', function ($request) {
+ServerRequest::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
 
     return $detector->isMobile();
 });
-Request::addDetector('tablet', function ($request) {
+ServerRequest::addDetector('tablet', function ($request) {
     $detector = new \Detection\MobileDetect();
 
     return $detector->isTablet();
