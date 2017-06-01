@@ -216,7 +216,8 @@ Type::build('timestamp')
 /*
  * Only try to load DebugKit in development mode
  * Debug Kit should not be installed on a production system
+ * You may also set autoRun to false and append ?debug=true to your URLs to toggle DebugKit on.
  */
 if (Configure::read('debug')) {
-    Plugin::load('DebugKit', ['bootstrap' => true]);
+    Plugin::load('DebugKit', ['bootstrap' => true, 'autoRun' => true]);
 }
