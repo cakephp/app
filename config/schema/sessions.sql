@@ -3,7 +3,7 @@
 # Licensed under The MIT License
 # For full copyright and license information, please see the LICENSE.txt
 # Redistributions of files must retain the above copyright notice.
-# MIT License (https://www.opensource.org/licenses/mit-license.php)
+# MIT License (https://opensource.org/licenses/mit-license.php)
 
 CREATE TABLE sessions (
   id char(40) NOT NULL,

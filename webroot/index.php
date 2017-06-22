@@ -12,7 +12,7 @@
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
  * @since         0.2.9
- * @license       MIT License (https://www.opensource.org/licenses/mit-license.php)
+ * @license       MIT License (https://opensource.org/licenses/mit-license.php)
  */
 // for built-in server
 if (php_sapi_name() === 'cli-server') {
