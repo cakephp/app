@@ -39,6 +39,7 @@ class Installer
         $rootDir = dirname(dirname(__DIR__));
 
         static::createAppConfig($rootDir, $io);
+        static::createEnvFile($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
@@ -84,6 +85,27 @@ class Installer
         if (!file_exists($appConfig)) {
             copy($defaultConfig, $appConfig);
             $io->write('Created `config/app.php` file');
+        }
+    }
+
+    /**
+     * Create the config/.env file if it does not exist.
+     * Also sets the APP_NAME value to the proper variable
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @return void
+     */
+    public static function createEnvFile($dir, $io)
+    {
+        $appName = basename($dir);
+        static::setAppNameInFile($dir, $io, $appName, '.env.default');
+
+        $envFile = $dir . '/config/.env';
+        $defaultEnvFile = $dir . '/config/.env.default';
+        if (!file_exists($envFile)) {
+            copy($defaultEnvFile, $envFile);
+            $io->write('Created `config/.env` file');
         }
     }
 
@@ -172,10 +194,25 @@ class Installer
      */
     public static function setSecuritySalt($dir, $io)
     {
-        $config = $dir . '/config/app.php';
+        $newKey = hash('sha256', Security::randomBytes(64));
+        static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
+        static::setSecuritySaltInFile($dir, $io, $newKey, '.env');
+    }
+
+    /**
+     * Set the security.salt value in a given file
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @param string $newKey key to set in the file
+     * @param string $file A path to a file relative to the application's root
+     * @return void
+     */
+    public static function setSecuritySaltInFile($dir, $io, $newKey, $file)
+    {
+        $config = $dir . '/config/' . $file;
         $content = file_get_contents($config);
 
-        $newKey = hash('sha256', Security::randomBytes(64));
         $content = str_replace('__SALT__', $newKey, $content, $count);
 
         if ($count == 0) {
@@ -186,10 +223,40 @@ class Installer
 
         $result = file_put_contents($config, $content);
         if ($result) {
-            $io->write('Updated Security.salt value in config/app.php');
+            $io->write('Updated Security.salt value in config/' . $file);
 
             return;
         }
         $io->write('Unable to update Security.salt value.');
+    }
+
+    /**
+     * Set the APP_NAME value in a given file
+     *
+     * @param string $dir The application's root directory.
+     * @param \Composer\IO\IOInterface $io IO interface to write to console.
+     * @param string $appName app name to set in the file
+     * @param string $file A path to a file relative to the application's root
+     * @return void
+     */
+    public static function setAppNameInFile($dir, $io, $appName, $file)
+    {
+        $config = $dir . '/config/' . $file;
+        $content = file_get_contents($config);
+        $content = str_replace('__APP_NAME__', $appName, $content, $count);
+
+        if ($count == 0) {
+            $io->write('No __APP_NAME__ placeholder to replace.');
+
+            return;
+        }
+
+        $result = file_put_contents($config, $content);
+        if ($result) {
+            $io->write('Updated __APP_NAME__ value in config/' . $file);
+
+            return;
+        }
+        $io->write('Unable to update __APP_NAME__ value.');
     }
 }
