@@ -39,7 +39,6 @@ class Installer
         $rootDir = dirname(dirname(__DIR__));
 
         static::createAppConfig($rootDir, $io);
-        static::createEnvFile($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
@@ -85,27 +84,6 @@ class Installer
         if (!file_exists($appConfig)) {
             copy($defaultConfig, $appConfig);
             $io->write('Created `config/app.php` file');
-        }
-    }
-
-    /**
-     * Create the config/.env file if it does not exist.
-     * Also sets the APP_NAME value to the proper variable
-     *
-     * @param string $dir The application's root directory.
-     * @param \Composer\IO\IOInterface $io IO interface to write to console.
-     * @return void
-     */
-    public static function createEnvFile($dir, $io)
-    {
-        $appName = basename($dir);
-        static::setAppNameInFile($dir, $io, $appName, '.env.default');
-
-        $envFile = $dir . '/config/.env';
-        $defaultEnvFile = $dir . '/config/.env.default';
-        if (!file_exists($envFile)) {
-            copy($defaultEnvFile, $envFile);
-            $io->write('Created `config/.env` file');
         }
     }
 
@@ -196,7 +174,6 @@ class Installer
     {
         $newKey = hash('sha256', Security::randomBytes(64));
         static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
-        static::setSecuritySaltInFile($dir, $io, $newKey, '.env');
     }
 
     /**
