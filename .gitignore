@@ -1,4 +1,43 @@
-/vendor/*
+# CakePHP specific files #
+##########################
 /config/app.php
-/tmp/*
+/config/.env # josegonzalez/php-dotenv
 /logs/*
+/tmp/*
+/tmp/bake/*
+!/tmp/bake/empty
+/tmp/cache/models/*
+!/tmp/cache/models/empty
+/tmp/cache/persistent/*
+!/tmp/cache/persistent/empty
+/tmp/cache/views/*
+!/tmp/cache/views/empty
+/tmp/sessions/*
+!/tmp/sessions/empty
+/tmp/tests/*
+!/tmp/tests/empty
+/vendor/*
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+*~ # vim
+*.swp # vim
+*.swo # vim
+*.sublime-* # sublime text
+*.tmlanguage.cache # sublime text & textmate
+*.tmPreferences.cache # sublime text & textmate
+*.stTheme.cache # cache files for sublime text
+.idea/* # JetBrains, aka PHPStorm, IntelliJ IDEA
+/nbproject # NetBeans
+.sass-cache/ # Sass preprocessor
