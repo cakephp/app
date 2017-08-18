@@ -286,13 +286,6 @@ return [
      * Configures logging options
      */
     'Log' => [
-        '404' => [
-            'className' => 'Cake\Log\Engine\FileLog',
-            'path' => LOGS,
-            'file' => '404',
-            'url' => env('LOG_NOT_FOUND_URL', null),
-            'scopes' => ['404'],
-        ],
         'debug' => [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
