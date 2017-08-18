@@ -290,7 +290,7 @@ return [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => '404',
-            'url' => env('LOG_ERROR_URL', null),
+            'url' => env('LOG_NOT_FOUND_URL', null),
             'scopes' => ['404'],
         ],
         'debug' => [
