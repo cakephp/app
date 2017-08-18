@@ -26,7 +26,7 @@ Thumbs.db
 *.tmlanguage.cache # sublime text & textmate
 *.tmPreferences.cache # sublime text & textmate
 *.stTheme.cache # cache files for sublime text
-.settings/ # Eclipse
+.settings/* # Eclipse
 .idea/* # JetBrains, aka PHPStorm, IntelliJ IDEA
 nbproject/* # NetBeans
 .vscode # Visual Studio Code
