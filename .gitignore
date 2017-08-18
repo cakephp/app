@@ -27,6 +27,6 @@ Thumbs.db
 *.tmPreferences.cache # sublime text & textmate
 *.stTheme.cache # cache files for sublime text
 .idea/* # JetBrains, aka PHPStorm, IntelliJ IDEA
-nbproject # NetBeans
+nbproject/* # NetBeans
 .vscode # Visual Studio Code
 .sass-cache/ # Sass preprocessor
