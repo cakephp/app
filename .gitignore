@@ -4,18 +4,6 @@
 /config/.env # josegonzalez/php-dotenv
 /logs/*
 /tmp/*
-/tmp/bake/*
-!/tmp/bake/empty
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
 /vendor/*
 
 # OS generated files #
