@@ -207,16 +207,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <ul><li>Live chat about CakePHP</li></ul>
             </li>
             <li class="bullet cutlery">
+                <a href="http://cakesf.herokuapp.com/">Slack</a>
+                <ul><li>CakePHP Slack support</li></ul>
+            </li>
+            <li class="bullet cutlery">
                 <a href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
                 <ul><li>CakePHP issues and pull requests</li></ul>
             </li>
             <li class="bullet cutlery">
                 <a href="http://discourse.cakephp.org/">CakePHP Forum</a>
                 <ul><li>CakePHP official discussion forum</li></ul>
-            </li>
-            <li class="bullet cutlery">
-                <a href="https://groups.google.com/group/cake-php">CakePHP Google Group</a>
-                <ul><li>Community mailing list</li></ul>
             </li>
         </ul>
     </div>
