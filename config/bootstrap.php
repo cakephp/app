@@ -44,6 +44,20 @@ use Cake\Mailer\Email;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
+/**
+ * Read .env file if APP_NAME is not set.
+ *
+ * You can remove this block if you do not want to use environment
+ * variables for configuration when deploying.
+ */
+if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+    $dotenv->parse()
+        ->putenv()
+        ->toEnv()
+        ->toServer();
+}
+
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
@@ -134,7 +148,7 @@ ConnectionManager::setConfig(Configure::consume('Datasources'));
 Email::setConfigTransport(Configure::consume('EmailTransport'));
 Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
-Security::salt(Configure::consume('Security.salt'));
+Security::setSalt(Configure::consume('Security.salt'));
 
 /*
  * The default crypto extension in 3.0 is OpenSSL.
