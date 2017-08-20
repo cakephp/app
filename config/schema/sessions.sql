@@ -5,9 +5,11 @@
 # Redistributions of files must retain the above copyright notice.
 # MIT License (https://opensource.org/licenses/mit-license.php)
 
-CREATE TABLE sessions (
-  id char(40) NOT NULL,
-  data text,
-  expires INT(11) NOT NULL,
-  PRIMARY KEY  (id)
-);
+CREATE TABLE `sessions` (
+  `id` char(40) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `data` blob DEFAULT NULL,
+  `expires` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
