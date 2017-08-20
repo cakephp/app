@@ -236,7 +236,7 @@ return [
             'timezone' => 'UTC',
             'flags' => [],
             'cacheMetadata' => true,
-            'log' => true,
+            'log' => false,
 
             /**
              * Set identifier quoting to true if you are using reserved words or
@@ -302,6 +302,7 @@ return [
             'scopes' => false,
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
+        // To enable this dedicated query log, you need set your datasource's log flag to true
         'queries' => [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
