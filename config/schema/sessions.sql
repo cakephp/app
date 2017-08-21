@@ -10,6 +10,6 @@ CREATE TABLE `sessions` (
   `created` datetime DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `data` blob DEFAULT NULL,
-  `expires` int(11) unsigned DEFAULT NULL,
+  `expires` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
