@@ -19,15 +19,22 @@ Thumbs.db
 
 # Tool specific files #
 #######################
-*~ # vim
-*.swp # vim
-*.swo # vim
-*.sublime-* # sublime text
-*.tmlanguage.cache # sublime text & textmate
-*.tmPreferences.cache # sublime text & textmate
-*.stTheme.cache # cache files for sublime text
-.settings/* # Eclipse
-.idea/* # JetBrains, aka PHPStorm, IntelliJ IDEA
-nbproject/* # NetBeans
-.vscode # Visual Studio Code
-.sass-cache/ # Sass preprocessor
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+# Sass preprocessor
+.sass-cache/
