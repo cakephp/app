@@ -26,6 +26,20 @@ class Installer
 {
 
     /**
+     * An array of directories to be made writable
+     */
+    const WRITABLE_DIRS = [
+        'logs',
+        'tmp',
+        'tmp/cache',
+        'tmp/cache/models',
+        'tmp/cache/persistent',
+        'tmp/cache/views',
+        'tmp/sessions',
+        'tmp/tests'
+    ];
+
+    /**
      * Does some routine installation tasks so people don't have to.
      *
      * @param \Composer\Script\Event $event The composer event object.
@@ -96,18 +110,7 @@ class Installer
      */
     public static function createWritableDirectories($dir, $io)
     {
-        $paths = [
-            'logs',
-            'tmp',
-            'tmp/cache',
-            'tmp/cache/models',
-            'tmp/cache/persistent',
-            'tmp/cache/views',
-            'tmp/sessions',
-            'tmp/tests'
-        ];
-
-        foreach ($paths as $path) {
+        foreach (static::WRITABLE_DIRS as $path) {
             $path = $dir . '/' . $path;
             if (!file_exists($path)) {
                 mkdir($path);
