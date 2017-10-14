@@ -232,7 +232,8 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'my_app',
-            'encoding' => 'utf8',
+            // Non MariaDB/MySQL equivalent is 'utf8'
+            'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'flags' => [],
             'cacheMetadata' => true,
@@ -272,7 +273,8 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'test_myapp',
-            'encoding' => 'utf8',
+            // Non MariaDB/MySQL equivalent is 'utf8'
+            'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
