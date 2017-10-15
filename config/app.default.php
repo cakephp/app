@@ -212,10 +212,15 @@ return [
     /**
      * Connection information used by the ORM to connect
      * to your application's datastores.
-     * Do not use periods in database name - it may lead to error.
-     * See https://github.com/cakephp/cakephp/issues/6471 for details.
-     * Drivers include Mysql Postgres Sqlite Sqlserver
-     * See vendor\cakephp\cakephp\src\Database\Driver for complete list
+     *
+     * ### Notes
+     * - Drivers include Mysql Postgres Sqlite Sqlserver
+     *   See vendor\cakephp\cakephp\src\Database\Driver for complete list
+     * - Do not use periods in database name - it may lead to error.
+     *   See https://github.com/cakephp/cakephp/issues/6471 for details.
+     * - 'encoding' is recommended to be set to full UTF-8 4-Byte support.
+     *   E.g set it to 'utf8mb4' in MariaDB and MySQL and 'utf8' for any
+     *   other RDBMS.
      */
     'Datasources' => [
         'default' => [
@@ -232,8 +237,14 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'my_app',
-            // Non MariaDB/MySQL equivalent is 'utf8'
-            'encoding' => 'utf8mb4',
+            /**
+             * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
+             * If you do these are the recommendations:
+             * 'encoding' => 'utf8mb4' // On MariaDB/MySQL for full UTF-8 encoding (4-byte)
+             * 'encoding' => 'utf8mb3' // On MariaDB/MySQL for limited UTF-8 encoding (3-byte, not recommended)
+             * 'encoding' => 'utf8' // On any other RDBMS for full 4-byte UTF-8 encoding (4-byte)
+             */
+            // 'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'flags' => [],
             'cacheMetadata' => true,
@@ -273,8 +284,7 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'test_myapp',
-            // Non MariaDB/MySQL equivalent is 'utf8'
-            'encoding' => 'utf8mb4',
+            // 'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
