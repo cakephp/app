@@ -44,7 +44,7 @@ return [
         'dir' => 'src',
         'webroot' => 'webroot',
         'wwwRoot' => WWW_ROOT,
-        // 'baseUrl' => env('SCRIPT_NAME'),
+        //'baseUrl' => env('SCRIPT_NAME'),
         'fullBaseUrl' => false,
         'imageBaseUrl' => 'img/',
         'cssBaseUrl' => 'css/',
@@ -76,7 +76,7 @@ return [
      * enable timestamping regardless of debug value.
      */
     'Asset' => [
-        // 'timestamp' => true,
+        //'timestamp' => true,
     ],
 
     /**
@@ -179,7 +179,9 @@ return [
     'EmailTransport' => [
         'default' => [
             'className' => 'Mail',
-            // The following keys are used in SMTP transports
+            /*
+             * The following keys are used in SMTP transports:
+             */
             'host' => 'localhost',
             'port' => 25,
             'timeout' => 30,
@@ -244,7 +246,7 @@ return [
              * 'encoding' => 'utf8mb3' // On MariaDB/MySQL for limited UTF-8 encoding (3-byte, not recommended)
              * 'encoding' => 'utf8' // On any other RDBMS for full 4-byte UTF-8 encoding (4-byte)
              */
-            // 'encoding' => 'utf8mb4',
+            //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'flags' => [],
             'cacheMetadata' => true,
@@ -284,12 +286,12 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'test_myapp',
-            // 'encoding' => 'utf8mb4',
+            //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             'log' => false,
-            // 'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
             'url' => env('DATABASE_TEST_URL', null),
         ],
     ],
