@@ -241,10 +241,6 @@ return [
             'database' => 'my_app',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
-             * If you do these are the recommendations:
-             * 'encoding' => 'utf8mb4' // On MariaDB/MySQL for full UTF-8 encoding (4-byte)
-             * 'encoding' => 'utf8mb3' // On MariaDB/MySQL for limited UTF-8 encoding (3-byte, not recommended)
-             * 'encoding' => 'utf8' // On any other RDBMS for full 4-byte UTF-8 encoding (4-byte)
              */
             //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
