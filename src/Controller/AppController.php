@@ -63,16 +63,16 @@ class AppController extends Controller
         // Note: These defaults are just to get started quickly with development
         // and should not be used in production. You should instead set "_serialize"
         // in each action as required.
-        if(!array_key_exists('_serialize', $this->viewVars)) {
+        if (!array_key_exists('_serialize', $this->viewVars)) {
             $mimeType = $this->RequestHandler->mapAlias(
-                            $this->RequestHandler->responseType());
-            if(!is_array($mimeType)) {
-                if(in_array($mimeType, ['application/json', 'application/xml'])) {
+                $this->RequestHandler->responseType()
+            );
+            if (!is_array($mimeType)) {
+                if (in_array($mimeType, ['application/json', 'application/xml'])) {
                     $this->set('_serialize', true);
                 }
-            }
-            else if(in_array('application/json', $mimeType) ||
-                    in_array('application/xml',  $mimeType)) {
+            } elseif (in_array('application/json', $mimeType) ||
+                      in_array('application/xml', $mimeType)) {
                 $this->set('_serialize', true);
             }
         }
