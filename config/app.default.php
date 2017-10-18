@@ -9,7 +9,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(getEnv('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
     /**
      * Configure basic information about the application.
@@ -38,13 +38,13 @@ return [
      */
     'App' => [
         'namespace' => 'App',
-        'encoding' => env('APP_ENCODING', 'UTF-8'),
-        'defaultLocale' => env('APP_DEFAULT_LOCALE', 'en_US'),
+        'encoding' => getEnv('APP_ENCODING', 'UTF-8'),
+        'defaultLocale' => getEnv('APP_DEFAULT_LOCALE', 'en_US'),
         'base' => false,
         'dir' => 'src',
         'webroot' => 'webroot',
         'wwwRoot' => WWW_ROOT,
-        // 'baseUrl' => env('SCRIPT_NAME'),
+        // 'baseUrl' => getEnv('SCRIPT_NAME'),
         'fullBaseUrl' => false,
         'imageBaseUrl' => 'img/',
         'cssBaseUrl' => 'css/',
@@ -64,7 +64,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => getEnv('SECURITY_SALT', '__SALT__'),
     ],
 
     /**
@@ -86,7 +86,7 @@ return [
         'default' => [
             'className' => 'File',
             'path' => CACHE,
-            'url' => env('CACHE_DEFAULT_URL', null),
+            'url' => getEnv('CACHE_DEFAULT_URL', null),
         ],
 
         /**
@@ -101,7 +101,7 @@ return [
             'path' => CACHE . 'persistent/',
             'serialize' => true,
             'duration' => '+1 years',
-            'url' => env('CACHE_CAKECORE_URL', null),
+            'url' => getEnv('CACHE_CAKECORE_URL', null),
         ],
 
         /**
@@ -116,7 +116,7 @@ return [
             'path' => CACHE . 'models/',
             'serialize' => true,
             'duration' => '+1 years',
-            'url' => env('CACHE_CAKEMODEL_URL', null),
+            'url' => getEnv('CACHE_CAKEMODEL_URL', null),
         ],
     ],
 
@@ -187,7 +187,7 @@ return [
             'password' => null,
             'client' => null,
             'tls' => null,
-            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
+            'url' => getEnv('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
 
@@ -257,7 +257,7 @@ return [
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
 
-            'url' => env('DATABASE_URL', null),
+            'url' => getEnv('DATABASE_URL', null),
         ],
 
         /**
@@ -278,7 +278,7 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'url' => env('DATABASE_TEST_URL', null),
+            'url' => getEnv('DATABASE_TEST_URL', null),
         ],
     ],
 
@@ -290,7 +290,7 @@ return [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => 'debug',
-            'url' => env('LOG_DEBUG_URL', null),
+            'url' => getEnv('LOG_DEBUG_URL', null),
             'scopes' => false,
             'levels' => ['notice', 'info', 'debug'],
         ],
@@ -298,7 +298,7 @@ return [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => 'error',
-            'url' => env('LOG_ERROR_URL', null),
+            'url' => getEnv('LOG_ERROR_URL', null),
             'scopes' => false,
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
@@ -307,7 +307,7 @@ return [
             'className' => 'Cake\Log\Engine\FileLog',
             'path' => LOGS,
             'file' => 'queries',
-            'url' => env('LOG_QUERIES_URL', null),
+            'url' => getEnv('LOG_QUERIES_URL', null),
             'scopes' => ['queriesLog'],
         ],
     ],
