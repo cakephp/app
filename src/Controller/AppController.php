@@ -55,7 +55,7 @@ class AppController extends Controller
     /**
      * Before render callback.
      *
-     * @param  \Cake\Event\Event $event The beforeRender event.
+     * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Http\Response|null|void
      */
     public function beforeRender(Event $event)
@@ -63,13 +63,10 @@ class AppController extends Controller
         // Note: These defaults are just to get started quickly with development
         // and should not be used in production.
         // You should instead set "_serialize" in each action as required.
-        if (!array_key_exists('_serialize', $this->viewVars)) {
-            $contentType = $this->response->getHeaderLine('Content-Type');
-            if (strpos($contentType, 'application/json') !== false ||
-                strpos($contentType, 'application/xml') !== false
-            ) {
-                $this->set('_serialize', true);
-            }
+        if (!array_key_exists('_serialize', $this->viewVars) &&
+            in_array($this->response->getType(), ['application/json', 'application/xml'])
+        ) {
+            $this->set('_serialize', true);
         }
     }
 }
