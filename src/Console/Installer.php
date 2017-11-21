@@ -14,7 +14,7 @@
  */
 namespace App\Console;
 
-if (defined('STDIN') === false) {
+if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 
