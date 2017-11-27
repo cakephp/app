@@ -183,7 +183,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">The 15 min Blog Tutorial</a></li>
             <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/installation.html">The 15 min CMS Tutorial</a></li>
         </ul>
-        <p>
     </div>
 </div>
 
