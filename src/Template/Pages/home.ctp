@@ -84,7 +84,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <?php if (extension_loaded('mbstring')) : ?>
             <li class="bullet success">Your version of PHP has the mbstring extension loaded.</li>
         <?php else : ?>
-            <li class="bullet problem">Your version of PHP does NOT have the mbstring extension loaded.</li>;
+            <li class="bullet problem">Your version of PHP does NOT have the mbstring extension loaded.</li>
         <?php endif; ?>
 
         <?php if (extension_loaded('openssl')) : ?>
