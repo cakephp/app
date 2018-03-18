@@ -40,7 +40,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('home.css') ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
