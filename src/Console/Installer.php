@@ -14,6 +14,10 @@
  */
 namespace App\Console;
 
+if (!defined('STDIN')) {
+    define('STDIN', fopen('php://stdin', 'r'));
+}
+
 use Cake\Utility\Security;
 use Composer\Script\Event;
 use Exception;
@@ -24,6 +28,20 @@ use Exception;
  */
 class Installer
 {
+
+    /**
+     * An array of directories to be made writable
+     */
+    const WRITABLE_DIRS = [
+        'logs',
+        'tmp',
+        'tmp/cache',
+        'tmp/cache/models',
+        'tmp/cache/persistent',
+        'tmp/cache/views',
+        'tmp/sessions',
+        'tmp/tests'
+    ];
 
     /**
      * Does some routine installation tasks so people don't have to.
@@ -96,18 +114,7 @@ class Installer
      */
     public static function createWritableDirectories($dir, $io)
     {
-        $paths = [
-            'logs',
-            'tmp',
-            'tmp/cache',
-            'tmp/cache/models',
-            'tmp/cache/persistent',
-            'tmp/cache/views',
-            'tmp/sessions',
-            'tmp/tests'
-        ];
-
-        foreach ($paths as $path) {
+        foreach (static::WRITABLE_DIRS as $path) {
             $path = $dir . '/' . $path;
             if (!file_exists($path)) {
                 mkdir($path);

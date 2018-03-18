@@ -14,7 +14,11 @@
  * @since         0.2.9
  * @license       MIT License (https://opensource.org/licenses/mit-license.php)
  */
-// for built-in server
+
+// Check platform requirements
+require dirname(__DIR__) . '/config/requirements.php';
+
+// For built-in server
 if (php_sapi_name() === 'cli-server') {
     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 
@@ -32,6 +36,5 @@ use Cake\Http\Server;
 // Bind your application to the server.
 $server = new Server(new Application(dirname(__DIR__) . '/config'));
 
-// Run the request/response through the application
-// and emit the response.
+// Run the request/response through the application and emit the response.
 $server->emit($server->run());

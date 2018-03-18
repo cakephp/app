@@ -1,7 +1,7 @@
 # CakePHP Application Skeleton
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 
 A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
 
@@ -46,6 +46,6 @@ configuration relevant for your application.
 
 ## Layout
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS
+The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.

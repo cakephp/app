@@ -40,3 +40,7 @@
 *.ttf binary
 *.otf binary
 *.eot binary
+*.gz binary
+*.bz2 binary
+*.7z binary
+*.zip binary
