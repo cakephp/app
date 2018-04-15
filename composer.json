@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": ">=5.6",
-        "cakephp/cakephp": "dev-3.next as 3.6.0",
-        "cakephp/migrations": "dev-3.next as 1.7.2",
+        "cakephp/cakephp": "3.6.*",
+        "cakephp/migrations": "^1.8.0",
         "cakephp/plugin-installer": "^1.0",
         "josegonzalez/dotenv": "3.*",
         "mobiledetect/mobiledetectlib": "2.*"
@@ -15,7 +15,7 @@
     "require-dev": {
         "cakephp/bake": "^1.1",
         "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/debug_kit": "dev-3.next as 3.14.2",
+        "cakephp/debug_kit": "^3.15.0",
         "psy/psysh": "@stable"
     },
     "suggest": {
