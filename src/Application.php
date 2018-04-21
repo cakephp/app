@@ -29,6 +29,15 @@ use Cake\Routing\Middleware\RoutingMiddleware;
 class Application extends BaseApplication
 {
     /**
+     * {@inheritDoc}
+     */
+    public function bootstrap()
+    {
+        // Call parent to load bootstrap from files.
+        parent::bootstrap();
+    }
+
+    /**
      * Setup the middleware queue your application will use.
      *
      * @param \Cake\Http\MiddlewareQueue $middlewareQueue The middleware queue to setup.
