@@ -424,7 +424,6 @@ div.message {
     overflow: hidden;
     height: 50px;
     line-height: 2.5em;
-    box-radius: 5px;
 }
 
 div.message:before {
