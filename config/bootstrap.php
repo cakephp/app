@@ -13,12 +13,12 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-/*
+/**
  * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . '/paths.php';
 
-/*
+/**
  * Bootstrap CakePHP.
  *
  * Does the various bits of setup that CakePHP needs to do.
@@ -57,7 +57,7 @@ use Cake\Utility\Security;
 //         ->toServer();
 // }
 
-/*
+/**
  * Read configuration file and inject configuration into various
  * CakePHP classes.
  *
@@ -72,14 +72,14 @@ try {
     exit($e->getMessage() . "\n");
 }
 
-/*
+/**
  * Load an environment local configuration file.
  * You can use a file like app_local.php to provide local overrides to your
  * shared configuration.
  */
 //Configure::load('app_local', 'default');
 
-/*
+/**
  * When debug = true the metadata cache should only last
  * for a short time.
  */
@@ -90,13 +90,13 @@ if (Configure::read('debug')) {
     Configure::write('Cache._cake_routes_.duration', '+2 seconds');
 }
 
-/*
+/**
  * Set the default server timezone. Using UTC makes time calculations / conversions easier.
  * Check http://php.net/manual/en/timezones.php for list of valid timezone strings.
  */
 date_default_timezone_set(Configure::read('App.defaultTimezone'));
 
-/*
+/**
  * Configure the mbstring extension to use the correct encoding.
  */
 mb_internal_encoding(Configure::read('App.encoding'));
@@ -107,7 +107,7 @@ mb_internal_encoding(Configure::read('App.encoding'));
  */
 ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
 
-/*
+/**
  * Register application error and exception handlers.
  */
 $isCli = PHP_SAPI === 'cli';
@@ -117,14 +117,14 @@ if ($isCli) {
     (new ErrorHandler(Configure::read('Error')))->register();
 }
 
-/*
+/**
  * Include the CLI bootstrap overrides.
  */
 if ($isCli) {
     require __DIR__ . '/bootstrap_cli.php';
 }
 
-/*
+/**
  * Set the full base URL.
  * This URL is used as the base of all absolute links.
  *
@@ -150,14 +150,14 @@ Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
 
-/*
+/**
  * The default crypto extension in 3.0 is OpenSSL.
  * If you are migrating from 2.x uncomment this code to
  * use a more compatible Mcrypt based implementation
  */
 //Security::engine(new \Cake\Utility\Crypto\Mcrypt());
 
-/*
+/**
  * Setup detectors for mobile and tablet.
  */
 ServerRequest::addDetector('mobile', function ($request) {
@@ -171,7 +171,7 @@ ServerRequest::addDetector('tablet', function ($request) {
     return $detector->isTablet();
 });
 
-/*
+/**
  * Enable immutable time objects in the ORM.
  *
  * You can enable default locale format parsing by adding calls
@@ -188,7 +188,7 @@ Type::build('datetime')
 Type::build('timestamp')
     ->useImmutable();
 
-/*
+/**
  * Custom Inflector rules, can be set to correctly pluralize or singularize
  * table, model, controller names or whatever other string is passed to the
  * inflection functions.
@@ -198,7 +198,7 @@ Type::build('timestamp')
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
 
-/*
+/**
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
  * Uncomment one of the lines below, as you need. make sure you read the documentation on Plugin to use more
  * advanced ways of loading plugins
@@ -208,7 +208,7 @@ Type::build('timestamp')
  *
  */
 
-/*
+/**
  * Only try to load DebugKit in development mode
  * Debug Kit should not be installed on a production system
  */
