@@ -5,17 +5,14 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=5.6",
-        "cakephp/cakephp": "3.6.*",
-        "cakephp/migrations": "^1.8.0",
+        "php": ">=7.1",
+        "cakephp/cakephp": "dev-4.x",
         "cakephp/plugin-installer": "^1.0",
         "josegonzalez/dotenv": "3.*",
         "mobiledetect/mobiledetectlib": "2.*"
     },
     "require-dev": {
-        "cakephp/bake": "^1.1",
         "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/debug_kit": "^3.15.0",
         "psy/psysh": "@stable"
     },
     "suggest": {
@@ -25,7 +22,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Company\\Contacts\\": "plugins/Company/Contacts/src/"
         }
     },
     "autoload-dev": {
