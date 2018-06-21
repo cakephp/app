@@ -88,7 +88,7 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
@@ -100,7 +100,7 @@ return [
          * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_core_',
             'path' => CACHE . 'persistent/',
             'serialize' => true,
@@ -115,7 +115,7 @@ return [
          * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          */
         '_cake_model_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_model_',
             'path' => CACHE . 'models/',
             'serialize' => true,
@@ -129,7 +129,7 @@ return [
          * Duration will be set to '+2 seconds' in bootstrap.php when debug = true
          */
         '_cake_routes_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_routes_',
             'path' => CACHE,
             'serialize' => true,
@@ -196,7 +196,7 @@ return [
      */
     'EmailTransport' => [
         'default' => [
-            'className' => 'Mail',
+            'className' => 'Cake\Mailer\Transport\MailTransport',
             /*
              * The following keys are used in SMTP transports:
              */
