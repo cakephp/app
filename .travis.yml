@@ -28,7 +28,7 @@ before_script:
   - if [[ $DEFAULT = 1 ]]; then composer install; fi
   - if [[ $DEFAULT = 1 ]]; then composer require phpunit/phpunit:"^5.7|^6.0"; fi
   - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
-  - if [[ $PHPSTAN = 1 ]]; then composer require --dev "phpstan/phpstan"
+  - if [[ $PHPSTAN = 1 ]]; then composer require --dev "phpstan/phpstan"; fi
 
 script:
   - if [[ $DEFAULT = 1 ]]; then vendor/bin/phpunit; fi
