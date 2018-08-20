@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Event\Event;
+use Cake\Http\Response;
 
 /**
  * Error Handling Controller
@@ -28,7 +29,7 @@ class ErrorController extends AppController
      *
      * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
         $this->loadComponent('RequestHandler');
     }
@@ -39,7 +40,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function beforeFilter(Event $event)
+    public function beforeFilter(Event $event): ?Response
     {
     }
 
@@ -49,7 +50,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function beforeRender(Event $event)
+    public function beforeRender(Event $event): ?Response
     {
         parent::beforeRender($event);
 
@@ -62,7 +63,7 @@ class ErrorController extends AppController
      * @param \Cake\Event\Event $event Event.
      * @return \Cake\Http\Response|null|void
      */
-    public function afterFilter(Event $event)
+    public function afterFilter(Event $event): ?Response
     {
     }
 }

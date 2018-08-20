@@ -37,13 +37,11 @@ class AppController extends Controller
      *
      * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
+        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
         /*
