@@ -81,6 +81,7 @@ return [
      */
     'Asset' => [
         //'timestamp' => true,
+        // 'cacheTime' => '+1 year'
     ],
 
     /**
