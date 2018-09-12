@@ -48,7 +48,7 @@ define('CONFIG', ROOT . DS . 'config' . DS);
 
 /**
  * File path to the webroot directory.
- * 
+ *
  * To derive your webroot from your webserver change this to:
  *
  * `define('WWW_ROOT', rtrim($_SERVER['DOCUMENT_ROOT'], DS) . DS);`
