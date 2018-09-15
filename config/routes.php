@@ -48,6 +48,12 @@ Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
     /**
+     * Apply a middlewares to the current route scope.
+     * Requires middlewares to be registered via `Application::routes()` with `registerMiddleware()`
+     */
+    $routes->applyMiddleware('csrf');
+
+    /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
@@ -77,3 +83,14 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->fallbacks(DashedRoute::class);
 });
+
+/**
+ * If you need different set of middlewares or none at all, open new scope and define routes there
+ *
+ * ```
+ * Router::scope('/api', function (RouteBuilder $routes) {
+ *     // No $routes->applyMiddleware() here.
+ *     // Connect API actions here.
+ * });
+ * ```
+ */

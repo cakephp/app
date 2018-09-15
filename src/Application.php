@@ -58,6 +58,24 @@ class Application extends BaseApplication
     }
 
     /**
+     * Define the routes for an application.
+     *
+     * Use the provided RouteBuilder to define an application's routing, register scoped middlewares.
+     *
+     * @param \Cake\Routing\RouteBuilder $routes A route builder to add routes into.
+     * @return void
+     */
+    public function routes($routes)
+    {
+        // Register scoped middlewares for use in routes.php
+        $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
+            'httpOnly' => true
+        ]));
+
+        parent::routes($routes);
+    }
+
+    /**
      * Setup the middleware queue your application will use.
      *
      * @param \Cake\Http\MiddlewareQueue $middlewareQueue The middleware queue to setup.
@@ -79,12 +97,7 @@ class Application extends BaseApplication
             // Routes collection cache enabled by default, to disable route caching
             // pass null as cacheConfig, example: `new RoutingMiddleware($this)`
             // you might want to disable this cache in case your routing is extremely simple
-            ->add(new RoutingMiddleware($this, '_cake_routes_'))
-
-            // Add csrf middleware.
-            ->add(new CsrfProtectionMiddleware([
-                'httpOnly' => true
-            ]));
+            ->add(new RoutingMiddleware($this, '_cake_routes_'));
 
         return $middlewareQueue;
     }
