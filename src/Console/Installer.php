@@ -83,8 +83,9 @@ class Installer
 
         static::setSecuritySalt($rootDir, $io);
 
-        if (class_exists('\Cake\Codeception\Console\Installer')) {
-            \Cake\Codeception\Console\Installer::customizeCodeceptionBinary($event);
+        $class = 'Cake\Codeception\Console\Installer';
+        if (class_exists($class)) {
+            $class::customizeCodeceptionBinary($event);
         }
     }
 

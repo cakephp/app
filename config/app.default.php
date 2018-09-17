@@ -28,7 +28,10 @@ return [
      *      /.htaccess
      *      /webroot/.htaccess
      *   And uncomment the baseUrl key below.
-     * - fullBaseUrl - A base URL to use for absolute links.
+     * - fullBaseUrl - A base URL to use for absolute links. When set to false (default)
+     *   CakePHP generates required value based on `HTTP_HOST` environment variable.
+     *   However, you can define it manually to optimize performance or if you
+     *   are concerned about people manipulating the `Host` header.
      * - imageBaseUrl - Web path to the public images directory under webroot.
      * - cssBaseUrl - Web path to the public css directory under webroot.
      * - jsBaseUrl - Web path to the public js directory under webroot.
@@ -78,6 +81,7 @@ return [
      */
     'Asset' => [
         //'timestamp' => true,
+        // 'cacheTime' => '+1 year'
     ],
 
     /**
@@ -85,7 +89,7 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
@@ -97,7 +101,7 @@ return [
          * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_core_',
             'path' => CACHE . 'persistent/',
             'serialize' => true,
@@ -112,7 +116,7 @@ return [
          * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          */
         '_cake_model_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_model_',
             'path' => CACHE . 'models/',
             'serialize' => true,
@@ -126,7 +130,7 @@ return [
          * Duration will be set to '+2 seconds' in bootstrap.php when debug = true
          */
         '_cake_routes_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => 'myapp_cake_routes_',
             'path' => CACHE,
             'serialize' => true,
@@ -193,7 +197,7 @@ return [
      */
     'EmailTransport' => [
         'default' => [
-            'className' => 'Mail',
+            'className' => 'Cake\Mailer\Transport\MailTransport',
             /*
              * The following keys are used in SMTP transports:
              */

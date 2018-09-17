@@ -48,7 +48,14 @@ findCliPhp() {
     echo "php";
 }
 
-CONSOLE=$(dirname -- "$(canonicalize "$0")")
+# If current path is a symlink, resolve to real path
+realname="$0"
+if [ -L "$realname" ] 
+then
+	realname=$(readlink -f "$0")
+fi
+
+CONSOLE=$(dirname -- "$(canonicalize "$realname")")
 APP=$(dirname "$CONSOLE")
 
 # If your CLI PHP is somewhere that this doesn't find, you can define a PHP environment
@@ -58,9 +65,9 @@ then
     PHP=$(findCliPhp)
 fi
 
-if [ $(basename $0) != 'cake' ]
+if [ $(basename $realname) != 'cake' ]
 then
-    exec $PHP "$CONSOLE"/cake.php $(basename $0) "$@"
+    exec $PHP "$CONSOLE"/cake.php $(basename $realname) "$@"
 else
     exec $PHP "$CONSOLE"/cake.php "$@"
 fi

@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.1",
         "cakephp/cakephp": "dev-4.x",
+        "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "josegonzalez/dotenv": "3.*",
         "mobiledetect/mobiledetectlib": "2.*"
@@ -40,8 +41,8 @@
             "@test",
             "@cs-check"
         ],
-        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
-        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
         "test": "phpunit --colors=always"
     },
     "prefer-stable": true,
