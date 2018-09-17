@@ -60,14 +60,14 @@ class Application extends BaseApplication
     /**
      * Define the routes for an application.
      *
-     * Use the provided RouteBuilder to define an application's routing, register scoped middlewares.
+     * Use the provided RouteBuilder to define an application's routing, register scoped middleware.
      *
      * @param \Cake\Routing\RouteBuilder $routes A route builder to add routes into.
      * @return void
      */
     public function routes($routes)
     {
-        // Register scoped middlewares for use in routes.php
+        // Register scoped middleware for use in routes.php
         $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
             'httpOnly' => true
         ]));
