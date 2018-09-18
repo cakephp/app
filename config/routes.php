@@ -69,8 +69,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      * Connect catchall routes for all controllers.
      *
      * Using the argument `DashedRoute`, the `fallbacks` method is a shortcut for
-     *    `$routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);`
-     *    `$routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);`
+     *
+     * ```
+     * $routes->connect('/:controller', ['action' => 'index'], ['routeClass' => 'DashedRoute']);
+     * $routes->connect('/:controller/:action/*', [], ['routeClass' => 'DashedRoute']);
+     * ```
      *
      * Any route class can be used with this method, such as:
      * - DashedRoute
@@ -85,7 +88,8 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 /**
- * If you need different set of middleware or none at all, open new scope and define routes there
+ * If you need a different set of middleware or none at all,
+ * open new scope and define routes there.
  *
  * ```
  * Router::scope('/api', function (RouteBuilder $routes) {
