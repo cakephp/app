@@ -35,12 +35,13 @@ use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
-use Cake\Database\Type;
+use Cake\Database\TypeFactory;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
 use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
+use Cake\Mailer\TransportFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
@@ -145,7 +146,7 @@ if (!Configure::read('App.fullBaseUrl')) {
 
 Cache::setConfig(Configure::consume('Cache'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
-Email::setConfigTransport(Configure::consume('EmailTransport'));
+TransportFactory::setConfig(Configure::consume('EmailTransport'));
 Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
@@ -179,13 +180,13 @@ ServerRequest::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-Type::build('time')
+TypeFactory::build('time')
     ->useImmutable();
-Type::build('date')
+TypeFactory::build('date')
     ->useImmutable();
-Type::build('datetime')
+TypeFactory::build('datetime')
     ->useImmutable();
-Type::build('timestamp')
+TypeFactory::build('timestamp')
     ->useImmutable();
 
 /*
