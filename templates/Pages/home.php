@@ -23,7 +23,7 @@ $this->layout = false;
 
 if (!Configure::read('debug')) :
     throw new NotFoundException(
-        'Please replace src/Template/Pages/home.ctp with your own version or re-enable debug mode.'
+        'Please replace templates/Pages/home.php with your own version or re-enable debug mode.'
     );
 endif;
 
@@ -56,7 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <div class="row">
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
-            <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
+            <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace templates/Pages/home.php with your own version.</p>
         </div>
         <div id="url-rewriting-warning" class="alert url-rewriting">
             <ul>
@@ -171,7 +171,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="columns large-6">
         <h3>Editing this Page</h3>
         <ul>
-            <li class="bullet cutlery">To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
+            <li class="bullet cutlery">To change the content of this page, edit: templates/Pages/home.php.</li>
             <li class="bullet cutlery">You can also add some CSS styles for your pages at: webroot/css/.</li>
         </ul>
     </div>
