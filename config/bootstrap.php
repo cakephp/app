@@ -50,7 +50,7 @@ use Cake\Utility\Security;
  * variables as required.
  *
  * It is HIGHLY discouraged to use a .env file in production, due to security risks
- * and decresed performance on each request. The purpose of the .env file is to emulate
+ * and decreased performance on each request. The purpose of the .env file is to emulate
  * the presence of the environment variables like they would be present in production.
  */
 // if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
