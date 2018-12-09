@@ -18,7 +18,6 @@ use Cake\Core\Configure;
 use Cake\Core\Exception\MissingPluginException;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
-use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
@@ -55,24 +54,6 @@ class Application extends BaseApplication
         if (Configure::read('debug')) {
             $this->addPlugin(\DebugKit\Plugin::class);
         }
-    }
-
-    /**
-     * Define the routes for an application.
-     *
-     * Use the provided RouteBuilder to define an application's routing, register scoped middleware.
-     *
-     * @param \Cake\Routing\RouteBuilder $routes A route builder to add routes into.
-     * @return void
-     */
-    public function routes($routes)
-    {
-        // Register scoped middleware for use in routes.php
-        $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
-            'httpOnly' => true
-        ]));
-
-        parent::routes($routes);
     }
 
     /**
