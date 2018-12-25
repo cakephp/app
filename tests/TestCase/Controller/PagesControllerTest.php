@@ -19,14 +19,17 @@ use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Http\Response;
 use Cake\Http\ServerRequest;
-use Cake\TestSuite\IntegrationTestCase;
+use Cake\TestSuite\IntegrationTestTrait;
+use Cake\TestSuite\TestCase;
 use Cake\View\Exception\MissingTemplateException;
 
 /**
  * PagesControllerTest class
  */
-class PagesControllerTest extends IntegrationTestCase
+class PagesControllerTest extends TestCase
 {
+    use IntegrationTestTrait;
+
     /**
      * testMultipleGet method
      *
