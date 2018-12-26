@@ -20,8 +20,7 @@ matrix:
       env: PHPSTAN=1 DEFAULT=0
 
 before_script:
-  - if [[ $DEFAULT = 1 ]]; then composer install; fi
-  - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
+  - if [[ $DEFAULT = 1 || $PHPCS = 1 ]]; then composer install; fi
   - if [[ $PHPSTAN = 1 ]]; then composer require --dev "phpstan/phpstan"; fi
 
 script:
