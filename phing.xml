@@ -1,0 +1,13 @@
+<target name="phpcs">
+ <phpcodesniffer standard="PSR2"
+      description="Run PSR2 standards over the codebase"
+      haltonerror="true">
+   <fileset dir="${basedir}/src">
+     <include name="**/*.php"/>
+   </fileset>
+   <fileset dir="${basedir}/tests">
+     <include name="**/*.php"/>
+   </fileset>
+   <formatter type="full" usefile="false"/>
+ </phpcodesniffer>
+</target>
