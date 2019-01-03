@@ -1,13 +1,70 @@
-<target name="phpcs">
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Cake skeleton" basedir="." default="main">
+    
+    <property name="builddir" value="build" />
+    <property name="source" value="src" />
+    <property name="testdir" value="tests" />
+     
+    <fileset id="php-files" dir="${project.basedir}">
+        <include name="**/*.php"/>
+        <exclude name="library/Zend/**"/>
+        <exclude name="tests/**"/>
+    </fileset>
+        
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: main                        -->
+    <!-- ============================================  -->
+    <target name="main" description="Start analyzing our application">
+        <echo msg="Start Build" />
+        
+        <phingCall target="phpcs" />
+        
+        <echo msg="Finished Build" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: prepare                     -->
+    <!-- ============================================  -->
+    <!--target name="prepare" >
+        <echo msg="Making directory build" />
+        
+        <delete dir="${builddir}/api" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/code-browser" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/coverage" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/logs" includeemptydirs="true" verbose="true" failonerror="true" />
+        <delete dir="${builddir}/pdepend" includeemptydirs="true" verbose="true" failonerror="true" />
+       
+        <mkdir dir="${builddir}/api"/>
+        <mkdir dir="${builddir}/api/docblox"/>
+        <mkdir dir="${builddir}/code-browser"/>
+        <mkdir dir="${builddir}/coverage"/>
+        <mkdir dir="${builddir}/logs"/>
+        <mkdir dir="${builddir}/pdepend"/>        
+    </target-->
+
+    <!-- ============================================  -->
+    <!-- Target: PHPCS (PHP Code Sniffer)              -->
+    <!-- ============================================  -->
+    <!--target name="phpcs" description="Coding Standards Analysis">
+        <exec command="phpcs --standard=MyZend 
+                             --report=checkstyle 
+                             --report-file=${builddir}/logs/checkstyle.xml
+                             --ignore=library/Zend,tests,docs,scripts
+                             --extensions=php
+                             ${source}" 
+              escape="false" />
+    </target-->
+<target name="phpcs" description="Coding Standards Analysis">
  <phpcodesniffer standard="PSR2"
       description="Run PSR2 standards over the codebase"
       haltonerror="true">
-   <fileset dir="${basedir}/src">
+   <fileset dir="${builddir}/src">
      <include name="**/*.php"/>
    </fileset>
-   <fileset dir="${basedir}/tests">
+   <fileset dir="${builddir}/tests">
      <include name="**/*.php"/>
    </fileset>
    <formatter type="full" usefile="false"/>
  </phpcodesniffer>
 </target>
+    </project>
