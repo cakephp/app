@@ -36,8 +36,10 @@ class Application extends BaseApplication
     {
         // Call parent to load bootstrap from files.
         parent::bootstrap();
-
-        $this->bootstrapCli();
+        
+        if (PHP_SAPI === 'cli') {
+            $this->bootstrapCli();
+        }
 
         /*
          * Only try to load DebugKit in development mode
@@ -82,10 +84,6 @@ class Application extends BaseApplication
      */
     protected function bootstrapCli()
     {
-        if (PHP_SAPI !== 'cli') {
-            return;
-        }
-
         try {
             $this->addPlugin('Bake');
         } catch (MissingPluginException $e) {
