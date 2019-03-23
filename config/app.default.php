@@ -259,7 +259,7 @@ return [
             'password' => 'secret',
             'database' => 'my_app',
             /*
-             * When using PostgreSQL driver you will need to define the schema otherwise to be able to access/describe tables.
+             * When using PostgreSQL driver you will need to define the schema as well.
              */
             //'schema' => 'myapp',
             /*
