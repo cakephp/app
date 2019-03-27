@@ -35,6 +35,7 @@ class AppController extends Controller
      *
      * e.g. `$this->loadComponent('Security');`
      *
+     * @throws \Exception
      * @return void
      */
     public function initialize()
