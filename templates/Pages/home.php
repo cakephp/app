@@ -7,10 +7,10 @@
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link      https://cakephp.org CakePHP(tm) Project
+ * @since     0.10.0
+ * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -32,24 +32,24 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
+    <?php echo $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>
+        <?php echo $cakeDescription ?>
     </title>
 
-    <?= $this->Html->meta('icon') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-    <?= $this->Html->css('home.css') ?>
+    <?php echo $this->Html->meta('icon') ?>
+    <?php echo $this->Html->css('base.css') ?>
+    <?php echo $this->Html->css('style.css') ?>
+    <?php echo $this->Html->css('home.css') ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
 
 <header class="row">
-    <div class="header-image"><?= $this->Html->image('cake.logo.svg') ?></div>
+    <div class="header-image"><?php echo $this->Html->image('cake.logo.svg') ?></div>
     <div class="header-title">
-        <h1>Welcome to CakePHP <?= Configure::version() ?> Red Velvet. Build fast. Grow solid.</h1>
+        <h1>Welcome to CakePHP <?php echo Configure::version() ?> Strawberry. Build fast. Grow solid.</h1>
     </div>
 </header>
 
@@ -76,9 +76,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <h4>Environment</h4>
         <ul>
         <?php if (version_compare(PHP_VERSION, '5.6.0', '>=')) : ?>
-            <li class="bullet success">Your version of PHP is 5.6.0 or higher (detected <?= PHP_VERSION ?>).</li>
+            <li class="bullet success">Your version of PHP is 5.6.0 or higher (detected <?php echo PHP_VERSION ?>).</li>
         <?php else : ?>
-            <li class="bullet problem">Your version of PHP is too low. You need PHP 5.6.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+            <li class="bullet problem">Your version of PHP is too low. You need PHP 5.6.0 or higher to use CakePHP (detected <?php echo PHP_VERSION ?>).</li>
         <?php endif; ?>
 
         <?php if (extension_loaded('mbstring')) : ?>
@@ -119,7 +119,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
         <?php $settings = Cache::getConfig('_cake_core_'); ?>
         <?php if (!empty($settings)) : ?>
-            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+            <li class="bullet success">The <em><?php echo $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
         <?php else : ?>
             <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
         <?php endif; ?>
@@ -150,7 +150,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <?php if ($connected) : ?>
             <li class="bullet success">CakePHP is able to connect to the database.</li>
         <?php else : ?>
-            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $errorMsg ?></li>
+            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?php echo $errorMsg ?></li>
         <?php endif; ?>
         </ul>
     </div>
