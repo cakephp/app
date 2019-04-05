@@ -62,8 +62,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <ul>
                 <li class="bullet problem">
                     URL rewriting is not properly configured on your server.<br />
-                    1) <a target="_blank" href="https://book.cakephp.org/3.0/en/installation.html#url-rewriting">Help me configure it</a><br />
-                    2) <a target="_blank" href="https://book.cakephp.org/3.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                    1) <a target="_blank" href="https://book.cakephp.org/4.0/en/installation.html#url-rewriting">Help me configure it</a><br />
+                    2) <a target="_blank" href="https://book.cakephp.org/4.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
                 </li>
             </ul>
         </div>
@@ -178,8 +178,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <div class="columns large-6">
         <h3>Getting Started</h3>
         <ul>
-            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
-            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a></li>
+            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/4.0/en/">CakePHP 4.0 Docs</a></li>
+            <li class="bullet book"><a target="_blank" href="https://book.cakephp.org/4.0/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a></li>
         </ul>
     </div>
 </div>
@@ -223,11 +223,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <h3>Docs and Downloads</h3>
         <ul>
             <li class="bullet cutlery">
-                <a href="https://api.cakephp.org/3.0/">CakePHP API</a>
+                <a href="https://api.cakephp.org/4.0/">CakePHP API</a>
                 <ul><li>Quick Reference</li></ul>
             </li>
             <li class="bullet cutlery">
-                <a href="https://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
+                <a href="https://book.cakephp.org/4.0/en/">CakePHP Documentation</a>
                 <ul><li>Your Rapid Development Cookbook</li></ul>
             </li>
             <li class="bullet cutlery">
