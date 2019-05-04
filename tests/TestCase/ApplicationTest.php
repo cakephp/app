@@ -51,7 +51,7 @@ class ApplicationTest extends IntegrationTestCase
      *
      * @return void
      */
-    public function testBootstrapPluginWitoutHalt()
+    public function testBootstrapPluginWithoutHalt()
     {
         $this->expectException(InvalidArgumentException::class);
 
