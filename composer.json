@@ -14,14 +14,14 @@
     "require-dev": {
         "cakephp/bake": "^1.9.0",
         "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/debug_kit": "^3.9.0",
+        "cakephp/debug_kit": "^3.17.0",
         "josegonzalez/dotenv": "3.*",
+        "phpunit/phpunit": "^5|^6",
         "psy/psysh": "@stable"
     },
     "suggest": {
         "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
-        "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan compatibility.",
-        "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
+        "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan compatibility."
     },
     "autoload": {
         "psr-4": {
