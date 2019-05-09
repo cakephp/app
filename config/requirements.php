@@ -20,8 +20,8 @@
 /*
  * You can remove this if you are confident that your PHP version is sufficient.
  */
-if (version_compare(PHP_VERSION, '5.6.0') < 0) {
-    trigger_error('Your PHP version must be equal or higher than 5.6.0 to use CakePHP.' . PHP_EOL, E_USER_ERROR);
+if (version_compare(PHP_VERSION, '7.2.0') < 0) {
+    trigger_error('Your PHP version must be equal or higher than 7.2.0 to use CakePHP.' . PHP_EOL, E_USER_ERROR);
 }
 
 /*
