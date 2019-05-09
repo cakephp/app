@@ -22,26 +22,19 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+
+    <?= $this->Html->css('milligram.css') ?>
+    <?= $this->Html->css('cake.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div id="container">
-        <div id="header">
-            <h1><?= __('Error') ?></h1>
-        </div>
-        <div id="content">
-            <?= $this->Flash->render() ?>
-
-            <?= $this->fetch('content') ?>
-        </div>
-        <div id="footer">
-            <?= $this->Html->link(__('Back'), 'javascript:history.back()') ?>
-        </div>
+    <div class="error-container">
+        <?= $this->fetch('content') ?>
     </div>
 </body>
 </html>
