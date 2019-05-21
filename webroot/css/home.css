@@ -1,4 +1,15 @@
 /* Home page styles */
+@font-face {
+    font-family: 'cakefont';
+    src: url('../font/cakedingbats-webfont.eot');
+    src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/cakedingbats-webfont.woff2') format('woff2'),
+    url('../font/cakedingbats-webfont.woff') format('woff'),
+    url('../font/cakedingbats-webfont.ttf') format('truetype'),
+    url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     padding: 60px 0;
 }
