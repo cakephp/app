@@ -52,6 +52,14 @@ th {
     padding: .5rem 0;
 }
 
+/* View action */
+.content .text {
+    margin-top: 1.2rem;
+}
+.related {
+    margin-top: 2.0rem;
+}
+
 /* Flash messages */
 .message {
     padding: 1.0rem;
