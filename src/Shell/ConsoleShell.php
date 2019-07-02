@@ -64,7 +64,7 @@ class ConsoleShell extends Shell
      *
      * @return \Cake\Console\ConsoleOptionParser
      */
-    public function getOptionParser(): ConsoleOptionParser
+    public function getOptionParser()
     {
         $parser = new ConsoleOptionParser('console');
         $parser->setDescription(
