@@ -1,10 +1,13 @@
 <?php
 /**
- * Routes configuration
+ * Routes configuration.
  *
  * In this file, you set up routes to your controllers and their actions.
  * Routes are very important mechanism that allows you to freely connect
  * different URLs to chosen controllers and their actions (functions).
+ *
+ * It's loaded within the context of `Application::routes()` method which
+ * recieves a `RouteBuilder` instance `$routes` as method argument.
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
