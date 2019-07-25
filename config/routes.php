@@ -48,9 +48,9 @@ use Cake\Routing\RouteBuilder;
  */
 $routes->setRouteClass(DashedRoute::class);
 
-$routes->scope('/', function (RouteBuilder $scopedRoutes) {
+$routes->scope('/', function (RouteBuilder $builder) {
     // Register scoped middleware for in scopes.
-    $scopedRoutes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
+    $builder->registerMiddleware('csrf', new CsrfProtectionMiddleware([
         'httpOnly' => true,
     ]));
 
@@ -58,19 +58,19 @@ $routes->scope('/', function (RouteBuilder $scopedRoutes) {
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered via `Application::routes()` with `registerMiddleware()`
      */
-    $scopedRoutes->applyMiddleware('csrf');
+    $builder->applyMiddleware('csrf');
 
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
-    $scopedRoutes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $scopedRoutes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
     /**
      * Connect catchall routes for all controllers.
@@ -78,14 +78,14 @@ $routes->scope('/', function (RouteBuilder $scopedRoutes) {
      * The `fallbacks` method is a shortcut for
      *
      * ```
-     * $scopedRoutes->connect('/:controller', ['action' => 'index']);
-     * $scopedRoutes->connect('/:controller/:action/*', []);
+     * $builder->connect('/:controller', ['action' => 'index']);
+     * $builder->connect('/:controller/:action/*', []);
      * ```
      *
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $scopedRoutes->fallbacks();
+    $builder->fallbacks();
 });
 
 /**
@@ -93,8 +93,8 @@ $routes->scope('/', function (RouteBuilder $scopedRoutes) {
  * open new scope and define routes there.
  *
  * ```
- * $routes->scope('/api', function (RouteBuilder $scopedRoutes) {
- *     // No $scopedRoutes->applyMiddleware() here.
+ * $routes->scope('/api', function (RouteBuilder $builder) {
+ *     // No $builder->applyMiddleware() here.
  *     // Connect API actions here.
  * });
  * ```
