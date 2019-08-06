@@ -14,6 +14,7 @@
         "cakephp/bake": "4.x-dev",
         "cakephp/cakephp-codesniffer": "dev-next",
         "cakephp/debug_kit": "4.x-dev",
+        "cakephp/migrations": "4.x-dev",
         "josegonzalez/dotenv": "3.*",
         "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
