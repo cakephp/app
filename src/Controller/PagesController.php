@@ -40,7 +40,7 @@ class PagesController extends AppController
      * @throws \Cake\View\Exception\MissingTemplateException When the view file could not
      *   be found and in debug mode.
      * @throws \Cake\Http\Exception\NotFoundException When the view file could not
-     *   be found
+     *   be found and not in debug mode.
      */
     public function display(...$path): ?Response
     {
