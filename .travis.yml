@@ -1,10 +1,9 @@
 language: php
 
-dist: trusty
-
 php:
   - 7.2
   - 7.3
+  - 7.4snapshot
 
 env:
   global:
@@ -19,11 +18,11 @@ matrix:
       env: PHPSTAN=1 DEFAULT=0
 
 before_install:
-  - phpenv config-rm xdebug.ini
+  - if [[ ${TRAVIS_PHP_VERSION} != "7.4snapshot" ]]; then phpenv config-rm xdebug.ini; fi
 
 before_script:
-  - if [[ $DEFAULT == 1 || $PHPCS = 1 ]]; then composer install; fi
-  - if [[ $PHPSTAN == 1 ]]; then composer require --dev phpstan/phpstan:^0.11; fi
+  - if [[ $DEFAULT == 1 || $PHPCS == 1 ]]; then composer install; fi
+  - if [[ $PHPSTAN == 1 ]]; then composer require --dev phpstan/phpstan-shim; fi
 
 script:
   - if [[ $DEFAULT == 1 ]]; then vendor/bin/phpunit; fi
