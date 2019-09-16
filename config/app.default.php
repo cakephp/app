@@ -213,7 +213,7 @@ return [
             'port' => 25,
             'timeout' => 30,
             /*
-             * It is recommended to set this via your environment or app_local.php
+             * It is recommended to set these via your environment or app_local.php
              */
             //'username' => null,
             //'password' => null,
@@ -267,7 +267,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             /*
-             * It is recommended to set this via your environment or app_local.php
+             * It is recommended to set these via your environment or app_local.php
              */
             //'username' => 'my_app',
             //'password' => 'secret',
