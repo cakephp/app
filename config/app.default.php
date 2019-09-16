@@ -257,7 +257,7 @@ return [
             'driver' => Mysql::class,
             'persistent' => false,
             'host' => 'localhost',
-            /*
+            /**
              * CakePHP will use the default DB port based on the driver selected.
              * For instance, MariaDB/MySQL on MAMP uses port 8889
              * thus MAMP users will want to uncomment the following line and set the port accordingly
@@ -266,15 +266,20 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'my_app',
-            /*
+            /**
              * When using PostgreSQL driver you will need to define the schema as well.
              */
             //'schema' => 'myapp',
-            /*
+            /**
              * For MariaDB/MySQL the internal default changed from utf8 to utf8mb4, aka full utf-8 support, in CakePHP 3.6
              */
             //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
+            /**
+             * If your MySQL server is configured with `skip-character-set-client-handshake`
+             * then you MUST use the `flags` config to set your charset encoding.
+             * For e.g. `'flags' => [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4']`
+             */
             'flags' => [],
             'cacheMetadata' => true,
             'log' => false,
