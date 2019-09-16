@@ -90,7 +90,7 @@ class Installer
     }
 
     /**
-     * Create the config/app.php file if it does not exist.
+     * Create the config/app.php and config/app_local.php files if they do not exist.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
@@ -103,6 +103,12 @@ class Installer
         if (!file_exists($appConfig)) {
             copy($defaultConfig, $appConfig);
             $io->write('Created `config/app.php` file');
+        }
+        $appLocalConfig = $dir . '/config/app_local.php';
+        $defaultLocalConfig = $dir . '/config/app_local.default.php';
+        if (!file_exists($appLocalConfig)) {
+            copy($defaultLocalConfig, $appLocalConfig);
+            $io->write('Created `config/app_local.php` file');
         }
     }
 
@@ -181,6 +187,8 @@ class Installer
     {
         $newKey = hash('sha256', Security::randomBytes(64));
         static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
+        $newKey = hash('sha256', Security::randomBytes(64));
+        static::setSecuritySaltInFile($dir, $io, $newKey, 'app_local.php');
     }
 
     /**
