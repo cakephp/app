@@ -51,7 +51,6 @@ return [
             'url' => env('DATABASE_URL', null),
         ],
     ],
-    
 
     /**
      * Email configuration.
@@ -70,5 +69,4 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
-    
 ];
