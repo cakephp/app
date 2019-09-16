@@ -212,8 +212,11 @@ return [
             'host' => 'localhost',
             'port' => 25,
             'timeout' => 30,
-            'username' => null,
-            'password' => null,
+            /*
+             * It is recommended to set this via your environment or app_local.php
+             */
+            //'username' => null,
+            //'password' => null,
             'client' => null,
             'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
@@ -263,9 +266,12 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            /*
+             * It is recommended to set this via your environment or app_local.php
+             */
+            //'username' => 'my_app',
+            //'password' => 'secret',
+            //'database' => 'my_app',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
