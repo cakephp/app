@@ -1,4 +1,7 @@
 <?php
+/*
+ * Local configuration file to provide overrides to your app.php configuration.
+ */
 return [
     /**
      * Debug Level:
@@ -26,14 +29,7 @@ return [
      * Connection information used by the ORM to connect
      * to your application's datastores.
      *
-     * ### Notes
-     * - Drivers include Mysql Postgres Sqlite Sqlserver
-     *   See vendor\cakephp\cakephp\src\Database\Driver for complete list
-     * - Do not use periods in database name - it may lead to error.
-     *   See https://github.com/cakephp/cakephp/issues/6471 for details.
-     * - 'encoding' is recommended to be set to full UTF-8 4-Byte support.
-     *   E.g set it to 'utf8mb4' in MariaDB and MySQL and 'utf8' for any
-     *   other RDBMS.
+     * See app.php for more configuration values.
      */
     'Datasources' => [
         'default' => [
@@ -47,7 +43,7 @@ return [
             'username' => 'my_app',
             'password' => 'secret',
             'database' => 'my_app',
-            'log' => false,
+            'log' => true,
             'url' => env('DATABASE_URL', null),
         ],
     ],
@@ -56,6 +52,7 @@ return [
      * Email configuration.
      *
      * Host and credential configuration for SmtpTransport
+     * See app.php for more configuration values.
      */
     'EmailTransport' => [
         'default' => [
