@@ -1,6 +1,6 @@
 <?php
 /*
- * Local configuration file to provide overrides to your app.php configuration.
+ * Local configuration file to provide any overrides to your app.php configuration.
  */
 return [
     /**
@@ -58,11 +58,9 @@ return [
         'default' => [
             'host' => 'localhost',
             'port' => 25,
-            'timeout' => 30,
             'username' => null,
             'password' => null,
             'client' => null,
-            'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
     ],
