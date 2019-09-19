@@ -23,7 +23,7 @@ use Composer\Script\Event;
 use Exception;
 
 /**
- * Provides installation hooks for when this application is installed via
+ * Provides installation hooks for when this application is installed through
  * composer. Customize this class to suit your needs.
  */
 class Installer
