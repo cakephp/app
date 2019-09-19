@@ -3,7 +3,7 @@
  * Local configuration file to provide any overrides to your app.php configuration.
  */
 return [
-    /**
+    /*
      * Debug Level:
      *
      * Production Mode:
@@ -14,7 +14,7 @@ return [
      */
     'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
-    /**
+    /*
      * Security and encryption configuration
      *
      * - salt - A random string used in security hashing methods.
@@ -25,7 +25,7 @@ return [
         'salt' => env('SECURITY_SALT', '__SALT__'),
     ],
 
-    /**
+    /*
      * Connection information used by the ORM to connect
      * to your application's datastores.
      *
@@ -48,7 +48,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Email configuration.
      *
      * Host and credential configuration for SmtpTransport

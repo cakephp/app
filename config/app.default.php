@@ -8,7 +8,7 @@ use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
 
 return [
-    /**
+    /*
      * Debug Level:
      *
      * Production Mode:
@@ -19,7 +19,7 @@ return [
      */
     'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
 
-    /**
+    /*
      * Configure basic information about the application.
      *
      * - namespace - The namespace to find app classes under.
@@ -68,7 +68,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Security and encryption configuration
      *
      * - salt - A random string used in security hashing methods.
@@ -79,7 +79,7 @@ return [
         'salt' => env('SECURITY_SALT', '__SALT__'),
     ],
 
-    /**
+    /*
      * Apply timestamps with the last modified time to static assets (js, css, images).
      * Will append a querystring parameter containing the time the file was modified.
      * This is useful for busting browser caches.
@@ -92,7 +92,7 @@ return [
         // 'cacheTime' => '+1 year'
     ],
 
-    /**
+    /*
      * Configure the cache adapters.
      */
     'Cache' => [
@@ -102,7 +102,7 @@ return [
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
 
-        /**
+        /*
          * Configure the cache used for general framework caching.
          * Translation cache files are stored with this configuration.
          * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
@@ -117,7 +117,7 @@ return [
             'url' => env('CACHE_CAKECORE_URL', null),
         ],
 
-        /**
+        /*
          * Configure the cache for model and datasource caches. This cache
          * configuration is used to store schema descriptions, and table listings
          * in connections.
@@ -132,7 +132,7 @@ return [
             'url' => env('CACHE_CAKEMODEL_URL', null),
         ],
 
-        /**
+        /*
          * Configure the cache for routes. The cached routes collection is built the
          * first time the routes are processed via `config/routes.php`.
          * Duration will be set to '+2 seconds' in bootstrap.php when debug = true
@@ -147,7 +147,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Configure the Error and Exception handlers used by your application.
      *
      * By default errors are displayed using Debugger, when debug is true and logged
@@ -184,7 +184,7 @@ return [
         'trace' => true,
     ],
 
-    /**
+    /*
      * Email configuration.
      *
      * By defining transports separately from delivery profiles you can easily
@@ -224,7 +224,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Email delivery profiles
      *
      * Delivery profiles allow you to predefine various properties about email
@@ -242,7 +242,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Connection information used by the ORM to connect
      * to your application's datastores.
      *
@@ -282,7 +282,7 @@ return [
             'cacheMetadata' => true,
             'log' => false,
 
-            /**
+            /*
              * Set identifier quoting to true if you are using reserved words or
              * special characters in your table or column names. Enabling this
              * setting will result in queries built using the Query Builder having
@@ -292,7 +292,7 @@ return [
              */
             'quoteIdentifiers' => false,
 
-            /**
+            /*
              * During development, if using MySQL < 5.6, uncommenting the
              * following line could boost the speed at which schema metadata is
              * fetched from the database. It can also be set directly with the
@@ -304,7 +304,7 @@ return [
             'url' => env('DATABASE_URL', null),
         ],
 
-        /**
+        /*
          * The test connection is used during the test suite.
          */
         'test' => [
@@ -326,7 +326,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Configures logging options
      */
     'Log' => [
@@ -356,7 +356,7 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Session configuration.
      *
      * Contains an array of settings to use for session configuration. The

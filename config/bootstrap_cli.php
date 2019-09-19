@@ -14,7 +14,7 @@
  */
 use Cake\Core\Configure;
 
-/**
+/*
  * Additional bootstrapping and configuration for CLI environments should
  * be put here.
  */
