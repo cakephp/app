@@ -29,7 +29,7 @@ return [
      * Connection information used by the ORM to connect
      * to your application's datastores.
      *
-     * See app.php for more configuration values.
+     * See app.php for more configuration options.
      */
     'Datasources' => [
         'default' => [
@@ -52,7 +52,8 @@ return [
      * Email configuration.
      *
      * Host and credential configuration for SmtpTransport
-     * See app.php for more configuration values.
+     *
+     * See app.php for more configuration options.
      */
     'EmailTransport' => [
         'default' => [
