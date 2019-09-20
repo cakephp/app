@@ -76,7 +76,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => env('SECURITY_SALT'),
     ],
 
     /*
@@ -214,7 +214,7 @@ return [
             'port' => 25,
             'timeout' => 30,
             /*
-             * It is recommended to set these through your environment or app_local.php
+             * It is recommended to set these options through your environment or app_local.php
              */
             //'username' => null,
             //'password' => null,
@@ -268,7 +268,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             /*
-             * It is recommended to set these through your environment or app_local.php
+             * It is recommended to set these options through your environment or app_local.php
              */
             //'username' => 'my_app',
             //'password' => 'secret',
