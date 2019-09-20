@@ -51,7 +51,7 @@ return [
     /*
      * Email configuration.
      *
-     * Host and credential configuration for SmtpTransport
+     * Host and credential configuration in case you are using SmtpTransport
      *
      * See app.php for more configuration options.
      */
