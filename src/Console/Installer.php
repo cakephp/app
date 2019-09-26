@@ -23,7 +23,7 @@ use Composer\Script\Event;
 use Exception;
 
 /**
- * Provides installation hooks for when this application is installed via
+ * Provides installation hooks for when this application is installed through
  * composer. Customize this class to suit your needs.
  */
 class Installer
@@ -56,7 +56,7 @@ class Installer
 
         $rootDir = dirname(dirname(__DIR__));
 
-        static::createAppConfig($rootDir, $io);
+        static::createAppLocalConfig($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
@@ -90,19 +90,19 @@ class Installer
     }
 
     /**
-     * Create the config/app.php file if it does not exist.
+     * Create config/app_local.php file if it do not exist.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
      * @return void
      */
-    public static function createAppConfig($dir, $io)
+    public static function createAppLocalConfig($dir, $io)
     {
-        $appConfig = $dir . '/config/app.php';
-        $defaultConfig = $dir . '/config/app.default.php';
-        if (!file_exists($appConfig)) {
-            copy($defaultConfig, $appConfig);
-            $io->write('Created `config/app.php` file');
+        $appLocalConfig = $dir . '/config/app_local.php';
+        $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
+        if (!file_exists($appLocalConfig)) {
+            copy($appLocalConfigTemplate, $appLocalConfig);
+            $io->write('Created `config/app_local.php` file');
         }
     }
 
@@ -180,7 +180,7 @@ class Installer
     public static function setSecuritySalt($dir, $io)
     {
         $newKey = hash('sha256', Security::randomBytes(64));
-        static::setSecuritySaltInFile($dir, $io, $newKey, 'app.php');
+        static::setSecuritySaltInFile($dir, $io, $newKey, 'app_local.php');
     }
 
     /**
