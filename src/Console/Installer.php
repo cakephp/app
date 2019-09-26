@@ -90,7 +90,7 @@ class Installer
     }
 
     /**
-     * Create config/app_local.php files if it do not exist.
+     * Create config/app_local.php file if it do not exist.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
@@ -99,9 +99,9 @@ class Installer
     public static function createAppLocalConfig($dir, $io)
     {
         $appLocalConfig = $dir . '/config/app_local.php';
-        $defaultLocalConfig = $dir . '/config/app_local.example.php';
+        $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
         if (!file_exists($appLocalConfig)) {
-            copy($defaultLocalConfig, $appLocalConfig);
+            copy($appLocalConfigTemplate, $appLocalConfig);
             $io->write('Created `config/app_local.php` file');
         }
     }
