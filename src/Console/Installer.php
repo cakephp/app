@@ -90,7 +90,7 @@ class Installer
     }
 
     /**
-     * Create config/app_local.php file if it do not exist.
+     * Create config/app_local.php file if it does not exist.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
