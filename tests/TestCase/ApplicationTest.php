@@ -40,11 +40,10 @@ class ApplicationTest extends IntegrationTestCase
         $app->bootstrap();
         $plugins = $app->getPlugins();
 
-        $this->assertCount(2, $plugins);
+        $this->assertCount(3, $plugins);
         $this->assertSame('Bake', $plugins->get('Bake')->getName());
         $this->assertSame('DebugKit', $plugins->get('DebugKit')->getName());
-        // Currently there's no Cake 4.x compatible branch for Migrations.
-        // $this->assertSame('Migrations', $plugins->get('Migrations')->getName());
+        $this->assertSame('Migrations', $plugins->get('Migrations')->getName());
     }
 
     /**
