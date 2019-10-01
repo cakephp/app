@@ -4,6 +4,14 @@ a {
     color: #404041;
 }
 
+/* Utility */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* Main */
 body {
     background: #F5F7FA;
