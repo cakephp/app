@@ -238,7 +238,7 @@ return [
             'transport' => 'default',
             'from' => 'you@localhost',
             /*
-             * If not set App.encoding will be used and UTF-8 as a fallback.
+             * Will by default be set to App.encoding, if that exists otherwise to UTF-8.
              */
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
