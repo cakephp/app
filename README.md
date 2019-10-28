@@ -25,6 +25,12 @@ In case you want to use a custom app dir name (e.g. `/myapp/`):
 composer create-project --prefer-dist cakephp/app myapp
 ```
 
+If you want to install 4.x branch in your custom app directory
+
+```bash
+composer create-project --prefer-dist --stability=dev cakephp/app:4.x myapp
+```
+
 You can now either use your machine's webserver to view the default home page, or start
 up the built-in webserver with:
 
