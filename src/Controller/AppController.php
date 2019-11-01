@@ -23,7 +23,7 @@ use Cake\Event\Event;
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ * @link https://book.cakephp.org/3/en/controllers.html#the-app-controller
  */
 class AppController extends Controller
 {
@@ -48,7 +48,7 @@ class AppController extends Controller
 
         /*
          * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
+         * see https://book.cakephp.org/3/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
     }
