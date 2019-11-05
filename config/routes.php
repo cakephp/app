@@ -25,7 +25,7 @@ use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 
-/**
+/*
  * The default class to use for all routes
  *
  * The following route classes are supplied with CakePHP and are appropriate
@@ -51,25 +51,25 @@ $routes->scope('/', function (RouteBuilder $builder) {
         'httpOnly' => true,
     ]));
 
-    /**
+    /*
      * Apply a middleware to the current route scope.
-     * Requires middleware to be registered via `Application::routes()` with `registerMiddleware()`
+     * Requires middleware to be registered through `Application::routes()` with `registerMiddleware()`
      */
     $builder->applyMiddleware('csrf');
 
-    /**
+    /*
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
-    /**
+    /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    /**
+    /*
      * Connect catchall routes for all controllers.
      *
      * The `fallbacks` method is a shortcut for
@@ -85,7 +85,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
     $builder->fallbacks();
 });
 
-/**
+/*
  * If you need a different set of middleware or none at all,
  * open new scope and define routes there.
  *

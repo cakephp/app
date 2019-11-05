@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -43,9 +45,9 @@ use Cake\Mailer\TransportFactory;
 use Cake\Routing\Router;
 use Cake\Utility\Security;
 
-/**
+/*
  * Uncomment block of code below if you want to use `.env` file during development.
- * You should copy `config/.env.default to `config/.env` and set/modify the
+ * You should copy `config/.env.example to `config/.env` and set/modify the
  * variables as required.
  *
  * It is HIGHLY discouraged to use a .env file in production, due to security risks
@@ -76,11 +78,12 @@ try {
 }
 
 /*
- * Load an environment local configuration file.
- * You can use a file like app_local.php to provide local overrides to your
- * shared configuration.
+ * Load an environment local configuration file to provide overrides to your configuration.
+ * Notice: For security reasons app_local.php will not be included in your git repo.
  */
-//Configure::load('app_local', 'default');
+if (file_exists(CONFIG . 'app_local.php')) {
+    Configure::load('app_local', 'default');
+}
 
 /*
  * When debug = true the metadata cache should only last
@@ -176,7 +179,7 @@ ServerRequest::addDetector('tablet', function ($request) {
  * You can enable default locale format parsing by adding calls
  * to `useLocaleParser()`. This enables the automatic conversion of
  * locale specific date formats. For details see
- * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+ * @link https://book.cakephp.org/3/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
 TypeFactory::build('time')
     ->useImmutable();

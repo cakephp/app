@@ -75,8 +75,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <ul>
                                 <li class="bullet problem">
                                     URL rewriting is not properly configured on your server.<br />
-                                    1) <a target="_blank" href="https://book.cakephp.org/4.0/en/installation.html#url-rewriting">Help me configure it</a><br />
-                                    2) <a target="_blank" href="https://book.cakephp.org/4.0/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                                    1) <a target="_blank" href="https://book.cakephp.org/4/en/installation.html#url-rewriting">Help me configure it</a><br />
+                                    2) <a target="_blank" href="https://book.cakephp.org/4/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
                                 </li>
                             </ul>
                         </div> -->
@@ -180,8 +180,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <div class="row">
                     <div class="column links">
                         <h3>Getting Started</h3>
-                        <a target="_blank" href="https://book.cakephp.org/4.0/en/">CakePHP Documentation</a>
-                        <a target="_blank" href="https://book.cakephp.org/4.0/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a>
+                        <a target="_blank" href="https://book.cakephp.org/4/en/">CakePHP Documentation</a>
+                        <a target="_blank" href="https://book.cakephp.org/4/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a>
                     </div>
                 </div>
                 <hr>
@@ -198,9 +198,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <div class="row">
                     <div class="column links">
                         <h3>Docs and Downloads</h3>
-                        <a target="_blank" href="https://api.cakephp.org/3.0/">CakePHP API</a>
+                        <a target="_blank" href="https://api.cakephp.org/">CakePHP API</a>
                         <a target="_blank" href="https://bakery.cakephp.org">The Bakery</a>
-                        <a target="_blank" href="https://book.cakephp.org/3.0/en/">CakePHP Documentation</a>
+                        <a target="_blank" href="https://book.cakephp.org/4/en/">CakePHP Documentation</a>
                         <a target="_blank" href="https://plugins.cakephp.org">CakePHP plugins repo</a>
                         <a target="_blank" href="https://github.com/cakephp/">CakePHP Code</a>
                         <a target="_blank" href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
