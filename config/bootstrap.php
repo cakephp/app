@@ -48,9 +48,7 @@ use Cake\Utility\Security;
  * You should copy `config/.env.example to `config/.env` and set/modify the
  * variables as required.
  *
- * It is HIGHLY discouraged to use a .env file in production, due to security risks
- * and decreased performance on each request. The purpose of the .env file is to emulate
- * the presence of the environment variables like they would be present in production.
+ * More information: https://github.com/josegonzalez/php-dotenv
  */
 // if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
 //     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
