@@ -259,32 +259,27 @@ return [
      *   other RDBMS.
      */
     'Datasources' => [
+        /**
+         * These configurations should contain permanent settings used
+         * by all environments.
+         *
+         * The values in app_local.php will override any values set here
+         * and should be used for local and per-environment configurations.
+         *
+         * Environment variable based configurations can be loaded here or
+         * in app_local.php depending on the applications needs.
+         */
         'default' => [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => 'localhost',
-            /**
-             * CakePHP will use the default DB port based on the driver selected.
-             * For instance, MariaDB/MySQL on MAMP uses port 8889
-             * thus MAMP users will want to uncomment the following line and set the port accordingly
-             */
-            //'port' => 'non_standard_port_number',
-            /*
-             * It is recommended to set these options through your environment or app_local.php
-             */
-            //'username' => 'my_app',
-            //'password' => 'secret',
-            //'database' => 'my_app',
-            /**
-             * When using PostgreSQL driver you will need to define the schema as well.
-             */
-            //'schema' => 'myapp',
+            'timezone' => 'UTC',
+
             /**
              * For MariaDB/MySQL the internal default changed from utf8 to utf8mb4, aka full utf-8 support, in CakePHP 3.6
              */
             //'encoding' => 'utf8mb4',
-            'timezone' => 'UTC',
+
             /**
              * If your MySQL server is configured with `skip-character-set-client-handshake`
              * then you MUST use the `flags` config to set your charset encoding.
@@ -312,8 +307,6 @@ return [
              * which is the recommended value in production environments
              */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-
-            'url' => env('DATABASE_URL', null),
         ],
 
         /*
@@ -323,18 +316,13 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => 'localhost',
-            //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
-            //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
+            //'encoding' => 'utf8mb4',
+            'flags' => [],
             'cacheMetadata' => true,
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'url' => env('DATABASE_TEST_URL', null),
         ],
     ],
 
