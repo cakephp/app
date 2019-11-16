@@ -43,11 +43,33 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
+
             'username' => 'my_app',
             'password' => 'secret',
+
             'database' => 'my_app',
-            'log' => true,
+            /**
+             * If not using the default 'public' schema with the PostgreSQL driver
+             * set it here.
+             */
+            //'schema' => 'myapp',
+
+            /**
+             * You can use a DSN string to set the entire configuration
+             */
             'url' => env('DATABASE_URL', null),
+        ],
+
+        /*
+         * The test connection is used during the test suite.
+         */
+        'test' => [
+            'host' => 'localhost',
+            //'port' => 'non_standard_port_number',
+            'username' => 'my_app',
+            'password' => 'secret',
+            'database' => 'test_myapp',
+            //'schema' => 'myapp',
         ],
     ],
 
