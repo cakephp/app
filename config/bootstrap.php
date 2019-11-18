@@ -45,7 +45,7 @@ use Cake\Utility\Security;
 
 /*
  * Uncomment block of code below if you want to use `.env` file during development.
- * You should copy `config/.env.example to `config/.env` and set/modify the
+ * You should copy `config/.env.example` to `config/.env` and set/modify the
  * variables as required.
  *
  * It is HIGHLY discouraged to use a .env file in production, due to security risks
