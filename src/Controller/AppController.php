@@ -36,6 +36,7 @@ class AppController extends Controller
      * e.g. `$this->loadComponent('Security');`
      *
      * @return void
+     * @throws \Exception If the component cannot be found
      */
     public function initialize(): void
     {
