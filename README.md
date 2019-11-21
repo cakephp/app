@@ -42,11 +42,12 @@ automated upgrades, so you have to do any updates manually.
 
 ## Configuration
 
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
+Read and edit the environment specific `config/app_local.php` and setup the 
+`'Datasources'` and any other configuration relevant for your application.
+Other environment agnostic settings can be changed in `config/app.php`.
 
 ## Layout
 
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
+The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
 framework by default. You can, however, replace it with any other library or
 custom styles.
