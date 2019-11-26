@@ -14,45 +14,49 @@ declare(strict_types=1);
  * @since     3.0.0
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
-namespace App\Shell;
+namespace App\Command;
 
+use Cake\Console\Arguments;
+use Cake\Command\Command;
+use Cake\Console\ConsoleIo;
 use Cake\Console\ConsoleOptionParser;
-use Cake\Console\Shell;
 use Cake\Log\Log;
 use Psy\Shell as PsyShell;
 
 /**
  * Simple console wrapper around Psy\Shell.
  */
-class ConsoleShell extends Shell
+class ConsoleCommand extends Command
 {
     /**
-     * Start the shell and interactive console.
+     * Start the Command and interactive console.
      *
-     * @return int|null
+     * @param \Cake\Console\Arguments $args The command arguments.
+     * @param \Cake\Console\ConsoleIo $io The console io
+     * @return int|null The exit code or null for success
      */
-    public function main()
+    public function execute(Arguments $args, ConsoleIo $io)
     {
         if (!class_exists('Psy\Shell')) {
-            $this->err('<error>Unable to load Psy\Shell.</error>');
-            $this->err('');
-            $this->err('Make sure you have installed psysh as a dependency,');
-            $this->err('and that Psy\Shell is registered in your autoloader.');
-            $this->err('');
-            $this->err('If you are using composer run');
-            $this->err('');
-            $this->err('<info>$ php composer.phar require --dev psy/psysh</info>');
-            $this->err('');
+            $io->err('<error>Unable to load Psy\Shell.</error>');
+            $io->err('');
+            $io->err('Make sure you have installed psysh as a dependency,');
+            $io->err('and that Psy\Shell is registered in your autoloader.');
+            $io->err('');
+            $io->err('If you are using composer run');
+            $io->err('');
+            $io->err('<info>$ php composer.phar require --dev psy/psysh</info>');
+            $io->err('');
 
-            return self::CODE_ERROR;
+            return static::CODE_ERROR;
         }
 
-        $this->out("You can exit with <info>`CTRL-C`</info> or <info>`exit`</info>");
-        $this->out('');
+        $io->out("You can exit with <info>`CTRL-C`</info> or <info>`exit`</info>");
+        $io->out('');
 
         Log::drop('debug');
         Log::drop('error');
-        $this->_io->setLoggers(false);
+        $io->setLoggers(false);
         restore_error_handler();
         restore_exception_handler();
 
@@ -63,11 +67,11 @@ class ConsoleShell extends Shell
     /**
      * Display help for this console.
      *
+     * @param \Cake\Console\ConsoleOptionParser $parser The parser to update
      * @return \Cake\Console\ConsoleOptionParser
      */
-    public function getOptionParser(): ConsoleOptionParser
+    public function buildOptionParser(ConsoleOptionParser $parser): ConsoleOptionParser
     {
-        $parser = new ConsoleOptionParser('console');
         $parser->setDescription(
             'This shell provides a REPL that you can use to interact with ' .
             'your application in a command line designed to run PHP code. ' .
