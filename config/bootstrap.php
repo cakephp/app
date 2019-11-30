@@ -199,6 +199,10 @@ ServerRequest::addDetector('tablet', function ($request) {
 //    ->useMutable();
 // TypeFactory::build('timestampfractional')
 //    ->useMutable();
+// TypeFactory::build('datetimetimezone')
+//    ->useMutable();
+// TypeFactory::build('timestamptimezone')
+//    ->useMutable();
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize
