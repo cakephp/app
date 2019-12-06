@@ -33,7 +33,9 @@ use Cake\Routing\Middleware\RoutingMiddleware;
 class Application extends BaseApplication
 {
     /**
-     * {@inheritDoc}
+     * Load all the application configuration and bootstrap logic.
+     *
+     * @return void
      */
     public function bootstrap(): void
     {
@@ -85,6 +87,10 @@ class Application extends BaseApplication
     }
 
     /**
+     * Bootrapping for CLI application.
+     *
+     * That is when running commands.
+     *
      * @return void
      */
     protected function bootstrapCli(): void
