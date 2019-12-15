@@ -32,6 +32,13 @@ if (!extension_loaded('intl')) {
 }
 
 /*
+ * You can remove this if you are confident you have proper version of intl.
+ */
+if (version_compare(INTL_ICU_VERSION, '50.1', '<')) {
+    trigger_error('ICU >= 50.1 is needed to use CakePHP. Please update the `libicu` package of your system.' . PHP_EOL, E_USER_ERROR);
+}
+
+/*
  * You can remove this if you are confident you have mbstring installed.
  */
 if (!extension_loaded('mbstring')) {
