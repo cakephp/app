@@ -6,15 +6,15 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "cakephp/cakephp": "4.x-dev",
-        "cakephp/migrations": "4.x-dev",
+        "cakephp/cakephp": "^4.0",
+        "cakephp/migrations": "3.0.0-beta1",
         "cakephp/plugin-installer": "^1.0",
         "mobiledetect/mobiledetectlib": "2.*"
     },
     "require-dev": {
-        "cakephp/bake": "4.x-dev",
+        "cakephp/bake": "^4.0",
         "cakephp/cakephp-codesniffer": "dev-next",
-        "cakephp/debug_kit": "4.x-dev",
+        "cakephp/debug_kit": "^4.0",
         "josegonzalez/dotenv": "3.*",
         "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
