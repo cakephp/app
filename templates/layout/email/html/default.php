@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -11,21 +9,17 @@ declare(strict_types=1);
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
- * @since         3.0.0
+ * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
+ * @var \App\View\AppView $this
  */
-
-use Cake\Core\Configure;
-
-/*
- * Additional bootstrapping and configuration for CLI environments should
- * be put here.
- */
-
-// Set the fullBaseUrl to allow URLs to be generated in shell tasks.
-// This is useful when sending email from shells.
-//Configure::write('App.fullBaseUrl', php_uname('n'));
-
-// Set logs to different files so they don't have permission conflicts.
-Configure::write('Log.debug.file', 'cli-debug');
-Configure::write('Log.error.file', 'cli-error');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <title><?= $this->fetch('title') ?></title>
+</head>
+<body>
+    <?= $this->fetch('content') ?>
+</body>
+</html>

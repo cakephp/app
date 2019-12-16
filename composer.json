@@ -5,18 +5,18 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=5.6",
-        "cakephp/cakephp": "3.8.*",
-        "cakephp/migrations": "^2.0.0",
+        "php": ">=7.2",
+        "cakephp/cakephp": "^4.0",
+        "cakephp/migrations": "3.0.0-beta1",
         "cakephp/plugin-installer": "^1.0",
         "mobiledetect/mobiledetectlib": "2.*"
     },
     "require-dev": {
-        "cakephp/bake": "^1.9.0",
-        "cakephp/cakephp-codesniffer": "^3.0",
-        "cakephp/debug_kit": "^3.17.0",
+        "cakephp/bake": "^4.0",
+        "cakephp/cakephp-codesniffer": "dev-next",
+        "cakephp/debug_kit": "^4.0",
         "josegonzalez/dotenv": "3.*",
-        "phpunit/phpunit": "^5|^6",
+        "phpunit/phpunit": "^8.0",
         "psy/psysh": "@stable"
     },
     "suggest": {
@@ -42,14 +42,15 @@
             "@test",
             "@cs-check"
         ],
-        "cs-check": "phpcs --colors -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/ config/ webroot/",
-        "cs-fix": "phpcbf --colors -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/ config/ webroot/",
-        "stan": "phpstan analyse -l 5 src/",
+        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "stan": "phpstan analyse src/",
         "stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan-shim:^0.11 && mv composer.backup composer.json",
         "test": "phpunit --colors=always"
     },
     "prefer-stable": true,
     "config": {
         "sort-packages": true
-    }
+    },
+    "minimum-stability": "dev"
 }

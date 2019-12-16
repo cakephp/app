@@ -1,7 +1,8 @@
 language: php
 
 php:
-  - 5.6
+  - 7.2
+  - 7.3
   - 7.4
 
 env:
@@ -13,17 +14,18 @@ matrix:
     - php: 7.3
       env: CHECKS=1 DEFAULT=0
 
-before_script:
-  - composer install --no-interaction
-  - if [[ $DEFAULT == 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
+before_install:
+  - phpenv config-rm xdebug.ini
 
-  - if [[ $CHECKS == 1 ]]; then composer stan-setup; fi
+before_script:
+  - if [[ $DEFAULT == 1 || $PHPCS == 1 ]]; then composer install; fi
+  - if [[ $DEFAULT == 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
+  - if [[ $PHPSTAN == 1 ]]; then composer require --dev phpstan/phpstan-shim:^0.11; fi
 
 script:
-  - if [[ $DEFAULT == 1 ]]; then composer test; fi
-
-  - if [[ $CHECKS == 1 ]]; then composer cs-check; fi
-  - if [[ $CHECKS == 1 ]]; then composer stan; fi
+  - if [[ $DEFAULT == 1 ]]; then vendor/bin/phpunit; fi
+  - if [[ $PHPCS == 1 ]]; then composer cs-check; fi
+  - if [[ $PHPSTAN == 1 ]]; then vendor/bin/phpstan analyse src/; fi
 
 cache:
   directories:
