@@ -11,18 +11,18 @@ The framework source code can be found here: [cakephp/cakephp](https://github.co
 ## Installation
 
 1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist --stability=dev cakephp/app [app_name]`.
+2. Run `php composer.phar create-project --prefer-dist cakephp/app:4.x [app_name]`.
 
 If Composer is installed globally, run
 
 ```bash
-composer create-project --prefer-dist --stability=dev cakephp/app:4.x
+composer create-project --prefer-dist cakephp/app:4.x
 ```
 
 In case you want to use a custom app dir name (e.g. `/myapp/`):
 
 ```bash
-composer create-project --prefer-dist --stability=dev cakephp/app:4.x myapp
+composer create-project --prefer-dist cakephp/app:4.x myapp
 ```
 
 You can now either use your machine's webserver to view the default home page, or start
