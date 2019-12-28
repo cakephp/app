@@ -1,4 +1,30 @@
 parameters:
     level: 7
+    checkMissingIterableValueType: false
     excludes_analyse:
         - src/Console/Installer.php
+    ignoreErrors:
+        -
+            message: "#^Method App\\\\Command\\\\ConsoleCommand\\:\\:execute\\(\\) should return int\\|void\\|null but return statement is missing\\.$#"
+            count: 1
+            path: src/Command/ConsoleCommand.php
+
+        -
+            message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:beforeFilter\\(\\) should return Cake\\\\Http\\\\Response\\|void\\|null but return statement is missing\\.$#"
+            count: 1
+            path: src/Controller/ErrorController.php
+
+        -
+            message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:beforeRender\\(\\) should return Cake\\\\Http\\\\Response\\|void\\|null but return statement is missing\\.$#"
+            count: 1
+            path: src/Controller/ErrorController.php
+
+        -
+            message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:afterFilter\\(\\) should return Cake\\\\Http\\\\Response\\|void\\|null but return statement is missing\\.$#"
+            count: 1
+            path: src/Controller/ErrorController.php
+
+        -
+            message: "#^Unreachable statement \\- code above always terminates\\.$#"
+            count: 1
+            path: src/Controller/PagesController.php
