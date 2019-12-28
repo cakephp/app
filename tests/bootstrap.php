@@ -35,6 +35,7 @@ Configure::write('App.fullBaseUrl', 'http://localhost');
 // DebugKit skips settings these connection config if PHP SAPI is CLI / PHPDBG.
 // But since PagesControllerTest is run with debug enabled and DebugKit is loaded
 // in application, without setting up these config DebugKit errors out.
+Configure::write('debug', false);
 ConnectionManager::setConfig('test_debug_kit', [
     'className' => 'Cake\Database\Connection',
     'driver' => 'Cake\Database\Driver\Sqlite',

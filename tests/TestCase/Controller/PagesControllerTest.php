@@ -30,6 +30,30 @@ class PagesControllerTest extends TestCase
     use IntegrationTestTrait;
 
     /**
+     * setUpBeforeClass method
+     *
+     * @return void
+     */
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+
+        Configure::write('debug', true);
+    }
+
+    /**
+     * tearDownAfterClass method
+     *
+     * @return void
+     */
+    public static function tearDownAfterClass(): void
+    {
+        parent::tearDownAfterClass();
+
+        Configure::write('debug', false);
+    }
+
+    /**
      * testMultipleGet method
      *
      * @return void
