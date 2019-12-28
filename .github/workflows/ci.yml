@@ -1,0 +1,80 @@
+name: CakePHP App CI
+
+on: [push, pull_request]
+
+jobs:
+  testsuite:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['7.2', '7.4']
+    name: PHP ${{ matrix.php-version }}
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl, pdo_sqlite, pdo_mysql
+        coverage: none
+        pecl: false
+
+    - name: composer install
+      run: |
+        composer install
+        composer run-script post-install-cmd --no-interaction
+
+    - name: Run PHPUnit
+      run: |
+          vendor/bin/phpunit
+
+  coding-standard:
+    name: Coding Standard
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: '7.2'
+        extensions: mbstring, intl
+        coverage: none
+        pecl: false
+
+    - name: composer install
+      run: composer install
+
+    - name: Run PHP CodeSniffer
+      run: composer cs-check
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: '7.2'
+        extensions: mbstring, intl
+        coverage: none
+        pecl: false
+
+    - name: composer install
+      run: composer require --dev phpstan/phpstan:^0.12
+
+    - name: Run phpstan
+      run: vendor/bin/phpstan.phar analyse --no-progress src/
