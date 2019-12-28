@@ -51,5 +51,4 @@
 
 # Remove files for archives generated using `git archive`
 phpstan.neon export-ignore
-.travis.yml export-ignore
 .github export-ignore
