@@ -14,6 +14,9 @@ matrix:
     - php: 7.3
       env: CHECKS=1 DEFAULT=0
 
+    - php: 7.2
+      env: PHPSTAN=1 DEFAULT=0
+
 before_install:
   - phpenv config-rm xdebug.ini
 
