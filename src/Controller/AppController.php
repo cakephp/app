@@ -33,7 +33,7 @@ class AppController extends Controller
      *
      * Use this method to add common initialization code like loading components.
      *
-     * e.g. `$this->loadComponent('Security');`
+     * e.g. `$this->loadComponent('FormProtection');`
      *
      * @return void
      */
@@ -45,9 +45,9 @@ class AppController extends Controller
         $this->loadComponent('Flash');
 
         /*
-         * Enable the following component for recommended CakePHP security settings.
-         * see https://book.cakephp.org/4/en/controllers/components/security.html
+         * Enable the following component for recommended CakePHP form protection settings.
+         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
-        //$this->loadComponent('Security');
+        //$this->loadComponent('FormProtection');
     }
 }
