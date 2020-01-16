@@ -213,7 +213,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <h3>Training and Certification</h3>
                         <a target="_blank" href="https://cakefoundation.org/">Cake Software Foundation</a>
                         <a target="_blank" href="https://training.cakephp.org/">CakePHP Training</a>
-                        <a target="_blank" href="https://certification.cakephp.org/">CakePHP Certification</a>
                     </div>
                 </div>
             </div>
