@@ -62,7 +62,7 @@ th {
 }
 
 /* View action */
-.content .text {
+.view.content .text {
     margin-top: 1.2rem;
 }
 .related {
@@ -94,6 +94,29 @@ th {
     background: #fcebea;
     color: #cc1f1a;
     border-color: #ef5753;
+}
+
+/* Forms */
+.input.radio,
+.input.checkbox {
+    margin-bottom: 2.0rem;
+}
+.input.radio input,
+.input.checkbox input {
+    margin: 0;
+}
+.input.radio label,
+.input.checkbox label {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.input.radio label > input,
+.input.checkbox label > input {
+    margin-right: 1.0rem;
+}
+.input.radio label:first-of-type {
+    margin-bottom: 2.0rem;
 }
 
 /* Paginator */
