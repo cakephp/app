@@ -189,7 +189,7 @@ return [
      *
      * Define development error values for Cake\Error\Debugger
      *
-     * - `editor` Choose the which editor URL format you want to use.
+     * - `editor` Set the editor URL format you want to use.
      *   By default atom, emacs, macvim, phpstorm, sublime, textmate, and vscode are
      *   available. You can add additional editor link formats using
      *   `Debugger::addEditor()` during your application bootstrap.
