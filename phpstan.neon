@@ -1,6 +1,8 @@
 parameters:
     level: 7
     checkMissingIterableValueType: false
+    autoload_files:
+        - config/paths.php
     excludes_analyse:
         - src/Console/Installer.php
     ignoreErrors:

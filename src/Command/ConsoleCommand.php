@@ -51,6 +51,8 @@ class ConsoleCommand extends Command
             return static::CODE_ERROR;
         }
 
+        include 'repl_functions.php';
+
         $io->out("You can exit with <info>`CTRL-C`</info> or <info>`exit`</info>");
         $io->out('');
 
