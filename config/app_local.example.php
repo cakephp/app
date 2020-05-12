@@ -70,6 +70,7 @@ return [
             'password' => 'secret',
             'database' => 'test_myapp',
             //'schema' => 'myapp',
+            'url' => env('DATABASE_TEST_URL', null),
         ],
     ],
 
