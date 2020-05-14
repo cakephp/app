@@ -3,8 +3,3 @@ parameters:
     checkMissingIterableValueType: false
     excludes_analyse:
         - src/Console/Installer.php
-    ignoreErrors:
-        -
-            message: "#^Unreachable statement \\- code above always terminates\\.$#"
-            count: 1
-            path: src/Controller/PagesController.php
