@@ -48,7 +48,7 @@ $routes->setRouteClass(DashedRoute::class);
 $routes->scope('/', function (RouteBuilder $builder) {
     // Register scoped middleware for in scopes.
     $builder->registerMiddleware('csrf', new CsrfProtectionMiddleware([
-        'httpOnly' => true,
+        'httponly' => true,
     ]));
 
     /*
