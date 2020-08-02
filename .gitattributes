@@ -50,5 +50,10 @@
 *.ogv binary
 
 # Remove files for archives generated using `git archive`
-phpstan.neon export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
 .github export-ignore
+.gitignore export-ignore
+phpcs.xml export-ignore
+phpunit.xml.dist export-ignore
+phpstan.neon export-ignore
