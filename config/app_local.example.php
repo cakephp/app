@@ -48,13 +48,13 @@ return [
             'password' => 'secret',
 
             'database' => 'my_app',
-            /**
+            /*
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
              */
             //'schema' => 'myapp',
 
-            /**
+            /*
              * You can use a DSN string to set the entire configuration
              */
             'url' => env('DATABASE_URL', null),
