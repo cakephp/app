@@ -175,8 +175,7 @@ return [
      * - `extraFatalErrorMemory` - int - The number of megabytes to increase
      *   the memory limit by when a fatal error is encountered. This allows
      *   breathing room to complete logging or error handling.
-     * - `disableDeprecations` - array- A list of glob compatible file paths that deprecations
-     *   should not be emitted from. Use this to disable deprecations for plugins or parts of
+     * - `disableDeprecations` - array- A list of glob compatible file paths where deprecations are muted. Use this to disable deprecations for plugins or parts of
      *   your application that still emit deprecations.
      */
     'Error' => [
