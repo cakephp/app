@@ -100,7 +100,7 @@ class Application extends BaseApplication
     }
 
     /**
-     * Bootrapping for CLI application.
+     * Bootstrapping for CLI application.
      *
      * That is when running commands.
      *
