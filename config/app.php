@@ -1,14 +1,17 @@
 <?php
 
-use Cake\Cache\Engine\FileEngine as CacheEngine;
+use Cake\Cache\Engine\FileEngine;
 use Cake\Database\Connection;
-use Cake\Database\Driver\Mysql as DatabaseDriver;
+use Cake\Database\Driver\Mysql;
 use Cake\Error\ExceptionRenderer;
-use Cake\Log\Engine\FileLog as LogEngine;
+use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
 
 $appName = 'myapp';
 $cachePrefix = "${appName}_";
+$logEngine = FileLog::class;
+$cacheEngine = FileEngine::class;
+$databaseDriver = Mysql::class;
 
 return [
     /*
@@ -100,7 +103,7 @@ return [
      */
     'Cache' => [
         'default' => [
-            'className' => CacheEngine::class,
+            'className' => $cacheEngine,
             'path' => CACHE,
             'prefix' => $cachePrefix,
             'url' => env('CACHE_DEFAULT_URL', null),
@@ -113,7 +116,7 @@ return [
          * If you set 'className' => 'Null' core cache will be disabled.
          */
         '_cake_core_' => [
-            'className' => CacheEngine::class,
+            'className' => $cacheEngine,
             'path' => CACHE . 'persistent' . DS,
             'prefix' => $cachePrefix .'cake_core_',
             'serialize' => true,
@@ -128,7 +131,7 @@ return [
          * Duration will be set to '+2 minutes' in bootstrap.php when debug = true
          */
         '_cake_model_' => [
-            'className' => CacheEngine::class,
+            'className' => $cacheEngine,
             'path' => CACHE . 'models' . DS,
             'prefix' => $cachePrefix . 'cake_model_',
             'serialize' => true,
@@ -142,7 +145,7 @@ return [
          * Duration will be set to '+2 seconds' in bootstrap.php when debug = true
          */
         '_cake_routes_' => [
-            'className' => CacheEngine::class,
+            'className' => $cacheEngine,
             'path' => CACHE,
             'prefix' => $cachePrefix . 'cake_routes_',
             'serialize' => true,
@@ -291,7 +294,7 @@ return [
          */
         'default' => [
             'className' => Connection::class,
-            'driver' => DatabaseDriver::class,
+            'driver' => $databaseDriver,
             'persistent' => false,
             'timezone' => 'UTC',
 
@@ -351,7 +354,7 @@ return [
      */
     'Log' => [
         'debug' => [
-            'className' => LogEngine::class,
+            'className' => $logEngine,
             'path' => LOGS,
             'file' => 'debug',
             'url' => env('LOG_DEBUG_URL', null),
@@ -359,7 +362,7 @@ return [
             'levels' => ['notice', 'info', 'debug'],
         ],
         'error' => [
-            'className' => LogEngine::class,
+            'className' => $logEngine,
             'path' => LOGS,
             'file' => 'error',
             'url' => env('LOG_ERROR_URL', null),
@@ -368,7 +371,7 @@ return [
         ],
         // To enable this dedicated query log, you need set your datasource's log flag to true
         'queries' => [
-            'className' => LogEngine::class,
+            'className' => $logEngine,
             'path' => LOGS,
             'file' => 'queries',
             'url' => env('LOG_QUERIES_URL', null),
