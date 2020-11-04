@@ -11,6 +11,7 @@
 *.sql text
 *.md text
 *.po text
+*.pot text
 *.js text
 *.css text
 *.ini text
