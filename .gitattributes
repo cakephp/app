@@ -1,25 +1,6 @@
 # Define the line ending behavior of the different file extensions
 # Set default behavior, in case users don't have core.autocrlf set.
-* text=auto
-* text eol=lf
-
-# Explicitly declare text files we want to always be normalized and converted
-# to native line endings on checkout.
-*.php text
-*.default text
-*.ctp text
-*.sql text
-*.md text
-*.po text
-*.js text
-*.css text
-*.ini text
-*.properties text
-*.txt text
-*.xml text
-*.svg text
-*.yml text
-.htaccess text
+* text text=auto eol=lf
 
 # Declare files that will always have CRLF line endings on checkout.
 *.bat eol=crlf
@@ -48,7 +29,3 @@
 *.webm binary
 *.mp4 binary
 *.ogv binary
-
-# Remove files for archives generated using `git archive`
-phpstan.neon export-ignore
-.github export-ignore
