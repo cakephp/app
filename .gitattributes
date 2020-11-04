@@ -11,6 +11,7 @@
 *.sql text
 *.md text
 *.po text
+*.pot text
 *.js text
 *.css text
 *.ini text
@@ -30,11 +31,14 @@
 # Denote all files that are truly binary and should not be modified.
 *.png binary
 *.jpg binary
+*.jpeg binary
 *.gif binary
 *.webp binary
 *.ico binary
 *.mo binary
 *.pdf binary
+*.xls binary
+*.xlsx binary
 *.phar binary
 *.woff binary
 *.woff2 binary
