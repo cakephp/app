@@ -1,6 +1,13 @@
 name: CakePHP App CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+      - '4.next'
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
   testsuite:
@@ -8,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4']
+        php-version: ['7.2', '7.4', '8.0']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -17,16 +24,19 @@ jobs:
         fetch-depth: 1
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v1
+      uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-version }}
         extensions: mbstring, intl, pdo_sqlite, pdo_mysql
         coverage: none
-        pecl: false
 
     - name: composer install
       run: |
-        composer install
+        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
+          composer install --ignore-platform-reqs
+        else
+          composer install
+        fi
         composer run-script post-install-cmd --no-interaction
 
     - name: Run PHPUnit
@@ -43,12 +53,11 @@ jobs:
         fetch-depth: 1
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v1
+      uses: shivammathur/setup-php@v2
       with:
         php-version: '7.2'
         extensions: mbstring, intl
         coverage: none
-        pecl: false
 
     - name: composer install
       run: composer install
@@ -66,15 +75,14 @@ jobs:
         fetch-depth: 1
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v1
+      uses: shivammathur/setup-php@v2
       with:
         php-version: '7.2'
         extensions: mbstring, intl
         coverage: none
-        pecl: false
 
     - name: composer install
       run: composer require --dev phpstan/phpstan:^0.12
 
     - name: Run phpstan
-      run: vendor/bin/phpstan.phar analyse --no-progress src/
+      run: vendor/bin/phpstan.phar analyse
