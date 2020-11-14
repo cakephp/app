@@ -16,7 +16,7 @@
         "cakephp/cakephp-codesniffer": "~4.2.0",
         "cakephp/debug_kit": "^4.1",
         "josegonzalez/dotenv": "^3.2",
-        "phpunit/phpunit": "~8.5.0",
+        "phpunit/phpunit": "~8.5.0 || ^9.3",
         "psy/psysh": "@stable"
     },
     "suggest": {
@@ -44,7 +44,7 @@
         ],
         "cs-check": "phpcs --colors -p  src/ tests/",
         "cs-fix": "phpcbf --colors -p src/ tests/",
-        "stan": "phpstan analyse src/",
+        "stan": "phpstan analyse",
         "test": "phpunit --colors=always"
     },
     "prefer-stable": true,
