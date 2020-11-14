@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4', '8.0']
+        php-version: ['7.2', '7.4']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -32,11 +32,7 @@ jobs:
 
     - name: composer install
       run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
-        else
-          composer install
-        fi
+        composer install
         composer run-script post-install-cmd --no-interaction
 
     - name: Run PHPUnit
