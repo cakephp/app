@@ -2,5 +2,7 @@ parameters:
     level: 7
     checkMissingIterableValueType: false
     treatPhpDocTypesAsCertain: false
+    paths:
+        - src
     excludes_analyse:
         - src/Console/Installer.php
