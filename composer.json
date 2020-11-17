@@ -15,6 +15,7 @@
         "cakephp/bake": "^2.0.3",
         "cakephp/cakephp-codesniffer": "~4.2.0",
         "cakephp/debug_kit": "^4.1",
+        "cakephp/repl": "dev-master",
         "josegonzalez/dotenv": "^3.2",
         "phpunit/phpunit": "~8.5.0 || ^9.3",
         "psy/psysh": "@stable"
