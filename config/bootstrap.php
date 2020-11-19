@@ -187,22 +187,23 @@ ServerRequest::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-// TypeFactory::build('time')
+// \Cake\Database\TypeFactory::build('time')
 //    ->useMutable();
-// TypeFactory::build('date')
+// \Cake\Database\TypeFactory::build('date')
 //    ->useMutable();
-// TypeFactory::build('datetime')
+// \Cake\Database\TypeFactory::build('datetime')
 //    ->useMutable();
-// TypeFactory::build('timestamp')
+// \Cake\Database\TypeFactory::build('timestamp')
 //    ->useMutable();
-// TypeFactory::build('datetimefractional')
+// \Cake\Database\TypeFactory::build('datetimefractional')
 //    ->useMutable();
-// TypeFactory::build('timestampfractional')
+// \Cake\Database\TypeFactory::build('timestampfractional')
 //    ->useMutable();
-// TypeFactory::build('datetimetimezone')
+// \Cake\Database\TypeFactory::build('datetimetimezone')
 //    ->useMutable();
-// TypeFactory::build('timestamptimezone')
+// \Cake\Database\TypeFactory::build('timestamptimezone')
 //    ->useMutable();
+\Cake\Database\TypeFactory::map('time', \Cake\Database\Type\StringType::class);
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize
