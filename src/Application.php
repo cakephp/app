@@ -18,11 +18,13 @@ namespace App;
 
 use Cake\Core\Configure;
 use Cake\Core\Exception\MissingPluginException;
+use Cake\Datasource\FactoryLocator;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Http\Middleware\BodyParserMiddleware;
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Http\MiddlewareQueue;
+use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
@@ -46,6 +48,11 @@ class Application extends BaseApplication
 
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
+        } else {
+            FactoryLocator::add(
+                'Table',
+                (new TableLocator())->allowFallbackClass(false)
+            );
         }
 
         /*
