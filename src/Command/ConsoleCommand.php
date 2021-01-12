@@ -21,6 +21,7 @@ use Cake\Console\Arguments;
 use Cake\Console\ConsoleIo;
 use Cake\Console\ConsoleOptionParser;
 use Cake\Log\Log;
+use Psy\Configuration as PsyConfiguration;
 use Psy\Shell as PsyShell;
 
 /**
@@ -60,7 +61,9 @@ class ConsoleCommand extends Command
         restore_error_handler();
         restore_exception_handler();
 
-        $psy = new PsyShell();
+        $psy = new PsyShell(new PsyConfiguration([
+            'updateCheck' => 'never',
+        ]));
         $psy->run();
     }
 
