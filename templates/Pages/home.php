@@ -141,14 +141,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <h4>Database</h4>
                         <?php
                         try {
+                            /** @var \Cake\Database\Connection $connection */
                             $connection = ConnectionManager::get('default');
                             $connected = $connection->connect();
+                            $errorMsg = null;
                         } catch (Exception $connectionError) {
                             $connected = false;
                             $errorMsg = $connectionError->getMessage();
                             if (method_exists($connectionError, 'getAttributes')) :
                                 $attributes = $connectionError->getAttributes();
-                                if (isset($errorMsg['message'])) :
+                                if (isset($attributes['message'])) :
                                     $errorMsg .= '<br />' . $attributes['message'];
                                 endif;
                             endif;
