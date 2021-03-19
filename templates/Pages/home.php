@@ -148,7 +148,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             $errorMsg = $connectionError->getMessage();
                             if (method_exists($connectionError, 'getAttributes')) :
                                 $attributes = $connectionError->getAttributes();
-                                if (isset($errorMsg['message'])) :
+                                if (isset($attributes['message'])) :
                                     $errorMsg .= '<br />' . $attributes['message'];
                                 endif;
                             endif;
