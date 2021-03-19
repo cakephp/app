@@ -34,6 +34,8 @@ require CORE_PATH . 'config' . DS . 'bootstrap.php';
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
+use Cake\Database\TypeFactory;
+use Cake\Database\Type\StringType;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ConsoleErrorHandler;
 use Cake\Error\ErrorHandler;
@@ -203,7 +205,9 @@ ServerRequest::addDetector('tablet', function ($request) {
 //    ->useMutable();
 // \Cake\Database\TypeFactory::build('timestamptimezone')
 //    ->useMutable();
-\Cake\Database\TypeFactory::map('time', \Cake\Database\Type\StringType::class);
+
+// There is no time-specific type in Cake
+TypeFactory::map('time', StringType::class);
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize
