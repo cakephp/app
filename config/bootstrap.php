@@ -133,7 +133,7 @@ if ($isCli) {
  * Include the CLI bootstrap overrides.
  */
 if ($isCli) {
-    require __DIR__ . '/bootstrap_cli.php';
+    require CONFIG . 'bootstrap_cli.php';
 }
 
 /*
