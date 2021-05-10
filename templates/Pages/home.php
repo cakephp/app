@@ -22,6 +22,25 @@ use Cake\Http\Exception\NotFoundException;
 
 $this->disableAutoLayout();
 
+$checkConnection = function (string $name) {
+    $error = null;
+    $connected = false;
+    try {
+        $connection = ConnectionManager::get($name);
+        $connected = $connection->connect();
+    } catch (Exception $connectionError) {
+        $error = $connectionError->getMessage();
+        if (method_exists($connectionError, 'getAttributes')) {
+            $attributes = $connectionError->getAttributes();
+            if (isset($attributes['message'])) {
+                $error .= '<br />' . $attributes['message'];
+            }
+        }
+    }
+
+    return compact('connected', 'error');
+};
+
 if (!Configure::read('debug')) :
     throw new NotFoundException(
         'Please replace templates/Pages/home.php with your own version or re-enable debug mode.'
@@ -56,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <img alt="CakePHP" src="https://cakephp.org/v2/img/logos/CakePHP_Logo.svg" width="350" />
             </a>
             <h1>
-                Welcome to CakePHP <?php echo Configure::version() ?> Strawberry (🍓)
+                Welcome to CakePHP <?= Configure::version() ?> Strawberry (🍓)
             </h1>
         </div>
     </header>
@@ -85,9 +104,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <h4>Environment</h4>
                         <ul>
                         <?php if (version_compare(PHP_VERSION, '7.2.0', '>=')) : ?>
-                            <li class="bullet success">Your version of PHP is 7.2.0 or higher (detected <?php echo PHP_VERSION ?>).</li>
+                            <li class="bullet success">Your version of PHP is 7.2.0 or higher (detected <?= PHP_VERSION ?>).</li>
                         <?php else : ?>
-                            <li class="bullet problem">Your version of PHP is too low. You need PHP 7.2.0 or higher to use CakePHP (detected <?php echo PHP_VERSION ?>).</li>
+                            <li class="bullet problem">Your version of PHP is too low. You need PHP 7.2.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
                         <?php endif; ?>
 
                         <?php if (extension_loaded('mbstring')) : ?>
@@ -128,7 +147,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
                         <?php $settings = Cache::getConfig('_cake_core_'); ?>
                         <?php if (!empty($settings)) : ?>
-                            <li class="bullet success">The <em><?php echo $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+                            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
                         <?php else : ?>
                             <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
                         <?php endif; ?>
@@ -140,25 +159,13 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="column">
                         <h4>Database</h4>
                         <?php
-                        try {
-                            $connection = ConnectionManager::get('default');
-                            $connected = $connection->connect();
-                        } catch (Exception $connectionError) {
-                            $connected = false;
-                            $errorMsg = $connectionError->getMessage();
-                            if (method_exists($connectionError, 'getAttributes')) :
-                                $attributes = $connectionError->getAttributes();
-                                if (isset($attributes['message'])) :
-                                    $errorMsg .= '<br />' . $attributes['message'];
-                                endif;
-                            endif;
-                        }
+                        $result = $checkConnection('default');
                         ?>
                         <ul>
-                        <?php if ($connected) : ?>
+                        <?php if ($result['connected']) : ?>
                             <li class="bullet success">CakePHP is able to connect to the database.</li>
                         <?php else : ?>
-                            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?php echo $errorMsg ?></li>
+                            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $result['error'] ?></li>
                         <?php endif; ?>
                         </ul>
                     </div>
@@ -167,8 +174,16 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <ul>
                         <?php if (Plugin::isLoaded('DebugKit')) : ?>
                             <li class="bullet success">DebugKit is loaded.</li>
+                            <?php
+                            $result = $checkConnection('debug_kit');
+                            ?>
+                            <?php if ($result['connected']) : ?>
+                                <li class="bullet success">DebugKit can connect to the database.</li>
+                            <?php else : ?>
+                                <li class="bullet problem">DebugKit is <strong>not</strong> able to connect to the database.<br /><?= $result['error'] ?></li>
+                            <?php endif; ?>
                         <?php else : ?>
-                            <li class="bullet problem">DebugKit is NOT loaded. You need to either install pdo_sqlite, or define the "debug_kit" connection name.</li>
+                            <li class="bullet problem">DebugKit is <strong>not</strong> loaded.</li>
                         <?php endif; ?>
                         </ul>
                     </div>
