@@ -70,3 +70,6 @@ hr {
     padding: 10px;
     margin: 10px 0;
 }
+#url-rewriting-warning {
+    display: none;
+}
