@@ -1,4 +1,4 @@
-name: CakePHP App CI
+name: CI
 
 on:
   push:
@@ -19,9 +19,7 @@ jobs:
     name: PHP ${{ matrix.php-version }}
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v2
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -30,7 +28,7 @@ jobs:
         extensions: mbstring, intl, pdo_sqlite, pdo_mysql
         coverage: none
 
-    - name: composer install
+    - name: Composer install
       run: |
         if [[ ${{ matrix.php-version }} == '8.0' ]]; then
           composer install --ignore-platform-reqs
@@ -48,9 +46,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v2
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -59,7 +55,7 @@ jobs:
         extensions: mbstring, intl
         coverage: none
 
-    - name: composer install
+    - name: Composer install
       run: composer install
 
     - name: Run PHP CodeSniffer
@@ -70,9 +66,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+    - uses: actions/checkout@v2
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -81,7 +75,7 @@ jobs:
         extensions: mbstring, intl
         coverage: none
 
-    - name: composer install
+    - name: Composer install
       run: composer require --dev phpstan/phpstan:^0.12
 
     - name: Run phpstan
