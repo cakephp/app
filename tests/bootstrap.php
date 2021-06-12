@@ -60,4 +60,6 @@ session_id('cli');
 // If you want to support multiple databases, consider
 // using migrations to provide schema for your plugin,
 // and using \Migrations\TestSuite\Migrator to load schema.
-SchemaManager::create('test', './tests/schema.sql');
+//
+// Uncomment this line to load test database schema from a file.
+//SchemaManager::create('test', './tests/schema.sql');
