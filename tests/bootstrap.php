@@ -50,3 +50,16 @@ ConnectionManager::alias('test_debug_kit', 'debug_kit');
 // does not allow the sessionid to be set after stdout
 // has been written to.
 session_id('cli');
+
+// Load schema from a SQL dump file.
+//
+// If your plugin does not use database fixtures you can
+// safely delete this.
+//
+// If you want to support multiple databases, consider
+// using migrations to provide schema for your plugin,
+// and using \Migrations\TestSuite\Migrator to load schema.
+//
+// Uncomment these lines to load test database schema from a file.
+// use Cake\TestSuite\Schema\SchemaManager;
+//SchemaManager::create('test', './tests/schema.sql');
