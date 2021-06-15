@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
-use Cake\TestSuite\Schema\SchemaManager;
 
 /**
  * Test runner bootstrap.
@@ -61,5 +60,6 @@ session_id('cli');
 // using migrations to provide schema for your plugin,
 // and using \Migrations\TestSuite\Migrator to load schema.
 //
-// Uncomment this line to load test database schema from a file.
+// Uncomment these lines to load test database schema from a file.
+// use Cake\TestSuite\Schema\SchemaManager;
 //SchemaManager::create('test', './tests/schema.sql');
