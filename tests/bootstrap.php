@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
+use Migrations\TestSuite\Migrator;
 
 /**
  * Test runner bootstrap.
@@ -51,15 +52,13 @@ ConnectionManager::alias('test_debug_kit', 'debug_kit');
 // has been written to.
 session_id('cli');
 
-// Load schema from a SQL dump file.
+// Use migrations to build test database schema.
 //
-// If your plugin does not use database fixtures you can
-// safely delete this.
+// Will rebuild the database if the migration state differs
+// from the migration history in files.
 //
-// If you want to support multiple databases, consider
-// using migrations to provide schema for your plugin,
-// and using \Migrations\TestSuite\Migrator to load schema.
-//
-// Uncomment these lines to load test database schema from a file.
-// use Cake\TestSuite\Schema\SchemaManager;
-//SchemaManager::create('test', './tests/schema.sql');
+// If you are not using CakePHP's migrations you can
+// hook into your migration tool of choice here or
+// load schema from a SQL dump file with
+// \Cake\TestSuite\Schema\SchemaManager::create('tests', './tests/schema.sql');
+Migrator::migrate();
