@@ -39,7 +39,10 @@ jobs:
 
     - name: Run PHPUnit
       run: |
-          vendor/bin/phpunit
+        cp config/app_local.example.php config/app_local.php
+        vendor/bin/phpunit
+      env:
+        DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
   coding-standard:
     name: Coding Standard
