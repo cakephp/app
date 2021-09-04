@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4', '8.0']
+        php-version: ['7.2', '7.4', '8.0', '8.1']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -30,10 +30,10 @@ jobs:
 
     - name: Composer install
       run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
+        if [[ ${{ matrix.php-version }} == '8.1' ]]; then
+          composer update --ignore-platform-reqs
         else
-          composer install
+          composer update
         fi
         composer run-script post-install-cmd --no-interaction
 
