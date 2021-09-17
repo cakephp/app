@@ -63,4 +63,4 @@ session_id('cli');
 // hook into your migration tool of choice here or
 // load schema from a SQL dump file with
 // \Cake\TestSuite\Schema\SchemaManager::create('tests', './tests/schema.sql');
-Migrator::migrate();
+(new Migrator())->run();
