@@ -62,5 +62,6 @@ session_id('cli');
 // If you are not using CakePHP's migrations you can
 // hook into your migration tool of choice here or
 // load schema from a SQL dump file with
-// \Cake\TestSuite\Schema\SchemaManager::create('tests', './tests/schema.sql');
+// use Cake\TestSuite\SchemaLoader;
+// (new SchemaManager())->loadSqlFiles('./tests/schema.sql', 'test');
 (new Migrator())->run();
