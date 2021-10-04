@@ -22,7 +22,8 @@
     "suggest": {
         "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
         "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan/Psalm compatibility.",
-        "phpstan/phpstan": "PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code."
+        "phpstan/phpstan": "PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code.",
+        "vierge-noire/cakephp-fixture-factories": "The fixture factories insert test data in an intuitive manner, making the tests easier to read, to write and to maintain."
     },
     "autoload": {
         "psr-4": {
