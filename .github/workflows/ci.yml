@@ -29,12 +29,7 @@ jobs:
         coverage: none
 
     - name: Install dependencies
-      if: ${{ matrix.php-version != '8.0' }}
       run: composer update --no-interaction
-
-    - name: Install dependencies on PHP 8
-      if: ${{ matrix.php-version == '8.0' }}
-      run: composer update --no-interaction --ignore-platform-reqs
 
     - name: Run post install scripts
       run: composer run-script --no-interaction post-install-cmd
