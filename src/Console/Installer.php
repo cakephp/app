@@ -20,6 +20,7 @@ if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 
+use Cake\Codeception\Console\Installer;
 use Cake\Utility\Security;
 use Composer\Script\Event;
 use Exception;
@@ -63,9 +64,8 @@ class Installer
         static::setFolderPermissions($rootDir, $io);
         static::setSecuritySalt($rootDir, $io);
 
-        $class = 'Cake\Codeception\Console\Installer';
-        if (class_exists($class)) {
-            $class::customizeCodeceptionBinary($event);
+        if (class_exists(Installer::class)) {
+            Installer::customizeCodeceptionBinary($event);
         }
     }
 
