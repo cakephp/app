@@ -28,18 +28,19 @@ jobs:
         extensions: mbstring, intl, pdo_sqlite, pdo_mysql
         coverage: none
 
-    - name: Composer install
-      run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
-        else
-          composer install
-        fi
-        composer run-script post-install-cmd --no-interaction
+    - name: Install dependencies
+      if: ${{ matrix.php-version != '8.0' }}
+      run: composer update --no-interaction
+
+    - name: Install dependencies on PHP 8
+      if: ${{ matrix.php-version == '8.0' }}
+      run: composer update --no-interaction --ignore-platform-reqs
+
+    - name: Run post install scripts
+      run: composer run-script --no-interaction post-install-cmd
 
     - name: Run PHPUnit
-      run: |
-          vendor/bin/phpunit
+      run: vendor/bin/phpunit --verbose
 
   coding-standard:
     name: Coding Standard
@@ -55,11 +56,11 @@ jobs:
         extensions: mbstring, intl
         coverage: none
 
-    - name: Composer install
-      run: composer install
+    - name: Install dependencies
+      run: composer update --no-interaction
 
     - name: Run PHP CodeSniffer
-      run: composer cs-check
+      run: composer run-script cs-check
 
   static-analysis:
     name: Static Analysis
@@ -75,8 +76,8 @@ jobs:
         extensions: mbstring, intl
         coverage: none
 
-    - name: Composer install
-      run: composer require --dev phpstan/phpstan:^0.12
+    - name: Install phpstan/phpstan
+      run: composer require --no-interaction --dev phpstan/phpstan:^0.12
 
-    - name: Run phpstan
-      run: vendor/bin/phpstan.phar analyse
+    - name: Run PHPStan
+      run: vendor/bin/phpstan analyse
