@@ -5,6 +5,7 @@ on:
     branches:
       - '4.x'
       - '4.next'
+      - '5.x'
   pull_request:
     branches:
       - '*'
@@ -15,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4', '8.0']
+        php-version: ['7.2', '7.4', '8.0', '8.1']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -30,11 +31,7 @@ jobs:
 
     - name: Composer install
       run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
-        else
-          composer install
-        fi
+        composer install
         composer run-script post-install-cmd --no-interaction
 
     - name: Run PHPUnit
