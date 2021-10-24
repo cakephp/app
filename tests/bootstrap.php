@@ -17,6 +17,7 @@ declare(strict_types=1);
 
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
+use Migrations\TestSuite\Migrator;
 
 /**
  * Test runner bootstrap.
@@ -52,3 +53,15 @@ ConnectionManager::alias('test_debug_kit', 'debug_kit');
 // does not allow the sessionid to be set after stdout
 // has been written to.
 session_id('cli');
+
+// Use migrations to build test database schema.
+//
+// Will rebuild the database if the migration state differs
+// from the migration history in files.
+//
+// If you are not using CakePHP's migrations you can
+// hook into your migration tool of choice here or
+// load schema from a SQL dump file with
+// use Cake\TestSuite\SchemaLoader;
+// (new SchemaManager())->loadSqlFiles('./tests/schema.sql', 'test');
+(new Migrator())->run();
