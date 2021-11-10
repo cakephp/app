@@ -40,11 +40,10 @@ class ApplicationTest extends IntegrationTestCase
         $app->bootstrap();
         $plugins = $app->getPlugins();
 
-        $this->assertCount(4, $plugins);
-        $this->assertSame('Cake/Repl', $plugins->get('Cake/Repl')->getName());
-        $this->assertSame('Bake', $plugins->get('Bake')->getName());
-        $this->assertSame('DebugKit', $plugins->get('DebugKit')->getName());
-        $this->assertSame('Migrations', $plugins->get('Migrations')->getName());
+        $this->assertTrue($plugins->has('Cake/Repl'), 'plugins has Cake/Repl');
+        $this->assertTrue($plugins->has('Bake'), 'plugins has Bake');
+        $this->assertTrue($plugins->has('DebugKit'), 'plugins has DebugKit');
+        $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations');
     }
 
     /**
