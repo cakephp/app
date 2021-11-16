@@ -3,6 +3,6 @@ parameters:
     checkMissingIterableValueType: false
     treatPhpDocTypesAsCertain: false
     paths:
-        - src
+        - src/
     excludes_analyse:
         - src/Console/Installer.php
