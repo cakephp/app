@@ -80,7 +80,7 @@ jobs:
         coverage: none
 
     - name: Composer install
-      run: composer require --dev phpstan/phpstan:^0.12
+      run: composer require --dev phpstan/phpstan:^1.0.0
 
     - name: Run phpstan
-      run: vendor/bin/phpstan.phar analyse
+      run: vendor/bin/phpstan
