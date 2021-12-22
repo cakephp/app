@@ -13,7 +13,6 @@
     },
     "require-dev": {
         "cakephp/bake": "^2.6",
-        "cakephp/repl": "^0.1",
         "cakephp/cakephp-codesniffer": "^4.5",
         "cakephp/debug_kit": "^4.5",
         "josegonzalez/dotenv": "^3.2",
@@ -22,7 +21,8 @@
     "suggest": {
         "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
         "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan/Psalm compatibility.",
-        "phpstan/phpstan": "PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code."
+        "phpstan/phpstan": "PHPStan focuses on finding errors in your code without actually running it. It catches whole classes of bugs even before you write tests for the code.",
+        "cakephp/repl": "Console tools for a REPL interface for CakePHP applications."
     },
     "autoload": {
         "psr-4": {
