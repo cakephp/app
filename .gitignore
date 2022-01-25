@@ -49,3 +49,4 @@ nbproject/*
 /node_modules/*
 # yarn
 yarn-debug.log
+yarn-error.log
