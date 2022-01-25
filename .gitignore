@@ -41,5 +41,11 @@ tests.sqlite
 nbproject/*
 # Visual Studio Code
 .vscode
+# nova
+.nova
 # Sass preprocessor
 .sass-cache/
+# node
+/node_modules/*
+# yarn
+yarn-debug.log
