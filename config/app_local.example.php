@@ -75,6 +75,15 @@ return [
     ],
 
     /*
+     * Debugger configuration
+     *
+     * See app.php for more info.
+     */
+    'Debugger' => [
+        'editor' => 'phpstorm',
+    ],
+
+    /*
      * Email configuration.
      *
      * Host and credential configuration in case you are using SmtpTransport
