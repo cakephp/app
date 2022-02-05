@@ -39,8 +39,8 @@ return static function (RouteBuilder $routes) {
      * `Route` (`Cake\Routing\Route\Route`)
      *
      * Note that `Route` does not do any inflections on URLs which will result in
-     * inconsistently cased URLs when used with `:plugin`, `:controller` and
-     * `:action` markers.
+     * inconsistently cased URLs when used with `{plugin}`, `{controller}` and
+     * `{action}` markers.
      */
     $routes->setRouteClass(DashedRoute::class);
 
@@ -63,8 +63,8 @@ return static function (RouteBuilder $routes) {
          * The `fallbacks` method is a shortcut for
          *
          * ```
-         * $builder->connect('/:controller', ['action' => 'index']);
-         * $builder->connect('/:controller/:action/*', []);
+         * $builder->connect('/{controller}', ['action' => 'index']);
+         * $builder->connect('/{controller}/{action}/*', []);
          * ```
          *
          * You can remove these routes once you've connected the
