@@ -142,8 +142,18 @@ if ($isCli) {
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
+    /*
+     * When using proxies or load balancers, SSL/TLS connections might
+     * get terminated before reaching the server. If you trust the proxy,
+     * you can enable `$trustProxy` to rely on the `X-Forwarded-Proto`
+     * header to determine whether to generate URLs using `https`.
+     *
+     * See also https://book.cakephp.org/4/en/controllers/request-response.html#trusting-proxy-headers
+     */
+    $trustProxy = false;
+
     $s = null;
-    if (env('HTTPS')) {
+    if (env('HTTPS') || ($trustProxy && env('HTTP_X_FORWARDED_PROTO') === 'https')) {
         $s = 's';
     }
 
