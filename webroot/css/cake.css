@@ -129,6 +129,11 @@ th {
     color: #1f9d55;
     border-color: #51d88a;
 }
+.message.warning {
+    background: #fffabc;
+    color: #8d7b00;
+    border-color: #d3b800;
+}
 .message.error {
     background: #fcebea;
     color: #cc1f1a;

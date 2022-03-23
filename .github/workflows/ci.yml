@@ -3,8 +3,9 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - '4.x'
       - '4.next'
+      - '5.x'
   pull_request:
     branches:
       - '*'
@@ -15,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.2', '7.4', '8.0']
+        php-version: ['7.4', '8.0', '8.1']
     name: PHP ${{ matrix.php-version }}
 
     steps:
@@ -30,10 +31,10 @@ jobs:
 
     - name: Composer install
       run: |
-        if [[ ${{ matrix.php-version }} == '8.0' ]]; then
-          composer install --ignore-platform-reqs
+        if [[ ${{ matrix.php-version }} == '8.1' ]]; then
+          composer update --ignore-platform-reqs
         else
-          composer install
+          composer update
         fi
         composer run-script post-install-cmd --no-interaction
 
@@ -54,7 +55,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '7.4'
         extensions: mbstring, intl
         coverage: none
 
@@ -74,12 +75,12 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: '7.4'
         extensions: mbstring, intl
         coverage: none
 
     - name: Composer install
-      run: composer require --dev phpstan/phpstan:^0.12
+      run: composer require --dev phpstan/phpstan:^1.0.0
 
     - name: Run phpstan
-      run: vendor/bin/phpstan.phar analyse
+      run: vendor/bin/phpstan
