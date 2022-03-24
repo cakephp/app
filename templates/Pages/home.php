@@ -147,7 +147,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
                         <?php $settings = Cache::getConfig('_cake_core_'); ?>
                         <?php if (!empty($settings)) : ?>
-                            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+                            <li class="bullet success">The <em><?= $settings['className'] ?></em> is being used for core caching. To change the config edit config/app.php</li>
                         <?php else : ?>
                             <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
                         <?php endif; ?>
