@@ -30,19 +30,6 @@ class PagesControllerTest extends TestCase
     use IntegrationTestTrait;
 
     /**
-     * testMultipleGet method
-     *
-     * @return void
-     */
-    public function testMultipleGet()
-    {
-        $this->get('/');
-        $this->assertResponseOk();
-        $this->get('/');
-        $this->assertResponseOk();
-    }
-
-    /**
      * testDisplay method
      *
      * @return void
