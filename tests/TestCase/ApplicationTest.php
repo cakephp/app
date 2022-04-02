@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Test\TestCase;
 
 use App\Application;
+use Cake\Core\Configure;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
@@ -33,19 +34,35 @@ class ApplicationTest extends TestCase
     use IntegrationTestTrait;
 
     /**
-     * testBootstrap
+     * Test bootstrap in production.
      *
      * @return void
      */
     public function testBootstrap()
     {
+        Configure::write('debug', false);
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
         $app->bootstrap();
         $plugins = $app->getPlugins();
 
-        $this->assertTrue($plugins->has('Bake'), 'plugins has Bake');
-        $this->assertTrue($plugins->has('DebugKit'), 'plugins has DebugKit');
-        $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations');
+        $this->assertTrue($plugins->has('Bake'), 'plugins has Bake?');
+        $this->assertFalse($plugins->has('DebugKit'), 'plugins has DebugKit?');
+        $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations?');
+    }
+
+    /**
+     * Test bootstrap add DebugKit plugin in debug mode.
+     *
+     * @return void
+     */
+    public function testBootstrapInDebug()
+    {
+        Configure::write('debug', true);
+        $app = new Application(dirname(dirname(__DIR__)) . '/config');
+        $app->bootstrap();
+        $plugins = $app->getPlugins();
+
+        $this->assertTrue($plugins->has('DebugKit'), 'plugins has DebugKit?');
     }
 
     /**
