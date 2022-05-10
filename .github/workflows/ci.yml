@@ -10,6 +10,9 @@ on:
     branches:
       - '*'
 
+permissions:
+  contents: read
+
 jobs:
   testsuite:
     runs-on: ubuntu-18.04
