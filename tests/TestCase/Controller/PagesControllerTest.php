@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Test\TestCase\Controller;
 
 use Cake\Core\Configure;
+use Cake\TestSuite\Constraint\Response\StatusCode;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -30,25 +31,13 @@ class PagesControllerTest extends TestCase
     use IntegrationTestTrait;
 
     /**
-     * testMultipleGet method
-     *
-     * @return void
-     */
-    public function testMultipleGet()
-    {
-        $this->get('/');
-        $this->assertResponseOk();
-        $this->get('/');
-        $this->assertResponseOk();
-    }
-
-    /**
      * testDisplay method
      *
      * @return void
      */
     public function testDisplay()
     {
+        Configure::write('debug', true);
         $this->get('/pages/home');
         $this->assertResponseOk();
         $this->assertResponseContains('CakePHP');
@@ -120,7 +109,7 @@ class PagesControllerTest extends TestCase
         $this->enableCsrfToken();
         $this->post('/pages/home', ['hello' => 'world']);
 
-        $this->assertResponseCode(200);
-        $this->assertResponseContains('CakePHP');
+        $this->assertThat(403, $this->logicalNot(new StatusCode($this->_response)));
+        $this->assertResponseNotContains('CSRF');
     }
 }
