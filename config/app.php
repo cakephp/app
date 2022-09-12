@@ -403,7 +403,7 @@ return [
      *    array with at least the `engine` key, being the name of the Session engine
      *    class to use for managing the session. CakePHP bundles the `CacheSession`
      *    and `DatabaseSession` engines.
-     * - `ini` - An associative array of additional ini values to set.
+     * - `ini` - An associative array of additional 'session.*` ini values to set.
      *
      * The built-in `defaults` options are:
      *
