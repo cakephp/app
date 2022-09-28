@@ -47,7 +47,6 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +54,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
+        CakePHP: the rapid development PHP framework:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
@@ -75,7 +74,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <img alt="CakePHP" src="https://cakephp.org/v2/img/logos/CakePHP_Logo.svg" width="350" />
             </a>
             <h1>
-                Welcome to CakePHP <?= Configure::version() ?> Strawberry (🍓)
+                Welcome to CakePHP <?= h(Configure::version()) ?> Strawberry (🍓)
             </h1>
         </div>
     </header>
@@ -103,10 +102,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     <div class="column">
                         <h4>Environment</h4>
                         <ul>
-                        <?php if (version_compare(PHP_VERSION, '7.2.0', '>=')) : ?>
-                            <li class="bullet success">Your version of PHP is 7.2.0 or higher (detected <?= PHP_VERSION ?>).</li>
+                        <?php if (version_compare(PHP_VERSION, '7.4.0', '>=')) : ?>
+                            <li class="bullet success">Your version of PHP is 7.4.0 or higher (detected <?= PHP_VERSION ?>).</li>
                         <?php else : ?>
-                            <li class="bullet problem">Your version of PHP is too low. You need PHP 7.2.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+                            <li class="bullet problem">Your version of PHP is too low. You need PHP 7.4.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
                         <?php endif; ?>
 
                         <?php if (extension_loaded('mbstring')) : ?>
@@ -147,7 +146,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
                         <?php $settings = Cache::getConfig('_cake_core_'); ?>
                         <?php if (!empty($settings)) : ?>
-                            <li class="bullet success">The <em><?= $settings['className'] ?>Engine</em> is being used for core caching. To change the config edit config/app.php</li>
+                            <li class="bullet success">The <em><?= h($settings['className']) ?></em> is being used for core caching. To change the config edit config/app.php</li>
                         <?php else : ?>
                             <li class="bullet problem">Your cache is NOT working. Please check the settings in config/app.php</li>
                         <?php endif; ?>
@@ -165,7 +164,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <?php if ($result['connected']) : ?>
                             <li class="bullet success">CakePHP is able to connect to the database.</li>
                         <?php else : ?>
-                            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= $result['error'] ?></li>
+                            <li class="bullet problem">CakePHP is NOT able to connect to the database.<br /><?= h($result['error']) ?></li>
                         <?php endif; ?>
                         </ul>
                     </div>
