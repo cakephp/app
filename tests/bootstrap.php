@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
-use Migrations\TestSuite\Migrator;
 
 /**
  * Test runner bootstrap.
