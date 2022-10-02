@@ -47,7 +47,8 @@ class ApplicationTest extends TestCase
 
         $this->assertTrue($plugins->has('Bake'), 'plugins has Bake?');
         $this->assertFalse($plugins->has('DebugKit'), 'plugins has DebugKit?');
-        $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations?');
+        // TODO: Renable after Migrations plugin is upgraded for Cake 5 compatibility
+        // $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations?');
     }
 
     /**

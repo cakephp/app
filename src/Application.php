@@ -127,7 +127,8 @@ class Application extends BaseApplication
         $this->addOptionalPlugin('Cake/Repl');
         $this->addOptionalPlugin('Bake');
 
-        $this->addPlugin('Migrations');
+        // TODO: Renable after Migrations plugin is upgraded for Cake 5 compatibility
+        // $this->addPlugin('Migrations');
 
         // Load more plugins here
     }

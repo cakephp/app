@@ -15,12 +15,18 @@ permissions:
 
 jobs:
   testsuite:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.4', '8.0', '8.1']
-    name: PHP ${{ matrix.php-version }}
+        php-version: ['8.1']
+        dependencies: ['highest']
+        include:
+          - php-version: '8.1'
+            dependencies: 'lowest'
+          - php-version: '8.2'
+            dependencies: 'highest'
+            composer-options: '--ignore-platform-req=php'
 
     steps:
     - uses: actions/checkout@v3
@@ -30,60 +36,23 @@ jobs:
       with:
         php-version: ${{ matrix.php-version }}
         extensions: mbstring, intl, pdo_sqlite
+        ini-values: zend.assertions=1
         coverage: none
 
     - name: Composer install
-      run: |
-        if [[ ${{ matrix.php-version }} == '8.1' ]]; then
-          composer update --ignore-platform-reqs
-        else
-          composer update
-        fi
-        composer run-script post-install-cmd --no-interaction
+      uses: ramsey/composer-install@v2
+      with:
+        dependency-versions: ${{ matrix.dependencies }}
+        composer-options: ${{ matrix.composer-options }}
+
+    - name: Composer post install
+      run: composer run-script post-install-cmd --no-interaction
 
     - name: Run PHPUnit
-      run: |
-        cp config/app_local.example.php config/app_local.php
-        vendor/bin/phpunit
+      run: vendor/bin/phpunit
       env:
         DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
-  coding-standard:
-    name: Coding Standard
-    runs-on: ubuntu-18.04
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: mbstring, intl
-        coverage: none
-
-    - name: Composer install
-      run: composer install
-
-    - name: Run PHP CodeSniffer
-      run: composer cs-check
-
-  static-analysis:
-    name: Static Analysis
-    runs-on: ubuntu-18.04
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: mbstring, intl
-        coverage: none
-
-    - name: Composer install
-      run: composer require --dev phpstan/phpstan:^1.0.0
-
-    - name: Run phpstan
-      run: vendor/bin/phpstan
+  cs-stan:
+    uses: cakephp/.github/.github/workflows/cs-stan.yml@5.x
+    secrets: inherit
