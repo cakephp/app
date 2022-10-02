@@ -19,8 +19,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.1', '8.2']
-    name: PHP ${{ matrix.php-version }}
+        php-version: ['8.1']
+        dependencies: ['highest']
+        include:
+          - php-version: '8.1'
+            dependencies: 'lowest'
+          - php-version: '8.2'
+            dependencies: 'highest'
+            composer-options: '--ignore-platform-req=php'
 
     steps:
     - uses: actions/checkout@v3
@@ -30,62 +36,23 @@ jobs:
       with:
         php-version: ${{ matrix.php-version }}
         extensions: mbstring, intl, pdo_sqlite
+        ini-values: zend.assertions=1
         coverage: none
 
     - name: Composer install
-      run: |
-        if [[ ${{ matrix.php-version }} == '8.2' ]]; then
-          composer update --ignore-platform-reqs
-        else
-          composer update
-        fi
-        composer run-script post-install-cmd --no-interaction
+      uses: ramsey/composer-install@v2
+      with:
+        dependency-versions: ${{ matrix.dependencies }}
+        composer-options: ${{ matrix.composer-options }}
+
+    - name: Composer post install
+      run: composer run-script post-install-cmd --no-interaction
 
     - name: Run PHPUnit
-      run: |
-        cp config/app_local.example.php config/app_local.php
-        vendor/bin/phpunit
+      run: vendor/bin/phpunit
       env:
         DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
-  coding-standard:
-    name: Coding Standard
-    runs-on: ubuntu-22.04
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-        extensions: mbstring, intl
-        coverage: none
-        tools: cs2pr
-
-    - name: Composer install
-      run: composer install
-
-    - name: Run PHP CodeSniffer
-      run: vendor/bin/phpcs --report=checkstyle src/ tests/ | cs2pr
-
-  static-analysis:
-    name: Static Analysis
-    runs-on: ubuntu-22.04
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-        extensions: mbstring, intl
-        coverage: none
-        tools: phpstan:1.8
-
-    - name: Composer install
-      run: composer install
-
-    - name: Run phpstan
-      run: phpstan
+  cs-stan:
+    uses: cakephp/.github/.github/workflows/cs-stan.yml@5.x
+    secrets: inherit

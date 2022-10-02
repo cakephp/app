@@ -19,5 +19,8 @@ indent_size = 2
 [*.twig]
 insert_final_newline = false
 
+[*.neon]
+indent_style = tab
+
 [Makefile]
 indent_style = tab

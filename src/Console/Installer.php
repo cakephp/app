@@ -118,7 +118,7 @@ class Installer
     {
         // ask if the permissions should be changed
         if ($io->isInteractive()) {
-            $validator = function ($arg) {
+            $validator = function (string $arg): string {
                 if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
                     return $arg;
                 }
@@ -137,7 +137,7 @@ class Installer
         }
 
         // Change the permissions on a path and output the results.
-        $changePerms = function ($path) use ($io): void {
+        $changePerms = function (string $path) use ($io): void {
             $currentPerms = fileperms($path) & 0777;
             $worldWritable = $currentPerms | 0007;
             if ($worldWritable == $currentPerms) {
@@ -152,7 +152,8 @@ class Installer
             }
         };
 
-        $walker = function ($dir) use (&$walker, $changePerms): void {
+        $walker = function (string $dir) use (&$walker, $changePerms): void {
+            /** @phpstan-ignore-next-line */
             $files = array_diff(scandir($dir), ['.', '..']);
             foreach ($files as $file) {
                 $path = $dir . '/' . $file;
@@ -198,6 +199,7 @@ class Installer
         $config = $dir . '/config/' . $file;
         $content = file_get_contents($config);
 
+        /** @phpstan-ignore-next-line */
         $content = str_replace('__SALT__', $newKey, $content, $count);
 
         if ($count == 0) {
@@ -228,6 +230,7 @@ class Installer
     {
         $config = $dir . '/config/' . $file;
         $content = file_get_contents($config);
+        /** @phpstan-ignore-next-line */
         $content = str_replace('__APP_NAME__', $appName, $content, $count);
 
         if ($count == 0) {
