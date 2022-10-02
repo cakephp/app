@@ -1,7 +1,46 @@
-/* Miligram overrides */
+/* Milligram overrides */
+:root {
+    /* The following are official CakePHP colors */
+    --color-cakephp-red: #d33c43;
+    --color-cakephp-gray: #404041;
+    --color-cakephp-blue: #2f85ae;
+    --color-cakephp-lightblue: #34bdd7;
+
+    /* These are additional colors */
+    --color-lightgray: #606c76;
+    --color-white: #fff;
+
+    --color-main-bg: #f5f7fa;
+    --color-links: var(--color-cakephp-blue);
+    --color-links-active: #2a6496;
+    --color-headings: #363637;
+
+    --color-message-success-bg: #e3fcec;
+    --color-message-success-text: #1f9d55;
+    --color-message-success-border: #51d88a;
+
+    --color-message-warning-bg: #fffabc;
+    --color-message-warning-text: #8d7b00;
+    --color-message-warning-border: #d3b800;
+
+    --color-message-error-bg: #fcebea;
+    --color-message-error-text: #cc1f1a;
+    --color-message-error-border: #ef5753;
+
+    --color-message-info-bg: #eff8ff;
+    --color-message-info-text: #2779bd;
+    --color-message-info-border: #6cb2eb;
+}
+
+.button, button, input[type='button'], input[type='reset'], input[type='submit'] {
+    background-color: var(--color-cakephp-red);
+    border-color: var(--color-cakephp-red);
+}
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
+    background: var(--color-main-bg);
 }
 
 .top-nav-links,
@@ -12,35 +51,33 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    color: #363637;
+    color: var(--color-headings);
 }
 
 a {
-    color:#2f85ae;
-    -webkit-transition:all 0.2s linear;
-    transition:all 0.2s linear;
+    color: var(--color-links);
+    transition: color 0.2s linear;
 }
 
 a:hover,
 a:focus,
-a:active  {
-    color:#2a6496;
-    -webkit-transition:all 0.2s easeout;
-    transition:all 0.2s ease-out;
+a:active {
+    color: var(--color-links-active);
+    transition: color 0.2s ease-out;
 }
 
 .side-nav a,
 .top-nav-links a,
 th a,
 .actions a {
-    color: #606c76;
+    color: var(--color-lightgray);
 }
 
 .side-nav a:hover,
 .side-nav a:focus,
 .actions a:hover,
 .actions a:focus {
-    color:#2f85ae;
+    color: var(--color-links-active);
 }
 
 /* Utility */
@@ -52,16 +89,16 @@ th a,
 }
 
 /* Main */
-body {
-    background: #f5f7fa;
-}
 .content {
     padding: 2rem;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 0.4rem;
     /* Thanks Stripe */
     box-shadow: 0 7px 14px 0 rgba(60, 66, 87, 0.1),
         0 3px 6px 0 rgba(0, 0, 0, 0.07);
+}
+.content form {
+    margin: 0;
 }
 .actions a {
     font-weight: bold;
@@ -78,14 +115,14 @@ th {
     justify-content: space-between;
     max-width: 112rem;
     padding: 2rem;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
 }
 .top-nav-title a {
     font-size: 2.4rem;
-    color: #d33c43;
+    color: var(--color-cakephp-red);
 }
 .top-nav-title span {
-    color: #404041;
+    color: var(--color-cakephp-gray);
 }
 .top-nav-links a {
     margin: 0 0.5rem;
@@ -94,7 +131,6 @@ th {
 .top-nav-links a {
     font-weight: bold;
 }
-
 .side-nav-item {
     display: block;
     padding: 0.5rem 0;
@@ -110,77 +146,114 @@ th {
 
 /* Flash messages */
 .message {
-    padding: 1rem;
-
-    background: #eff8ff;
-    color: #2779bd;
-
-    border-color: #6cb2eb;
+    padding: .5rem 1rem;
+    background: var(--color-message-info-bg);
+    color: var(--color-message-info-text);
+    border-color: var(--color-message-info-border);
     border-width: 1px;
     border-style: solid;
     border-radius: 4px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
 }
 .message.hidden {
     display: none;
 }
 .message.success {
-    background: #e3fcec;
-    color: #1f9d55;
-    border-color: #51d88a;
+    background: var(--color-message-success-bg);
+    color: var(--color-message-success-text);
+    border-color: var(--color-message-success-border);
 }
 .message.warning {
-    background: #fffabc;
-    color: #8d7b00;
-    border-color: #d3b800;
+    background: var(--color-message-warning-bg);
+    color: var(--color-message-warning-text);
+    border-color: var(--color-message-warning-border);
 }
 .message.error {
-    background: #fcebea;
-    color: #cc1f1a;
-    border-color: #ef5753;
+    background: var(--color-message-error-bg);
+    color: var(--color-message-error-text);
+    border-color: var(--color-message-error-border);
 }
 
 /* Forms */
 .input.radio,
-.input.checkbox {
+.input.checkbox,
+.input.multicheckbox {
     margin-bottom: 2.0rem;
 }
 .input.radio input,
-.input.checkbox input {
+.input.checkbox input,
+.input.multicheckbox input {
     margin: 0;
 }
 .input.radio label,
-.input.checkbox label {
+.input.checkbox label,
+.input.multicheckbox label {
     margin: 0;
     display: flex;
     align-items: center;
 }
 .input.radio label > input,
-.input.checkbox label > input {
+.input.checkbox label > input,
+.input.multicheckbox label > input {
     margin-right: 1.0rem;
 }
-.input.radio label:first-of-type {
-    margin-bottom: 2.0rem;
+input[type='color'] {
+    max-width: 4rem;
+    padding: 0.3rem .5rem 0.3rem;
 }
 
 /* Paginator */
 .paginator {
     text-align: right;
 }
+.paginator p {
+    margin-bottom: 0;
+}
 .pagination {
     display: flex;
     justify-content: center;
     list-style: none;
+    margin: 0 0 1rem 0;
     padding: 0;
-    margin: 0 0 1rem;
 }
 .pagination li {
-    margin: 0 0.5rem;
+    display: inline-block;
+    margin: 0.25em;
+    text-align: center;
 }
-.prev.disabled a,
-.next.disabled a {
+.pagination a {
+    border: 2px solid var(--color-cakephp-blue);
+    border-radius: 5px;
+    color: var(--color-cakephp-blue);
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: 3rem;
+    min-width: 3rem;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    transition: background .3s,color .3s;
+}
+.pagination li.active a,
+.pagination a:hover {
+    background: var(--color-cakephp-blue);
+    color: var(--color-white)
+}
+.disabled a {
+    border-color: var(--color-white);
     cursor: not-allowed;
-    color: #606c76;
+    color: var(--color-lightgray);
+}
+.first a,
+.prev a,
+.next a,
+.last a {
+    padding: 0 .75rem;
+}
+.disabled a:hover {
+    background: initial;
+    color: initial;
 }
 .asc:after {
     content: " \2193";
@@ -189,7 +262,7 @@ th {
     content: " \2191";
 }
 
-/* Error */
+/* Error in non debug mode */
 .error-container {
     align-items: center;
     display: flex;
@@ -199,6 +272,11 @@ th {
 }
 
 @media screen and (max-width: 640px) {
+    /* Fix milligram not having a responsive column system */
+    .row .column[class*='column-'] {
+        flex: 0 0 100%;
+        max-width: 100%
+    }
     .top-nav {
         margin: 0 auto;
     }

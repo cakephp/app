@@ -26,8 +26,9 @@ $checkConnection = function (string $name) {
     $error = null;
     $connected = false;
     try {
-        $connection = ConnectionManager::get($name);
-        $connected = $connection->getDriver()->connect();
+        ConnectionManager::get($name)->getDriver()->connect();
+        // No exception means success
+        $connected = true;
     } catch (Exception $connectionError) {
         $error = $connectionError->getMessage();
         if (method_exists($connectionError, 'getAttributes')) {
@@ -59,9 +60,7 @@ endif;
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'home']) ?>
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake', 'home']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
