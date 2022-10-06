@@ -223,8 +223,6 @@ input[type='color'] {
     text-align: center;
 }
 .pagination a {
-    border: 2px solid var(--color-cakephp-blue);
-    border-radius: 5px;
     color: var(--color-cakephp-blue);
     display: inline-block;
     font-size: 1.25rem;
@@ -237,13 +235,12 @@ input[type='color'] {
 }
 .pagination li.active a,
 .pagination a:hover {
-    background: var(--color-cakephp-blue);
-    color: var(--color-white)
+    text-decoration: underline;
 }
-.disabled a {
-    border-color: var(--color-white);
+.pagination .disabled a {
     cursor: not-allowed;
     color: var(--color-lightgray);
+    text-decoration: none;
 }
 .first a,
 .prev a,
