@@ -36,6 +36,11 @@ $checkConnection = function (string $name) {
                 $error .= '<br />' . $attributes['message'];
             }
         }
+        if ($name === 'debug_kit') {
+            $error = 'Try adding your current <b>top level domain</b> to the
+                <a href="https://book.cakephp.org/debugkit/4/en/index.html#configuration" target="_blank">DebugKit.safeTld</a>
+            config and reload.';
+        }
     }
 
     return compact('connected', 'error');
