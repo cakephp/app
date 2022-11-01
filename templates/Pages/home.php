@@ -185,7 +185,7 @@ endif;
                             <?php if ($result['connected']) : ?>
                                 <li class="bullet success">DebugKit can connect to the database.</li>
                             <?php else : ?>
-                                <li class="bullet problem">DebugKit is <strong>not</strong> able to connect to the database.<br /><?= $result['error'] ?></li>
+                                <li class="bullet problem">There are configuration problems present which need to be fixed:<br /><?= $result['error'] ?></li>
                             <?php endif; ?>
                         <?php else : ?>
                             <li class="bullet problem">DebugKit is <strong>not</strong> loaded.</li>
