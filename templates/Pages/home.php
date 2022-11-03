@@ -40,7 +40,7 @@ $checkConnection = function (string $name) {
             $error = 'Try adding your current <b>top level domain</b> to the
                 <a href="https://book.cakephp.org/debugkit/4/en/index.html#configuration" target="_blank">DebugKit.safeTld</a>
             config and reload.';
-            if (!in_array('sqlite', PDO::getAvailableDrivers())) {
+            if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
                 $error .= '<br />You need to install the PHP extension <code>pdo_sqlite</code> so DebugKit can work properly.';
             }
         }
