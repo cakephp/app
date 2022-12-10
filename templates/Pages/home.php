@@ -37,6 +37,14 @@ $checkConnection = function (string $name) {
                 $error .= '<br />' . $attributes['message'];
             }
         }
+        if ($name === 'debug_kit') {
+            $error = 'Try adding your current <b>top level domain</b> to the
+                <a href="https://book.cakephp.org/debugkit/4/en/index.html#configuration" target="_blank">DebugKit.safeTld</a>
+            config and reload.';
+            if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
+                $error .= '<br />You need to install the PHP extension <code>pdo_sqlite</code> so DebugKit can work properly.';
+            }
+        }
     }
 
     return compact('connected', 'error');
@@ -178,7 +186,7 @@ endif;
                             <?php if ($result['connected']) : ?>
                                 <li class="bullet success">DebugKit can connect to the database.</li>
                             <?php else : ?>
-                                <li class="bullet problem">DebugKit is <strong>not</strong> able to connect to the database.<br /><?= $result['error'] ?></li>
+                                <li class="bullet problem">There are configuration problems present which need to be fixed:<br /><?= $result['error'] ?></li>
                             <?php endif; ?>
                         <?php else : ?>
                             <li class="bullet problem">DebugKit is <strong>not</strong> loaded.</li>

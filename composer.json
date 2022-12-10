@@ -8,11 +8,11 @@
         "php": ">=8.1",
         "cakephp/cakephp": "5.x-dev",
         "cakephp/plugin-installer": "2.x-dev",
-        "mobiledetect/mobiledetectlib": "^2.8"
+        "mobiledetect/mobiledetectlib": "^3.74"
     },
     "require-dev": {
         "cakephp/bake": "dev-cake5",
-        "cakephp/cakephp-codesniffer": "5.x-dev",
+        "cakephp/cakephp-codesniffer": "^5.0",
         "cakephp/debug_kit": "dev-cake5",
         "josegonzalez/dotenv": "^3.2",
         "phpunit/phpunit": "^9.5.19"
