@@ -14,7 +14,7 @@
     "require-dev": {
         "cakephp/bake": "dev-cake5",
         "cakephp/cakephp-codesniffer": "^5.0",
-        "cakephp/debug_kit": "dev-cake5",
+        "cakephp/debug_kit": "5.x-dev",
         "josegonzalez/dotenv": "^3.2",
         "phpunit/phpunit": "^9.5.19"
     },
