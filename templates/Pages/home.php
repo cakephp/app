@@ -206,9 +206,9 @@ endif;
                 <div class="row">
                     <div class="column links">
                         <h3>Help and Bug Reports</h3>
-                        <a target="_blank" rel="noopener" href="http://cakesf.herokuapp.com/">Slack</a>
+                        <a target="_blank" rel="noopener" href="https://cakesf.herokuapp.com/">Slack</a>
                         <a target="_blank" rel="noopener" href="https://github.com/cakephp/cakephp/issues">CakePHP Issues</a>
-                        <a target="_blank" rel="noopener" href="http://discourse.cakephp.org/">CakePHP Forum</a>
+                        <a target="_blank" rel="noopener" href="https://discourse.cakephp.org/">CakePHP Forum</a>
                     </div>
                 </div>
                 <hr>
