@@ -205,7 +205,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 <ul><li>Live chat about CakePHP</li></ul>
             </li>
             <li class="bullet cutlery">
-                <a href="http://cakesf.herokuapp.com/">Slack</a>
+                <a href="https://slack-invite.cakephp.org/">Slack</a>
                 <ul><li>CakePHP Slack support</li></ul>
             </li>
             <li class="bullet cutlery">
