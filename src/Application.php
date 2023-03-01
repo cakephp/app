@@ -124,7 +124,6 @@ class Application extends BaseApplication
      */
     protected function bootstrapCli(): void
     {
-        $this->addOptionalPlugin('Cake/Repl');
         $this->addOptionalPlugin('Bake');
 
         $this->addPlugin('Migrations');
