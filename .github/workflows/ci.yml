@@ -50,6 +50,27 @@ jobs:
       env:
         DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
-  cs-stan:
-    uses: cakephp/.github/.github/workflows/cs-stan.yml@5.x
-    secrets: inherit
+  coding-standard:
+    name: Coding Standard & Static Analysis
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, intl
+        coverage: none
+        tools: cs2pr, phpstan:1.10
+
+    - name: Composer install
+      uses: ramsey/composer-install@v2
+
+    - name: Run PHP CodeSniffer
+      run: vendor/bin/phpcs --report=checkstyle src/ tests/ | cs2pr
+
+    - name: Run phpstan
+      if: always()
+      run: phpstan
