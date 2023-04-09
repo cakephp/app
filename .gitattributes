@@ -23,6 +23,7 @@
 *.phar binary
 *.woff binary
 *.woff2 binary
+*.ttc binary
 *.ttf binary
 *.otf binary
 *.eot binary
