@@ -22,7 +22,7 @@ Thumbs.db
 # Tool specific files #
 #######################
 # PHPUnit
-.phpunit.result.cache
+.phpunit.cache
 tests.sqlite
 # vim
 *~
