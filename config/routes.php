@@ -24,7 +24,12 @@
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 
-return static function (RouteBuilder $routes) {
+/*
+ * This file is loaded in the context of the `Application` class.
+  * So you can use  `$this` to reference the application class instance
+  * if required.
+ */
+return function (RouteBuilder $routes) {
     /*
      * The default class to use for all routes
      *
