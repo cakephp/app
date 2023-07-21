@@ -29,7 +29,7 @@ use Cake\Routing\RouteBuilder;
   * So you can use  `$this` to reference the application class instance
   * if required.
  */
-return function (RouteBuilder $routes) {
+return function (RouteBuilder $routes): void {
     /*
      * The default class to use for all routes
      *
@@ -49,7 +49,7 @@ return function (RouteBuilder $routes) {
      */
     $routes->setRouteClass(DashedRoute::class);
 
-    $routes->scope('/', function (RouteBuilder $builder) {
+    $routes->scope('/', function (RouteBuilder $builder): void {
         /*
          * Here, we are connecting '/' (base path) to a controller called 'Pages',
          * its action called 'display', and we pass a param to select the view file
@@ -83,7 +83,7 @@ return function (RouteBuilder $routes) {
      * open new scope and define routes there.
      *
      * ```
-     * $routes->scope('/api', function (RouteBuilder $builder) {
+     * $routes->scope('/api', function (RouteBuilder $builder): void {
      *     // No $builder->applyMiddleware() here.
      *
      *     // Parse specified extensions from URLs
