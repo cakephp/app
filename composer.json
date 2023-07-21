@@ -15,7 +15,7 @@
         "cakephp/bake": "3.x-dev",
         "cakephp/cakephp-codesniffer": "^5.0",
         "cakephp/debug_kit": "5.x-dev",
-        "josegonzalez/dotenv": "^3.2",
+        "josegonzalez/dotenv": "^4.0",
         "phpunit/phpunit": "^10.1.0"
     },
     "suggest": {
