@@ -6,4 +6,7 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
         <exclude-pattern>*/src/Controller/*</exclude-pattern>
     </rule>
+
+    <file>src/</file>
+    <file>tests/</file>
 </ruleset>
