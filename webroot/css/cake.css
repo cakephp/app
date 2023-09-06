@@ -104,6 +104,9 @@ th a,
     font-weight: bold;
     padding: 0 0.4rem;
 }
+.actions a:first-child {
+    padding-left: 0;
+}
 th {
     white-space: nowrap;
 }
