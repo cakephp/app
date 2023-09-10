@@ -47,7 +47,6 @@
         "stan": "phpstan analyse",
         "test": "phpunit --colors=always"
     },
-    "prefer-stable": true,
     "config": {
         "platform-check": true,
         "sort-packages": true,
