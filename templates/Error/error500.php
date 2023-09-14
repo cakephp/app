@@ -24,9 +24,9 @@ if (Configure::read('debug')) :
         <?= h($error->queryString) ?>
     </p>
 <?php endif; ?>
-<?php if (!empty($error->params)) : ?>
+<?php if (!empty($error->getBoundParams())) : ?>
     <strong>SQL Query Params: </strong>
-    <?php Debugger::dump($error->params) ?>
+    <?php Debugger::dump($error->getBoundParams()) ?>
 <?php endif; ?>
 <?php if ($error instanceof Error) : ?>
     <?php $file = $error->getFile() ?>
