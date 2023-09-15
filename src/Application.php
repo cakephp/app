@@ -48,24 +48,12 @@ class Application extends BaseApplication
         // Call parent to load bootstrap from files.
         parent::bootstrap();
 
-        if (PHP_SAPI === 'cli') {
-            $this->bootstrapCli();
-        } else {
+        if (PHP_SAPI !== 'cli') {
             FactoryLocator::add(
                 'Table',
                 (new TableLocator())->allowFallbackClass(false)
             );
         }
-
-        /*
-         * Only try to load DebugKit in development mode
-         * Debug Kit should not be installed on a production system
-         */
-        if (Configure::read('debug')) {
-            $this->addPlugin('DebugKit');
-        }
-
-        // Load more plugins here
     }
 
     /**
@@ -115,21 +103,5 @@ class Application extends BaseApplication
      */
     public function services(ContainerInterface $container): void
     {
-    }
-
-    /**
-     * Bootstrapping for CLI application.
-     *
-     * That is when running commands.
-     *
-     * @return void
-     */
-    protected function bootstrapCli(): void
-    {
-        $this->addOptionalPlugin('Bake');
-
-        $this->addPlugin('Migrations');
-
-        // Load more plugins here
     }
 }

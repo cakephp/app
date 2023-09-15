@@ -57,7 +57,7 @@ class Installer
     {
         $io = $event->getIO();
 
-        $rootDir = dirname(dirname(__DIR__));
+        $rootDir = dirname(__DIR__, 2);
 
         static::createAppLocalConfig($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
