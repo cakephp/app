@@ -146,11 +146,11 @@ return [
      * Options:
      *
      * - `errorLevel` - int - The level of errors you are interested in capturing.
-     * - `trace` - boolean - Whether or not backtraces should be included in
+     * - `trace` - boolean - Whether backtraces should be included in
      *   logged errors/exceptions.
-     * - `log` - boolean - Whether or not you want exceptions logged.
+     * - `log` - boolean - Whether you want exceptions logged.
      * - `exceptionRenderer` - string - The class responsible for rendering uncaught exceptions.
-     *   The chosen class will be used for for both CLI and web environments. If you want different
+     *   The chosen class will be used for both CLI and web environments. If you want different
      *   classes used in CLI and web environments you'll need to write that conditional logic as well.
      *   The conventional location for custom renderers is in `src/Error`. Your exception renderer needs to
      *   implement the `render()` method and return either a string or Http\Response.
