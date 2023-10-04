@@ -4,6 +4,7 @@
 
     <rule ref="CakePHP"/>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+        <exclude-pattern>*/src/Command/*</exclude-pattern>
         <exclude-pattern>*/src/Controller/*</exclude-pattern>
     </rule>
 
