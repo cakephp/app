@@ -183,11 +183,13 @@ Security::setSalt(Configure::consume('Security.salt'));
  */
 ServerRequest::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
+    $detector->setUserAgent($request->getEnv('HTTP_USER_AGENT'));
 
     return $detector->isMobile();
 });
 ServerRequest::addDetector('tablet', function ($request) {
     $detector = new \Detection\MobileDetect();
+    $detector->setUserAgent($request->getEnv('HTTP_USER_AGENT'));
 
     return $detector->isTablet();
 });
