@@ -2,5 +2,7 @@ parameters:
     level: 8
     treatPhpDocTypesAsCertain: false
     checkGenericClassInNonGenericObjectType: false
+    bootstrapFiles:
+        - vendor/cakephp/cakephp/src/functions.php
     paths:
         - src/
