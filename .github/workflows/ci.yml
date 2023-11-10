@@ -3,12 +3,12 @@ name: CI
 on:
   push:
     branches:
-      - "4.x"
-      - "4.next"
-      - "5.x"
+      - '4.x'
+      - '4.next'
+      - '5.x'
   pull_request:
     branches:
-      - "*"
+      - '*'
   workflow_dispatch:
 
 permissions:
@@ -20,60 +20,60 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ["8.1", "8.2"]
-        dependencies: ["highest"]
+        php-version: ['8.1', '8.2']
+        dependencies: ['highest']
         include:
-          - php-version: "8.1"
-            dependencies: "lowest"
+          - php-version: '8.1'
+            dependencies: 'lowest'
 
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php-version }}
-          extensions: mbstring, intl, pdo_sqlite
-          ini-values: zend.assertions=1
-          coverage: none
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl, pdo_sqlite
+        ini-values: zend.assertions=1
+        coverage: none
 
-      - name: Composer install
-        uses: ramsey/composer-install@v2
-        with:
-          dependency-versions: ${{ matrix.dependencies }}
-          composer-options: ${{ matrix.composer-options }}
+    - name: Composer install
+      uses: ramsey/composer-install@v2
+      with:
+        dependency-versions: ${{ matrix.dependencies }}
+        composer-options: ${{ matrix.composer-options }}
 
-      - name: Composer post install
-        run: composer run-script post-install-cmd --no-interaction
+    - name: Composer post install
+      run: composer run-script post-install-cmd --no-interaction
 
-      - name: Run PHPUnit
-        run: vendor/bin/phpunit
-        env:
-          DATABASE_TEST_URL: sqlite://./testdb.sqlite
+    - name: Run PHPUnit
+      run: vendor/bin/phpunit
+      env:
+        DATABASE_TEST_URL: sqlite://./testdb.sqlite
 
   coding-standard:
     name: Coding Standard & Static Analysis
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.1"
-          extensions: mbstring, intl
-          coverage: none
-          tools: cs2pr, phpstan:1.10
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, intl
+        coverage: none
+        tools: cs2pr, phpstan:1.10
 
-      - name: Composer install
-        uses: ramsey/composer-install@v2
+    - name: Composer install
+      uses: ramsey/composer-install@v2
 
-      - name: Run PHP CodeSniffer
-        run: vendor/bin/phpcs --report=checkstyle | cs2pr
+    - name: Run PHP CodeSniffer
+      run: vendor/bin/phpcs --report=checkstyle | cs2pr
 
-      - name: Run phpstan
-        if: always()
-        run: phpstan
-        env:
-          SECURITY_SALT: f76f1c8475585c46c6acd3ddcb8f5e0f15de524637bb4080a08c4afe7cfc9144
+    - name: Run phpstan
+      if: always()
+      run: phpstan
+      env:
+        SECURITY_SALT: f76f1c8475585c46c6acd3ddcb8f5e0f15de524637bb4080a08c4afe7cfc9144
