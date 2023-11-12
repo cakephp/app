@@ -75,3 +75,5 @@ jobs:
     - name: Run phpstan
       if: always()
       run: phpstan
+      env:
+        SECURITY_SALT: f76f1c8475585c46c6acd3ddcb8f5e0f15de524637bb4080a08c4afe7cfc9144
