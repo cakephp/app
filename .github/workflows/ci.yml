@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
       - '*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,7 +24,7 @@ jobs:
     name: PHP ${{ matrix.php-version }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -49,7 +50,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -63,7 +64,7 @@ jobs:
       run: composer install
 
     - name: Run PHP CodeSniffer
-      run: vendor/bin/phpcs --report=checkstyle src/ tests/ | cs2pr
+      run: vendor/bin/phpcs --report=checkstyle | cs2pr
 
     - name: Run phpstan
       if: always()

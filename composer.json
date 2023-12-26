@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.4",
-        "cakephp/cakephp": "^4.5.0-RC1",
+        "cakephp/cakephp": "^4.5.0",
         "cakephp/migrations": "^3.7",
         "cakephp/plugin-installer": "^1.3",
         "mobiledetect/mobiledetectlib": "^3.74"
@@ -15,7 +15,7 @@
         "cakephp/bake": "^2.8",
         "cakephp/cakephp-codesniffer": "^4.5",
         "cakephp/debug_kit": "^4.9",
-        "josegonzalez/dotenv": "^3.2",
+        "josegonzalez/dotenv": "^4.0",
         "phpunit/phpunit": "^9.6"
     },
     "suggest": {
@@ -42,9 +42,8 @@
             "@test",
             "@cs-check"
         ],
-        "cs-check": "phpcs --colors -p  src/ tests/",
-        "cs-fix": "phpcbf --colors -p src/ tests/",
-        "stan": "phpstan analyse",
+        "cs-check": "phpcs --colors -p",
+        "cs-fix": "phpcbf --colors -p",
         "test": "phpunit --colors=always"
     },
     "minimum-stability": "dev",
