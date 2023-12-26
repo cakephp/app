@@ -25,7 +25,7 @@ return [
      * - defaultLocale - The default locale for translation, formatting currencies and numbers, date and time.
      * - encoding - The encoding used for HTML + database connections.
      * - base - The base directory the app resides in. If false this
-     *   will be auto detected.
+     *   will be auto-detected.
      * - dir - Name of app directory.
      * - webroot - The webroot directory.
      * - wwwRoot - The file path to webroot.
@@ -39,10 +39,10 @@ return [
      *   CakePHP generates required value based on `HTTP_HOST` environment variable.
      *   However, you can define it manually to optimize performance or if you
      *   are concerned about people manipulating the `Host` header.
-     * - imageBaseUrl - Web path to the public images directory under webroot.
-     * - cssBaseUrl - Web path to the public css directory under webroot.
-     * - jsBaseUrl - Web path to the public js directory under webroot.
-     * - paths - Configure paths for non class based resources. Supports the
+     * - imageBaseUrl - Web path to the public images/ directory under webroot.
+     * - cssBaseUrl - Web path to the public css/ directory under webroot.
+     * - jsBaseUrl - Web path to the public js/ directory under webroot.
+     * - paths - Configure paths for non class-based resources. Supports the
      *   `plugins`, `templates`, `locales` subkeys, which allow the definition of
      *   paths for plugins, view templates and locale files respectively.
      */
@@ -165,7 +165,7 @@ return [
      * - `extraFatalErrorMemory` - int - The number of megabytes to increase the memory limit by
      *   when a fatal error is encountered. This allows
      *   breathing room to complete logging or error handling.
-     * - `ignoredDeprecationPaths` - array - A list of glob compatible file paths that deprecations
+     * - `ignoredDeprecationPaths` - array - A list of glob-compatible file paths that deprecations
      *   should be ignored in. Use this to ignore deprecations for plugins or parts of
      *   your application that still emit deprecations.
      */
@@ -260,8 +260,8 @@ return [
      *
      * ### Notes
      * - Drivers include Mysql Postgres Sqlite Sqlserver
-     *   See vendor\cakephp\cakephp\src\Database\Driver for complete list
-     * - Do not use periods in database name - it may lead to error.
+     *   See vendor\cakephp\cakephp\src\Database\Driver for the complete list
+     * - Do not use periods in database name - it may lead to errors.
      *   See https://github.com/cakephp/cakephp/issues/6471 for details.
      * - 'encoding' is recommended to be set to full UTF-8 4-Byte support.
      *   E.g set it to 'utf8mb4' in MariaDB and MySQL and 'utf8' for any
@@ -275,8 +275,8 @@ return [
          * The values in app_local.php will override any values set here
          * and should be used for local and per-environment configurations.
          *
-         * Environment variable based configurations can be loaded here or
-         * in app_local.php depending on the applications needs.
+         * Environment variable-based configurations can be loaded here or
+         * in app_local.php depending on the application's needs.
          */
         'default' => [
             'className' => Connection::class,
@@ -355,7 +355,7 @@ return [
             'scopes' => null,
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
-        // To enable this dedicated query log, you need set your datasource's log flag to true
+        // To enable this dedicated query log, you need to set your datasource's log flag to true
         'queries' => [
             'className' => FileLog::class,
             'path' => LOGS,
