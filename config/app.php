@@ -378,11 +378,8 @@ return [
      *    Avoid using `.` in cookie names, as PHP will drop sessions from cookies with `.` in the name.
      * - `cookiePath` - The url path for which session cookie is set. Maps to the
      *   `session.cookie_path` php.ini config. Defaults to base path of app.
-     * - `timeout` - The time in minutes the session should be valid for.
-     *    Pass 0 to disable checking timeout.
-     *    Please note that php.ini's session.gc_maxlifetime must be equal to or greater
-     *    than the largest Session['timeout'] in all served websites for it to have the
-     *    desired effect.
+     * - `timeout` - The time in minutes a session can be 'idle'. If no request is received in
+     *    this duration, the session will be expired and rotated. Pass 0 to disable idle timeout checks.
      * - `defaults` - The default configuration set to use as a basis for your session.
      *    There are four built-in options: php, cake, cache, database.
      * - `handler` - Can be used to enable a custom session handler. Expects an
@@ -390,6 +387,14 @@ return [
      *    class to use for managing the session. CakePHP bundles the `CacheSession`
      *    and `DatabaseSession` engines.
      * - `ini` - An associative array of additional 'session.*` ini values to set.
+     *
+     * Within the `ini` key, you will likely want to define:
+     *
+     * - `session.cookie_lifetime` - The number of seconds that cookies are valid for. This
+     *    should be longer than `Session.timeout`.
+     * - `session.gc_maxlifetime` - The number of seconds after which a session is considered 'garbage'
+     *    that can be deleted by PHP's session cleanup behavior. This value should be greater than both
+     *    `Sesssion.timeout` and `session.cookie_lifetime`.
      *
      * The built-in `defaults` options are:
      *
