@@ -6,7 +6,7 @@
     "homepage": "https://cakephp.org",
     "require": {
         "php": ">=8.1",
-        "cakephp/cakephp": "^5.0.1",
+        "cakephp/cakephp": "dev-5.next as 5.1.0",
         "cakephp/migrations": "^4.0.0",
         "cakephp/plugin-installer": "^2.0",
         "mobiledetect/mobiledetectlib": "^4.8.03"
@@ -16,7 +16,7 @@
         "cakephp/cakephp-codesniffer": "^5.0",
         "cakephp/debug_kit": "^5.0.0",
         "josegonzalez/dotenv": "^4.0",
-        "phpunit/phpunit": "^10.1.0"
+        "phpunit/phpunit": "^10.5.5"
     },
     "suggest": {
         "cakephp/repl": "Console tools for a REPL interface for CakePHP applications.",
