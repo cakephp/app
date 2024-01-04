@@ -18,6 +18,7 @@ declare(strict_types=1);
 use Cake\Chronos\Chronos;
 use Cake\Core\Configure;
 use Cake\Datasource\ConnectionManager;
+use Cake\TestSuite\ConnectionHelper;
 use Migrations\TestSuite\Migrator;
 
 /**
@@ -55,6 +56,10 @@ Chronos::setTestNow(Chronos::now());
 // does not allow the sessionid to be set after stdout
 // has been written to.
 session_id('cli');
+
+// Connection aliasing needs to happen before migrations are run.
+// Otherwise, table objects inside migrations would use the default datasource
+ConnectionHelper::addTestAliases();
 
 // Use migrations to build test database schema.
 //
