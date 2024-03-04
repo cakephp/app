@@ -38,7 +38,7 @@ jobs:
         coverage: none
 
     - name: Composer install
-      uses: ramsey/composer-install@v2
+      uses: ramsey/composer-install@v3
       with:
         dependency-versions: ${{ matrix.dependencies }}
         composer-options: ${{ matrix.composer-options }}
@@ -67,7 +67,7 @@ jobs:
         tools: cs2pr, phpstan:1.10
 
     - name: Composer install
-      uses: ramsey/composer-install@v2
+      uses: ramsey/composer-install@v3
 
     - name: Run PHP CodeSniffer
       run: vendor/bin/phpcs --report=checkstyle | cs2pr
