@@ -52,7 +52,7 @@
         ],
         "cs-check": "phpcs --colors -p",
         "cs-fix": "phpcbf --colors -p",
-        "stan": "phpstan analyse",
+        "stan": "phpstan analyze",
         "test": "phpunit --colors=always"
     }
 }
