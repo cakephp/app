@@ -412,4 +412,9 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+    'DebugKit' => [
+        'forceEnable' => filter_var(env('DEBUG_KIT_FORCE_ENABLE', false), FILTER_VALIDATE_BOOLEAN),
+        'safeTld' => env('DEBUG_KIT_SAFE_TLD'),
+        'ignoreAuthorization' => filter_var(env('DEBUG_KIT_IGNORE_AUTHORIZATION', false), FILTER_VALIDATE_BOOLEAN),
+    ],
 ];
