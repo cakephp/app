@@ -34,6 +34,8 @@ class Installer
 {
     /**
      * An array of directories to be made writable
+     *
+     * @var list<string>
      */
     public const WRITABLE_DIRS = [
         'logs',
