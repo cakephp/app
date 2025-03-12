@@ -52,7 +52,6 @@
         ],
         "cs-check": "phpcs --colors -p",
         "cs-fix": "phpcbf --colors -p",
-        "stan": "phpstan analyze",
         "test": "phpunit --colors=always"
     }
 }

@@ -179,31 +179,33 @@ th {
 }
 
 /* Forms */
-.input.radio,
-.input.checkbox,
-.input.multicheckbox {
-    margin-bottom: 2.0rem;
+.input {
+    margin-bottom: 1.5rem;
 }
-.input.radio input,
-.input.checkbox input,
-.input.multicheckbox input {
-    margin: 0;
+.input input,
+.input select,
+.input textarea {
+    margin-bottom: 0;
 }
-.input.radio label,
-.input.checkbox label,
-.input.multicheckbox label {
-    margin: 0;
+.input label:has(input[type='checkbox']),
+.input label:has(input[type='radio']) {
     display: flex;
     align-items: center;
 }
-.input.radio label > input,
-.input.checkbox label > input,
-.input.multicheckbox label > input {
+.input label:has(~ label),
+.input label:has(input[type='radio']) {
+    margin-bottom: 0;
+}
+.input label > input[type='checkbox'],
+.input label > input[type='radio'] {
     margin-right: 1.0rem;
 }
 input[type='color'] {
     max-width: 4rem;
     padding: 0.3rem .5rem 0.3rem;
+}
+.error-message {
+    color: var(--color-message-error-text);
 }
 
 /* Paginator */

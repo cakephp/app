@@ -155,8 +155,7 @@ class Installer
         };
 
         $walker = function (string $dir) use (&$walker, $changePerms): void {
-            /** @phpstan-ignore-next-line */
-            $files = array_diff(scandir($dir), ['.', '..']);
+            $files = array_diff(scandir($dir) ?: [], ['.', '..']);
             foreach ($files as $file) {
                 $path = $dir . '/' . $file;
 
@@ -200,8 +199,12 @@ class Installer
     {
         $config = $dir . '/config/' . $file;
         $content = file_get_contents($config);
+        if ($content === false) {
+            $io->write('Config file not readable or not found: config/' . $file);
 
-        /** @phpstan-ignore-next-line */
+            return;
+        }
+
         $content = str_replace('__SALT__', $newKey, $content, $count);
 
         if ($count == 0) {
@@ -232,7 +235,12 @@ class Installer
     {
         $config = $dir . '/config/' . $file;
         $content = file_get_contents($config);
-        /** @phpstan-ignore-next-line */
+        if ($content === false) {
+            $io->write('Config file not readable or not found: config/' . $file);
+
+            return;
+        }
+
         $content = str_replace('__APP_NAME__', $appName, $content, $count);
 
         if ($count == 0) {
