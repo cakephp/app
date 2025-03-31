@@ -167,7 +167,8 @@ return [
      *   breathing room to complete logging or error handling.
      * - `ignoredDeprecationPaths` - array - A list of glob-compatible file paths that deprecations
      *   should be ignored in. Use this to ignore deprecations for plugins or parts of
-     *   your application that still emit deprecations.
+     *   your application that still emits deprecations.
+     * - `traceFormat` - when logging errors, List of `'array'`, `'points'`, `'shortPoints'`, defaults to `shortPoints`.
      */
     'Error' => [
         'errorLevel' => E_ALL,
@@ -175,6 +176,7 @@ return [
         'log' => true,
         'trace' => true,
         'ignoredDeprecationPaths' => [],
+        'traceFormat' => null,
     ],
 
     /*
