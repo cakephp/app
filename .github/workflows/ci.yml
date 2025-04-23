@@ -3,9 +3,9 @@ name: CI
 on:
   push:
     branches:
-      - '4.x'
-      - '4.next'
       - '5.x'
+      - '5.next'
+      - '6.x'
   pull_request:
     branches:
       - '*'
@@ -16,18 +16,15 @@ permissions:
 
 jobs:
   testsuite:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.1', '8.3']
-        dependencies: ['highest']
         include:
           - php-version: '8.1'
             dependencies: 'lowest'
           - php-version: '8.4'
             dependencies: 'highest'
-            composer-options: '--ignore-platform-req=php'
 
     steps:
     - uses: actions/checkout@v4
@@ -56,7 +53,7 @@ jobs:
 
   coding-standard:
     name: Coding Standard & Static Analysis
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     - uses: actions/checkout@v4
