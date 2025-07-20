@@ -1,58 +1,66 @@
-# CakePHP Application Skeleton
+# CakePHP Application Demo Project
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=5.x)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+## What is this?
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
+This is a demo project for CakePHP, showcasing the framework's features and capabilities.
+It is NOT intended for production use, but rather a learning tool for new and existing CakePHP developers.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+## Get started
 
-## Installation
-
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
-
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Demo app
-
-Check out the [5.x-demo branch](https://github.com/cakephp/app/tree/5.x-demo), which contains demo migrations and a seeder.
-See the [README](https://github.com/cakephp/app/blob/5.x-demo/README.md) on how to get it running.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+The basic setup is all the same as mentioned in the [main branch](https://github.com/cakephp/app).
+So make sure you have everything running and then continue with the following steps.
 
 ## Configuration
 
 Read and edit the environment specific `config/app_local.php` and set up the
 `'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
 
-## Layout
+In our case the easiest way to get started is to use a SQLite database via
+```php
+'Datasources' => [
+    'default' => [
+        'url' => 'sqlite://127.0.0.1/tmp/myapp.sqlite',
+    ],
+]
+```
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+Make sure the default homepage shows, that it can connect to the database.
+
+## Migrate, Seed & Bake
+
+This branch of the app template contains a migration file, which generates a bunch of tables and fields.
+
+To apply the migrations, run the following command:
+
+```bash
+bin/cake migrations migrate
+```
+
+Next we need to fill the database with some fake data:
+
+```bash
+bin/cake migrations seed --seed TestSeeder
+```
+
+After that you should bake all the code:
+
+```bash
+bin/cake bake all --everything
+```
+
+This should now result in many new files in the `src/` and `templates/` directory.
+
+To have an easier time getting to each area of the application, you can add the following to the
+`templates/layout/default.ctp` file inside the `<nav>` section:
+
+```php
+<div class="top-nav-links">
+    <?= $this->Html->link('Comments', ['controller' => 'Comments', 'action' => 'index']) ?>
+    <?= $this->Html->link('Posts', ['controller' => 'Posts', 'action' => 'index']) ?>
+    <?= $this->Html->link('Profiles', ['controller' => 'Profiles', 'action' => 'index']) ?>
+    <?= $this->Html->link('Tags', ['controller' => 'Tags', 'action' => 'index']) ?>
+    <?= $this->Html->link('Users', ['controller' => 'Users', 'action' => 'index']) ?>
+    <?= $this->Html->link('Docs', 'https://book.cakephp.org/5/', ['target' => '_blank', 'rel' => 'noopener']) ?>
+    <?= $this->Html->link('Api', 'https://api.cakephp.org/', ['target' => '_blank', 'rel' => 'noopener']) ?>
+</div>
+```
