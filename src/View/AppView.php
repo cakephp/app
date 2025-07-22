@@ -22,7 +22,7 @@ use Cake\View\View;
  *
  * Your application's default view class
  *
- * @link https://book.cakephp.org/5/en/views.html#the-app-view
+ * @see https://book.cakephp.org/5/en/views.html#the-app-view
  */
 class AppView extends View
 {
