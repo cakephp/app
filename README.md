@@ -34,6 +34,11 @@ bin/cake server -p 8765
 
 Then visit `http://localhost:8765` to see the welcome page.
 
+## Demo app
+
+Check out the [5.x-demo branch](https://github.com/cakephp/app/tree/5.x-demo), which contains demo migrations and a seeder.
+See the [README](https://github.com/cakephp/app/blob/5.x-demo/README.md) on how to get it running.
+
 ## Update
 
 Since this skeleton is a starting point for your application and various files
