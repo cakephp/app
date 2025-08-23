@@ -28,21 +28,21 @@ return [
      * - base - The base directory the app resides in. If false this
      *   will be auto-detected.
      * - dir - Name of app directory.
-     * - webroot - The webroot directory.
-     * - wwwRoot - The file path to webroot.
+     * - webroot - The public directory.
+     * - wwwRoot - The file path to public.
      * - baseUrl - To configure CakePHP to *not* use mod_rewrite and to
      *   use CakePHP pretty URLs, remove these .htaccess
      *   files:
      *      /.htaccess
-     *      /webroot/.htaccess
+     *      /public/.htaccess
      *   And uncomment the baseUrl key below.
      * - fullBaseUrl - A base URL to use for absolute links. When set to false (default)
      *   CakePHP generates required value based on `HTTP_HOST` environment variable.
      *   However, you can define it manually to optimize performance or if you
      *   are concerned about people manipulating the `Host` header.
-     * - imageBaseUrl - Web path to the public images/ directory under webroot.
-     * - cssBaseUrl - Web path to the public css/ directory under webroot.
-     * - jsBaseUrl - Web path to the public js/ directory under webroot.
+     * - imageBaseUrl - Web path to the public images/ directory under public.
+     * - cssBaseUrl - Web path to the public css/ directory under public.
+     * - jsBaseUrl - Web path to the public js/ directory under public.
      * - paths - Configure paths for non class-based resources. Supports the
      *   `plugins`, `templates`, `locales` subkeys, which allow the definition of
      *   paths for plugins, view templates and locale files respectively.
@@ -54,7 +54,7 @@ return [
         'defaultTimezone' => env('APP_DEFAULT_TIMEZONE', 'UTC'),
         'base' => false,
         'dir' => 'src',
-        'webroot' => 'webroot',
+        'webroot' => 'public',
         'wwwRoot' => WWW_ROOT,
         //'baseUrl' => env('SCRIPT_NAME'),
         'fullBaseUrl' => false,
