@@ -99,8 +99,8 @@ if (file_exists(CONFIG . 'app_local.php')) {
  * When debug = true the metadata cache should only last for a short time.
  */
 if (Configure::read('debug')) {
-    Configure::write('Cache._cake_model_.duration', '+2 minutes');
-    Configure::write('Cache._cake_translations_.duration', '+2 minutes');
+    Configure::write('Cache._cake_model_.duration', '+1 minute');
+    Configure::write('Cache._cake_translations_.duration', '+1 minute');
 }
 
 /*
