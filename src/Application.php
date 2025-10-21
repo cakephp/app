@@ -99,5 +99,7 @@ class Application extends BaseApplication
      */
     public function services(ContainerInterface $container): void
     {
+        // Allow your Tables to be dependency injected
+        //$container->delegate(new \Cake\ORM\Locator\TableContainer());
     }
 }
