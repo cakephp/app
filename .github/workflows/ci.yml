@@ -25,6 +25,8 @@ jobs:
             dependencies: 'lowest'
           - php-version: '8.4'
             dependencies: 'highest'
+          - php-version: '8.5'
+            dependencies: 'highest'
 
     steps:
     - uses: actions/checkout@v5
