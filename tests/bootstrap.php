@@ -17,7 +17,6 @@ declare(strict_types=1);
 
 use Cake\Chronos\Chronos;
 use Cake\Core\Configure;
-use Cake\Datasource\ConnectionManager;
 use Cake\TestSuite\ConnectionHelper;
 use Migrations\TestSuite\Migrator;
 
@@ -34,20 +33,6 @@ require dirname(__DIR__) . '/config/bootstrap.php';
 if (empty($_SERVER['HTTP_HOST']) && !Configure::read('App.fullBaseUrl')) {
     Configure::write('App.fullBaseUrl', 'http://localhost');
 }
-
-// DebugKit skips settings these connection config if PHP SAPI is CLI / PHPDBG.
-// But since PagesControllerTest is run with debug enabled and DebugKit is loaded
-// in application, without setting up these config DebugKit errors out.
-ConnectionManager::setConfig('test_debug_kit', [
-    'className' => 'Cake\Database\Connection',
-    'driver' => 'Cake\Database\Driver\Sqlite',
-    'database' => TMP . 'debug_kit.sqlite',
-    'encoding' => 'utf8',
-    'cacheMetadata' => true,
-    'quoteIdentifiers' => false,
-]);
-
-ConnectionManager::alias('test_debug_kit', 'debug_kit');
 
 // Fixate now to avoid one-second-leap-issues
 Chronos::setTestNow(Chronos::now());
