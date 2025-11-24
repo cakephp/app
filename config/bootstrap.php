@@ -144,24 +144,34 @@ if (PHP_SAPI === 'cli') {
 }
 
 /*
- * Set the full base URL.
+ * SECURITY: Validate and set the full base URL.
  * This URL is used as the base of all absolute links.
- * Can be very useful for CLI/Commandline applications.
+ *
+ * IMPORTANT: In production, App.fullBaseUrl MUST be explicitly configured to prevent
+ * Host Header Injection attacks. Relying on the HTTP_HOST header can allow attackers
+ * to hijack password reset tokens and other security-critical operations.
+ *
+ * Set APP_FULL_BASE_URL in your environment variables or configure App.fullBaseUrl
+ * in config/app.php or config/app_local.php
+ *
+ * Example: APP_FULL_BASE_URL=https://yourdomain.com
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
-    /*
-     * When using proxies or load balancers, SSL/TLS connections might
-     * get terminated before reaching the server. If you trust the proxy,
-     * you can enable `$trustProxy` to rely on the `X-Forwarded-Proto`
-     * header to determine whether to generate URLs using `https`.
-     *
-     * See also https://book.cakephp.org/5/en/controllers/request-response.html#trusting-proxy-headers
-     */
-    $trustProxy = false;
+    if (!Configure::read('debug')) {
+        throw new \Cake\Core\Exception\CakeException(
+            'SECURITY: App.fullBaseUrl is not configured. ' .
+            'This is required in production to prevent Host Header Injection attacks. ' .
+            'Set APP_FULL_BASE_URL environment variable or configure App.fullBaseUrl in config/app.php'
+        );
+    }
 
+    /*
+     * Development mode fallback: Use HTTP_HOST for convenience.
+     * WARNING: This is ONLY safe in development. Never use this pattern in production!
+     */
     $s = null;
-    if (env('HTTPS') || ($trustProxy && env('HTTP_X_FORWARDED_PROTO') === 'https')) {
+    if (env('HTTPS')) {
         $s = 's';
     }
 
