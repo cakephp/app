@@ -36,10 +36,12 @@ return [
      *      /.htaccess
      *      /webroot/.htaccess
      *   And uncomment the baseUrl key below.
-     * - fullBaseUrl - A base URL to use for absolute links. When set to false (default)
-     *   CakePHP generates required value based on `HTTP_HOST` environment variable.
-     *   However, you can define it manually to optimize performance or if you
-     *   are concerned about people manipulating the `Host` header.
+     * - fullBaseUrl - SECURITY: A base URL to use for absolute links.
+     *   IMPORTANT: This MUST be set in production to prevent Host Header Injection attacks
+     *   that can compromise password reset and other security-critical features.
+     *   Set this via APP_FULL_BASE_URL environment variable or directly in config.
+     *   Example: 'https://yourdomain.com'
+     *   When not set, the application will throw an exception in production mode.
      * - imageBaseUrl - Web path to the public images/ directory under webroot.
      * - cssBaseUrl - Web path to the public css/ directory under webroot.
      * - jsBaseUrl - Web path to the public js/ directory under webroot.
@@ -57,7 +59,7 @@ return [
         'webroot' => 'webroot',
         'wwwRoot' => WWW_ROOT,
         //'baseUrl' => env('SCRIPT_NAME'),
-        'fullBaseUrl' => false,
+        'fullBaseUrl' => env('APP_FULL_BASE_URL', false),
         'imageBaseUrl' => 'img/',
         'cssBaseUrl' => 'css/',
         'jsBaseUrl' => 'js/',
