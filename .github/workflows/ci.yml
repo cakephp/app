@@ -23,13 +23,13 @@ jobs:
         include:
           - php-version: '8.2'
             dependencies: 'lowest'
-          - php-version: '8.4'
+          - php-version: '8.5'
             dependencies: 'highest'
           - php-version: '8.5'
             dependencies: 'highest'
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2

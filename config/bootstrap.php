@@ -35,6 +35,7 @@ require CORE_PATH . 'config' . DS . 'bootstrap.php';
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
+use Cake\Core\Exception\CakeException;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorTrap;
 use Cake\Error\ExceptionTrap;
@@ -44,6 +45,7 @@ use Cake\Mailer\Mailer;
 use Cake\Mailer\TransportFactory;
 use Cake\Routing\Router;
 use Cake\Utility\Security;
+use Detection\MobileDetect;
 use function Cake\Core\env;
 
 /*
@@ -83,7 +85,7 @@ require CAKE . 'functions.php';
 try {
     Configure::config('default', new PhpConfig());
     Configure::load('app', 'default', false);
-} catch (\Exception $e) {
+} catch (Exception $e) {
     exit($e->getMessage() . "\n");
 }
 
@@ -144,29 +146,43 @@ if (PHP_SAPI === 'cli') {
 }
 
 /*
- * Set the full base URL.
+ * SECURITY: Validate and set the full base URL.
  * This URL is used as the base of all absolute links.
- * Can be very useful for CLI/Commandline applications.
+ *
+ * IMPORTANT: In production, App.fullBaseUrl MUST be explicitly configured to prevent
+ * Host Header Injection attacks. Relying on the HTTP_HOST header can allow attackers
+ * to hijack password reset tokens and other security-critical operations.
+ *
+ * Set APP_FULL_BASE_URL in your environment variables or configure App.fullBaseUrl
+ * in config/app.php or config/app_local.php
+ *
+ * Example: APP_FULL_BASE_URL=https://yourdomain.com
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
-    /*
-     * When using proxies or load balancers, SSL/TLS connections might
-     * get terminated before reaching the server. If you trust the proxy,
-     * you can enable `$trustProxy` to rely on the `X-Forwarded-Proto`
-     * header to determine whether to generate URLs using `https`.
-     *
-     * See also https://book.cakephp.org/5/en/controllers/request-response.html#trusting-proxy-headers
-     */
-    $trustProxy = false;
+    $httpHost = env('HTTP_HOST');
 
-    $s = null;
-    if (env('HTTPS') || ($trustProxy && env('HTTP_X_FORWARDED_PROTO') === 'https')) {
-        $s = 's';
+    /*
+     * Only enforce fullBaseUrl requirement when we're in a web request context.
+     * This allows CLI tools (like PHPStan) to load the bootstrap without throwing.
+     */
+    if (!Configure::read('debug') && $httpHost) {
+        throw new CakeException(
+            'SECURITY: App.fullBaseUrl is not configured. ' .
+            'This is required in production to prevent Host Header Injection attacks. ' .
+            'Set APP_FULL_BASE_URL environment variable or configure App.fullBaseUrl in config/app.php',
+        );
     }
 
-    $httpHost = env('HTTP_HOST');
+    /*
+     * Development mode fallback: Use HTTP_HOST for convenience.
+     * WARNING: This is ONLY safe in development. Never use this pattern in production!
+     */
     if ($httpHost) {
+        $s = null;
+        if (env('HTTPS') || env('HTTP_X_FORWARDED_PROTO') === 'https') {
+            $s = 's';
+        }
         $fullBaseUrl = 'http' . $s . '://' . $httpHost;
     }
     unset($httpHost, $s);
@@ -193,12 +209,12 @@ Security::setSalt(Configure::consume('Security.salt'));
  * and the mobiledetect package from composer.json.
  */
 ServerRequest::addDetector('mobile', function ($request) {
-    $detector = new \Detection\MobileDetect();
+    $detector = new MobileDetect();
 
     return $detector->isMobile();
 });
 ServerRequest::addDetector('tablet', function ($request) {
-    $detector = new \Detection\MobileDetect();
+    $detector = new MobileDetect();
 
     return $detector->isTablet();
 });
