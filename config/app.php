@@ -40,7 +40,7 @@ return [
      *   IMPORTANT: This MUST be set in production to prevent Host Header Injection attacks
      *   that can compromise password reset and other security-critical features.
      *   Set this via APP_FULL_BASE_URL environment variable or directly in config.
-     *   Example: 'https://yourdomain.com'
+     *   Example: 'https://example.com'
      *   When not set, the application will throw an exception in production mode.
      * - imageBaseUrl - Web path to the public images/ directory under webroot.
      * - cssBaseUrl - Web path to the public css/ directory under webroot.
