@@ -156,7 +156,7 @@ if (PHP_SAPI === 'cli') {
  * Set APP_FULL_BASE_URL in your environment variables or configure App.fullBaseUrl
  * in config/app.php or config/app_local.php
  *
- * Example: APP_FULL_BASE_URL=https://yourdomain.com
+ * Example: APP_FULL_BASE_URL=https://example.com
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
