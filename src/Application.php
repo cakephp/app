@@ -51,7 +51,10 @@ class Application extends BaseApplication
         parent::bootstrap();
 
         // By default, does not allow fallback classes.
-        FactoryLocator::add('Table', (new TableLocator())->allowFallbackClass(false));
+        FactoryLocator::add(
+            'Table',
+            (new TableLocator())->allowFallbackClass(false), // @phpstan-ignore argument.type
+        );
     }
 
     /**
