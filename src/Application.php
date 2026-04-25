@@ -53,7 +53,7 @@ class Application extends BaseApplication
         // By default, does not allow fallback classes.
         FactoryLocator::add(
             'Table',
-            (new TableLocator())->allowFallbackClass(false), // @phpstan-ignore argument.type
+            (new TableLocator())->allowFallbackClass(false),
         );
     }
 
