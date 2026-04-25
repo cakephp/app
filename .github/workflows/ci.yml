@@ -66,7 +66,7 @@ jobs:
         php-version: '8.2'
         extensions: mbstring, intl
         coverage: none
-        tools: cs2pr, phpstan:1.12
+        tools: cs2pr, phpstan:2.1
 
     - name: Composer install
       uses: ramsey/composer-install@v4
