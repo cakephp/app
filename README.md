@@ -39,7 +39,7 @@ bin/cake migrations migrate
 Next we need to fill the database with some fake data:
 
 ```bash
-bin/cake migrations seed --seed TestSeeder
+bin/cake seeds run TestSeeder
 ```
 
 After that you should bake all the code:
