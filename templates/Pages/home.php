@@ -39,7 +39,7 @@ $checkConnection = function (string $name) {
         }
         if ($name === 'debug_kit') {
             $error = 'Try adding your current <b>top level domain</b> to the
-                <a href="https://book.cakephp.org/debugkit/5/en/index.html#configuration" target="_blank">DebugKit.safeTld</a>
+                <a href="https://book.cakephp.org/debugkit/5/configuration.html" target="_blank">DebugKit.safeTld</a>
             config and reload.';
             if (!in_array('sqlite', \PDO::getAvailableDrivers())) {
                 $error .= '<br />You need to install the PHP extension <code>pdo_sqlite</code> so DebugKit can work properly.';
