@@ -69,6 +69,7 @@ if (!env('APP_NAME') && is_readable(ROOT . DS . '.env')) {
     if (class_exists(\josegonzalez\Dotenv\Loader::class)) {
         (new \josegonzalez\Dotenv\Loader([ROOT . DS . '.env']))
             ->parse()
+            ->skipExisting()
             ->putenv()
             ->toEnv()
             ->toServer();
