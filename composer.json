@@ -6,7 +6,7 @@
     "homepage": "https://cakephp.org",
     "require": {
         "php": ">=8.2",
-        "cakephp/cakephp": "5.3.*",
+        "cakephp/cakephp": "5.4.*",
         "cakephp/migrations": "^5.0",
         "cakephp/plugin-installer": "^2.0",
         "mobiledetect/mobiledetectlib": "^4.8.03"

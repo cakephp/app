@@ -226,8 +226,8 @@ return [
              * The keys host, port, timeout, username, password, client and tls
              * are used in SMTP transports
              */
-            'host' => 'localhost',
-            'port' => 25,
+            'host' => env('EMAIL_HOST', 'localhost'),
+            'port' => env('EMAIL_PORT', 25),
             'timeout' => 30,
             /*
              * It is recommended to set these options through your environment or app_local.php
@@ -265,6 +265,8 @@ return [
      * Connection information used by the ORM to connect
      * to your application's datastores.
      *
+     * Values are read from the root `.env` file via env(). Override in app_local.php.
+     *
      * ### Notes
      * - Drivers include Mysql Postgres Sqlite Sqlserver
      *   See vendor\cakephp\cakephp\src\Database\Driver for the complete list
@@ -281,15 +283,18 @@ return [
          *
          * The values in app_local.php will override any values set here
          * and should be used for local and per-environment configurations.
-         *
-         * Environment variable-based configurations can be loaded here or
-         * in app_local.php depending on the application's needs.
          */
         'default' => [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
             'timezone' => 'UTC',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT'),
+            'username' => env('DB_USERNAME', 'my_app'),
+            'password' => env('DB_PASSWORD', 'secret'),
+            'database' => env('DB_DATABASE', env('APP_NAME', 'my_app')),
+            'url' => env('DATABASE_URL', null),
 
             /*
              * For MariaDB/MySQL the internal default changed from utf8 to utf8mb4, aka full utf-8 support
@@ -339,6 +344,7 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            'url' => env('DATABASE_TEST_URL', 'sqlite://127.0.0.1/tmp/tests.sqlite'),
         ],
     ],
 

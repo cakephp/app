@@ -61,7 +61,7 @@ class Installer
 
         $rootDir = dirname(__DIR__, 2);
 
-        static::createAppLocalConfig($rootDir, $io);
+        static::createEnvFile($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
 
         static::setFolderPermissions($rootDir, $io);
@@ -73,19 +73,19 @@ class Installer
     }
 
     /**
-     * Create config/app_local.php file if it does not exist.
+     * Create .env file if it does not exist.
      *
      * @param string $dir The application's root directory.
      * @param \Composer\IO\IOInterface $io IO interface to write to console.
      * @return void
      */
-    public static function createAppLocalConfig(string $dir, IOInterface $io): void
+    public static function createEnvFile(string $dir, IOInterface $io): void
     {
-        $appLocalConfig = $dir . '/config/app_local.php';
-        $appLocalConfigTemplate = $dir . '/config/app_local.example.php';
-        if (!file_exists($appLocalConfig)) {
-            copy($appLocalConfigTemplate, $appLocalConfig);
-            $io->write('Created `config/app_local.php` file');
+        $envFile = $dir . '/.env';
+        $envTemplate = $dir . '/.env.example';
+        if (!file_exists($envFile)) {
+            copy($envTemplate, $envFile);
+            $io->write('Created `.env` file');
         }
     }
 
@@ -183,7 +183,7 @@ class Installer
     public static function setSecuritySalt(string $dir, IOInterface $io): void
     {
         $newKey = hash('sha256', Security::randomBytes(64));
-        static::setSecuritySaltInFile($dir, $io, $newKey, 'app_local.php');
+        static::setSecuritySaltInFile($dir, $io, $newKey, '.env');
     }
 
     /**
@@ -197,10 +197,10 @@ class Installer
      */
     public static function setSecuritySaltInFile(string $dir, IOInterface $io, string $newKey, string $file): void
     {
-        $config = $dir . '/config/' . $file;
+        $config = $dir . '/' . $file;
         $content = file_get_contents($config);
         if ($content === false) {
-            $io->write('Config file not readable or not found: config/' . $file);
+            $io->write('Config file not readable or not found: ' . $file);
 
             return;
         }
@@ -215,7 +215,7 @@ class Installer
 
         $result = file_put_contents($config, $content);
         if ($result) {
-            $io->write('Updated Security.salt value in config/' . $file);
+            $io->write('Updated Security.salt value in ' . $file);
 
             return;
         }
@@ -233,10 +233,10 @@ class Installer
      */
     public static function setAppNameInFile(string $dir, IOInterface $io, string $appName, string $file): void
     {
-        $config = $dir . '/config/' . $file;
+        $config = $dir . '/' . $file;
         $content = file_get_contents($config);
         if ($content === false) {
-            $io->write('Config file not readable or not found: config/' . $file);
+            $io->write('Config file not readable or not found: ' . $file);
 
             return;
         }
@@ -251,7 +251,7 @@ class Installer
 
         $result = file_put_contents($config, $content);
         if ($result) {
-            $io->write('Updated __APP_NAME__ value in config/' . $file);
+            $io->write('Updated __APP_NAME__ value in ' . $file);
 
             return;
         }
