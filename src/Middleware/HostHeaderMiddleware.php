@@ -18,7 +18,7 @@ use Psr\Http\Server\RequestHandlerInterface;
  * and validates incoming Host headers against it. This prevents attackers
  * from manipulating password reset links and other security-critical URLs.
  *
- * @see https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection
+ * @see https://wstg.owasp.org/v4.2/4-Web_Application_Security_Testing/07-Input_Validation_Testing/17-Testing_for_Host_Header_Injection/
  */
 class HostHeaderMiddleware implements MiddlewareInterface
 {
