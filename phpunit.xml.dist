@@ -5,7 +5,7 @@
          stopOnFailure="false"
          bootstrap="tests/bootstrap.php"
          cacheDirectory=".phpunit.cache"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd">
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/12.1/phpunit.xsd">
     <php>
         <ini name="memory_limit" value="-1"/>
     </php>

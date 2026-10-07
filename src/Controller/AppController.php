@@ -17,6 +17,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Routing\Attribute\RouteClass;
+use Cake\Routing\Route\DashedRoute;
 
 /**
  * Application Controller
@@ -24,8 +26,9 @@ use Cake\Controller\Controller;
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @link https://book.cakephp.org/5/en/controllers.html#the-app-controller
+ * @link https://book.cakephp.org/6.x/controllers.html#the-app-controller
  */
+#[RouteClass(DashedRoute::class)]
 class AppController extends Controller
 {
     /**
@@ -45,7 +48,7 @@ class AppController extends Controller
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
-         * see https://book.cakephp.org/5/en/controllers/components/form-protection.html
+         * see https://book.cakephp.org/6.x/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
     }

@@ -4,7 +4,7 @@
  *
  * In this file, you configure which plugins are loaded in the different states your app can be.
  * It's loaded via the `parent::bootstrap();` call inside your `Application::bootstrap()` method.
- * For more information see https://book.cakephp.org/5/en/plugins.html#loading-plugins-via-configuration-array
+ * For more information see https://book.cakephp.org/6.x/plugins.html#loading-plugins-via-configuration-array
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)

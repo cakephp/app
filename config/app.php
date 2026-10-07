@@ -1,6 +1,7 @@
 <?php
 
 use Cake\Cache\Engine\FileEngine;
+use Cake\Cache\Engine\PhpEngine;
 use Cake\Database\Connection;
 use Cake\Database\Driver\Mysql;
 use Cake\Log\Engine\FileLog;
@@ -132,6 +133,22 @@ return [
             'serialize' => true,
             'duration' => '+1 years',
             'url' => env('CACHE_CAKEMODEL_URL', null),
+        ],
+
+        // Attribute metadata is cached indefinitely in production. Clear at deploy time.
+        '_cake_attributes_' => [
+            'className' => PhpEngine::class,
+            'prefix' => 'myapp_attributes_',
+            'path' => CACHE . 'attributes' . DS,
+            'duration' => 0,
+        ],
+    ],
+
+    'AttributeResolver' => [
+        'default' => [
+            'paths' => ['Controller/*Controller.php', 'Controller/**/*Controller.php'],
+            'basePath' => APP,
+            'cache' => '_cake_attributes_',
         ],
     ],
 
