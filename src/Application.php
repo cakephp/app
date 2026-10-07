@@ -108,6 +108,9 @@ class Application extends BaseApplication
      */
     public function routes(RouteBuilder $routes): void
     {
+        if (is_file($this->configDir . 'routes.php')) {
+            parent::routes($routes);
+        }
         $routes->connectAttributes();
 
         // Additional explicit routes and route-scoped middleware can be configured here.
