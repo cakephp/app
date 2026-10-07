@@ -17,8 +17,8 @@ declare(strict_types=1);
 namespace App;
 
 use App\Middleware\HostHeaderMiddleware;
+use Cake\Container\ContainerInterface;
 use Cake\Core\Configure;
-use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Event\EventManagerInterface;
@@ -29,6 +29,7 @@ use Cake\Http\MiddlewareQueue;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
+use Cake\Routing\RouteBuilder;
 
 /**
  * Application setup class.
@@ -86,11 +87,11 @@ class Application extends BaseApplication
 
             // Parse various types of encoded request bodies so that they are
             // available as array through $request->getData()
-            // https://book.cakephp.org/5/en/controllers/middleware.html#body-parser-middleware
+            // https://book.cakephp.org/6.x/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
-            // https://book.cakephp.org/5/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
+            // https://book.cakephp.org/6.x/security/csrf.html#cross-site-request-forgery-csrf-middleware
             ->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
             ]));
@@ -99,11 +100,26 @@ class Application extends BaseApplication
     }
 
     /**
+     * Connect routes declared on controller actions using PHP attributes.
+     *
+     * @param \Cake\Routing\RouteBuilder $routes The route builder.
+     * @return void
+     * @link https://book.cakephp.org/6.x/development/attribute-routing.html
+     */
+    public function routes(RouteBuilder $routes): void
+    {
+        parent::routes($routes);
+        $routes->connectAttributes();
+
+        // Additional explicit routes and route-scoped middleware can be configured here.
+    }
+
+    /**
      * Register application container services.
      *
-     * @param \Cake\Core\ContainerInterface $container The Container to update.
+     * @param \Cake\Container\ContainerInterface $container The Container to update.
      * @return void
-     * @link https://book.cakephp.org/5/en/development/dependency-injection.html#dependency-injection
+     * @link https://book.cakephp.org/6.x/development/dependency-injection.html#dependency-injection
      */
     public function services(ContainerInterface $container): void
     {
@@ -116,7 +132,7 @@ class Application extends BaseApplication
      *
      * @param \Cake\Event\EventManagerInterface $eventManager
      * @return \Cake\Event\EventManagerInterface
-     * @link https://book.cakephp.org/5/en/core-libraries/events.html#registering-listeners
+     * @link https://book.cakephp.org/6.x/core-libraries/events.html#registering-listeners
      */
     public function events(EventManagerInterface $eventManager): EventManagerInterface
     {

@@ -20,6 +20,7 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
+use Cake\Routing\Attribute\Get;
 use Cake\View\Exception\MissingTemplateException;
 
 /**
@@ -27,7 +28,7 @@ use Cake\View\Exception\MissingTemplateException;
  *
  * This controller will render views from templates/Pages/
  *
- * @link https://book.cakephp.org/5/en/controllers/pages-controller.html
+ * @link https://book.cakephp.org/6.x/controllers/pages-controller.html
  */
 class PagesController extends AppController
 {
@@ -43,6 +44,8 @@ class PagesController extends AppController
      *   be found and not in debug mode.
      * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
      */
+    #[Get('/', name: 'home', defaults: ['path' => 'home'], pass: ['path'])]
+    #[Get('/pages/*', name: 'pages')]
     public function display(string ...$path): ?Response
     {
         if (!$path) {

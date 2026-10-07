@@ -16,8 +16,10 @@ declare(strict_types=1);
  */
 namespace App\Test\TestCase\Controller;
 
+use App\Test\TestApp\Application;
 use Cake\Core\Configure;
-use Cake\TestSuite\Constraint\Response\StatusCode;
+use Cake\Routing\Route\DashedRoute;
+use Cake\Routing\Router;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -33,7 +35,7 @@ class PagesControllerTest extends TestCase
      *
      * @return void
      */
-    public function testDisplay()
+    public function testDisplay(): void
     {
         Configure::write('debug', true);
         $this->get('/pages/home');
@@ -43,11 +45,55 @@ class PagesControllerTest extends TestCase
     }
 
     /**
+     * Test the named attribute route for the home page.
+     *
+     * @return void
+     */
+    public function testHome(): void
+    {
+        Configure::write('debug', true);
+        $this->get('/');
+        $this->assertResponseOk();
+        $this->assertResponseContains('CakePHP');
+        $this->assertResponseContains('8.4.0 or higher');
+        $this->assertSame('/', Router::url(['_name' => 'home']));
+        $this->assertSame('/pages/home', Router::url(['_name' => 'pages', 'home']));
+        $routes = Router::getRouteCollection()->named();
+        $this->assertInstanceOf(DashedRoute::class, $routes['home']);
+        $this->assertInstanceOf(DashedRoute::class, $routes['pages']);
+    }
+
+    /**
+     * Test that fallback URLs are not connected.
+     *
+     * @return void
+     */
+    public function testNoFallbackRoutes(): void
+    {
+        Configure::write('debug', true);
+        $this->get('/unrouted/index');
+        $this->assertResponseCode(404);
+        $this->assertResponseContains('Missing Route');
+    }
+
+    /**
+     * Test that static pages do not accept POST requests, even with a CSRF token.
+     *
+     * @return void
+     */
+    public function testPostNotRouted(): void
+    {
+        $this->enableCsrfToken();
+        $this->post('/pages/home');
+        $this->assertResponseCode(404);
+    }
+
+    /**
      * Test that missing template renders 404 page in production
      *
      * @return void
      */
-    public function testMissingTemplate()
+    public function testMissingTemplate(): void
     {
         Configure::write('debug', false);
         $this->get('/pages/not_existing');
@@ -61,7 +107,7 @@ class PagesControllerTest extends TestCase
      *
      * @return void
      */
-    public function testMissingTemplateInDebug()
+    public function testMissingTemplateInDebug(): void
     {
         Configure::write('debug', true);
         $this->get('/pages/not_existing');
@@ -73,11 +119,24 @@ class PagesControllerTest extends TestCase
     }
 
     /**
+     * Test that wildcard routes retain nested page paths.
+     *
+     * @return void
+     */
+    public function testNestedMissingTemplateInDebug(): void
+    {
+        Configure::write('debug', true);
+        $this->get('/pages/nested/not_existing');
+        $this->assertResponseFailure();
+        $this->assertResponseContains('nested/not_existing.php');
+    }
+
+    /**
      * Test directory traversal protection
      *
      * @return void
      */
-    public function testDirectoryTraversalProtection()
+    public function testDirectoryTraversalProtection(): void
     {
         $this->get('/pages/../Layout/ajax');
         $this->assertResponseCode(403);
@@ -89,9 +148,10 @@ class PagesControllerTest extends TestCase
      *
      * @return void
      */
-    public function testCsrfAppliedError()
+    public function testCsrfAppliedError(): void
     {
-        $this->post('/pages/home', ['hello' => 'world']);
+        $this->configApplication(Application::class, [CONFIG]);
+        $this->post('/csrf-test', ['hello' => 'world']);
 
         $this->assertResponseCode(403);
         $this->assertResponseContains('CSRF');
@@ -102,12 +162,14 @@ class PagesControllerTest extends TestCase
      *
      * @return void
      */
-    public function testCsrfAppliedOk()
+    public function testCsrfAppliedOk(): void
     {
+        Configure::write('debug', true);
+        $this->configApplication(Application::class, [CONFIG]);
         $this->enableCsrfToken();
-        $this->post('/pages/home', ['hello' => 'world']);
+        $this->post('/csrf-test', ['hello' => 'world']);
 
-        $this->assertThat(403, $this->logicalNot(new StatusCode($this->_response)));
+        $this->assertResponseOk();
         $this->assertResponseNotContains('CSRF');
     }
 }

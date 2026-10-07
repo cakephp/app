@@ -1,6 +1,7 @@
 <?php
 
 use Cake\Cache\Engine\FileEngine;
+use Cake\Cache\Engine\PhpEngine;
 use Cake\Database\Connection;
 use Cake\Database\Driver\Mysql;
 use Cake\Log\Engine\FileLog;
@@ -28,13 +29,13 @@ return [
      * - base - The base directory the app resides in. If false this
      *   will be auto-detected.
      * - dir - Name of app directory.
-     * - webroot - The webroot directory.
-     * - wwwRoot - The file path to webroot.
+     * - webroot - The public directory name.
+     * - wwwRoot - The file path to the public directory.
      * - baseUrl - To configure CakePHP to *not* use mod_rewrite and to
      *   use CakePHP pretty URLs, remove these .htaccess
      *   files:
      *      /.htaccess
-     *      /webroot/.htaccess
+     *      /public/.htaccess
      *   And uncomment the baseUrl key below.
      * - fullBaseUrl - SECURITY: A base URL to use for absolute links.
      *   IMPORTANT: This MUST be set in production to prevent Host Header Injection attacks
@@ -42,9 +43,9 @@ return [
      *   Set this via APP_FULL_BASE_URL environment variable or directly in config.
      *   Example: 'https://example.com'
      *   When not set, the application will throw an exception in production mode.
-     * - imageBaseUrl - Web path to the public images/ directory under webroot.
-     * - cssBaseUrl - Web path to the public css/ directory under webroot.
-     * - jsBaseUrl - Web path to the public js/ directory under webroot.
+     * - imageBaseUrl - Web path to the images/ directory under public/.
+     * - cssBaseUrl - Web path to the css/ directory under public/.
+     * - jsBaseUrl - Web path to the js/ directory under public/.
      * - paths - Configure paths for non class-based resources. Supports the
      *   `plugins`, `templates`, `locales` subkeys, which allow the definition of
      *   paths for plugins, view templates and locale files respectively.
@@ -56,7 +57,7 @@ return [
         'defaultTimezone' => env('APP_DEFAULT_TIMEZONE', 'UTC'),
         'base' => false,
         'dir' => 'src',
-        'webroot' => 'webroot',
+        'webroot' => 'public',
         'wwwRoot' => WWW_ROOT,
         //'baseUrl' => env('SCRIPT_NAME'),
         'fullBaseUrl' => env('APP_FULL_BASE_URL', false),
@@ -132,6 +133,22 @@ return [
             'serialize' => true,
             'duration' => '+1 years',
             'url' => env('CACHE_CAKEMODEL_URL', null),
+        ],
+
+        // Attribute metadata is cached indefinitely in production. Clear at deploy time.
+        '_cake_attributes_' => [
+            'className' => PhpEngine::class,
+            'prefix' => 'myapp_attributes_',
+            'path' => CACHE . 'attributes' . DS,
+            'duration' => 0,
+        ],
+    ],
+
+    'AttributeResolver' => [
+        'default' => [
+            'paths' => ['Controller/*Controller.php', 'Controller/**/*Controller.php'],
+            'basePath' => APP,
+            'cache' => '_cake_attributes_',
         ],
     ],
 

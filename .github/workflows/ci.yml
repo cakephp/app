@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches:
-      - '5.x'
-      - '5.next'
       - '6.x'
   pull_request:
     branches:
@@ -21,9 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php-version: '8.2'
+          - php-version: '8.4'
             dependencies: 'lowest'
-          - php-version: '8.5'
+          - php-version: '8.4'
             dependencies: 'highest'
           - php-version: '8.5'
             dependencies: 'highest'
@@ -63,7 +61,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'
+        php-version: '8.4'
         extensions: mbstring, intl
         coverage: none
         tools: cs2pr, phpstan:2.3

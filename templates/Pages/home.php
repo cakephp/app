@@ -81,7 +81,7 @@ endif;
                 <img alt="CakePHP" src="https://cakephp.org/v2/img/logos/CakePHP_Logo.svg" width="350" />
             </a>
             <h1>
-                Welcome to CakePHP <?= h(Configure::version()) ?> Chiffon (🍰)
+                Welcome to CakePHP <?= h(Configure::version()) ?> (🍰)
             </h1>
         </div>
     </header>
@@ -97,8 +97,8 @@ endif;
                             <ul>
                                 <li class="bullet problem">
                                     URL rewriting is not properly configured on your server.<br />
-                                    1) <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/en/installation.html#url-rewriting">Help me configure it</a><br />
-                                    2) <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/en/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
+                                    1) <a target="_blank" rel="noopener" href="https://book.cakephp.org/6.x/installation.html#url-rewriting">Help me configure it</a><br />
+                                    2) <a target="_blank" rel="noopener" href="https://book.cakephp.org/6.x/development/configuration.html#general-configuration">I don't / can't use URL rewriting</a>
                                 </li>
                             </ul>
                         </div>
@@ -109,10 +109,10 @@ endif;
                     <div class="column">
                         <h4>Environment</h4>
                         <ul>
-                        <?php if (version_compare(PHP_VERSION, '8.1.0', '>=')) : ?>
-                            <li class="bullet success">Your version of PHP is 8.1.0 or higher (detected <?= PHP_VERSION ?>).</li>
+                        <?php if (version_compare(PHP_VERSION, '8.4.0', '>=')) : ?>
+                            <li class="bullet success">Your version of PHP is 8.4.0 or higher (detected <?= PHP_VERSION ?>).</li>
                         <?php else : ?>
-                            <li class="bullet problem">Your version of PHP is too low. You need PHP 8.1.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+                            <li class="bullet problem">Your version of PHP is too low. You need PHP 8.4.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
                         <?php endif; ?>
 
                         <?php if (extension_loaded('mbstring')) : ?>
@@ -207,8 +207,8 @@ endif;
                 <div class="row">
                     <div class="column links">
                         <h3>Getting Started</h3>
-                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/en/">CakePHP Documentation</a>
-                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/en/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/6.x/">CakePHP Documentation</a>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/6.x/tutorials-and-examples/cms/installation.html">The 20 min CMS Tutorial</a>
                     </div>
                 </div>
                 <hr>
@@ -226,7 +226,7 @@ endif;
                         <h3>Docs and Downloads</h3>
                         <a target="_blank" rel="noopener" href="https://api.cakephp.org/">CakePHP API</a>
                         <a target="_blank" rel="noopener" href="https://bakery.cakephp.org">The Bakery</a>
-                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/en/">CakePHP Documentation</a>
+                        <a target="_blank" rel="noopener" href="https://book.cakephp.org/6.x/">CakePHP Documentation</a>
                         <a target="_blank" rel="noopener" href="https://plugins.cakephp.org">CakePHP plugins repo</a>
                         <a target="_blank" rel="noopener" href="https://github.com/cakephp/">CakePHP Code</a>
                         <a target="_blank" rel="noopener" href="https://github.com/FriendsOfCake/awesome-cakephp">CakePHP Awesome List</a>
