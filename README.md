@@ -56,6 +56,8 @@ Read and edit the environment specific `config/app_local.php` and set up the
 `'Datasources'` and any other configuration relevant for your application.
 Other environment agnostic settings can be changed in `config/app.php`.
 
+The test suite uses PHPUnit 13, which requires PHP 8.4.1 or higher.
+
 ## Routing
 
 Routes are declared explicitly using [PHP attributes](https://book.cakephp.org/6.x/development/attribute-routing.html)
