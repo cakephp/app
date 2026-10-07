@@ -117,4 +117,25 @@ PHP);
             rmdir($configDir);
         }
     }
+
+    /**
+     * Controller attributes work without a routes configuration file.
+     *
+     * @return void
+     */
+    public function testRoutingWithoutConfigurationFile(): void
+    {
+        $configDir = TMP . 'route-configuration' . DS;
+        mkdir($configDir);
+
+        try {
+            $application = new Application($configDir);
+            $application->routes(Router::createRouteBuilder('/'));
+
+            $this->assertSame('/', Router::url(['_name' => 'home']));
+            $this->assertSame('/pages/home', Router::url(['_name' => 'pages', 'home']));
+        } finally {
+            rmdir($configDir);
+        }
+    }
 }
