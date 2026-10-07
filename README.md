@@ -30,8 +30,8 @@ In case you want to use a custom app dir name (e.g. `/myapp/`):
 composer create-project --prefer-dist cakephp/app /myapp "6.x-dev"
 ```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+Configure your webserver's document root to the application's `public/` directory,
+which contains the front controller and static assets. You can also start the built-in webserver with:
 
 ```bash
 bin/cake server -p 8765
