@@ -109,10 +109,10 @@ endif;
                     <div class="column">
                         <h4>Environment</h4>
                         <ul>
-                        <?php if (version_compare(PHP_VERSION, '8.4.0', '>=')) : ?>
-                            <li class="bullet success">Your version of PHP is 8.4.0 or higher (detected <?= PHP_VERSION ?>).</li>
+                        <?php if (version_compare(PHP_VERSION, '8.5.0', '>=')) : ?>
+                            <li class="bullet success">Your version of PHP is 8.5.0 or higher (detected <?= PHP_VERSION ?>).</li>
                         <?php else : ?>
-                            <li class="bullet problem">Your version of PHP is too low. You need PHP 8.4.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
+                            <li class="bullet problem">Your version of PHP is too low. You need PHP 8.5.0 or higher to use CakePHP (detected <?= PHP_VERSION ?>).</li>
                         <?php endif; ?>
 
                         <?php if (extension_loaded('mbstring')) : ?>

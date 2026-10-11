@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 6.x, requiring PHP 8.4 or higher.
+A skeleton for creating applications with [CakePHP](https://cakephp.org) 6.x, requiring PHP 8.5 or higher.
 
 This branch tracks CakePHP 6 development and allows development dependencies while preferring stable packages.
 Migrations is tracked on `6.x-dev`. Installation and attribute routing currently depend on
@@ -56,7 +56,7 @@ Read and edit the environment specific `config/app_local.php` and set up the
 `'Datasources'` and any other configuration relevant for your application.
 Other environment agnostic settings can be changed in `config/app.php`.
 
-The test suite uses PHPUnit 13, which requires PHP 8.4.1 or higher.
+The test suite uses PHPUnit 13.
 
 ## Routing
 

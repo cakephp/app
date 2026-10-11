@@ -55,7 +55,7 @@ class PagesControllerTest extends TestCase
         $this->get('/');
         $this->assertResponseOk();
         $this->assertResponseContains('CakePHP');
-        $this->assertResponseContains('8.4.0 or higher');
+        $this->assertResponseContains('8.5.0 or higher');
         $this->assertSame('/', Router::url(['_name' => 'home']));
         $this->assertSame('/pages/home', Router::url(['_name' => 'pages', 'home']));
         $routes = Router::getRouteCollection()->named();

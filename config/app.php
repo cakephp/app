@@ -144,6 +144,26 @@ return [
         ],
     ],
 
+    /*
+     * Configure attribute discovery and metadata caching.
+     * The default configuration scans application controllers and is used by attribute routing.
+     *
+     * Options:
+     *
+     * - `paths` - string[] - File glob patterns relative to `basePath`; `**` scans recursively.
+     * - `basePath` - string - Absolute base directory. Defaults to APP.
+     * - `excludePaths` - string[] - Glob patterns to skip. Defaults to [].
+     * - `excludeAttributes` - string[] - Fully qualified attribute classes to ignore. Defaults to [].
+     * - `cache` - string|false - Cache configuration name, or false to disable caching.
+     * - `validateFiles` - bool - Re-scan when cached files change. Defaults to false.
+     *   Enable for development when caching is used; leave disabled in production
+     *   to avoid file modification checks on every request.
+     *
+     * bootstrap.php disables caching when debug = true. In production, use PhpEngine
+     * and refresh metadata during deployment with `bin/cake attributes warm`.
+     *
+     * See https://book.cakephp.org/6.x/core-libraries/attribute-resolver.html
+     */
     'AttributeResolver' => [
         'default' => [
             'paths' => ['Controller/*Controller.php', 'Controller/**/*Controller.php'],
