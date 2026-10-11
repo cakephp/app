@@ -41,7 +41,7 @@ class PagesControllerTest extends TestCase
         $this->get('/pages/home');
         $this->assertResponseOk();
         $this->assertResponseContains('CakePHP');
-        $this->assertResponseContains('<html>');
+        $this->assertResponseContains('<html lang="en">');
     }
 
     /**
