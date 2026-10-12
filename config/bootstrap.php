@@ -81,12 +81,8 @@ require CAKE . 'functions.php';
  * - `config/app.php` for the default application configuration.
  * - `config/app_local.php` for environment specific configuration.
  */
-try {
-    Configure::config('default', new PhpConfig());
-    Configure::load('app', 'default', false);
-} catch (Exception $e) {
-    exit($e->getMessage() . "\n");
-}
+Configure::config('default', new PhpConfig());
+Configure::load('app', 'default', false);
 
 /*
  * Load an environment local configuration file to provide overrides to your configuration.
