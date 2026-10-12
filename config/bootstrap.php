@@ -81,8 +81,19 @@ require CAKE . 'functions.php';
  * - `config/app.php` for the default application configuration.
  * - `config/app_local.php` for environment specific configuration.
  */
-Configure::config('default', new PhpConfig());
-Configure::load('app', 'default', false);
+try {
+    Configure::config('default', new PhpConfig());
+    Configure::load('app', 'default', false);
+} catch (Exception $e) {
+    // The error and exception traps need app.php, so report the failure by hand.
+    if (PHP_SAPI === 'cli') {
+        fwrite(STDERR, $e->getMessage() . "\n");
+    } else {
+        error_log($e->getMessage());
+        http_response_code(500);
+    }
+    exit(1);
+}
 
 /*
  * Load an environment local configuration file to provide overrides to your configuration.
