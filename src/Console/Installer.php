@@ -16,15 +16,11 @@ declare(strict_types=1);
  */
 namespace App\Console;
 
-if (!defined('STDIN')) {
-    define('STDIN', fopen('php://stdin', 'r'));
-}
-
 use Cake\Codeception\Console\Installer as CodeceptionInstaller;
 use Cake\Utility\Security;
 use Composer\IO\IOInterface;
 use Composer\Script\Event;
-use Exception;
+use InvalidArgumentException;
 
 /**
  * Provides installation hooks for when this application is installed through
@@ -52,7 +48,7 @@ class Installer
      * Does some routine installation tasks so people don't have to.
      *
      * @param \Composer\Script\Event $event The composer event object.
-     * @throws \Exception Exception raised by validator.
+     * @throws \InvalidArgumentException Exception raised by validator.
      * @return void
      */
     public static function postInstall(Event $event): void
@@ -124,7 +120,7 @@ class Installer
                 if (in_array($arg, ['Y', 'y', 'N', 'n'])) {
                     return $arg;
                 }
-                throw new Exception('This is not a valid answer. Please choose Y or n.');
+                throw new InvalidArgumentException('This is not a valid answer. Please choose Y or n.');
             };
             $setFolderPermissions = $io->askAndValidate(
                 '<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ',
@@ -140,7 +136,15 @@ class Installer
 
         // Change the permissions on a path and output the results.
         $changePerms = function (string $path) use ($io): void {
-            $currentPerms = fileperms($path) & 0777;
+            $perms = fileperms($path);
+            if ($perms === false) {
+                // `false & 0777` would be 0 and chmod() would strip owner and group permissions.
+                $io->writeError('Failed to read permissions on ' . $path);
+
+                return;
+            }
+
+            $currentPerms = $perms & 0777;
             $worldWritable = $currentPerms | 0007;
             if ($worldWritable == $currentPerms) {
                 return;
@@ -150,7 +154,7 @@ class Installer
             if ($res) {
                 $io->write('Permissions set on ' . $path);
             } else {
-                $io->write('Failed to set permissions on ' . $path);
+                $io->writeError('Failed to set permissions on ' . $path);
             }
         };
 
