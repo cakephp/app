@@ -202,16 +202,39 @@ Security::setSalt(Configure::consume('Security.salt'));
  * If you don't use these checks you can safely remove this code
  * and the mobiledetect package from composer.json.
  */
-ServerRequest::addDetector('mobile', function ($request) {
-    $detector = new MobileDetect();
+$deviceDetector = static function (ServerRequest $request): MobileDetect {
+    // Read the headers from the request instead of the global $_SERVER.
+    $detector = new MobileDetect(config: ['autoInitOfHttpHeaders' => false]);
+    $knownHeaders = array_merge(
+        $detector->getUaHttpHeaders(),
+        array_keys($detector->getMobileHeaders()),
+        $detector->getCloudFrontHttpHeaders(),
+    );
+    $serverParams = $request->getServerParams();
+    $headers = [];
+    foreach ($knownHeaders as $name) {
+        if (isset($serverParams[$name])) {
+            // MobileDetect expects strings, but withHeader() can store arrays.
+            $headers[$name] = implode(', ', (array)$serverParams[$name]);
+        }
+    }
+    $detector->setHttpHeaders($headers);
+    // MobileDetect throws when no User-Agent is set at all.
+    if (!$detector->hasUserAgent()) {
+        $detector->setUserAgent('');
+    }
 
-    return $detector->isMobile();
-});
-ServerRequest::addDetector('tablet', function ($request) {
-    $detector = new MobileDetect();
-
-    return $detector->isTablet();
-});
+    return $detector;
+};
+ServerRequest::addDetector(
+    'mobile',
+    static fn(ServerRequest $request): bool => $deviceDetector($request)->isMobile(),
+);
+ServerRequest::addDetector(
+    'tablet',
+    static fn(ServerRequest $request): bool => $deviceDetector($request)->isTablet(),
+);
+unset($deviceDetector);
 
 /*
  * You can enable default locale format parsing by adding calls
