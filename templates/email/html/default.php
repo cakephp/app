@@ -15,8 +15,11 @@
  * @var string $content
  */
 
-$lines = explode("\n", $content);
-
-foreach ($lines as $line) :
-    echo '<p> ' . $line . "</p>\n";
-endforeach;
+// $content is plain text: blank lines separate paragraphs and single line breaks become <br>.
+// (*BSR_ANYCRLF) limits \R to CR and LF; without /u it would also match the byte 0x85 inside UTF-8 characters such as "Å".
+?>
+<?php foreach (preg_split('/(*BSR_ANYCRLF)\R\s*\R/', trim($content)) ?: [] as $paragraph) : ?>
+    <?php if ($paragraph !== '') : ?>
+        <p><?= implode('<br>', array_map(h(...), preg_split('/(*BSR_ANYCRLF)\R/', $paragraph) ?: [])) ?></p>
+    <?php endif; ?>
+<?php endforeach; ?>
