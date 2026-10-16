@@ -37,6 +37,7 @@ class Installer
         'logs',
         'tmp',
         'tmp/cache',
+        'tmp/cache/attributes',
         'tmp/cache/models',
         'tmp/cache/persistent',
         'tmp/cache/views',
