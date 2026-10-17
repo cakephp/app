@@ -47,9 +47,20 @@ automated upgrades, so you have to do any updates manually.
 
 ## Configuration
 
-Read and edit the environment specific `config/app_local.php` and set up the
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
+```text
+.env                 infrastructure vars
+  └─ app.php          application config (reads `.env` via env())
+       └─ app_local.php   local application overrides (gitignored, manual)
+```
+
+| File | Role |
+|------|------|
+| `.env.example` → `.env` | Environment variables: database, salt, app name, URLs (created on install) |
+| `config/app.php` | Base application config; reads `.env` through `env()` |
+| `config/app_local.example.php` → `app_local.php` | Optional local overrides on top of `app.php` (stock CakePHP) |
+
+**`.env`** — infrastructure and deployment variables.
+**`app_local.php`** — application tuning (debug defaults, datasource/email overrides). Not created on install; copy from `config/app_local.example.php` if needed.
 
 ## Layout
 
