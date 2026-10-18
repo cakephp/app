@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 #
 # Bash completion file for CakePHP console.
 # Copy this file to a file named `cake` under `/etc/bash_completion.d/`.
@@ -21,20 +22,20 @@ _cake()
             opts=$(${cake} completion options "${COMP_WORDS[1]}" "${COMP_WORDS[2]}")
         fi
 
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
         return 0
     fi
 
     if [[ ${COMP_CWORD} = 1 ]] ; then
         opts=$(${cake} completion commands)
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
         return 0
     fi
 
     if [[ ${COMP_CWORD} = 2 ]] ; then
-        opts=$(${cake} completion subcommands $prev)
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-        if [[ $COMPREPLY = "" ]] ; then
+        opts=$(${cake} completion subcommands "${prev}")
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+        if [[ ${#COMPREPLY[@]} -eq 0 ]] ; then
             _filedir
             return 0
         fi
