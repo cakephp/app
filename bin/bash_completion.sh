@@ -4,7 +4,8 @@
 # Copy this file to a file named `cake` under `/etc/bash_completion.d/`.
 # For more info check https://book.cakephp.org/5/en/console-commands/completion.html#how-to-enable-bash-autocompletion-for-the-cakephp-console
 #
-
+# Keep `COMPREPLY=( $(compgen ...) )`, because mapfile is unavailable in Bash 3.2, the macOS default.
+# shellcheck disable=SC2207
 _cake()
 {
     local cur prev opts cake
