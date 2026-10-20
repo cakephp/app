@@ -56,7 +56,6 @@ then
 fi
 
 CONSOLE=$(dirname -- "$(canonicalize "$realname")")
-APP=$(dirname "$CONSOLE")
 
 # If your CLI PHP is somewhere that this doesn't find, you can define a PHP environment
 # variable with the correct path in it.
