@@ -81,8 +81,9 @@ bin/cake cache clear _cake_attributes_
 
 The app skeleton uses handwritten CSS with system fonts, responsive layouts, and
 automatic light/dark themes. No frontend build step or CSS framework is required.
-All pages share base styles from `public/css/cake.css`. The welcome page keeps
-its page-specific layout and animations in `templates/Pages/home.php`.
+All pages share base styles from `public/css/cake.css`. The welcome page loads
+its page-specific layout and animations from `public/css/home.css`, which can be
+removed when replacing `templates/Pages/home.php`.
 
 The styles use modern native CSS, including cascade layers, nesting, logical
 properties, and `light-dark()`, and target current Chrome, Firefox, and Safari.
