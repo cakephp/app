@@ -8,8 +8,7 @@
         "php": ">=8.5",
         "cakephp/cakephp": "^6.0",
         "cakephp/migrations": "6.x-dev",
-        "cakephp/plugin-installer": "^2.0",
-        "mobiledetect/mobiledetectlib": "^4.8.03"
+        "cakephp/plugin-installer": "^2.0"
     },
     "require-dev": {
         "cakephp/bake": "^4.0",
