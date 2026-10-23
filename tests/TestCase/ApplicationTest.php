@@ -23,6 +23,7 @@ use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\MiddlewareQueue;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
+use Cake\Routing\Router;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
@@ -84,5 +85,57 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(AssetMiddleware::class, $middleware->current());
         $middleware->seek(3);
         $this->assertInstanceOf(RoutingMiddleware::class, $middleware->current());
+    }
+
+    /**
+     * Optional route files load alongside the controller attributes.
+     *
+     * @return void
+     */
+    public function testOptionalRouteConfiguration(): void
+    {
+        $configDir = TMP . 'route-configuration' . DS;
+        mkdir($configDir);
+        $routesFile = $configDir . 'routes.php';
+        file_put_contents($routesFile, <<<'PHP'
+<?php
+use Cake\Routing\RouteBuilder;
+
+return static function (RouteBuilder $routes): void {
+    $routes->get('/custom', ['controller' => 'Pages', 'action' => 'display', 'custom'], 'custom');
+};
+PHP);
+
+        try {
+            $application = new Application($configDir);
+            $application->routes(Router::createRouteBuilder('/'));
+
+            $this->assertSame('/custom', Router::url(['_name' => 'custom']));
+            $this->assertSame('/', Router::url(['_name' => 'home']));
+        } finally {
+            unlink($routesFile);
+            rmdir($configDir);
+        }
+    }
+
+    /**
+     * Controller attributes work without a routes configuration file.
+     *
+     * @return void
+     */
+    public function testRoutingWithoutConfigurationFile(): void
+    {
+        $configDir = TMP . 'route-configuration' . DS;
+        mkdir($configDir);
+
+        try {
+            $application = new Application($configDir);
+            $application->routes(Router::createRouteBuilder('/'));
+
+            $this->assertSame('/', Router::url(['_name' => 'home']));
+            $this->assertSame('/pages/home', Router::url(['_name' => 'pages', 'home']));
+        } finally {
+            rmdir($configDir);
+        }
     }
 }

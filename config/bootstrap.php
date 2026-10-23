@@ -32,19 +32,18 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'paths.php';
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
+use Cake\AttributeResolver\AttributeResolver;
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorTrap;
 use Cake\Error\ExceptionTrap;
-use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Mailer;
 use Cake\Mailer\TransportFactory;
 use Cake\Routing\Router;
 use Cake\Utility\Security;
-use Detection\MobileDetect;
 use function Cake\Core\env;
 
 /*
@@ -109,6 +108,7 @@ if (file_exists(CONFIG . 'app_local.php')) {
 if (Configure::read('debug')) {
     Configure::write('Cache._cake_model_.duration', '+1 minute');
     Configure::write('Cache._cake_translations_.duration', '+1 minute');
+    Configure::write('AttributeResolver.default.cache', false);
 }
 
 /*
@@ -191,6 +191,7 @@ unset($fullBaseUrl);
  * This will also remove the loaded config data from memory.
  */
 Cache::setConfig(Configure::consume('Cache'));
+AttributeResolver::setConfig(Configure::consume('AttributeResolver'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
 TransportFactory::setConfig(Configure::consume('EmailTransport'));
 Mailer::setConfig(Configure::consume('Email'));
@@ -198,26 +199,10 @@ Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
 
 /*
- * Setup detectors for mobile and tablet.
- * If you don't use these checks you can safely remove this code
- * and the mobiledetect package from composer.json.
- */
-ServerRequest::addDetector('mobile', function ($request) {
-    $detector = new MobileDetect();
-
-    return $detector->isMobile();
-});
-ServerRequest::addDetector('tablet', function ($request) {
-    $detector = new MobileDetect();
-
-    return $detector->isTablet();
-});
-
-/*
  * You can enable default locale format parsing by adding calls
  * to `useLocaleParser()`. This enables the automatic conversion of
  * locale specific date formats when processing request data. For details see
- * @link https://book.cakephp.org/5/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+ * @link https://book.cakephp.org/6.x/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
 // \Cake\Database\TypeFactory::build('time')->useLocaleParser();
 // \Cake\Database\TypeFactory::build('date')->useLocaleParser();
@@ -238,7 +223,7 @@ ServerRequest::addDetector('tablet', function ($request) {
 // \Cake\Utility\Inflector::rules('uninflected', ['dontinflectme']);
 
 // set a custom date and time format
-// see https://book.cakephp.org/5/en/core-libraries/time.html#setting-the-default-locale-and-format-string
+// see https://book.cakephp.org/6.x/core-libraries/time.html#setting-the-default-locale-and-format-string
 // and https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
 // \Cake\I18n\Date::setToStringFormat('dd.MM.yyyy');
 // \Cake\I18n\Time::setToStringFormat('dd.MM.yyyy HH:mm');
