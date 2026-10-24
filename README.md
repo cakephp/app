@@ -79,6 +79,12 @@ bin/cake cache clear _cake_attributes_
 
 ## Layout
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+The app skeleton uses handwritten CSS with system fonts, responsive layouts, and
+automatic light/dark themes. No frontend build step or CSS framework is required.
+All pages share base styles from `public/css/cake.css`. The welcome page loads
+its page-specific layout and animations from `public/css/home.css`, which can be
+removed when replacing `templates/Pages/home.php`.
+
+The styles use modern native CSS, including cascade layers, nesting, logical
+properties, and `light-dark()`, and target current Chrome, Firefox, and Safari.
+You can edit the styles directly or replace them with your preferred CSS framework.

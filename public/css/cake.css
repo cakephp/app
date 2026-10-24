@@ -1,301 +1,582 @@
-/* Milligram overrides */
-:root {
-    /* The following are official CakePHP colors */
-    --color-cakephp-red: #d33c43;
-    --color-cakephp-gray: #404041;
-    --color-cakephp-blue: #2f85ae;
-    --color-cakephp-lightblue: #34bdd7;
+/* CakePHP application styles. No build step required. */
+@layer reset, base, components, utilities;
 
-    /* These are additional colors */
-    --color-lightgray: #606c76;
-    --color-white: #fff;
-
-    --color-main-bg: #f5f7fa;
-    --color-links: var(--color-cakephp-blue);
-    --color-links-active: #2a6496;
-    --color-headings: #363637;
-
-    --color-message-success-bg: #e3fcec;
-    --color-message-success-text: #1f9d55;
-    --color-message-success-border: #51d88a;
-
-    --color-message-warning-bg: #fffabc;
-    --color-message-warning-text: #8d7b00;
-    --color-message-warning-border: #d3b800;
-
-    --color-message-error-bg: #fcebea;
-    --color-message-error-text: #cc1f1a;
-    --color-message-error-border: #ef5753;
-
-    --color-message-info-bg: #eff8ff;
-    --color-message-info-text: #2779bd;
-    --color-message-info-border: #6cb2eb;
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+    }
+    img,
+    svg {
+        max-inline-size: 100%;
+        block-size: auto;
+    }
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
 }
 
-.button, button, input[type='button'], input[type='reset'], input[type='submit'] {
-    background-color: var(--color-cakephp-red);
-    border-color: var(--color-cakephp-red);
+@layer base {
+    :root {
+        color-scheme: light dark;
+        --color-cakephp-red: #d33c43;
+        --color-cakephp-gray: #404041;
+        --color-cakephp-blue: #2f85ae;
+        --color-cakephp-lightblue: #34bdd7;
+        --color-main-bg: light-dark(#f8f9fb, #131416);
+        --color-surface: light-dark(#fff, #1c1e21);
+        --color-text: light-dark(#25272b, #f1f2f4);
+        --color-lightgray: light-dark(#60646c, #a6aab3);
+        --color-border: light-dark(#e1e3e8, #34373e);
+        --color-links: light-dark(#b72c34, #ff9298);
+        --color-links-active: light-dark(#92232a, #ffb3b7);
+        --color-message-success-text: light-dark(#187348, #7dd9a6);
+        --color-message-warning-text: light-dark(#855500, #efc16c);
+        --color-message-error-text: light-dark(#b72c34, #ff9298);
+        --color-message-info-text: light-dark(#21638c, #87c9ed);
+        --radius: 0.75rem;
+    }
+    body {
+        background: var(--color-main-bg);
+        color: var(--color-text);
+        font:
+            1rem/1.6 system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-block-end: 1rem;
+        line-height: 1.25;
+        font-weight: 650;
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+    }
+    h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+    h2 {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.125rem;
+    }
+    h5,
+    h6 {
+        font-size: 1rem;
+    }
+    p,
+    ul,
+    ol,
+    dl,
+    blockquote,
+    pre,
+    table,
+    form {
+        margin-block: 0 1.25rem;
+    }
+    ul,
+    ol {
+        padding-inline-start: 1.5rem;
+    }
+    a {
+        color: var(--color-links);
+        text-underline-offset: 0.2em;
+        &:hover {
+            color: var(--color-links-active);
+        }
+    }
+    :focus-visible {
+        outline: 3px solid var(--color-links);
+        outline-offset: 3px;
+    }
+    code,
+    pre {
+        font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+        font-size: 0.875em;
+    }
+    code {
+        padding: 0.15em 0.35em;
+        background: var(--color-main-bg);
+        border-radius: 0.25rem;
+        overflow-wrap: anywhere;
+    }
+    pre {
+        overflow: auto;
+        padding: 1rem;
+        background: var(--color-main-bg);
+        border: 1px solid var(--color-border);
+        border-radius: 0.5rem;
+    }
+    pre code {
+        padding: 0;
+    }
+    hr {
+        border: 0;
+        border-block-start: 1px solid var(--color-border);
+        margin-block: 2rem;
+    }
+    blockquote {
+        margin-inline: 0;
+        padding-inline-start: 1rem;
+        border-inline-start: 3px solid var(--color-border);
+        color: var(--color-lightgray);
+    }
+    table {
+        border-collapse: collapse;
+        inline-size: 100%;
+        text-align: start;
+    }
+    th,
+    td {
+        padding: 0.85rem 1rem;
+        border-block-end: 1px solid var(--color-border);
+        vertical-align: top;
+    }
+    th {
+        font-weight: 600;
+    }
+    thead th {
+        white-space: nowrap;
+    }
+    td {
+        overflow-wrap: anywhere;
+    }
+    tbody tr:hover {
+        background: color-mix(in srgb, var(--color-text) 3%, transparent);
+    }
+    fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        min-inline-size: 0;
+    }
+    legend {
+        margin-block-end: 1.25rem;
+        font-size: 1.5rem;
+        font-weight: 650;
+    }
+    label {
+        display: block;
+        margin-block-end: 0.4rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    :where(
+        input:not(
+            [type="checkbox"],
+            [type="radio"],
+            [type="submit"],
+            [type="reset"],
+            [type="button"],
+            [type="hidden"]
+        ),
+        select,
+        textarea
+    ) {
+        display: block;
+        inline-size: 100%;
+        min-block-size: 2.75rem;
+        padding: 0.6rem 0.8rem;
+        color: var(--color-text);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: 0.4rem;
+        &:focus {
+            border-color: var(--color-links);
+        }
+        &:disabled {
+            background: var(--color-main-bg);
+            color: var(--color-lightgray);
+            cursor: not-allowed;
+        }
+    }
+    textarea {
+        min-block-size: 8rem;
+        resize: vertical;
+    }
+    select[multiple] {
+        min-block-size: 8rem;
+    }
+    input:is([type="checkbox"], [type="radio"]) {
+        accent-color: var(--color-cakephp-red);
+        inline-size: 1.1rem;
+        block-size: 1.1rem;
+        flex-shrink: 0;
+    }
+    input[type="color"] {
+        max-inline-size: 4rem;
+        padding: 0.25rem;
+    }
+    input[type="file"] {
+        padding: 0.5rem;
+    }
+    ::placeholder {
+        color: var(--color-lightgray);
+        opacity: 1;
+    }
 }
 
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    background: var(--color-main-bg);
-}
-
-.top-nav-links,
-.side-nav,
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway", sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 400;
-    color: var(--color-headings);
-}
-
-a {
-    color: var(--color-links);
-    transition: color 0.2s linear;
-}
-
-a:hover,
-a:focus,
-a:active {
-    color: var(--color-links-active);
-    transition: color 0.2s ease-out;
-}
-
-.side-nav a,
-.top-nav-links a,
-th a,
-.actions a {
-    color: var(--color-lightgray);
-}
-
-.side-nav a:hover,
-.side-nav a:focus,
-.actions a:hover,
-.actions a:focus {
-    color: var(--color-links-active);
-}
-
-/* Utility */
-.table-responsive {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Main */
-.content {
-    padding: 2rem;
-    background: var(--color-white);
-    border-radius: 0.4rem;
-    /* Thanks Stripe */
-    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, 0.1),
-        0 3px 6px 0 rgba(0, 0, 0, 0.07);
-}
-.content form {
-    margin: 0;
-}
-.actions a {
-    font-weight: bold;
-    padding: 0 0.4rem;
-}
-.actions a:first-child {
-    padding-left: 0;
-}
-th {
-    white-space: nowrap;
-}
-
-/* Nav bar */
-.top-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 112rem;
-    padding: 2rem;
-    margin: 0 auto;
-}
-.top-nav-title a {
-    font-size: 2.4rem;
-    color: var(--color-cakephp-red);
-}
-.top-nav-title span {
-    color: var(--color-cakephp-gray);
-}
-.top-nav-links a {
-    margin: 0 0.5rem;
-}
-.top-nav-title a,
-.top-nav-links a {
-    font-weight: bold;
-}
-.side-nav-item {
-    display: block;
-    padding: 0.5rem 0;
-}
-
-/* View action */
-.view.content .text {
-    margin-top: 1.2rem;
-}
-.related {
-    margin-top: 2rem;
-}
-
-/* Flash messages */
-.message {
-    padding: .5rem 1rem;
-    background: var(--color-message-info-bg);
-    color: var(--color-message-info-text);
-    border-color: var(--color-message-info-border);
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
-.message.hidden {
-    display: none;
-}
-.message.success {
-    background: var(--color-message-success-bg);
-    color: var(--color-message-success-text);
-    border-color: var(--color-message-success-border);
-}
-.message.warning {
-    background: var(--color-message-warning-bg);
-    color: var(--color-message-warning-text);
-    border-color: var(--color-message-warning-border);
-}
-.message.error {
-    background: var(--color-message-error-bg);
-    color: var(--color-message-error-text);
-    border-color: var(--color-message-error-border);
-}
-
-/* Forms */
-.input {
-    margin-bottom: 1.5rem;
-}
-.input input,
-.input select,
-.input textarea {
-    margin-bottom: 0;
-}
-.input label:has(input[type='checkbox']),
-.input label:has(input[type='radio']) {
-    display: flex;
-    align-items: center;
-}
-.input label:has(~ label),
-.input label:has(input[type='radio']) {
-    margin-bottom: 0;
-}
-.input label > input[type='checkbox'],
-.input label > input[type='radio'] {
-    margin-right: 1.0rem;
-}
-input[type='color'] {
-    max-width: 4rem;
-    padding: 0.3rem .5rem 0.3rem;
-}
-.error-message {
-    color: var(--color-message-error-text);
-}
-
-/* Paginator */
-.paginator {
-    text-align: right;
-}
-.paginator p {
-    margin-bottom: 0;
-}
-.pagination {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0 0 1rem 0;
-    padding: 0;
-}
-.pagination li {
-    display: inline-block;
-    margin: 0.25em;
-    text-align: center;
-}
-.pagination a {
-    color: var(--color-cakephp-blue);
-    display: inline-block;
-    font-size: 1.25rem;
-    line-height: 3rem;
-    min-width: 3rem;
-    padding: 0;
-    position: relative;
-    text-decoration: none;
-    transition: background .3s,color .3s;
-}
-.pagination li.active a,
-.pagination a:hover {
-    text-decoration: underline;
-}
-.pagination .disabled a {
-    cursor: not-allowed;
-    color: var(--color-lightgray);
-    text-decoration: none;
-}
-.first a,
-.prev a,
-.next a,
-.last a {
-    padding: 0 .75rem;
-}
-.disabled a:hover {
-    background: initial;
-    color: initial;
-}
-.asc:after {
-    content: " \2193";
-}
-.desc:after {
-    content: " \2191";
-}
-
-/* Error in non debug mode */
-.error-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-}
-
-@media screen and (max-width: 640px) {
-    /* Fix milligram not having a responsive column system */
-    .row .column[class*='column-'] {
-        flex: 0 0 100%;
-        max-width: 100%
+@layer components {
+    .container,
+    .top-nav {
+        inline-size: min(100%, 72rem);
+        margin-inline: auto;
+        padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+    }
+    .main {
+        padding-block: 1rem 3rem;
     }
     .top-nav {
-        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-block: 1.5rem;
+    }
+    .top-nav-title a {
+        font-weight: 750;
+        font-size: 1.5rem;
+        letter-spacing: -0.045em;
+        text-decoration: none;
+    }
+    .top-nav-title span {
+        color: var(--color-text);
+    }
+    .top-nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        font-size: 0.875rem;
+    }
+    .top-nav-links a {
+        color: var(--color-lightgray);
+        text-decoration: none;
+        &:hover {
+            color: var(--color-links);
+        }
+    }
+    .content {
+        padding: clamp(1.25rem, 4vw, 2.25rem);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius);
+        box-shadow: 0 0.25rem 1rem color-mix(in srgb, #000 3%, transparent);
+        & form {
+            margin-block-end: 0;
+        }
+        & > :last-child {
+            margin-block-end: 0;
+        }
+    }
+    /* Keep the markup produced by Bake usable without a custom Bake theme. */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+    .column {
+        flex: 1 1 0;
+        min-inline-size: 0;
+    }
+    .column-80 {
+        flex: 4 1 0;
+    }
+    .column-90 {
+        flex: 9 1 0;
+    }
+    .column-75 {
+        flex: 3 1 0;
+    }
+    .column-66,
+    .column-67 {
+        flex: 2 1 0;
+    }
+    .column-50 {
+        flex: 1 1 calc(50% - 0.75rem);
+    }
+    .column-33,
+    .column-34 {
+        flex: 1 1 calc(33.333% - 1rem);
+    }
+    .column-25 {
+        flex: 1 1 calc(25% - 1.125rem);
     }
     .side-nav {
-        margin-bottom: 1rem;
-    }
-    .heading {
-        margin-bottom: 1rem;
+        padding-block: 1rem;
     }
     .side-nav-item {
-        display: inline;
-        margin: 0 1.5rem 0 0;
+        display: block;
+        padding-block: 0.45rem;
+        text-decoration: none;
+        font-size: 0.9rem;
     }
-    .asc:after {
-        content: " \2192";
+    .related,
+    .view.content .text {
+        margin-block-start: 2rem;
     }
-    .desc:after {
-        content: " \2190";
+    .table-responsive {
+        overflow-x: auto;
+        max-inline-size: 100%;
+        & > table {
+            min-inline-size: 40rem;
+        }
+    }
+    .actions {
+        white-space: nowrap;
+        & a + a {
+            margin-inline-start: 0.65rem;
+        }
+    }
+    .button,
+    button,
+    input:is([type="submit"], [type="reset"], [type="button"]) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        min-block-size: 2.75rem;
+        padding: 0.65rem 1.1rem;
+        border: 1px solid var(--color-cakephp-red);
+        border-radius: 0.4rem;
+        background: var(--color-cakephp-red);
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            background: #b72c34;
+            border-color: #b72c34;
+            color: #fff;
+        }
+        &:disabled,
+        &[aria-disabled="true"] {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+        &.button-outline {
+            background: transparent;
+            color: var(--color-links);
+            border-color: var(--color-links);
+        }
+        &.button-clear {
+            background: transparent;
+            color: var(--color-links);
+            border-color: transparent;
+        }
+        &.button-secondary {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border-color: var(--color-border);
+            &:hover {
+                border-color: var(--color-links);
+            }
+        }
+    }
+    .input {
+        margin-block-end: 1.25rem;
+        & label:has(input:is([type="checkbox"], [type="radio"])) {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-weight: 400;
+        }
+        &.required > label::after,
+        &:has(> :is(input, select, textarea)[required]) > label::after {
+            content: " *";
+            color: var(--color-message-error-text);
+        }
+        &.error :is(input, select, textarea),
+        & :is(input, select, textarea)[aria-invalid="true"] {
+            border-color: var(--color-message-error-text);
+        }
+    }
+    .error-message {
+        color: var(--color-message-error-text);
+        font-size: 0.875rem;
+        margin-block-start: 0.4rem;
+    }
+    .message {
+        --message-color: var(--color-message-info-text);
+        display: flow-root;
+        margin-block-end: 1rem;
+        padding: 0.85rem 1rem;
+        border: 1px solid color-mix(in srgb, var(--message-color) 35%, var(--color-border));
+        border-radius: 0.5rem;
+        background: color-mix(in srgb, var(--message-color) 8%, var(--color-surface));
+        color: var(--message-color);
+        &.success {
+            --message-color: var(--color-message-success-text);
+        }
+        &.warning {
+            --message-color: var(--color-message-warning-text);
+        }
+        &.error {
+            --message-color: var(--color-message-error-text);
+        }
+    }
+    .message-dismiss {
+        float: inline-end;
+        min-block-size: 1.75rem;
+        min-inline-size: 1.75rem;
+        padding: 0;
+        margin-inline-start: 0.75rem;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font-size: 1.25rem;
+        &:hover {
+            color: inherit;
+            background: color-mix(in srgb, currentColor 10%, transparent);
+        }
+    }
+    .paginator {
+        margin-block-start: 1.5rem;
+        color: var(--color-lightgray);
+        font-size: 0.875rem;
+        text-align: center;
+        & p {
+            margin: 0;
+        }
+    }
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+        padding: 0;
+        list-style: none;
+        & a {
+            display: block;
+            min-inline-size: 2.5rem;
+            padding: 0.5rem 0.7rem;
+            border: 1px solid var(--color-border);
+            border-radius: 0.35rem;
+            text-decoration: none;
+        }
+        & li.active a {
+            background: var(--color-cakephp-red);
+            color: #fff;
+            border-color: var(--color-cakephp-red);
+        }
+        & li.disabled a {
+            color: var(--color-lightgray);
+            cursor: not-allowed;
+        }
+    }
+    .asc::after {
+        content: " ↓";
+    }
+    .desc::after {
+        content: " ↑";
+    }
+    .error-container {
+        display: grid;
+        place-items: center;
+        min-block-size: 100svh;
+        padding: clamp(1.25rem, 5vw, 3rem);
+    }
+    .error-content {
+        inline-size: min(100%, 38rem);
+        text-align: center;
+        overflow-wrap: anywhere;
+        & h1,
+        & h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+    }
+    @media (width < 44rem) {
+        .row {
+            flex-direction: column;
+        }
+        .column {
+            flex-basis: auto;
+            inline-size: 100%;
+        }
+        .side-nav {
+            padding-block: 0;
+        }
+        .side-nav-item {
+            display: inline-block;
+            margin-inline-end: 1rem;
+        }
+    }
+}
+
+@layer utilities {
+    .hidden {
+        display: none;
+    }
+    .float-right {
+        float: inline-end;
+    }
+    .float-left {
+        float: inline-start;
+    }
+    @media (width < 44rem) {
+        .content > .float-right {
+            float: none;
+            margin-block-end: 1rem;
+        }
+    }
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .skip-link {
+        position: absolute;
+        inset-block-start: 0.5rem;
+        inset-inline-start: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--color-surface);
+        transform: translateY(-200%);
+        z-index: 1;
+        &:focus {
+            transform: none;
+        }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto;
+        }
+    }
+    @media (forced-colors: active) {
+        .content,
+        .message,
+        .button,
+        button,
+        .pagination a {
+            border-color: CanvasText;
+        }
     }
 }
