@@ -38,6 +38,7 @@ use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorTrap;
 use Cake\Error\ExceptionTrap;
+use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Mailer;
@@ -165,21 +166,22 @@ if (PHP_SAPI === 'cli') {
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
-    $httpHost = env('HTTP_HOST');
-
     /*
      * Development mode fallback: Use HTTP_HOST for convenience.
      * WARNING: This is ONLY safe in development. In production, the
      * HostHeaderMiddleware will reject requests when fullBaseUrl is not configured.
      */
-    if ($httpHost) {
-        $s = null;
-        if (env('HTTPS') || env('HTTP_X_FORWARDED_PROTO') === 'https') {
-            $s = 's';
+    if (Configure::read('debug')) {
+        $httpHost = env('HTTP_HOST');
+        if ($httpHost) {
+            $s = null;
+            if (env('HTTPS') || env('HTTP_X_FORWARDED_PROTO') === 'https') {
+                $s = 's';
+            }
+            $fullBaseUrl = 'http' . $s . '://' . $httpHost;
         }
-        $fullBaseUrl = 'http' . $s . '://' . $httpHost;
+        unset($httpHost, $s);
     }
-    unset($httpHost, $s);
 }
 if ($fullBaseUrl) {
     Router::fullBaseUrl($fullBaseUrl);
