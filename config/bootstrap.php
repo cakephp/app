@@ -174,13 +174,10 @@ if (!$fullBaseUrl) {
     if (Configure::read('debug')) {
         $httpHost = env('HTTP_HOST');
         if ($httpHost) {
-            $s = null;
-            if (env('HTTPS') || env('HTTP_X_FORWARDED_PROTO') === 'https') {
-                $s = 's';
-            }
-            $fullBaseUrl = 'http' . $s . '://' . $httpHost;
+            $scheme = env('HTTPS') || env('HTTP_X_FORWARDED_PROTO') === 'https' ? 'https' : 'http';
+            $fullBaseUrl = $scheme . '://' . $httpHost;
         }
-        unset($httpHost, $s);
+        unset($httpHost, $scheme);
     }
 }
 if ($fullBaseUrl) {
